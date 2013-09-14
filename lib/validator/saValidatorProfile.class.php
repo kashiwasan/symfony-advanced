@@ -22,11 +22,11 @@ class saValidatorProfile extends sfValidatorBase
    *
    * @see sfValidatorBase
    */
-  protected function configure($sations = array(), $messages = array())
+  protected function configure($options = array(), $messages = array())
   {
     $this->addRequiredOption('validator');
     $this->addOption('is_edit_public_flag', false);
-    $this->setOption('required', $sations['validator']->getOption('required'));
+    $this->setOption('required', $options['validator']->getOption('required'));
   }
 
   /**

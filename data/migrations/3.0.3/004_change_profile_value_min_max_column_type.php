@@ -12,12 +12,12 @@ class changeProfileValueMinMaxColumnType extends saMigration
 {
   public function up()
   {
-    $sation = array(
+    $option = array(
       'length'  => 32,
     );
 
-    $this->changeColumn('profile', 'value_min', 'string', $sation);
-    $this->changeColumn('profile', 'value_max', 'string', $sation);
+    $this->changeColumn('profile', 'value_min', 'string', $option);
+    $this->changeColumn('profile', 'value_max', 'string', $option);
   }
 
   public function postUp()
@@ -33,12 +33,12 @@ class changeProfileValueMinMaxColumnType extends saMigration
 
   public function down()
   {
-    $sation = array(
+    $option = array(
       'length'  => 4,
     );
 
-    $this->changeColumn('profile', 'value_min', 'integer', $sation);
-    $this->changeColumn('profile', 'value_max', 'integer', $sation);
+    $this->changeColumn('profile', 'value_min', 'integer', $option);
+    $this->changeColumn('profile', 'value_max', 'integer', $option);
 
     $birthday = ProfilePeer::retrieveByName('birthday');
     if ($birthday)

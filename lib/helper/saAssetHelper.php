@@ -37,9 +37,9 @@ function sa_smt_get_javascripts()
   sfConfig::set('symfony.asset.javascripts_included', true);
 
   $html = '';
-  foreach ($response->getSmtJavascripts() as $file => $sations)
+  foreach ($response->getSmtJavascripts() as $file => $options)
   {
-    $html .= javascript_include_tag($file, $sations);
+    $html .= javascript_include_tag($file, $options);
   }
 
   return $html;
@@ -73,9 +73,9 @@ function sa_smt_get_stylesheets()
   sfConfig::set('symfony.asset.stylesheets_included', true);
 
   $html = '';
-  foreach ($response->getSmtStylesheets() as $file => $sations)
+  foreach ($response->getSmtStylesheets() as $file => $options)
   {
-    $html .= stylesheet_tag($file, $sations);
+    $html .= stylesheet_tag($file, $options);
   }
 
   return $html;
@@ -98,9 +98,9 @@ function sa_smt_include_stylesheets()
  *
  * @see saWebResponse->addSmtStylesheet()
  */
-function sa_smt_use_stylesheet($css, $position = '', $sations = array())
+function sa_smt_use_stylesheet($css, $position = '', $options = array())
 {
-  sfContext::getInstance()->getResponse()->addSmtStylesheet($css, $position, $sations);
+  sfContext::getInstance()->getResponse()->addSmtStylesheet($css, $position, $options);
 }
 
 /**
@@ -108,7 +108,7 @@ function sa_smt_use_stylesheet($css, $position = '', $sations = array())
  *
  * @see saWebResponse->addSmtJavascript()
  */
-function sa_smt_use_javascript($js, $position = '', $sations = array())
+function sa_smt_use_javascript($js, $position = '', $options = array())
 {
-  sfContext::getInstance()->getResponse()->addSmtJavascript($js, $position, $sations);
+  sfContext::getInstance()->getResponse()->addSmtJavascript($js, $position, $options);
 }

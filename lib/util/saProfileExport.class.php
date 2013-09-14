@@ -49,11 +49,11 @@ class saProfileExport
     return 'get'.sfInflector::camelize($key);
   }
 
-  protected function getMemberImageURI($sations = array())
+  protected function getMemberImageURI($options = array())
   {
     sfContext::getInstance()->getConfiguration()->loadHelpers(array('Url', 'saUtil', 'sfImage', 'Asset', 'Tag'));
 
-    return sf_image_path($this->member->getImageFileName(), $sations, true);
+    return sf_image_path($this->member->getImageFileName(), $options, true);
   }
 
   public function __call($name, $arguments)

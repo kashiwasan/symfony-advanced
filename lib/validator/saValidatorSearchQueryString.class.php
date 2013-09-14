@@ -20,20 +20,20 @@ class saValidatorSearchQueryString extends sfValidatorString
  /**
   * Configures the current validator.
   *
-  * Available sations:
+  * Available options:
   * 
   *   * demiliter_pattern
   *
-  * @param array $sations  An array of sations
+  * @param array $options  An array of options
   * @param array $messages An array of messages
   *
   * @see sfValidatorString
   */
-  protected function configure($sations = array(), $messages = array())
+  protected function configure($options = array(), $messages = array())
   {
     $this->addOption('demiliter_pattern', '/[\s　]+/u');
 
-    parent::configure($sations, $messages);
+    parent::configure($options, $messages);
   }
 
   protected function doClean($value)

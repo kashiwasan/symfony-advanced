@@ -19,9 +19,9 @@ class MemberConfigPcAddressForm extends MemberConfigForm
 {
   protected $category = 'pcAddress';
 
-  public function __construct(Member $member = null, $sations = array(), $CSRFSecret = null)
+  public function __construct(Member $member = null, $options = array(), $CSRFSecret = null)
   {
-    parent::__construct($member, $sations, $CSRFSecret);
+    parent::__construct($member, $options, $CSRFSecret);
 
     if (sfConfig::get('sa_is_use_captcha', false))
     {

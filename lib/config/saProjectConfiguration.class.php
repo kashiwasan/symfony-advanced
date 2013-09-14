@@ -68,7 +68,7 @@ class saProjectConfiguration extends sfProjectConfiguration
     }
   }
 
-  protected function configureSessionStorage($name, $sations = array())
+  protected function configureSessionStorage($name, $options = array())
   {
     $sessionName = 'SfAdvanced_'.sfConfig::get('sf_app', 'default');
     $params = array('session_name' => $sessionName);
@@ -76,7 +76,7 @@ class saProjectConfiguration extends sfProjectConfiguration
     if ('memcache' === $name)
     {
       sfConfig::set('sf_factory_storage', 'saMemcacheSessionStorage');
-      sfConfig::set('sf_factory_storage_parameters', array_merge((array)$sations, $params));
+      sfConfig::set('sf_factory_storage_parameters', array_merge((array)$options, $params));
     }
     elseif ('database' === $name)
     {
@@ -87,12 +87,12 @@ class saProjectConfiguration extends sfProjectConfiguration
         'db_id_col'   => 'id',
         'db_data_col' => 'session_data',
         'db_time_col' => 'time',
-      ), (array)$sations, $params));
+      ), (array)$options, $params));
     }
     elseif ('file' !== $name)
     {
       sfConfig::set('sf_factory_storage', $name);
-      sfConfig::set('sf_factory_storage_parameters', array_merge((array)$sations, $params));
+      sfConfig::set('sf_factory_storage_parameters', array_merge((array)$options, $params));
     }
   }
 
@@ -117,16 +117,16 @@ class saProjectConfiguration extends sfProjectConfiguration
 
     if (extension_loaded('apc'))
     {
-      $sations = array();
+      $options = array();
       if ($prefix = sfConfig::get('sa_doctrine_cache_key_prefix'))
       {
-        $sations['prefix'] = $prefix;
+        $options['prefix'] = $prefix;
       }
       else
       {
-        $sations['prefix'] = md5(dirname(__FILE__));
+        $options['prefix'] = md5(dirname(__FILE__));
       }
-      $cacheDriver = new Doctrine_Cache_Apc($sations);
+      $cacheDriver = new Doctrine_Cache_Apc($options);
       $manager->setAttribute(Doctrine::ATTR_QUERY_CACHE, $cacheDriver);
     }
 
@@ -160,7 +160,7 @@ class saProjectConfiguration extends sfProjectConfiguration
 
       saToolkit::writeCacheFile($saConfigCachePath, '<?php return '.var_export($config, true).';');
     }
-    $this->configureSessionStorage($config['session_storage']['name'], (array)$config['session_storage']['sations']);
+    $this->configureSessionStorage($config['session_storage']['name'], (array)$config['session_storage']['options']);
     unset($config['session_storage']);
 
     foreach ($config as $key => $value)

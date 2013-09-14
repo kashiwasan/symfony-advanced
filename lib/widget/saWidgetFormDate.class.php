@@ -17,9 +17,9 @@
  */
 class saWidgetFormDate extends sfWidgetFormI18nDate
 {
-  protected function configure($sations = array(), $attributes = array())
+  protected function configure($options = array(), $attributes = array())
   {
-    parent::configure($sations, $attributes);
+    parent::configure($options, $attributes);
     $this->setOption('can_be_empty', false);
   }
 

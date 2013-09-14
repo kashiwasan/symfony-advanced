@@ -17,9 +17,9 @@
  */
 class saSymfonyDefaultRouteCollection extends sfRouteCollection
 {
-  public function __construct(array $sations)
+  public function __construct(array $options)
   {
-    parent::__construct($sations);
+    parent::__construct($options);
 
     $this->routes['default_symfony'] = new sfRoute(
       '/symfony/:action/*',

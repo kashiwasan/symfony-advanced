@@ -35,7 +35,7 @@ class saPasswordForm extends BaseForm
 
   public function isValidPassword($validator, $value)
   {
-    $member = $this->sations['member'];
+    $member = $this->options['member'];
     if (md5($value) !== Doctrine::getTable('MemberConfig')->retrieveByNameAndMemberId('password', $member->getId())->getValue())
     {
       throw new sfValidatorError(new sfValidatorPass(), 'invalid', array('value' => $value));

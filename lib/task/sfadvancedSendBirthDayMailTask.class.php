@@ -24,9 +24,9 @@ Call it with:
 EOF;
   }
 
-  protected function execute($arguments = array(), $sations = array())
+  protected function execute($arguments = array(), $options = array())
   {
-    parent::execute($arguments, $sations);
+    parent::execute($arguments, $options);
 
     saApplicationConfiguration::unregisterZend();
     $birthday = Doctrine::getTable('Profile')->retrieveByName('sa_preset_birthday');

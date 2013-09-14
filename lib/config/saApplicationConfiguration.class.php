@@ -585,8 +585,8 @@ abstract class saApplicationConfiguration extends sfApplicationConfiguration
     $settings = sfDefineEnvironmentConfigHandler::getConfiguration($configuration->getConfigPaths('config/settings.yml'));
     $isNoScriptName = !empty($settings['.settings']['no_script_name']);
 
-    $sations = $context->getRouting()->getOptions();
-    if ($sations['context']['is_secure'])
+    $options = $context->getRouting()->getOptions();
+    if ($options['context']['is_secure'])
     {
       $sslBaseUrls = sfConfig::get('sa_ssl_base_url');
       $url = $sslBaseUrls[$application];
@@ -603,25 +603,25 @@ abstract class saApplicationConfiguration extends sfApplicationConfiguration
       $parts = parse_url($url);
 
       $parts['path'] = isset($parts['path']) ? $parts['path'] : '';
-      $sations['context']['prefix'] =
+      $options['context']['prefix'] =
         $this->getAppScriptName($application, sfConfig::get('sf_environment'), $parts['path'], $isNoScriptName);
 
       if (isset($parts['host']))
       {
-        $sations['context']['host'] = $parts['host'];
+        $options['context']['host'] = $parts['host'];
         if (isset($parts['port']))
         {
-          $sations['context']['host'] .= ':'.$parts['port'];
+          $options['context']['host'] .= ':'.$parts['port'];
         }
       }
     }
     else
     {
-      $path = preg_replace('#/[^/]+\.php$#', '', $sations['context']['prefix']);
-      $sations['context']['prefix'] = $this->getAppScriptName($application, sfConfig::get('sf_environment'), $path, $isNoScriptName);
+      $path = preg_replace('#/[^/]+\.php$#', '', $options['context']['prefix']);
+      $options['context']['prefix'] = $this->getAppScriptName($application, sfConfig::get('sf_environment'), $path, $isNoScriptName);
     }
 
-    $routing = new sfPatternRouting($context->getEventDispatcher(), null, $sations);
+    $routing = new sfPatternRouting($context->getEventDispatcher(), null, $options);
     $routing->setRoutes($config->evaluate($configuration->getConfigPaths('config/routing.yml')));
     $context->getEventDispatcher()->notify(new sfEvent($routing, 'routing.load_configuration'));
 

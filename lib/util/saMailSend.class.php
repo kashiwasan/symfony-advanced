@@ -156,20 +156,20 @@ class saMailSend
     return self::execute($subject, $to, $from, $body.$signature);
   }
 
-  public static function sendTemplateMailToMember($template, Member $member, $params = array(), $sations = array(), $context = null)
+  public static function sendTemplateMailToMember($template, Member $member, $params = array(), $options = array(), $context = null)
   {
     $mailConfigs = Doctrine::getTable('NotificationMail')->getConfigs();
 
-    $sations = array_merge(array(
+    $options = array_merge(array(
       'from'           => saConfig::get('admin_mail_address'),
       'is_send_pc'     => true,
       'is_send_mobile' => true,
       'pc_params'      => array(),
       'mobile_params'  => array()
-    ), $sations);
+    ), $options);
 
     // to pc
-    if ($sations['is_send_pc'] && ($address = $member->getConfig('pc_address')) &&
+    if ($options['is_send_pc'] && ($address = $member->getConfig('pc_address')) &&
       (
         !isset($mailConfigs['pc'][$template]['member_configurable']) ||
         !$mailConfigs['pc'][$template]['member_configurable'] ||
@@ -177,12 +177,12 @@ class saMailSend
       )
     )
     {
-      saMailSend::sendTemplateMail($template, $address, $sations['from'],
-        array_merge($params, $sations['pc_params']), $context);
+      saMailSend::sendTemplateMail($template, $address, $options['from'],
+        array_merge($params, $options['pc_params']), $context);
     }
 
     // to mobile
-    if ($sations['is_send_mobile'] && ($address = $member->getConfig('mobile_address')) &&
+    if ($options['is_send_mobile'] && ($address = $member->getConfig('mobile_address')) &&
       (
         !isset($mailConfigs['mobile'][$template]['member_configurable']) ||
         !$mailConfigs['mobile'][$template]['member_configurable'] ||
@@ -190,8 +190,8 @@ class saMailSend
       )
     )
     {
-      saMailSend::sendTemplateMail($template, $address, $sations['from'],
-        array_merge($params, $sations['mobile_params']), $context);
+      saMailSend::sendTemplateMail($template, $address, $options['from'],
+        array_merge($params, $options['mobile_params']), $context);
     }
   }
 

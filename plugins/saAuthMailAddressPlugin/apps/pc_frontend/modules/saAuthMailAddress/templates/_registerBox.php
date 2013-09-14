@@ -1,9 +1,9 @@
 <?php if (!$addressPre): ?>
 <?php
-$sations = array(
+$options = array(
   'title' => __('Errors'),
 );
-op_include_box('registerError', __('Your e-mail address is not registered.'), $sations);
+op_include_box('registerError', __('Your e-mail address is not registered.'), $options);
 ?>
 <?php else: ?>
 <?php sa_include_parts('ButtonBox', 'saAuthMailAddressPluginRegisterBox', array(

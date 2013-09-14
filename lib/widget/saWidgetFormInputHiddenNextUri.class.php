@@ -17,9 +17,9 @@
  */
 class saWidgetFormInputHiddenNextUri extends sfWidgetFormInputHidden
 {
-  protected function configure($sations = array(), $attributes = array())
+  protected function configure($options = array(), $attributes = array())
   {
-    parent::configure($sations, $attributes);
+    parent::configure($options, $attributes);
 
     $routing = sfContext::getInstance()->getRouting();
     $request = sfContext::getInstance()->getRequest();

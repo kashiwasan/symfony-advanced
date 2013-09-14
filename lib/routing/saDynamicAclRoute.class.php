@@ -36,12 +36,12 @@ class saDynamicAclRoute extends sfDoctrineRoute
 
     if ($result instanceof saAccessControlRecordInterface)
     {
-      if (!$result->isAllowed($this->getCurrentMember(), $this->sations['privilege']))
+      if (!$result->isAllowed($this->getCurrentMember(), $this->options['privilege']))
       {
         $this->handleRestriction();
       }
     }
-    elseif (!$this->acl->isAllowed($this->getCurrentMemberId(), null, $this->sations['privilege']))
+    elseif (!$this->acl->isAllowed($this->getCurrentMemberId(), null, $this->options['privilege']))
     {
       $this->handleRestriction();
     }
@@ -81,7 +81,7 @@ class saDynamicAclRoute extends sfDoctrineRoute
 
   protected function getAclBuilderName()
   {
-    return 'op'.$this->sations['model'].'AclBuilder';
+    return 'op'.$this->options['model'].'AclBuilder';
   }
 
   protected function getCurrentMember()

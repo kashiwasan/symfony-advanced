@@ -25,9 +25,9 @@ class saValidatorHash extends sfValidatorRegex
   /**
    * @see sfValidatorRegex
    */
-  protected function configure($sations = array(), $messages = array())
+  protected function configure($options = array(), $messages = array())
   {
-    parent::configure($sations, $messages);
+    parent::configure($options, $messages);
 
     $this->addOption('algorithm', 'md5');
 

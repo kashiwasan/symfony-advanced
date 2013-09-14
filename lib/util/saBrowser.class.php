@@ -20,9 +20,9 @@ class saBrowser extends sfBrowser
    * @see sfBrowserBase::doClick()
    * @see http://trac.symfony-project.org/ticket/5748
    */
-  public function doClick($name, $arguments = array(), $sations = array())
+  public function doClick($name, $arguments = array(), $options = array())
   {
-    $position = isset($sations['position']) ? $sations['position'] - 1 : 0;
+    $position = isset($options['position']) ? $options['position'] - 1 : 0;
 
     $dom = $this->getResponseDom();
 
@@ -33,14 +33,14 @@ class saBrowser extends sfBrowser
 
     $xpath = new DomXpath($dom);
 
-    $method = strtolower(isset($sations['method']) ? $sations['method'] : 'get');
+    $method = strtolower(isset($options['method']) ? $options['method'] : 'get');
 
     // text link
     if ($link = $xpath->query(sprintf('//a[.="%s"]', $name))->item($position))
     {
       if (in_array($method, array('post', 'put', 'delete')))
       {
-        if (isset($sations['_with_csrf']) && $sations['_with_csrf'])
+        if (isset($options['_with_csrf']) && $options['_with_csrf'])
         {
           $arguments['_with_csrf'] = true;
         }
@@ -81,7 +81,7 @@ class saBrowser extends sfBrowser
     {
       $url = $this->stack[$this->stackPosition]['uri'];
     }
-    $method = strtolower(isset($sations['method']) ? $sations['method'] : ($form->getAttribute('method') ? $form->getAttribute('method') : 'get'));
+    $method = strtolower(isset($options['method']) ? $options['method'] : ($form->getAttribute('method') ? $form->getAttribute('method') : 'get'));
 
     // merge form default values and arguments
     $defaults = array();
@@ -160,27 +160,27 @@ class saBrowser extends sfBrowser
         }
 
         $found = false;
-        foreach ($xpath->query('descendant::sation', $element) as $sation)
+        foreach ($xpath->query('descendant::option', $element) as $option)
         {
-          if ($sation->getAttribute('selected'))
+          if ($option->getAttribute('selected'))
           {
             $found = true;
             if ($multiple)
             {
-              $value[] = $sation->getAttribute('value');
+              $value[] = $option->getAttribute('value');
             }
             else
             {
-              $value = $sation->getAttribute('value');
+              $value = $option->getAttribute('value');
             }
           }
         }
 
-        // if no sation is selected and if it is a simple select box, take the first sation as the value
-        $sation = $xpath->query('descendant::sation', $element)->item(0);
-        if (!$found && !$multiple && $sation instanceof DOMElement)
+        // if no option is selected and if it is a simple select box, take the first option as the value
+        $option = $xpath->query('descendant::option', $element)->item(0);
+        if (!$found && !$multiple && $option instanceof DOMElement)
         {
-          $value = $sation->getAttribute('value');
+          $value = $option->getAttribute('value');
         }
       }
 

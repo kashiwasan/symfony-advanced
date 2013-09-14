@@ -33,9 +33,9 @@ class saWebRequest extends sfWebRequest
  /**
   * @see sfWebRequest
   */
-  public function initialize(sfEventDispatcher $dispatcher, $parameters = array(), $attributes = array(), $sations = array())
+  public function initialize(sfEventDispatcher $dispatcher, $parameters = array(), $attributes = array(), $options = array())
   {
-    parent::initialize($dispatcher, $parameters, $attributes, $sations);
+    parent::initialize($dispatcher, $parameters, $attributes, $options);
 
     $this->parameterHolder = new saParameterHolder();
     $this->attributeHolder = new saParameterHolder();

@@ -23,12 +23,12 @@
  * @param string  $name
  * @param string  $internal_uri
  * @param integer $page_no
- * @param sations $sations
+ * @param options $options
  * @return string
  */
-function sa_link_to_for_pager($name, $internal_uri, $page_no, $sations)
+function sa_link_to_for_pager($name, $internal_uri, $page_no, $options)
 {
-  $html_options = _parse_attributes($sations);
+  $html_options = _parse_attributes($options);
 
   $html_options = _convert_options_to_javascript($html_options);
 
@@ -68,31 +68,31 @@ function sa_link_to_for_pager($name, $internal_uri, $page_no, $sations)
  *
  * @param sfPager $pager
  * @param string  $internal_uri
- * @param array   $sations
+ * @param array   $options
  */
-function sa_include_pager_navigation($pager, $internal_uri, $sations = array())
+function sa_include_pager_navigation($pager, $internal_uri, $options = array())
 {
   $uri = url_for($internal_uri);
 
-  if (isset($sations['use_current_query_string']) && $sations['use_current_query_string'])
+  if (isset($options['use_current_query_string']) && $options['use_current_query_string'])
   {
-    $sations['query_string'] = sfContext::getInstance()->getRequest()->getCurrentQueryString();
-    $pageFieldName = isset($sations['page_field_name']) ? $sations['page_field_name'] : 'page';
-    $sations['query_string'] = preg_replace('/'.$pageFieldName.'=\d\&*/', '', $sations['query_string']);
-    unset($sations['page_field_name']);
-    unset($sations['use_current_query_string']);
+    $options['query_string'] = sfContext::getInstance()->getRequest()->getCurrentQueryString();
+    $pageFieldName = isset($options['page_field_name']) ? $options['page_field_name'] : 'page';
+    $options['query_string'] = preg_replace('/'.$pageFieldName.'=\d\&*/', '', $options['query_string']);
+    unset($options['page_field_name']);
+    unset($options['use_current_query_string']);
   }
 
-  if (isset($sations['query_string']))
+  if (isset($options['query_string']))
   {
-    $sations['link_options']['query_string'] = $sations['query_string'];
-    unset($sations['query_string']);
+    $options['link_options']['query_string'] = $options['query_string'];
+    unset($options['query_string']);
   }
 
   $params = array(
     'pager' => $pager,
     'internalUri' => $internal_uri,
-    'sations' => new saPartsOptionHolder($sations)
+    'options' => new saPartsOptionHolder($options)
   );
   $pager = sfOutputEscaper::unescape($pager);
   if ($pager instanceof sfReversibleDoctrinePager)
@@ -132,7 +132,7 @@ function pager_navigation($pager, $link_to, $is_total = true, $query_string = ''
   $params = array(
     'pager' => $pager,
     'link_to' => $link_to,
-    'sations' => new saPartsOptionHolder(array(
+    'options' => new saPartsOptionHolder(array(
       'is_total' => $is_total,
       'query_string' => $query_string
     )
@@ -703,22 +703,22 @@ function sa_within_page_link($marker = '▼')
 {
   static $n = 0;
 
-  $sations = array();
+  $options = array();
   if ($n)
   {
-    $sations['name'] = sprintf('a%d', $n);
+    $options['name'] = sprintf('a%d', $n);
   }
   if ($marker)
   {
-    $sations['href'] = sprintf('#a%d', $n+1);
+    $options['href'] = sprintf('#a%d', $n+1);
   }
 
   $n++;
 
-  return content_tag('a', $marker, $sations);
+  return content_tag('a', $marker, $options);
 }
 
-function sa_mail_to($route, $params = array(), $name = '', $sations = array(), $default_value = array())
+function sa_mail_to($route, $params = array(), $name = '', $options = array(), $default_value = array())
 {
   $configuration = sfContext::getInstance()->getConfiguration();
   $configPath = '/mobile_mail_frontend/config/routing.yml';
@@ -737,7 +737,7 @@ function sa_mail_to($route, $params = array(), $name = '', $sations = array(), $
 
   $routing->setRoutes(array_merge(sfContext::getInstance()->getRouting()->getRoutes(), $routes));
 
-  return mail_to($routing->generate($route, $params), $name, $sations, $default_value);
+  return mail_to($routing->generate($route, $params), $name, $options, $default_value);
 }
 
 function sa_banner($name)
@@ -804,8 +804,8 @@ function sa_have_privilege_by_uri($uri, $params = array(), $member_id = null)
     {
       // do nothing
     }
-    $sations = $route->getOptions();
-    return sa_have_privilege($sations['privilege'], $member_id, $route);
+    $options = $route->getOptions();
+    return sa_have_privilege($options['privilege'], $member_id, $route);
   }
 
   return true;
@@ -1015,11 +1015,11 @@ function sa_replace_sns_term($string)
  * Creates a <a> link tag for the member nickname
  *
  * @value  mixed   $value (string or Member object)
- * @param  string  $sations
+ * @param  string  $options
  * @param  string  $routeName
  * @return string
  */
-function sa_link_to_member($value, $sations = array(), $routeName = '@obj_member_profile')
+function sa_link_to_member($value, $options = array(), $routeName = '@obj_member_profile')
 {
   $member = null;
   if ($value instanceof sfOutputEscaper || $value instanceof Member)
@@ -1039,13 +1039,13 @@ function sa_link_to_member($value, $sations = array(), $routeName = '@obj_member
     }
 
     $link_target = $member->name;
-    if (isset($sations['link_target']))
+    if (isset($options['link_target']))
     {
-      $link_target = $sations['link_target'];
-      unset($sations['link_target']);
+      $link_target = $options['link_target'];
+      unset($options['link_target']);
     }
 
-    return link_to($link_target, sprintf('%s?id=%d', $routeName, $member->id), $sations);
+    return link_to($link_target, sprintf('%s?id=%d', $routeName, $member->id), $options);
   }
 
   return sfOutputEscaper::escape(
@@ -1077,46 +1077,46 @@ function sa_get_gadget_type($type1, $type2)
  * Returns a image tag
  *
  * @param string  $source
- * @param array   $sations
+ * @param array   $options
  *
  * @return string An image tag.
  * @see image_tag_sf_image
  */
-function sa_image_tag_sf_image($source, $sations = array())
+function sa_image_tag_sf_image($source, $options = array())
 {
-  if (!isset($sations['no_image']))
+  if (!isset($options['no_image']))
   {
-    $sations['no_image'] = sa_image_path('no_image.gif');
+    $options['no_image'] = sa_image_path('no_image.gif');
   }
 
-  return image_tag_sf_image($source, $sations);
+  return image_tag_sf_image($source, $options);
 }
 
 /**
  * Returns a image tag
  *
  * @param string  $source
- * @param array   $sations
+ * @param array   $options
  *
  * @return string An image tag.
  * @see image_tag
  */
-function sa_image_tag($source, $sations = array())
+function sa_image_tag($source, $options = array())
 {
-  if (!isset($sations['raw_name']))
+  if (!isset($options['raw_name']))
   {
     $absolute = false;
-    if (isset($sations['absolute']))
+    if (isset($options['absolute']))
     {
-      unset($sations['absolute']);
+      unset($options['absolute']);
       $absolute = true;
     }
 
-    $sations['raw_name'] = true;
+    $options['raw_name'] = true;
     $source = sa_image_path($source, $absolute);
   }
 
-  return image_tag($source, $sations);
+  return image_tag($source, $options);
 }
 
 /**

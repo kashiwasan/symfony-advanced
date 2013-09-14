@@ -10,9 +10,9 @@
 
 class myUser extends saBaseSecurityUser
 {
-  public function initialize(sfEventDispatcher $dispatcher, sfStorage $storage, $sations = array())
+  public function initialize(sfEventDispatcher $dispatcher, sfStorage $storage, $options = array())
   {
-    parent::initialize($dispatcher, $storage, $sations);
+    parent::initialize($dispatcher, $storage, $options);
 
     $adminUserId = Doctrine::getTable('AdminUser')->find($this->getId());
     if (!$adminUserId)

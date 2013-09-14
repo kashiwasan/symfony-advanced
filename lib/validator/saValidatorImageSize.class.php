@@ -17,9 +17,9 @@
  */
 class saValidatorImageSize extends saValidatorString
 {
-  protected function configure($sations = array(), $messages = array())
+  protected function configure($options = array(), $messages = array())
   {
-    parent::configure($sations, $messages);
+    parent::configure($options, $messages);
 
     $this->setOption('ltrim', true);
     $this->setOption('rtrim', true);

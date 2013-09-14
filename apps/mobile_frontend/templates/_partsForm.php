@@ -1,16 +1,16 @@
 <?php
-$sations->setDefault('button', __('Send'));
-$sations->setDefault('url', $sf_request->getCurrentUri());
-$sations->setDefault('method','post');
-$sations->setDefault('mark_required_field', true);
+$options->setDefault('button', __('Send'));
+$options->setDefault('url', $sf_request->getCurrentUri());
+$options->setDefault('method','post');
+$options->setDefault('mark_required_field', true);
 ?>
 
-<?php if ($sations['form'] instanceof saAuthRegisterForm): ?>
-<?php echo $sations['form']->renderFormTag($sations['url'], array('method' => $sations['method'])) ?>
-<?php $forms = $sations['form']->getAllForms() ?>
+<?php if ($options['form'] instanceof saAuthRegisterForm): ?>
+<?php echo $options['form']->renderFormTag($options['url'], array('method' => $options['method'])) ?>
+<?php $forms = $options['form']->getAllForms() ?>
 <?php else: ?>
-<form action="<?php echo $sations['url'] ?>" method="<?php echo $sations['method'] ?>">
-<?php $forms = ($sations['form'] instanceof sfForm) ? array($sations['form']): $sations['form'] ?>
+<form action="<?php echo $options['url'] ?>" method="<?php echo $options['method'] ?>">
+<?php $forms = ($options['form'] instanceof sfForm) ? array($options['form']): $options['form'] ?>
 <?php endif; ?>
 
 <?php include_customizes($id, 'formTop') ?>
@@ -57,7 +57,7 @@ foreach ($form as $name => $field)
     $widget->setOption('separator', "<br>\n");
   }
 
-  if ($sations['mark_required_field'] 
+  if ($options['mark_required_field'] 
     && !($validator instanceof sfValidatorPass)
     && !($validator instanceof sfValidatorSchema)
     && $validator->getOption('required'))
@@ -90,12 +90,12 @@ foreach ($form as $name => $field)
 
 <?php include_slot('form') ?>
 
-<?php if (!empty($sations['align'])): ?>
-<div align="<?php echo $sations['align'] ?>">
+<?php if (!empty($options['align'])): ?>
+<div align="<?php echo $options['align'] ?>">
 <?php else: ?>
 <div>
 <?php endif; ?>
-<input type="submit" value="<?php echo $sations['button'] ?>">
+<input type="submit" value="<?php echo $options['button'] ?>">
 </div>
 <?php include_customizes($id, 'formBottom') ?>
 </form>

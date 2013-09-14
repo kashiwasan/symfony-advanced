@@ -287,8 +287,8 @@ abstract class saMemberAction extends sfActions
     $this->forward404Unless($memberConfig);
     $this->forward404Unless($request->getParameter('token') === $memberConfig->getValue());
 
-    $sation = array('member' => $memberConfig->getMember());
-    $this->form = new saPasswordForm(array(), $sation);
+    $option = array('member' => $memberConfig->getMember());
+    $this->form = new saPasswordForm(array(), $option);
 
     if ($request->isMethod('post'))
     {

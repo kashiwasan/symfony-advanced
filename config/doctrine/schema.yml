@@ -11,7 +11,7 @@ Member:
     is_login_rejected: { type: boolean, notnull: true, default: false, comment: "Rejected member" }
   relations:
     Member: { local: invite_member_id, foreign: id, onDelete: set null }
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -36,7 +36,7 @@ MemberRelationship:
     member_id_from_to_UNIQUE:
       fields: [member_id_from, member_id_to]
       type: unique
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -51,7 +51,7 @@ MemberImage:
   relations:
     Member: { local: member_id, foreign: id, onDelete: cascade }
     File: { local: file_id, foreign: id, onDelete: cascade }
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -68,7 +68,7 @@ File:
     name_UNIQUE:
       fields: [name]
       type: unique
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -80,7 +80,7 @@ FileBin:
     bin: { type: blob, comment: "Content of file" }
   relations:
     File: { local: file_id, foreign: id, onDelete: cascade, foreignType: one, owningSide: true }
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -115,7 +115,7 @@ Profile:
     name_UNIQUE:
       fields: [name]
       type: unique
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -134,11 +134,11 @@ ProfileOption:
     sort_order: { type: integer(4), comment: "Order to sort" }
   relations:
     Profile: { local: profile_id, foreign: id, onDelete: cascade }
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
-    comment: "Saves sations of profile items"
+    comment: "Saves options of profile items"
 
 MemberProfile:
   actAs:
@@ -150,7 +150,7 @@ MemberProfile:
     id: { type: integer(4), primary: true, autoincrement: true, comment: "Serial number" }
     member_id: { type: integer(4), notnull: true, comment: "Member id" }
     profile_id: { type: integer(4), notnull: true, comment: "Profile id" }
-    profile_option_id: { type: integer(4), comment: "Profile sation id" }
+    profile_option_id: { type: integer(4), comment: "Profile option id" }
     value: { type: string, default: "", notnull: true, comment: "Text content for this profile item" }
     value_datetime: { type: timestamp, comment: "Profile datetime value" }
     public_flag: { type: integer(1), comment: "Public flag" }
@@ -161,7 +161,7 @@ MemberProfile:
   indexes:
     lft_INDEX:
       fields: [lft]
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -180,7 +180,7 @@ Community:
     name_UNIQUE:
       fields: [name]
       type: unique
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -197,7 +197,7 @@ CommunityMember:
   relations:
     Community: { local: community_id, foreign: id, onDelete: cascade }
     Member: { local: member_id, foreign: id, onDelete: cascade }
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -218,7 +218,7 @@ CommunityMemberPosition:
     Community: { local: community_id, foreign: id, onDelete: cascade }
     Member: { local: member_id, foreign: id, onDelete: cascade }
     CommunityMember: { local: community_member_id, foreign: id, onDelete:cascade }
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -233,7 +233,7 @@ AdminUser:
     username_UNIQUE:
       fields: [username]
       type: unique
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -249,7 +249,7 @@ SnsConfig:
     name_UNIQUE:
       fields: [name]
       type: unique
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -270,7 +270,7 @@ MemberConfig:
       fields: [name]
     name_value_hash_INDEX:
       fields: [name_value_hash]
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -284,7 +284,7 @@ CommunityConfig:
     value: { type: string, comment: "Configuration value" }
   relations:
     Community: { local: community_id, foreign: id, onDelete: cascade }
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -305,7 +305,7 @@ CommunityCategory:
   indexes:
     lft_INDEX:
       fields: [lft]
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -320,7 +320,7 @@ Gadget:
   indexes:
     sort_order_INDEX:
       fields: [sort_order]
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -334,7 +334,7 @@ GadgetConfig:
     value: { type: string, comment: "Configuration value" }
   relations:
     Gadget: { local: gadget_id, foreign: id, onDelete: cascade }
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -355,7 +355,7 @@ Navigation:
   indexes:
     type_sort_order_INDEX:
       fields: [type, sort_order]
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -370,7 +370,7 @@ Blacklist:
     uid_UNIQUE:
       fields: [uid]
       type: unique
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -394,7 +394,7 @@ OAuthConsumerInformation:
     key_secret_UNIQUE:
       fields: [key_string, secret]
       type: unique
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -422,7 +422,7 @@ OAuthAdminToken:
     type: concrete
   relations:
     Consumer: { class: OAuthConsumerInformation, local: oauth_consumer_id, foreign: id, onDelete: cascade }
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -437,7 +437,7 @@ OAuthMemberToken:
   relations:
     Consumer: { class: OAuthConsumerInformation, local: oauth_consumer_id, foreign: id, onDelete: cascade }
     Member: { local: member_id, foreign: id, onDelete: cascade }
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -458,7 +458,7 @@ Banner:
     name_UNIQUE:
       fields: [name]
       type: unique
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -472,7 +472,7 @@ BannerImage:
     name: { type: string(64), comment: "Banner image name" }
   relations:
     File: { local: file_id, foreign: id, onDelete: cascade }
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -486,7 +486,7 @@ BannerUseImage:
   relations:
     Banner: { local: banner_id, foreign: id }
     BannerImage: { local: banner_image_id, foreign: id }
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -498,7 +498,7 @@ Session:
     id: { type: string(128), primary: true }
     session_data: { type: string, comment: "Session information" }
     time: { type: string, comment: "Timestamp of generated time" }
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -517,7 +517,7 @@ OpenIDTrustLog:
   indexes:
     uri_key_INDEX:
       fields: [uri_key]
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -536,7 +536,7 @@ SnsTerm:
   indexes:
     application_INDEX:
       fields: [application]
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -560,7 +560,7 @@ NotificationMail:
     name_UNIQUE:
       fields: [name]
       type: unique
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -577,7 +577,7 @@ Plugin:
     name_UNIQUE:
       fields: [name]
       type: unique
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -593,7 +593,7 @@ SkinConfig:
     plugin_name_UNIQUE:
       fields: [plugin, name]
       type: unique
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -618,7 +618,7 @@ ActivityData:
   relations:
     Member: { foreignAlias: Activities, local: member_id, foreign: id, onDelete: cascade }
     InReplyTo: { class: ActivityData, local: in_reply_to_activity_id, foreign: id, onDelete: cascade }
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8
@@ -634,7 +634,7 @@ ActivityImage:
   relations:
     ActivityData: { foreignAlias: Images, local: activity_data_id, foreign: id, onDelete: cascade }
     File: { local: file_id, foreign: id, onDelete: cascade }
-  sations:
+  options:
     type: INNODB
     collate: utf8_unicode_ci
     charset: utf8

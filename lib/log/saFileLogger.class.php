@@ -19,13 +19,13 @@ class saFileLogger extends sfFileLogger
 {
   protected $file;
 
-  public function initialize(sfEventDispatcher $dispatcher, $sations = array())
+  public function initialize(sfEventDispatcher $dispatcher, $options = array())
   {
-    if (isset($sations['file']))
+    if (isset($options['file']))
     {
-      $this->file = $sations['file'];
+      $this->file = $options['file'];
     }
-    return parent::initialize($dispatcher, $sations);
+    return parent::initialize($dispatcher, $options);
   }
 
   /**

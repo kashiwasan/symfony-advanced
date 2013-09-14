@@ -53,10 +53,10 @@ class ProfileOptionTable extends Doctrine_Table
     {
       foreach ($list[$profile->getRawPresetName()]['Choices'] as $v)
       {
-        $sation = new saProfileOptionEmulator();
-        $sation->id = $v;
-        $sation->value = $v;
-        $result[] = $sation;
+        $option = new saProfileOptionEmulator();
+        $option->id = $v;
+        $option->value = $v;
+        $result[] = $option;
       }
     }
 

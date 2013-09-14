@@ -637,7 +637,7 @@ class Zend_Search_Lucene_Search_Query_MultiTerm extends Zend_Search_Lucene_Searc
      */
     public function __toString()
     {
-        // It's used only for query visualisation, so we don't care about characters escaping
+        // It's used only for query visualioption, so we don't care about characters escaping
 
         $query = '';
 

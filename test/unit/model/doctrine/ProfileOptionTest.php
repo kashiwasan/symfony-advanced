@@ -7,8 +7,8 @@ $t = new lime_test(2, new lime_output_color());
 
 //------------------------------------------------------------
 $t->diag('saProfileOptionEmulator');
-$sation = new saProfileOptionEmulator();
-$sation->id = 1;
-$sation->value = 'test';
-$t->is($sation->id, 1);
-$t->is($sation->value, 'test');
+$option = new saProfileOptionEmulator();
+$option->id = 1;
+$option->value = 'test';
+$t->is($option->id, 1);
+$t->is($option->value, 'test');

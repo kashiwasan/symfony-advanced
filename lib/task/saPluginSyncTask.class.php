@@ -30,7 +30,7 @@ Call it with:
 EOF;
   }
 
-  protected function execute($arguments = array(), $sations = array())
+  protected function execute($arguments = array(), $options = array())
   {
     require sfConfig::get('sf_data_dir').'/version.php';
     
@@ -39,7 +39,7 @@ EOF;
     $pluginList = $this->getPluginList();
     foreach ($pluginList as $name => $info)
     {
-      if ($sations['target'] && $name !== $sations['target'])
+      if ($options['target'] && $name !== $options['target'])
       {
         continue;
       }
@@ -54,19 +54,19 @@ EOF;
         continue;
       }
 
-      $sation = array();
+      $option = array();
       if (isset($info['version']))
       {
-        $sation[] = '--release='.$info['version'];
+        $option[] = '--release='.$info['version'];
       }
       if (isset($info['channel']))
       {
-        $sation[] = '--channel='.$info['channel'];
+        $option[] = '--channel='.$info['channel'];
       }
       try
       {
         $task = new saPluginInstallTask($this->dispatcher, $this->formatter);
-        $task->run(array('name' => $name), $sation);
+        $task->run(array('name' => $name), $option);
       }
       catch (sfCommandException $e)
       {

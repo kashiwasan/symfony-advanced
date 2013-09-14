@@ -19,9 +19,9 @@ class saPDODatabaseSessionStorage extends sfPDOSessionStorage
 {
   public function sessionOpen($path = null, $name = null)
   {
-    if (is_string($this->sations['database']))
+    if (is_string($this->options['database']))
     {
-      $this->sations['database'] = sfContext::getInstance()->getDatabaseManager()->getDatabase($this->sations['database']);
+      $this->options['database'] = sfContext::getInstance()->getDatabaseManager()->getDatabase($this->options['database']);
     }
 
     return parent::sessionOpen($path, $name);

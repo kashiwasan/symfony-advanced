@@ -68,8 +68,8 @@ class memberActions extends saMemberAction
 
   public function executeConfigUID($request)
   {
-    $sation = array('member' => $this->getUser()->getMember());
-    $this->passwordForm = new saPasswordForm(array(), $sation);
+    $option = array('member' => $this->getUser()->getMember());
+    $this->passwordForm = new saPasswordForm(array(), $option);
     $mobileUid = Doctrine::getTable('MemberConfig')->retrieveByNameAndMemberId('mobile_uid', $this->getUser()->getMemberId());
     $this->isSetMobileUid = $mobileUid && $mobileUid->getValue();
     $this->isDeletableUid = ((int)saConfig::get('retrieve_uid') < 2) && $this->isSetMobileUid;

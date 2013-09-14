@@ -19,9 +19,9 @@ class MemberConfigMailForm extends MemberConfigForm
 {
   protected $category = 'mail';
 
-  public function __construct(Member $member = null, $sations = array(), $CSRFSecret = null)
+  public function __construct(Member $member = null, $options = array(), $CSRFSecret = null)
   {
-    parent::__construct($member, $sations, $CSRFSecret);
+    parent::__construct($member, $options, $CSRFSecret);
   }
 
   public function configure()

@@ -544,7 +544,7 @@ class Zend_Search_Lucene_Search_Query_Phrase extends Zend_Search_Lucene_Search_Q
      */
     public function __toString()
     {
-        // It's used only for query visualisation, so we don't care about characters escaping
+        // It's used only for query visualioption, so we don't care about characters escaping
         if (isset($this->_terms[0]) && $this->_terms[0]->field !== null) {
             $query = $this->_terms[0]->field . ':';
         } else {

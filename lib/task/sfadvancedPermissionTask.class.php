@@ -32,9 +32,9 @@ Call it with:
 EOF;
   }
 
-  protected function execute($arguments = array(), $sations = array())
+  protected function execute($arguments = array(), $options = array())
   {
-    parent::execute($arguments, $sations);
+    parent::execute($arguments, $options);
 
     $webCacheDir = sfConfig::get('sf_web_dir').'/cache';
     if (!is_dir($webCacheDir))
@@ -46,7 +46,7 @@ EOF;
     // note those files that failed
     if (count($this->saFailed))
     {
-      if ('prod' === $sations['env'])
+      if ('prod' === $options['env'])
       {
         $this->logBlock(array(
           'Permissions on some files could not be fixed.',

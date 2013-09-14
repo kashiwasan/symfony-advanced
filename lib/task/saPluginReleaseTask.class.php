@@ -34,14 +34,14 @@ Call it with:
 EOF;
   }
 
-  protected function execute($arguments = array(), $sations = array())
+  protected function execute($arguments = array(), $options = array())
   {
     $name = $arguments['name'];
     $dir = $arguments['dir'];
 
-    if (empty($sations['channel']))
+    if (empty($options['channel']))
     {
-      $sations['channel'] = saPluginManager::getDefaultPluginChannelServerName();
+      $options['channel'] = saPluginManager::getDefaultPluginChannelServerName();
     }
 
     while (
@@ -72,7 +72,7 @@ EOF;
 
     if ($this->askConfirmation('Is it OK to start this task? (y/n)'))
     {
-      $this->doRelease($name, $version, $stability, $note, $dir, $sations['channel']);
+      $this->doRelease($name, $version, $stability, $note, $dir, $options['channel']);
       $this->clearCache();
     }
   }

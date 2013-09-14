@@ -17,9 +17,9 @@
  */
 class saWidgetFormInputColor extends sfWidgetFormInputText
 {
-  protected function configure($sations = array(), $attributes = array())
+  protected function configure($options = array(), $attributes = array())
   {
-    parent::configure($sations, $attributes);
+    parent::configure($options, $attributes);
 
     $this->addOption('is_display_pre_color', false);
     $this->addOption('color_label', 'After Change');

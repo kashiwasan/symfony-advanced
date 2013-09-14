@@ -32,7 +32,7 @@ Call it with:
 EOF;
   }
 
-  protected function execute($arguments = array(), $sations = array())
+  protected function execute($arguments = array(), $options = array())
   {
     $dbms = '';
     $username = '';
@@ -43,21 +43,21 @@ EOF;
     $sock = '';
     $maskedPassword = '******';
 
-    if ($sations['redo'])
+    if ($options['redo'])
     {
       try
       {
-        $this->configuration = parent::createConfiguration($sations['application'], $sations['env']);
+        $this->configuration = parent::createConfiguration($options['application'], $options['env']);
         new sfDatabaseManager($this->configuration);
       }
       catch (Exception $e)
       {
         $this->logSection('installer', $e->getMessage(), null, 'ERROR');
-        $sations['redo'] = false;
+        $options['redo'] = false;
       }
     }
 
-    if (!$sations['redo'])
+    if (!$options['redo'])
     {
       $validator = new sfValidatorCallback(array('required' => true, 'callback' => array($this, 'validateDBMS')));
       $dbms = $this->askAndValidate(array('Choose DBMS:', '- mysql', '- pgsql (unsupported)', '- sqlite (unsupported)'), $validator, array('style' => 'QUESTION_LARGE'));
@@ -71,9 +71,9 @@ EOF;
       if ($dbms !== 'sqlite')
       {
         $username = $this->askAndValidate(array('Type database username'), new saValidatorString(), array('style' => 'QUESTION_LARGE'));
-        $password = $this->askAndValidate(array('Type database password (sational)'), new saValidatorString(array('required' => false)), array('style' => 'QUESTION_LARGE'));
+        $password = $this->askAndValidate(array('Type database password (optional)'), new saValidatorString(array('required' => false)), array('style' => 'QUESTION_LARGE'));
         $hostname = $this->askAndValidate(array('Type database hostname'), new saValidatorString(), array('style' => 'QUESTION_LARGE'));
-        $port = $this->askAndValidate(array('Type database port number (sational)'), new sfValidatorInteger(array('required' => false)), array('style' => 'QUESTION_LARGE'));
+        $port = $this->askAndValidate(array('Type database port number (optional)'), new sfValidatorInteger(array('required' => false)), array('style' => 'QUESTION_LARGE'));
       }
 
       $dbname = $this->askAndValidate(array('Type database name'), new saValidatorString(), array('style' => 'QUESTION_LARGE'));
@@ -84,7 +84,7 @@ EOF;
 
       if ($dbms == 'mysql' && ($hostname == 'localhost' || $hostname == '127.0.0.1'))
       {
-        $sock = $this->askAndValidate(array('Type database socket path (sational)'), new saValidatorString(array('required' => false)), array('style' => 'QUESTION_LARGE'));
+        $sock = $this->askAndValidate(array('Type database socket path (optional)'), new saValidatorString(array('required' => false)), array('style' => 'QUESTION_LARGE'));
       }
 
       if (!$password)
@@ -112,7 +112,7 @@ EOF;
       return 1;
     }
 
-    $this->doInstall($dbms, $username, $password, $hostname, $port, $dbname, $sock, $sations);
+    $this->doInstall($dbms, $username, $password, $hostname, $port, $dbname, $sock, $options);
 
     if ($dbms === 'sqlite')
     {
@@ -127,9 +127,9 @@ EOF;
     $this->logSection('installer', 'installation is completed!');
   }
 
-  protected function doInstall($dbms, $username, $password, $hostname, $port, $dbname, $sock, $sations)
+  protected function doInstall($dbms, $username, $password, $hostname, $port, $dbname, $sock, $options)
   {
-    if ($sations['redo'])
+    if ($options['redo'])
     {
       $this->logSection('installer', 'start reinstall');
     }
@@ -137,7 +137,7 @@ EOF;
     {
       $this->logSection('installer', 'start clean install');
     }
-    if ($sations['internet'])
+    if ($options['internet'])
     {
       $this->installPlugins();
     }
@@ -147,11 +147,11 @@ EOF;
     }
     @$this->fixPerms();
     @$this->clearCache();
-    if (!$sations['redo'])
+    if (!$options['redo'])
     {
-      $this->configureDatabase($dbms, $username, $password, $hostname, $port, $dbname, $sock, $sations);
+      $this->configureDatabase($dbms, $username, $password, $hostname, $port, $dbname, $sock, $options);
     }
-    $this->buildDb($sations);
+    $this->buildDb($options);
   }
 
   protected function createDSN($dbms, $hostname, $port, $dbname, $sock)
@@ -191,7 +191,7 @@ EOF;
     return $result;
   }
 
-  protected function configureDatabase($dbms, $username, $password, $hostname, $port, $dbname, $sock, $sations)
+  protected function configureDatabase($dbms, $username, $password, $hostname, $port, $dbname, $sock, $options)
   {
     $dsn = $this->createDSN($dbms, $hostname, $port, $dbname, $sock);
 
@@ -204,9 +204,9 @@ EOF;
     }
 
     $env = 'all';
-    if ('prod' !== $sations['env'])
+    if ('prod' !== $options['env'])
     {
-      $env = $sations['env'];
+      $env = $options['env'];
     }
 
     $config[$env]['doctrine'] = array(
@@ -241,7 +241,7 @@ EOF;
     $publishAssets->run();
   }
 
-  protected function buildDb($sations)
+  protected function buildDb($options)
   {
     $tmpdir = sfConfig::get('sf_data_dir').'/fixtures_tmp';
     $this->getFilesystem()->mkdirs($tmpdir);
@@ -268,17 +268,17 @@ EOF;
     $task->setConfiguration($this->configuration);
     $task->run(array(), array(
       'no-confirmation' => true,
-      'db'              => !$sations['non-recreate-db'],
+      'db'              => !$options['non-recreate-db'],
       'model'           => true,
       'forms'           => true,
       'filters'         => true,
-      'sql'             => !$sations['non-recreate-db'],
-      'and-load'        => $sations['non-recreate-db'] ? null : $tmpdir,
-      'application'     => $sations['application'],
-      'env'             => $sations['env'],
+      'sql'             => !$options['non-recreate-db'],
+      'and-load'        => $options['non-recreate-db'] ? null : $tmpdir,
+      'application'     => $options['application'],
+      'env'             => $options['env'],
     ));
 
-    if ($sations['non-recreate-db'])
+    if ($options['non-recreate-db'])
     {
       $connection = Doctrine_Manager::connection();
 

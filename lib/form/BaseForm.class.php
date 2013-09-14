@@ -10,9 +10,9 @@
  */
 class BaseForm extends sfFormSymfony
 {
-  public function __construct($defaults = array(), $sations = array(), $CSRFSecret = null)
+  public function __construct($defaults = array(), $options = array(), $CSRFSecret = null)
   {
-    parent::__construct($defaults, $sations, $CSRFSecret);
+    parent::__construct($defaults, $options, $CSRFSecret);
 
     if ('mobile_frontend' === sfConfig::get('sf_app'))
     {

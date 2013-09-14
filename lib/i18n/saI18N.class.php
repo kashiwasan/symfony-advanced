@@ -16,9 +16,9 @@ class saI18N extends sfI18N
 
   public $titleize = false;
 
-  public function initialize(sfApplicationConfiguration $configuration, sfCache $cache = null, $sations = array())
+  public function initialize(sfApplicationConfiguration $configuration, sfCache $cache = null, $options = array())
   {
-    parent::initialize($configuration, $cache, $sations);
+    parent::initialize($configuration, $cache, $options);
 
     $application = sfConfig::get('sf_app');
     if ('pc_backend' == $application)

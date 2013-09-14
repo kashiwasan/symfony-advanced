@@ -23,7 +23,7 @@ class MemberConfigForm extends BaseForm
   protected $isNew = false;
   protected $isAutoGenerate = true;
 
-  public function __construct(Member $member = null, $sations = array(), $CSRFSecret = null)
+  public function __construct(Member $member = null, $options = array(), $CSRFSecret = null)
   {
     $this->setMemberConfigSettings();
 
@@ -36,7 +36,7 @@ class MemberConfigForm extends BaseForm
       $this->isNew = true;
     }
 
-    parent::__construct(array(), $sations, $CSRFSecret);
+    parent::__construct(array(), $options, $CSRFSecret);
 
     if ($this->isAutoGenerate) {
       $this->generateConfigWidgets();

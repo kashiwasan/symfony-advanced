@@ -35,7 +35,7 @@ Call it with:
 EOF;
   }
 
-  protected function execute($arguments = array(), $sations = array())
+  protected function execute($arguments = array(), $options = array())
   {
     $this->logSection('fix-session-db', 'Begin to fix session table structure');
 

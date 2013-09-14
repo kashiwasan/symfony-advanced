@@ -364,7 +364,7 @@ class Zend_Search_Lucene_Search_Query_Range extends Zend_Search_Lucene_Search_Qu
      */
     public function __toString()
     {
-        // It's used only for query visualisation, so we don't care about characters escaping
+        // It's used only for query visualioption, so we don't care about characters escaping
         return (($this->_field === null)? '' : $this->_field . ':')
              . (($this->_inclusive)? '[' : '{')
              . (($this->_lowerTerm !== null)?  $this->_lowerTerm->text : 'null')

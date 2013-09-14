@@ -18,9 +18,9 @@
  */
 class saValidatorString extends sfValidatorString
 {
-  protected function configure($sations = array(), $messages = array())
+  protected function configure($options = array(), $messages = array())
   {
-    parent::configure($sations, $messages);
+    parent::configure($options, $messages);
 
     $this->addOption('ltrim', false);
     $this->addOption('rtrim', false);
@@ -32,16 +32,16 @@ class saValidatorString extends sfValidatorString
 
     if (is_string($clean))
     {
-      if ($this->sations['trim'])
+      if ($this->options['trim'])
       {
         $clean = preg_replace('/^[\s　]+/u', '', $clean);
         $clean = preg_replace('/[\s　]+$/u', '', $clean);
       }
-      if ($this->sations['ltrim'])
+      if ($this->options['ltrim'])
       {
         $clean = preg_replace('/^[\s　]+/u', '', $clean);
       }
-      if ($this->sations['rtrim'])
+      if ($this->options['rtrim'])
       {
         $clean = preg_replace('/[\s　]+$/u', '', $clean);
       }
@@ -49,7 +49,7 @@ class saValidatorString extends sfValidatorString
 
     if ($this->isEmpty($clean))
     {
-      if ($this->sations['required'])
+      if ($this->options['required'])
       {
         throw new sfValidatorError($this, 'required');
       }

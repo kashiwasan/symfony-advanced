@@ -22,11 +22,11 @@ class saRoutingConfigHandler extends sfRoutingConfigHandler
     $result = parent::parse($configFiles);
 
     $name = 'symfony_default_routes';
-    $sations = array(
+    $options = array(
       'name'  => $name,
     );
 
-    $result[$name] = array('saSymfonyDefaultRouteCollection', array($sations));
+    $result[$name] = array('saSymfonyDefaultRouteCollection', array($options));
 
    return $result;
   }

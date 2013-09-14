@@ -129,8 +129,8 @@ catch (sfValidatorError $e)
 }
 $v->setOption('date_format', null);
 
-// sation with_time
-$t->diag('sation with_time');
+// option with_time
+$t->diag('option with_time');
 $v->setOption('with_time', true);
 $t->is($v->clean(array('year' => 2005, 'month' => 10, 'day' => 15, 'hour' => 12, 'minute' => 10, 'second' => 15)), '2005-10-15 12:10:15', '->clean() accepts an array as an input');
 $t->is($v->clean(array('year' => '2005', 'month' => '10', 'day' => '15', 'hour' => '12', 'minute' => '10', 'second' => '15')), '2005-10-15 12:10:15', '->clean() accepts an array as an input');
@@ -150,66 +150,66 @@ catch (sfValidatorError $e)
   $t->pass('->clean() throws a sfValidatorError if the time is not valid');
 }
 
-$t->is($v->clean('18 october 2005 12:30'), '2005-10-18 12:30:00', '->clean() can accept date time with the with_time sation');
+$t->is($v->clean('18 october 2005 12:30'), '2005-10-18 12:30:00', '->clean() can accept date time with the with_time option');
 $v->setOption('date_format', '~(?P<day>\d{2})/(?P<month>\d{2})/(?P<year>\d{4})~');
-$t->is($v->clean('18/10/2005'), '2005-10-18 00:00:00', '->clean() can accept date time with the with_time sation');
+$t->is($v->clean('18/10/2005'), '2005-10-18 00:00:00', '->clean() can accept date time with the with_time option');
 $v->setOption('date_format', '~(?P<day>\d{2})/(?P<month>\d{2})/(?P<year>\d{4}) (?P<hour>\d{2})\:(?P<minute>\d{2})~');
-$t->is($v->clean('18/10/2005 12:30'), '2005-10-18 12:30:00', '->clean() can accept date time with the with_time sation');
+$t->is($v->clean('18/10/2005 12:30'), '2005-10-18 12:30:00', '->clean() can accept date time with the with_time option');
 $v->setOption('date_format', null);
 
 // change date output
 $t->diag('change date output');
 $v->setOption('with_time', false);
 $v->setOption('date_output', 'U');
-$t->is($v->clean('1989-01-08'), strtotime('1989-01-08'), '->clean() output format can be change with the date_output sation');
+$t->is($v->clean('1989-01-08'), strtotime('1989-01-08'), '->clean() output format can be change with the date_output option');
 $v->setOption('datetime_output', 'U');
 $v->setOption('with_time', true);
-$t->is($v->clean('1989-01-08 00:00:00'), strtotime('1989-01-08 00:00:00'), '->clean() output format can be change with the date_output sation');
+$t->is($v->clean('1989-01-08 00:00:00'), strtotime('1989-01-08 00:00:00'), '->clean() output format can be change with the date_output option');
 
 $v = new saValidatorDate();
 
-// max and min sations
-$t->diag('max and min sations');
+// max and min options
+$t->diag('max and min options');
 $v->setOption('min', '1 Jan 2005');
 $v->setOption('max', '31 Dec 2007');
-$t->is($v->clean('18 october 2005'), '2005-10-18', '->clean() can accept a max/min sation');
+$t->is($v->clean('18 october 2005'), '2005-10-18', '->clean() can accept a max/min option');
 try
 {
   $v->clean('18 october 2004');
-  $t->fail('->clean() throws an exception if the date is not within the range provided by the min/max sations');
+  $t->fail('->clean() throws an exception if the date is not within the range provided by the min/max options');
 }
 catch (sfValidatorError $e)
 {
-  $t->pass('->clean() throws an exception if the date is not within the range provided by the min/max sations');
+  $t->pass('->clean() throws an exception if the date is not within the range provided by the min/max options');
 }
 try
 {
   $v->clean('18 october 2008');
-  $t->fail('->clean() throws an exception if the date is not within the range provided by the min/max sations');
+  $t->fail('->clean() throws an exception if the date is not within the range provided by the min/max options');
 }
 catch (sfValidatorError $e)
 {
-  $t->pass('->clean() throws an exception if the date is not within the range provided by the min/max sations');
+  $t->pass('->clean() throws an exception if the date is not within the range provided by the min/max options');
 }
 
-$t->is($v->clean(array('year' => 2006, 'month' => 1, 'day' => 8)), '2006-01-08', '->clean() can accept a max/min sation array');
+$t->is($v->clean(array('year' => 2006, 'month' => 1, 'day' => 8)), '2006-01-08', '->clean() can accept a max/min option array');
 try
 {
   $v->clean(array('year' => 1989, 'month' => 1, 'day' => 8));
-  $t->fail('->clean() throws an exception if the date is not within the range provided by the min/max sations');
+  $t->fail('->clean() throws an exception if the date is not within the range provided by the min/max options');
 }
 catch (sfValidatorError $e)
 {
-  $t->pass('->clean() throws an exception if the date is not within the range provided by the min/max sations');
+  $t->pass('->clean() throws an exception if the date is not within the range provided by the min/max options');
 }
 try
 {
   $v->clean(array('year' => 2010, 'month' => 1, 'day' => 8));
-  $t->fail('->clean() throws an exception if the date is not within the range provided by the min/max sations');
+  $t->fail('->clean() throws an exception if the date is not within the range provided by the min/max options');
 }
 catch (sfValidatorError $e)
 {
-  $t->pass('->clean() throws an exception if the date is not within the range provided by the min/max sations');
+  $t->pass('->clean() throws an exception if the date is not within the range provided by the min/max options');
 }
 
 // required = true, isEmpty() = true

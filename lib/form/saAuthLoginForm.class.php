@@ -27,15 +27,15 @@ abstract class saAuthLoginForm extends BaseForm
    *
    * @param saAuthAdapter $adapter    An saAuthAdapter object
    * @param array         $defaults   An array of field default values
-   * @param array         $sations    An array of sations
+   * @param array         $options    An array of options
    *
    * @see sfForm
    */
-  public function __construct(saAuthAdapter $adapter, $defaults = array(), $sations = array())
+  public function __construct(saAuthAdapter $adapter, $defaults = array(), $options = array())
   {
     $this->adapter = $adapter;
 
-    parent::__construct($defaults, $sations, false);
+    parent::__construct($defaults, $options, false);
 
     $this->setWidget('next_uri', new saWidgetFormInputHiddenNextUri());
     $this->setValidator('next_uri', new saValidatorNextUri());

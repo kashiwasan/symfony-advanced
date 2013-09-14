@@ -16,8 +16,8 @@ class MemberProfile extends BaseMemberProfile implements saAccessControlRecordIn
     {
       if ($this->getProfileOptionId())
       {
-        $sation = Doctrine::getTable('ProfileOption')->find($this->getProfileOptionId());
-        return (string)$sation->getValue();
+        $option = Doctrine::getTable('ProfileOption')->find($this->getProfileOptionId());
+        return (string)$option->getValue();
       }
 
       $children = $this->getChildrenValues(true);
@@ -109,8 +109,8 @@ class MemberProfile extends BaseMemberProfile implements saAccessControlRecordIn
         {
           if ($isToString)
           {
-            $sation = Doctrine::getTable('ProfileOption')->find($child->getProfileOptionId());
-            $values[] = $sation->getValue();
+            $option = Doctrine::getTable('ProfileOption')->find($child->getProfileOptionId());
+            $values[] = $option->getValue();
           }
           else
           {

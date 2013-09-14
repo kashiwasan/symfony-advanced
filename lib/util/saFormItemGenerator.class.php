@@ -168,7 +168,7 @@ class saFormItemGenerator
   public static function generateValidator($field, $choices = array())
   {
     $field = self::arrayKeyCamelize($field);
-    $sation = array('required' => $field['IsRequired'], 'trim' => $field['IsTrim']);
+    $option = array('required' => $field['IsRequired'], 'trim' => $field['IsTrim']);
 
     if (!$choices && !empty($field['Choices']))
     {
@@ -177,17 +177,17 @@ class saFormItemGenerator
 
     if ('checkbox' === $field['FormType'])
     {
-      $sation['choices'] = $choices;
-      $sation['multiple'] = true;
-      $obj = new sfValidatorChoice($sation);
+      $option['choices'] = $choices;
+      $option['multiple'] = true;
+      $obj = new sfValidatorChoice($option);
 
       return $obj;
     }
     if ('select' === $field['FormType'] || 'radio' === $field['FormType'])
     {
-      $sation = array('choices' => $choices);
-      $sation['required'] = $field['IsRequired'];
-      $obj = new sfValidatorChoice($sation);
+      $option = array('choices' => $choices);
+      $option['required'] = $field['IsRequired'];
+      $obj = new sfValidatorChoice($option);
 
       return $obj;
     }
@@ -196,15 +196,15 @@ class saFormItemGenerator
     {
       if (isset($field['ValueMin']) && is_numeric($field['ValueMin']))
       {
-        $sation['min'] = $field['ValueMin'];
+        $option['min'] = $field['ValueMin'];
       }
       if (isset($field['ValueMax']) && is_numeric($field['ValueMax']))
       {
-        $sation['max'] = $field['ValueMax'];
-        if (isset($sation['min']) && (int)$sation['min'] > (int)$sation['max'])
+        $option['max'] = $field['ValueMax'];
+        if (isset($option['min']) && (int)$option['min'] > (int)$option['max'])
         {
-          unset($sation['min']);
-          unset($sation['max']);
+          unset($option['min']);
+          unset($option['max']);
         }
       }
     }
@@ -212,15 +212,15 @@ class saFormItemGenerator
     {
       if (isset($field['ValueMin']) && false !== strtotime($field['ValueMin']))
       {
-        $sation['min'] = $field['ValueMin'];
+        $option['min'] = $field['ValueMin'];
       }
       if (isset($field['ValueMax']) && false !== strtotime($field['ValueMax']))
       {
-        $sation['max'] = $field['ValueMax'];
-        if (isset($sation['min']) && strtotime($sation['min']) > strtotime($sation['max']))
+        $option['max'] = $field['ValueMax'];
+        if (isset($option['min']) && strtotime($option['min']) > strtotime($option['max']))
         {
-          unset($sation['min']);
-          unset($sation['max']);
+          unset($option['min']);
+          unset($option['max']);
         }
       }
     }
@@ -228,24 +228,24 @@ class saFormItemGenerator
     {
       if (isset($field['ValueMin']))
       {
-        $sation['min_length'] = $field['ValueMin'];
+        $option['min_length'] = $field['ValueMin'];
       }
       if (isset($field['ValueMax']))
       {
-        $sation['max_length'] = $field['ValueMax'];
+        $option['max_length'] = $field['ValueMax'];
 
         if (1 > (int)$field['ValueMax'] || (isset($field['ValueMin']) && (int)$field['ValueMin'] > (int)$field['ValueMax']))
         {
-          unset($sation['min_length']);
-          unset($sation['max_length']);
+          unset($option['min_length']);
+          unset($option['max_length']);
         }
       }
     }
 
     if ('date' === $field['FormType'])
     {
-      $sation['date_format_range_error'] = 'Y-m-d';
-      $obj = new saValidatorDate($sation);
+      $option['date_format_range_error'] = 'Y-m-d';
+      $obj = new saValidatorDate($option);
 
       return $obj;
     }
@@ -253,35 +253,35 @@ class saFormItemGenerator
     switch ($field['ValueType'])
     {
       case 'email':
-        $obj = new sfValidatorEmail($sation);
+        $obj = new sfValidatorEmail($option);
         break;
       case 'pc_email':
-        $obj = new saValidatorPCEmail($sation);
+        $obj = new saValidatorPCEmail($option);
         break;
       case 'mobile_email':
-        $obj = new sfValidatorMobileEmail($sation);
+        $obj = new sfValidatorMobileEmail($option);
         break;
       case 'integer':
-        $obj = new sfValidatorInteger($sation);
+        $obj = new sfValidatorInteger($option);
         break;
       case 'regexp':
-        $sation['pattern'] = $field['ValueRegexp'];
-        $obj = new sfValidatorRegex($sation);
+        $option['pattern'] = $field['ValueRegexp'];
+        $obj = new sfValidatorRegex($option);
         break;
       case 'url':
-        $obj = new sfValidatorUrl($sation);
+        $obj = new sfValidatorUrl($option);
         break;
       case 'password':
-        $obj = new sfValidatorPassword($sation);
+        $obj = new sfValidatorPassword($option);
         break;
       case 'image_size':
-        $obj = new saValidatorImageSize($sation);
+        $obj = new saValidatorImageSize($option);
         break;
       case 'pass':
-        $obj = new sfValidatorPass($sation);
+        $obj = new sfValidatorPass($option);
         break;
       default:
-        $obj = new saValidatorString($sation);
+        $obj = new saValidatorString($option);
         break;
     }
 

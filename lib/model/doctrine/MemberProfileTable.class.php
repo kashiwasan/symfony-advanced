@@ -133,15 +133,15 @@ class MemberProfileTable extends saAccessControlDoctrineTable
           return $result;
         }
 
-        $sation = Doctrine::getTable('ProfileOptionTranslation')->createQuery()
+        $option = Doctrine::getTable('ProfileOptionTranslation')->createQuery()
           ->select('value')
           ->where('id = ?', $result['MemberProfile_profile_option_id'])
           ->andWhere('lang = ?', sfContext::getInstance()->getUser()->getCulture())
           ->fetchOne(array(), Doctrine::HYDRATE_NONE);
 
-        if ($sation)
+        if ($option)
         {
-          $result['MemberProfile_value'] = $sation[0];
+          $result['MemberProfile_value'] = $option[0];
         }
       }
 
@@ -185,14 +185,14 @@ class MemberProfileTable extends saAccessControlDoctrineTable
       }
       elseif ('date' === $item->getFormType())
       {
-        $sations = $item->getProfileOption();
+        $options = $item->getProfileOption();
         $i = 0;
         foreach ($value as $k => $v)
         {
-          $sation = $sations[$i++];
+          $option = $options[$i++];
           if ($v)
           {
-            $ids = $this->filterMemberIdByProfileOption($ids, $column, $v, $sation, $publicFlag);
+            $ids = $this->filterMemberIdByProfileOption($ids, $column, $v, $option, $publicFlag);
           }
         }
         continue;
@@ -359,16 +359,16 @@ class MemberProfileTable extends saAccessControlDoctrineTable
     return $ids;
   }
 
-  public function createChild(Doctrine_Record $parent, $memberId, $profileId, $sationIds, $values = array())
+  public function createChild(Doctrine_Record $parent, $memberId, $profileId, $optionIds, $values = array())
   {
     $parent->clearChildren();
 
-    foreach ($sationIds as $i => $sationId)
+    foreach ($optionIds as $i => $optionId)
     {
       $childProfile = new MemberProfile();
       $childProfile->setMemberId($memberId);
       $childProfile->setProfileId($profileId);
-      $childProfile->setProfileOptionId($sationId);
+      $childProfile->setProfileOptionId($optionId);
       if (isset($values[$i]))
       {
         $childProfile->setValue($values[$i]);

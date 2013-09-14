@@ -224,7 +224,7 @@
  * [24972] added files not included in r24970
  * [24971] fixed sfFormDoctrine::removeFile fails to remove files (closes #7771)
  * [24970] fixed inclusion of linked doctrine schema files (closes #7774, thanks esycat)
- * [24962] using var export on serialisation to prevent invalid php code (fixes #7802)
+ * [24962] using var export on serialioption to prevent invalid php code (fixes #7802)
  * [24944] removed duplicate declaration of options member variable (fixes #7809)
  * [24942] updated japanese translation of the admin generator (closes #7814 patch by river.bright)
  * [24849] fixed typo (closes #7778)

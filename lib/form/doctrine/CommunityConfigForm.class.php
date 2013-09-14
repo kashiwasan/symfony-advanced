@@ -24,9 +24,9 @@ class CommunityConfigForm extends BaseForm
     $isNew = false,
     $isAutoGenerate = true;
 
-  public function __construct($defaults = array(), $sations = array(), $CSRFSecret = null)
+  public function __construct($defaults = array(), $options = array(), $CSRFSecret = null)
   {
-    return parent::__construct($defaults, $sations, false);
+    return parent::__construct($defaults, $options, false);
   }
 
   public function configure()

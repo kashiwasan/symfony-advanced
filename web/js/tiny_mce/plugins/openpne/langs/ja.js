@@ -1,2 +1,0 @@
-
-tinyMCE.addI18n('ja.sfadvanced',{sa_b:'太字',sa_u:'下線',sa_s:'取り消し線',sa_i:'斜体',sa_large:'大きめの文字',sa_small:'小さめの文字',sa_color:'文字色変更',sa_emoji_docomo:'絵文字挿入（DoCoMo）',sa_emoji_au:'絵文字挿入（au）',sa_emoji_softbank:'絵文字挿入（SoftBank）',sa_cmd:'小窓紹介'});

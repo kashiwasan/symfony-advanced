@@ -101,7 +101,7 @@ class Zend_Feed_Reader_Extension_Syndication_Feed
         {
             //intentional fall through
             case 'yearly':
-                $ticks *= 52; //TODO: fix generalisation, how?
+                $ticks *= 52; //TODO: fix generalioption, how?
             case 'weekly':
                 $ticks *= 7;
             case 'daily':

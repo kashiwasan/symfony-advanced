@@ -20,9 +20,9 @@ class sfValidatorMobileEmail extends sfValidatorEmail
   /**
    * @see sfValidatorRegex
    */
-  protected function configure($sations = array(), $messages = array())
+  protected function configure($options = array(), $messages = array())
   {
-    parent::configure($sations, $messages);
+    parent::configure($options, $messages);
 
     $filter = create_function('$value', 'return preg_quote($value, \'/\');');
     $str = join('|', array_filter(saToolkit::getMobileMailAddressDomains(), $filter));

@@ -11,7 +11,7 @@
 class Profile extends BaseProfile
 {
  /**
-  * get sations array
+  * get options array
   *
   * @return array
   */
@@ -24,18 +24,18 @@ class Profile extends BaseProfile
 
     $result = array();
 
-    $sations = $this->getProfileOption();
+    $options = $this->getProfileOption();
 
-    foreach ($sations as $sation)
+    foreach ($options as $option)
     {
-      $result[$sation->getId()] = $sation->getValue();
+      $result[$option->getId()] = $option->getValue();
     }
 
     return $result;
   }
 
  /**
-  * get present sations array
+  * get present options array
   *
   * @return array
   */
@@ -122,7 +122,7 @@ class Profile extends BaseProfile
   }
 
  /**
-  * get profile sations
+  * get profile options
   *
   * @return Doctrine_Collection
   */

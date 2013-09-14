@@ -31,9 +31,9 @@ class saWidgetFormRichTextarea extends sfWidgetFormTextarea
     'convert_urls' => 0,
   );
 
-  public function __construct($sations = array(), $attributes = array())
+  public function __construct($options = array(), $attributes = array())
   {
-    parent::__construct($sations, $attributes);
+    parent::__construct($options, $attributes);
 
     $this->tinyMCEConfigs = array_merge($this->tinyMCEConfigs, $this->getOption('config'));
 
@@ -44,14 +44,14 @@ class saWidgetFormRichTextarea extends sfWidgetFormTextarea
     }
   }
 
-  protected function configure($sations = array(), $attributes = array())
+  protected function configure($options = array(), $attributes = array())
   {
     $this->addOption('config', array());
     $this->addOption('is_toggle', true);
     $this->addOption('is_textmode', true);
     $this->addOption('textarea_template', '%s');
 
-    parent::configure($sations, $attributes);
+    parent::configure($options, $attributes);
   }
 
   protected function getId($name, $attributes)

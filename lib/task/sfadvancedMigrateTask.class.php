@@ -45,16 +45,16 @@ Call it with:
 EOF;
   }
 
-  protected function execute($arguments = array(), $sations = array())
+  protected function execute($arguments = array(), $options = array())
   {
     new sfDatabaseManager($this->configuration);  // saening connection
 
     @$this->createCacheDirectory();
 
     $oldPluginList = sfFinder::type('dir')->in(sfConfig::get('sf_plugins_dir'));
-    if (!$sations['no-update-plugin'])
+    if (!$options['no-update-plugin'])
     {
-      $this->installPlugins($sations['target']);
+      $this->installPlugins($options['target']);
     }
     $newPluginList = sfFinder::type('dir')->name('op*Plugin')->maxdepth(1)->in(sfConfig::get('sf_plugins_dir'));
     foreach ($oldPluginList as $k => $v)
@@ -68,9 +68,9 @@ EOF;
     }
     $installedPlugins = array_map('basename', array_diff($newPluginList, $oldPluginList));
 
-    if (!$sations['no-build-model'])
+    if (!$options['no-build-model'])
     {
-      $this->buildModel($sations);
+      $this->buildModel($options);
     }
 
     foreach ($installedPlugins as $v)
@@ -84,9 +84,9 @@ EOF;
       Doctrine::createTablesFromModels($modelDir);
     }
 
-    if ($sations['target'])
+    if ($options['target'])
     {
-      $targets = array($sations['target']);
+      $targets = array($options['target']);
     }
     else
     {
@@ -195,7 +195,7 @@ EOF;
     }
   }
 
-  protected function buildModel($sations)
+  protected function buildModel($options)
   {
     $task = new sfDoctrineBuildTask($this->dispatcher, $this->formatter);
     $task->setCommandApplication($this->commandApplication);
@@ -205,8 +205,8 @@ EOF;
       'model'           => true,
       'forms'           => true,
       'filters'         => true,
-      'application'     => $sations['application'],
-      'env'             => $sations['env'],
+      'application'     => $options['application'],
+      'env'             => $options['env'],
     ));
 
     $task = new sfCacheClearTask($this->dispatcher, $this->formatter);
@@ -227,14 +227,14 @@ EOF;
     $task = new sfadvancedPermissionTask($this->dispatcher, $this->formatter);
     @$task->run();
 
-    $sations = array();
+    $options = array();
     if ($target)
     {
-      $sations[] = '--target='.$target;
+      $options[] = '--target='.$target;
     }
 
     $task = new saPluginSyncTask($this->dispatcher, $this->formatter);
-    $task->run(array(), $sations);
+    $task->run(array(), $options);
   }
 
   protected function getEnabledSfAdvancedPlugin()

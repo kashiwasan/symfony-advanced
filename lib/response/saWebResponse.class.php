@@ -29,7 +29,7 @@ class saWebResponse extends sfWebResponse
    *  * http_protocol:     The HTTP protocol to use for the response (HTTP/1.0 by default)
    *
    * @param  sfEventDispatcher $dispatcher  An sfEventDispatcher instance
-   * @param  array             $sations     An array of sations
+   * @param  array             $options     An array of options
    *
    * @return bool true, if initialization completes successfully, otherwise false
    *
@@ -37,9 +37,9 @@ class saWebResponse extends sfWebResponse
    *
    * @see sfWebResponse->initialize()
    */
-  public function initialize(sfEventDispatcher $dispatcher, $sations = array())
+  public function initialize(sfEventDispatcher $dispatcher, $options = array())
   {
-    parent::initialize($dispatcher, $sations);
+    parent::initialize($dispatcher, $options);
 
     $this->smtJavascripts = array_combine($this->positions, array_fill(0, count($this->positions), array()));
     $this->smtStylesheets = array_combine($this->positions, array_fill(0, count($this->positions), array()));
@@ -89,7 +89,7 @@ class saWebResponse extends sfWebResponse
    */
   public function serialize()
   {
-    return serialize(array($this->content, $this->statusCode, $this->statusText, $this->sations, $this->headerOnly, $this->headers, $this->metas, $this->httpMetas, $this->stylesheets, $this->javascripts, $this->slots, $this->smtStylesheets, $this->smtJavascript));
+    return serialize(array($this->content, $this->statusCode, $this->statusText, $this->options, $this->headerOnly, $this->headers, $this->metas, $this->httpMetas, $this->stylesheets, $this->javascripts, $this->slots, $this->smtStylesheets, $this->smtJavascript));
   }
 
   /**
@@ -97,7 +97,7 @@ class saWebResponse extends sfWebResponse
    */
   public function unserialize($serialized)
   {
-    list($this->content, $this->statusCode, $this->statusText, $this->sations, $this->headerOnly, $this->headers, $this->metas, $this->httpMetas, $this->stylesheets, $this->javascripts, $this->slots, $this->smtStylesheets, $this->smtJavascript) = unserialize($serialized);
+    list($this->content, $this->statusCode, $this->statusText, $this->options, $this->headerOnly, $this->headers, $this->metas, $this->httpMetas, $this->stylesheets, $this->javascripts, $this->slots, $this->smtStylesheets, $this->smtJavascript) = unserialize($serialized);
   }
 
   public function getTitle()
@@ -141,13 +141,13 @@ class saWebResponse extends sfWebResponse
    *
    * @param string $file      The stylesheet file
    * @param string $position  Position
-   * @param string $sations   Stylesheet sations
+   * @param string $options   Stylesheet options
    */
-  public function addSmtStylesheet($file, $position = '', $sations = array())
+  public function addSmtStylesheet($file, $position = '', $options = array())
   {
     $this->validatePosition($position);
 
-    $this->smtStylesheets[$position][$file] = $sations;
+    $this->smtStylesheets[$position][$file] = $options;
   }
 
   /**
@@ -168,13 +168,13 @@ class saWebResponse extends sfWebResponse
    *
    * @param string $file      The JavaScript file
    * @param string $position  Position
-   * @param string $sations   Javascript sations
+   * @param string $options   Javascript options
    */
-  public function addSmtJavascript($file, $position = '', $sations = array())
+  public function addSmtJavascript($file, $position = '', $options = array())
   {
     $this->validatePosition($position);
 
-    $this->smtJavascripts[$position][$file] = $sations;
+    $this->smtJavascripts[$position][$file] = $options;
   }
 
   /**
@@ -198,7 +198,7 @@ class saWebResponse extends sfWebResponse
    *
    * @param  string  $position The position
    *
-   * @return array   An associative array of stylesheet files as keys and sations as values
+   * @return array   An associative array of stylesheet files as keys and options as values
    */
   public function getSmtStylesheets($position = self::ALL)
   {
@@ -207,9 +207,9 @@ class saWebResponse extends sfWebResponse
       $stylesheets = array();
       foreach ($this->getPositions() as $position)
       {
-        foreach ($this->smtStylesheets[$position] as $file => $sations)
+        foreach ($this->smtStylesheets[$position] as $file => $options)
         {
-          $stylesheets[$file] = $sations;
+          $stylesheets[$file] = $options;
         }
       }
 
@@ -233,7 +233,7 @@ class saWebResponse extends sfWebResponse
    *
    * @param  string $position  The position
    *
-   * @return array An associative array of javascript files as keys and sations as values
+   * @return array An associative array of javascript files as keys and options as values
    */
   public function getSmtJavascripts($position = self::ALL)
   {
@@ -242,9 +242,9 @@ class saWebResponse extends sfWebResponse
       $javascripts = array();
       foreach ($this->getPositions() as $position)
       {
-        foreach ($this->smtJavascripts[$position] as $file => $sations)
+        foreach ($this->smtJavascripts[$position] as $file => $options)
         {
-          $javascripts[$file] = $sations;
+          $javascripts[$file] = $options;
         }
       }
 

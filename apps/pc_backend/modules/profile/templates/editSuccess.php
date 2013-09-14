@@ -11,8 +11,8 @@
 <?php if ($form->isNew()) : ?>
 <div style="margin-bottom: 1em;">
 <select id="original_preset">
-  <sation name="presetting"<?php if ($isPreset) : ?> selected="selected"<?php endif; ?>><?php echo __('Select from presets')?></sation>
-  <sation name="original"<?php if (!$isPreset) : ?> selected="selected"<?php endif; ?>><?php echo __('Enter on your own')?></sation>
+  <option name="presetting"<?php if ($isPreset) : ?> selected="selected"<?php endif; ?>><?php echo __('Select from presets')?></option>
+  <option name="original"<?php if (!$isPreset) : ?> selected="selected"<?php endif; ?>><?php echo __('Enter on your own')?></option>
 </select>
 </div>
 <?php endif; ?>
@@ -190,7 +190,7 @@ function changeAdvancedFormByFormType()
 function changeOriginalAndPreset()
 {
   var originalPreset = document.getElementById("original_preset");
-  var selectedOption = originalPreset.sations[originalPreset.selectedIndex];
+  var selectedOption = originalPreset.options[originalPreset.selectedIndex];
 
   var selectedName = selectedOption.getAttribute("name");
 

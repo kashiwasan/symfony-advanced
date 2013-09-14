@@ -93,7 +93,7 @@ function sa_api_activity($activity)
   );
 }
 
-function sa_activity_linkification($body, $sations = array())
+function sa_activity_linkification($body, $options = array())
 {
   $body = sa_auto_link_text($body);
 

@@ -21,5 +21,5 @@ $t->isa_ok(saToolkit::loadXmlString($xml_with_xxe), 'DOMDocument', 'returns an i
 $t->isa_ok(saToolkit::loadXmlString($xml_with_xxe, array('return' => 'SimpleXMLElement')), 'SimpleXMLElement', 'returns an instanceof "SimpleXMLElement"');
 $t->is(saToolkit::loadXmlString($xml_with_xxe)->textContent, 'ok', 'generated XML string by "DOMDocument" does not have entitied value');
 $t->is((string)saToolkit::loadXmlString($xml_with_xxe, array('return' => 'SimpleXMLElement')), 'ok', 'generated XML string by "SimpleXMLElement" does not have entitied value');
-$t->isnt(saToolkit::loadXmlString($xml_with_xxe, array('loadEntities' => true))->textContent, 'ok', 'generated XML string by "DOMDocument" has entitied value if "loadEntities" sation is specified');
-$t->isnt((string)saToolkit::loadXmlString($xml_with_xxe, array('return' => 'SimpleXMLElement', 'loadEntities' => true)), 'ok', 'generated XML string by "SimpleXMLElement" has entitied value if "loadEntities" sation is specified');
+$t->isnt(saToolkit::loadXmlString($xml_with_xxe, array('loadEntities' => true))->textContent, 'ok', 'generated XML string by "DOMDocument" has entitied value if "loadEntities" option is specified');
+$t->isnt((string)saToolkit::loadXmlString($xml_with_xxe, array('return' => 'SimpleXMLElement', 'loadEntities' => true)), 'ok', 'generated XML string by "SimpleXMLElement" has entitied value if "loadEntities" option is specified');

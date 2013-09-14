@@ -20,26 +20,26 @@ class saAuthValidatorMemberConfig extends sfValidatorSchema
   /**
    * Constructor.
    *
-   * @param array  $sations   An array of sations
+   * @param array  $options   An array of options
    * @param array  $messages  An array of error messages
    *
    * @see sfValidatorSchema
    */
-  public function __construct($sations = array(), $messages = array())
+  public function __construct($options = array(), $messages = array())
   {
-    parent::__construct(null, $sations, $messages);
+    parent::__construct(null, $options, $messages);
   }
 
   /**
    * Configures this validator.
    *
-   * Available sations:
+   * Available options:
    *
    *  * config_name: The configuration name of MemberConfig
    *
    * @see sfValidatorBase
    */
-  protected function configure($sations = array(), $messages = array())
+  protected function configure($options = array(), $messages = array())
   {
     $this->addOption('field_name');
     $this->addOption('allow_empty_value', true);

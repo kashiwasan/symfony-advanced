@@ -19,9 +19,9 @@ class MemberConfigPublicFlagForm extends MemberConfigForm
 {
   protected $category = 'publicFlag';
 
-  public function __construct(Member $member = null, $sations = array(), $CSRFSecret = null)
+  public function __construct(Member $member = null, $options = array(), $CSRFSecret = null)
   {
-    parent::__construct($member, $sations, $CSRFSecret);
+    parent::__construct($member, $options, $CSRFSecret);
 
     if (saConfig::get('is_allow_config_public_flag_profile_page'))
     {

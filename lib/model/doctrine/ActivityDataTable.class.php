@@ -32,76 +32,76 @@ class ActivityDataTable extends Doctrine_Table
   protected
     $templateConfig = null;
 
-  public function updateActivityByTemplate($memberId, $templateName, $params = array(), $sations = array())
+  public function updateActivityByTemplate($memberId, $templateName, $params = array(), $options = array())
   {
     return $this->updateActivity($memberId, '', array_merge(array(
       'template' => $templateName,
       'template_param' => $params
-    ), $sations));
+    ), $options));
   }
 
-  public function updateActivity($memberId, $body, $sations = array())
+  public function updateActivity($memberId, $body, $options = array())
   {
     $object = new ActivityData();
     $object->setMemberId($memberId);
     $object->setBody($body);
 
-    if (isset($sations['template']))
+    if (isset($options['template']))
     {
-      $object->setTemplate($sations['template']);
-      if (isset($sations['template_param']) && is_array($sations['template_param']))
+      $object->setTemplate($options['template']);
+      if (isset($options['template_param']) && is_array($options['template_param']))
       {
-        $object->setTemplateParam($sations['template_param']);
+        $object->setTemplateParam($options['template_param']);
       }
     }
 
-    if (isset($sations['public_flag']))
+    if (isset($options['public_flag']))
     {
       $publicFlagKeys = array_keys($this->getPublicFlags(false));
-      if (!in_array($sations['public_flag'], $publicFlagKeys))
+      if (!in_array($options['public_flag'], $publicFlagKeys))
       {
         throw new LogicException('Invalid public flag');
       }
-      $object->setPublicFlag($sations['public_flag']);
+      $object->setPublicFlag($options['public_flag']);
     }
 
-    if (isset($sations['in_reply_to_activity_id']))
+    if (isset($options['in_reply_to_activity_id']))
     {
-      $object->setInReplyToActivityId($sations['in_reply_to_activity_id']);
+      $object->setInReplyToActivityId($options['in_reply_to_activity_id']);
     }
 
-    if (isset($sations['is_pc']) && !$sations['is_pc'])
+    if (isset($options['is_pc']) && !$options['is_pc'])
     {
       $object->setIsPc(false);
     }
-    if (isset($sations['is_mobile']) && !$sations['is_mobile'])
+    if (isset($options['is_mobile']) && !$options['is_mobile'])
     {
       $object->setIsMobile(false);
     }
 
-    if (isset($sations['uri']))
+    if (isset($options['uri']))
     {
-      $object->setUri($sations['uri']);
+      $object->setUri($options['uri']);
     }
 
-    if (isset($sations['source']))
+    if (isset($options['source']))
     {
-      $object->setSource($sations['source']);
-      if (isset($sations['source_uri']))
+      $object->setSource($options['source']);
+      if (isset($options['source_uri']))
       {
-        $object->setSourceUri($sations['source_uri']);
+        $object->setSourceUri($options['source_uri']);
       }
     }
 
     $activityImages = array();
-    if (isset($sations['images']))
+    if (isset($options['images']))
     {
-      if (!is_array($sations['images']))
+      if (!is_array($options['images']))
       {
-        $sations['images'] = array($sations['images']);
+        $options['images'] = array($options['images']);
       }
 
-      foreach ($sations['images'] as $image)
+      foreach ($options['images'] as $image)
       {
         $activityImage = new ActivityImage();
         if (isset($image['file_id']))
@@ -127,10 +127,10 @@ class ActivityDataTable extends Doctrine_Table
       }
     }
 
-    if (isset($sations['foreign_table']) && isset($sations['foreign_id']))
+    if (isset($options['foreign_table']) && isset($options['foreign_id']))
     {
-      $object->setForeignTable($sations['foreign_table']);
-      $object->setForeignId($sations['foreign_id']);
+      $object->setForeignTable($options['foreign_table']);
+      $object->setForeignId($options['foreign_id']);
     }
 
     $object->save();

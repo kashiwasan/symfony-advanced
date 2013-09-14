@@ -157,12 +157,12 @@ class saWidgetFormRichTextareaSfAdvanced extends saWidgetFormRichTextarea
     return self::$useButtons;
   }
 
-  public function __construct($sations = array(), $attributes = array())
+  public function __construct($options = array(), $attributes = array())
   {
     sfProjectConfiguration::getActive()->loadHelpers('Asset');
-    parent::__construct($sations, $attributes);
+    parent::__construct($options, $attributes);
 
-    if (!isset($sations['is_textmode']))
+    if (!isset($options['is_textmode']))
     {
       if (Doctrine::getTable('SnsConfig')->get('richtextarea_default_mode', 'text') === 'preview')
       {
@@ -365,13 +365,13 @@ class saWidgetFormRichTextareaSfAdvanced extends saWidgetFormRichTextarea
       return call_user_func(self::$convertCallbackList[$tagname], $isEndtag, $tagname, $attributes, true);
     }
 
-    $sations = array();
-    $sations['class'] = strtr($tagname, ':', '_');
+    $options = array();
+    $options['class'] = strtr($tagname, ':', '_');
     if ($isEndtag) {
       return '</span>';
     }
 
-    return tag('span', $sations, true);
+    return tag('span', $options, true);
   }
 
   static public function toHtmlNoStylesheet($matches)
@@ -384,7 +384,7 @@ class saWidgetFormRichTextareaSfAdvanced extends saWidgetFormRichTextarea
       return call_user_func(self::$convertCallbackList[$tagname], $isEndtag, $tagname, $attributes, false);
     }
 
-    $sations = array();
+    $options = array();
     if (!array_key_exists($tagname, self::$htmlConvertList)) {
       return '';
     }
@@ -398,15 +398,15 @@ class saWidgetFormRichTextareaSfAdvanced extends saWidgetFormRichTextarea
 
     if (isset($htmlTagInfo[1]) && is_array($htmlTagInfo[1]))
     {
-      $sations = array_merge($sations, $htmlTagInfo[1]);
+      $options = array_merge($options, $htmlTagInfo[1]);
     }
 
-    return tag($htmlTagName, $sations, true);
+    return tag($htmlTagName, $options, true);
   }
 
   static public function saColorToHtml($isEndtag, $tagname, $attributes, $isUseStylesheet)
   {
-    $sations = array();
+    $options = array();
     $code = isset($attributes['code']) ? $attributes['code'] : '';
     if (!($code && preg_match('/^#[0-9a-fA-F]{6}$/', $code)))
     {
@@ -418,12 +418,12 @@ class saWidgetFormRichTextareaSfAdvanced extends saWidgetFormRichTextarea
       if ($isEndtag) {
         return '</span>';
       }
-      $sations['class'] = strtr($tagname, ':', '_');
+      $options['class'] = strtr($tagname, ':', '_');
       if ($code) {
-        $sations['style'] = 'color:'.$code;
+        $options['style'] = 'color:'.$code;
       }
 
-      return tag('span', $sations, true);
+      return tag('span', $options, true);
     }
     else
     {
@@ -432,16 +432,16 @@ class saWidgetFormRichTextareaSfAdvanced extends saWidgetFormRichTextarea
         return '</font>';
       }
       if ($code) {
-        $sations['color'] = $code;
+        $options['color'] = $code;
       }
 
-      return tag('font', $sations, true);
+      return tag('font', $options, true);
     }
   }
 
   static public function saFontToHtml($isEndtag, $tagname, $attributes, $isUseStylesheet)
   {
-    $sations = array();
+    $options = array();
 
     $color = isset($attributes['color']) ? $attributes['color'] : '';
     if (!($color && preg_match('/^#[0-9a-fA-F]{6}$/', $color)))
@@ -454,10 +454,10 @@ class saWidgetFormRichTextareaSfAdvanced extends saWidgetFormRichTextarea
       if ($isEndtag) {
         return '</span>';
       }
-      $sations['class'] = 'sa_font';
-      $sations['style'] = '';
+      $options['class'] = 'sa_font';
+      $options['style'] = '';
       if ($color) {
-        $sations['style'] .= 'color:'.$color.';';
+        $options['style'] .= 'color:'.$color.';';
       }
       $size = isset($attributes['size']) ? (int)$attributes['size'] : 0;
       $fontSizeMap = array(
@@ -470,10 +470,10 @@ class saWidgetFormRichTextareaSfAdvanced extends saWidgetFormRichTextarea
         7 => 'xx-large'
       );
       if (isset($fontSizeMap[$size])) {
-        $sations['style'] .= 'font-size:'.$fontSizeMap[$size];
+        $options['style'] .= 'font-size:'.$fontSizeMap[$size];
       }
 
-      return tag('span', $sations, true);
+      return tag('span', $options, true);
     }
     else
     {
@@ -482,15 +482,15 @@ class saWidgetFormRichTextareaSfAdvanced extends saWidgetFormRichTextarea
         return '</font>';
       }
       if ($color) {
-        $sations['color'] = $color;
+        $options['color'] = $color;
       }
       $size = isset($attributes['size']) ? (int)$attributes['size'] : 0;
       if ($size >= 1 && $size <= 7)
       {
-        $sations['size'] = $attributes['size'];
+        $options['size'] = $attributes['size'];
       }
 
-      return tag('font', $sations, true);
+      return tag('font', $options, true);
     }
   }
 }

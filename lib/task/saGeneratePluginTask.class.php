@@ -30,7 +30,7 @@ it throws a [sfCommandException|COMMENT].
 EOF;
   }
 
-  protected function execute($arguments = array(), $sations = array())
+  protected function execute($arguments = array(), $options = array())
   {
     $plugin = $arguments['plugin'];
 

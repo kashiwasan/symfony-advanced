@@ -20,19 +20,19 @@ class saWidgetFormProfile extends sfWidgetForm
   /**
    * Constructor.
    * 
-   * @param array $sations     An array of sations
+   * @param array $options     An array of options
    * @param array $attributes  An array of default HTML attributes
    *
    * @see sfWidgetForm
    */
-  public function __construct($sations = array(), $attributes = array())
+  public function __construct($options = array(), $attributes = array())
   {
     $this->addRequiredOption('widget');
     $this->addOption('is_edit_public_flag', false);
     $this->addOption('public_flag_default', 1);
     $this->addOption('template', '%input%<br>%public_flag%');
 
-    parent::__construct($sations, $attributes);
+    parent::__construct($options, $attributes);
 
     $this->setLabel($this->getOption('widget')->getLabel());
   }

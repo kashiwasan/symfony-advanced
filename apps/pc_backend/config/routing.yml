@@ -34,7 +34,7 @@ oauth_access_token:
 # connection rules
 connection:
   class: saStandardRouteCollection
-  sations: { model: OAuthConsumerInformation, actions: [show, new, create, edit, update, deleteConfirm, delete] }
+  options: { model: OAuthConsumerInformation, actions: [show, new, create, edit, update, deleteConfirm, delete] }
 
 connection_list:
   url:     /connection

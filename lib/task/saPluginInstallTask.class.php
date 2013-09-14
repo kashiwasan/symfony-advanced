@@ -72,16 +72,16 @@ EOF;
     return false;
   }
 
-  protected function execute($arguments = array(), $sations = array())
+  protected function execute($arguments = array(), $options = array())
   {
     // Remove E_STRICT and E_DEPRECATED from error_reporting
     error_reporting(error_reporting() & ~(E_STRICT | E_DEPRECATED));
 
-    if (empty($sations['channel']))
+    if (empty($options['channel']))
     {
-      $sations['channel'] = saPluginManager::getDefaultPluginChannelServerName();
+      $options['channel'] = saPluginManager::getDefaultPluginChannelServerName();
     }
-    $manager = $this->getPluginManager($sations['channel']);
+    $manager = $this->getPluginManager($options['channel']);
 
     if (sfConfig::get('sa_http_proxy'))
     {
@@ -89,7 +89,7 @@ EOF;
       $config->set('http_proxy', sfConfig::get('sa_http_proxy'), 'user', 'pear.php.net');
     }
 
-    if ($this->isSelfInstalledPlugins($arguments['name'], $sations['channel']))
+    if ($this->isSelfInstalledPlugins($arguments['name'], $options['channel']))
     {
       $str = "\"%s\" is already installed manually, so it will not be reinstalled.\n"
            . "If you want to manage it automatically, delete it manually and retry this command.";
@@ -100,7 +100,7 @@ EOF;
     try
     {
       $isExists = $this->isPluginExists($arguments['name']);
-      parent::execute($arguments, $sations);
+      parent::execute($arguments, $options);
 
       if (count(sfFinder::type('file')->name('databases.yml')->in(sfConfig::get('sf_config_dir'))) && !$isExists)
       {
@@ -116,7 +116,7 @@ EOF;
       $this->logBlock($e->getMessage(), 'ERROR');
 
       $registry = $this->getPluginManager()->getEnvironment()->getRegistry();
-      $dependency = saPluginDownloader::getCachedDependency($sations['channel'], $arguments['name']);
+      $dependency = saPluginDownloader::getCachedDependency($options['channel'], $arguments['name']);
       if ($dependency && $dependency->hasFailedDependency())
       {
         $message = array(

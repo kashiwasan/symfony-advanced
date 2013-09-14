@@ -20,9 +20,9 @@ class saAuthValidatorMemberConfigAndPassword extends saAuthValidatorMemberConfig
   /**
    * @see saAuthValidatorMemberConfig
    */
-  protected function configure($sations = array(), $messages = array())
+  protected function configure($options = array(), $messages = array())
   {
-    parent::configure($sations, $messages);
+    parent::configure($options, $messages);
     $this->setMessage('invalid', 'ID or password is not a valid.');
   }
 

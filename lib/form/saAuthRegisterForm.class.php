@@ -29,16 +29,16 @@ abstract class saAuthRegisterForm extends BaseForm
    * Constructor.
    *
    * @param array  $defaults    An array of field default values
-   * @param array  $sations     An array of sations
+   * @param array  $options     An array of options
    * @param string $CRFSSecret  A CSRF secret (false to disable CSRF protection, null to use the global CSRF secret)
    *
    * @see sfForm
    */
-  public function __construct($defaults = array(), $sations = array(), $CSRFSecret = null)
+  public function __construct($defaults = array(), $options = array(), $CSRFSecret = null)
   {
-    if (isset($sations['member']) && $sations['member'] instanceof Member)
+    if (isset($options['member']) && $options['member'] instanceof Member)
     {
-      $this->setMember($sations['member']);
+      $this->setMember($options['member']);
     }
     else
     {
@@ -50,7 +50,7 @@ abstract class saAuthRegisterForm extends BaseForm
     $this->profileForm->setRegisterWidgets();
     $this->configForm = new MemberConfigForm($this->getMember(), array(), false);
 
-    parent::__construct($defaults, $sations, false);
+    parent::__construct($defaults, $options, false);
 
     $this->setValidator('mobile_uid', new sfValidatorPass());
     $this->setValidator('mobile_cookie_uid', new sfValidatorPass());

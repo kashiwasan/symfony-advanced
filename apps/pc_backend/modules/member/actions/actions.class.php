@@ -94,11 +94,11 @@ class memberActions extends sfActions
       return sfView::ERROR;
     }
 
-    $sations = array(
+    $options = array(
       'authModes' => $this->plugins,
       'is_link' => false,
     );
-    $this->form = new AdminInviteForm(null, $sations);
+    $this->form = new AdminInviteForm(null, $options);
 
     if ($request->isMethod(sfWebRequest::POST))
     {

@@ -32,16 +32,16 @@ abstract class saAuthForm extends BaseForm
    *
    * @param saAuthAdapter $adapter  An saAuthAdapter object
    * @param array  $defaults    An array of field default values
-   * @param array  $sations     An array of sations
+   * @param array  $options     An array of options
    * @param string $CRFSSecret  A CSRF secret (false to disable CSRF protection, null to use the global CSRF secret)
    *
    * @see sfForm
    */
-  public function __construct(saAuthAdapter $adapter, $defaults = array(), $sations = array(), $CSRFSecret = null)
+  public function __construct(saAuthAdapter $adapter, $defaults = array(), $options = array(), $CSRFSecret = null)
   {
     $this->adapter = $adapter;
 
-    parent::__construct($defaults, $sations, false);
+    parent::__construct($defaults, $options, false);
 
     $this->setWidget('next_uri', new saWidgetFormInputHiddenNextUri());
     $this->setValidator('next_uri', new saValidatorNextUri());

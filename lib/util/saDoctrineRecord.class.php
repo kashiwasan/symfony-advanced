@@ -66,7 +66,7 @@ abstract class saDoctrineRecord extends sfDoctrineRecord implements Zend_Acl_Res
     parent::save($conn);
   }
 
-  public function hasColumn($name, $type = null, $length = null, $sations = array())
+  public function hasColumn($name, $type = null, $length = null, $options = array())
   {
     // Temporary coping with the problem reported in http://trac.symfony-project.org/ticket/6873
     if ('string' === $type && is_null($length))
@@ -74,7 +74,7 @@ abstract class saDoctrineRecord extends sfDoctrineRecord implements Zend_Acl_Res
       $length = 2147483647;
     }
 
-    return parent::hasColumn($name, $type, $length, $sations);
+    return parent::hasColumn($name, $type, $length, $options);
   }
 
   protected function checkIsDatetimeField($fieldName)

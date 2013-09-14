@@ -1,24 +1,24 @@
 <?php
-$sations->setDefault('button', __('Send'));
-$sations->setDefault('method','post');
-$sations->setDefault('firstRow', '');
-$sations->setDefault('lastRow', '');
-$sations->setDefault('mark_required_field', true);
-$sations->setDefault('url', $sf_request->getCurrentUri());
+$options->setDefault('button', __('Send'));
+$options->setDefault('method','post');
+$options->setDefault('firstRow', '');
+$options->setDefault('lastRow', '');
+$options->setDefault('mark_required_field', true);
+$options->setDefault('url', $sf_request->getCurrentUri());
 ?>
-<?php if ($sations['form'] instanceof saAuthRegisterForm): ?>
-<?php echo $sations['form']->renderFormTag($sations['url'], array('method' => $sations['method'])) ?>
-<?php $forms = $sations['form']->getAllForms() ?>
+<?php if ($options['form'] instanceof saAuthRegisterForm): ?>
+<?php echo $options['form']->renderFormTag($options['url'], array('method' => $options['method'])) ?>
+<?php $forms = $options['form']->getAllForms() ?>
 <?php else: ?>
-<form action="<?php echo $sations->getRaw('url') ?>" method="<?php echo $sations['method'] ?>"<?php if (!empty($sations['isMultipart'])): ?> enctype="multipart/form-data"<?php endif; ?>>
-<?php $forms = ($sations['form'] instanceof sfform) ? array($sations['form']) : $sations['form'] ?>
+<form action="<?php echo $options->getRaw('url') ?>" method="<?php echo $options['method'] ?>"<?php if (!empty($options['isMultipart'])): ?> enctype="multipart/form-data"<?php endif; ?>>
+<?php $forms = ($options['form'] instanceof sfform) ? array($options['form']) : $options['form'] ?>
 <?Php endif; ?>
 
 <?php include_customizes($id, 'formTop') ?>
 
-<?php if (isset($sations['body'])): ?>
+<?php if (isset($options['body'])): ?>
 <div class="block">
-<?php echo $sations['body'] ?>
+<?php echo $options['body'] ?>
 </div>
 <?php endif ?>
 
@@ -38,7 +38,7 @@ $sations->setDefault('url', $sf_request->getCurrentUri());
 <?php slot('form_table') ?>
 <table>
 <?php include_customizes($id, 'firstRow') ?>
-<?php echo $sations->getRaw('firstRow') ?>
+<?php echo $options->getRaw('firstRow') ?>
 
 <?php foreach ($forms as $form): ?>
 <?php foreach ($form as $name => $field): ?>
@@ -85,7 +85,7 @@ elseif ($widget instanceof sfWidgetFormSelectCheckbox)
   $attributes = array('class' => 'input_checkbox');
 }
 
-if ($sations['mark_required_field'] 
+if ($options['mark_required_field'] 
   && !($validator instanceof sfValidatorPass)
   && !($validator instanceof sfValidatorSchema)
   && $validator->getOption('required'))
@@ -104,7 +104,7 @@ if ($sations['mark_required_field']
 <?php endif; ?>
 <?php endforeach; ?>
 <?php endforeach; ?>
-<?php echo $sations->getRaw('lastRow') ?>
+<?php echo $options->getRaw('lastRow') ?>
 <?php include_customizes($id, 'lastRow') ?>
 </table>
 <?php end_slot(); ?>
@@ -119,7 +119,7 @@ if ($sations['mark_required_field']
 <ul class="moreInfo button">
 <li>
 <?php foreach($forms as $form): echo $form->renderHiddenFields(); endforeach; ?>
-<input type="submit" class="input_submit" value="<?php echo $sations['button'] ?>" />
+<input type="submit" class="input_submit" value="<?php echo $options['button'] ?>" />
 </li>
 </ul>
 </div>

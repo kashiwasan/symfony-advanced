@@ -167,8 +167,8 @@ class memberActions extends saMemberAction
   {
     $this->forwardIf($request->isSmartphone(), 'member', 'smtConfigImage');
 
-    $sations = array('member' => $this->getUser()->getMember());
-    $this->form = new MemberImageForm(array(), $sations);
+    $options = array('member' => $this->getUser()->getMember());
+    $this->form = new MemberImageForm(array(), $options);
 
     if ($request->isMethod(sfWebRequest::POST))
     {
@@ -203,8 +203,8 @@ class memberActions extends saMemberAction
 
   public function executeSmtConfigImage(saWebRequest $request)
   {
-    $sations = array('member' => $this->getUser()->getMember());
-    $this->form = new MemberImageForm(array(), $sations);
+    $options = array('member' => $this->getUser()->getMember());
+    $this->form = new MemberImageForm(array(), $options);
 
     if ($request->isMethod(sfWebRequest::POST))
     {

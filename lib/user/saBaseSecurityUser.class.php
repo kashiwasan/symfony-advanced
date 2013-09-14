@@ -19,11 +19,11 @@ abstract class saBaseSecurityUser extends sfBasicSecurityUser
 {
   const SITE_IDENTIFIER_NAMESPACE = 'SfAdvanced/user/saSecurityUser/site_identifier';
 
-  public function initialize(sfEventDispatcher $dispatcher, sfStorage $storage, $sations = array())
+  public function initialize(sfEventDispatcher $dispatcher, sfStorage $storage, $options = array())
   {
-    if (!isset($sations['session_namespaces']))
+    if (!isset($options['session_namespaces']))
     {
-      $sations['session_namespaces'] = array(
+      $options['session_namespaces'] = array(
         self::SITE_IDENTIFIER_NAMESPACE,
         self::LAST_REQUEST_NAMESPACE,
         self::AUTH_NAMESPACE,
@@ -35,10 +35,10 @@ abstract class saBaseSecurityUser extends sfBasicSecurityUser
     $sessionConfig = sfConfig::get('sa_session_life_time');
     if (!empty($sessionConfig[sfConfig::get('sf_app')]['idletime']))
     {
-      $sations['timeout'] = $sessionConfig[sfConfig::get('sf_app')]['idletime'];
+      $options['timeout'] = $sessionConfig[sfConfig::get('sf_app')]['idletime'];
     }
 
-    parent::initialize($dispatcher, $storage, $sations);
+    parent::initialize($dispatcher, $storage, $options);
 
     if (!$this->isValidSiteIdentifier())
     {
@@ -58,7 +58,7 @@ abstract class saBaseSecurityUser extends sfBasicSecurityUser
   public function clearSessionData()
   {
     // remove data in storage
-    foreach ($this->sations['session_namespaces'] as $v)
+    foreach ($this->options['session_namespaces'] as $v)
     {
       $this->storage->remove($v);
     }

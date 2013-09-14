@@ -320,7 +320,7 @@ class Zend_Search_Lucene_Index_Writer
         // segments.
         // Newly added segments will be also included into the index by the _updateSegments() call
         // either by another process or by the current process with the commit() call at the end of _mergeSegments() method.
-        // That's guaranteed by the serialisation of _updateSegments() execution using exclusive locks.
+        // That's guaranteed by the serialioption of _updateSegments() execution using exclusive locks.
         $this->_updateSegments();
 
         // Perform standard auto-optimization procedure
@@ -801,7 +801,7 @@ class Zend_Search_Lucene_Index_Writer
         // segments.
         // Newly added segments will be also included into the index by the _updateSegments() call
         // either by another process or by the current process with the commit() call at the end of _mergeSegments() method.
-        // That's guaranteed by the serialisation of _updateSegments() execution using exclusive locks.
+        // That's guaranteed by the serialioption of _updateSegments() execution using exclusive locks.
         $this->_updateSegments();
 
         $this->_mergeSegments($this->_segmentInfos);

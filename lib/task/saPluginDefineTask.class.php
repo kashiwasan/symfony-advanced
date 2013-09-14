@@ -38,14 +38,14 @@ Call it with:
 EOF;
   }
 
-  protected function execute($arguments = array(), $sations = array())
+  protected function execute($arguments = array(), $options = array())
   {
     // Remove E_STRICT and E_DEPRECATED from error_reporting
     error_reporting(error_reporting() & ~(E_STRICT | E_DEPRECATED));
 
-    if (empty($sations['channel']))
+    if (empty($options['channel']))
     {
-      $sations['channel'] = saPluginManager::getDefaultPluginChannelServerName();
+      $options['channel'] = saPluginManager::getDefaultPluginChannelServerName();
     }
 
     require_once 'PEAR/PackageFileManager2.php';
@@ -53,12 +53,12 @@ EOF;
     $pluginName = $arguments['name'];
     $pluginDirectory = sfConfig::get('sf_plugins_dir').'/'.$pluginName.'/';
 
-    $info = $this->getPluginManager($sations['channel'])->getPluginInfo($pluginName);
+    $info = $this->getPluginManager($options['channel'])->getPluginInfo($pluginName);
     if (!$info)
     {
       $info = array(
         'n' => $pluginName,
-        'c' => $sations['channel'],
+        'c' => $options['channel'],
         'l' => 'Apache',
         's' => $pluginName,
         'd' => $pluginName,
@@ -88,7 +88,7 @@ EOF;
     }
 
     $packageXml->setPackage($pluginName);
-    $packageXml->setChannel($sations['channel']);
+    $packageXml->setChannel($options['channel']);
     $packageXml->setReleaseVersion($arguments['version']);
     $packageXml->setReleaseStability($arguments['stability']);
     $packageXml->setApiVersion($arguments['version']);

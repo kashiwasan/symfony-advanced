@@ -17,11 +17,11 @@
  */
 class saWidgetFormInputIncreased extends sfWidgetForm
 {
-  public function __construct($sations = array(), $attributes = array())
+  public function __construct($options = array(), $attributes = array())
   {
     $this->addOption('type', 'text');
 
-    parent::__construct($sations, $attributes);
+    parent::__construct($options, $attributes);
   }
 
   /**

@@ -6,7 +6,7 @@ homepage:
 obj_member_profile:
   url:     /member/:id
   class:   saDynamicAclRoute
-  sations: { model: Member, type: object, privilege: view }
+  options: { model: Member, type: object, privilege: view }
   param:   { module: member, action: profile }
   requirements:
     id:        \d+
@@ -15,15 +15,6 @@ obj_member_profile:
 member_profile_mine:
   url:     /member/profile
   param:   { module: member, action: profile }
-
-obj_friend_unlink:
-  url:     /friend/unlink/:id
-  class:   sfDoctrineRoute
-  sations: { model: Member, type: object }
-  param:   { module: friend, action: unlink }
-  requirements:
-    id: \d+
-    sf_method: [get, post]
 
 member_index:
   url:   /member
@@ -91,119 +82,11 @@ friend_show_image:
   url: /friend/image
   param: { module: friend, action: showImage }
 
-friend_list:
-  url: /friend/list
-  param: { module: friend, action: list }
-
-friend_manage:
-  url: /friend/manage
-  param: { module: friend, action: manage }
-
-# community rules
-community_joinlist:
-  url: /community/joinList
-  param: { module: community, action: joinlist }
-
-community_search:
-  url: /community/search
-  param: { module: community, action: search }
-
-community_edit:
-  url: /community/edit
-  param: { module: community, action: edit }
-
-community_delete:
-  url: /community/delete/:id
-  param: { module: community, action: delete }
-  requirements: { id: \d+ }
-
-community_deleteImage:
-  url: /community/deleteImage
-  param: { module: community, action: deleteImage }
-
-community_memberList:
-  url: /community/member/list
-  param: { module: community, action: memberList }
-
-community_memberManage:
-  url: /community/member/manage/:id
-  param: { module: community, action: memberManage }
-  requirements: { id: \d+ }
-
-community_join:
-  url: /community/join
-  param: { module: community, action: join }
-
-community_quit:
-  url: /community/quit
-  param: { module: community, action: quit }
-
-# saenid rules
-openid_idpxrds:
-  url: /OpenID/idpXrds
-  param: { module: OpenID, action: idpXrds }
-
-openid_list:
-  url: /OpenID/list
-  param: { module: OpenID, action: list }
-
-# oauth rules
-oauth_request_token:
-  url:   /oauth/request_token
-  param: { module: oauth, action: requestToken }
-
-oauth_authorize_token:
-  url:   /oauth/authorize
-  param: { module: oauth, action: authorizeToken }
-
-oauth_access_token:
-  url:   /oauth/access_token
-  param: { module: oauth, action: accessToken }
-
-# connection rules
-connection:
-  class: saStandardRouteCollection
-  sations: { model: OAuthConsumerInformation, actions: [show, new, create, edit, update, deleteConfirm, delete], is_acl: true }
-
-connection_list:
-  url:     /connection
-  param:   { module: connection, action: list }
-
-connection_revoke_token_confirm:
-  url:     /connection/revoke/:id
-  class:   saDynamicAclRoute
-  sations: { model: OAuthConsumerInformation, type: object, privilege: use }
-  param:   { module: connection, action: revokeTokenConfirm }
-  requirements: { id: \d+, sf_method: get }
-
-connection_revoke_token:
-  url:     /connection/revoke/:id
-  class:   saDynamicAclRoute
-  sations: { model: OAuthConsumerInformation, type: object, privilege: use }
-  param:   { module: connection, action: revokeToken }
-  requirements: { id: \d+, sf_method: post }
-
-# confirmation rules
-confirmation_list:
-  url:   /confirmation
-  param: { module: confirmation, action: list }
-
-confirmation_decision:
-  url:   /confirmation/:category/:id
-  class: sfRequestRoute
-  param: { module: confirmation, action: decision }
-  requirements: { id: \d+, sf_method: post }
-
-# customizing css
-customizing_css:
-  url: /cache/css/customizing.:sf_format
-  param: { module: default, action: customizingCss, sf_format: css }
-
 # for BC
 member_profile:
   url:   /member/:id
   class:   saDynamicAclRoute
-  sations: { model: Member, type: object, privilege: view }
+  options: { model: Member, type: object, privilege: view }
   param:   { module: member, action: profile }
   requirements:
     id:        \d+
@@ -212,7 +95,7 @@ member_profile:
 member_profile_raw:
   url:     /member/profile/id/:id/*
   class:   saDynamicAclRoute
-  sations: { model: Member, type: object, privilege: view }
+  options: { model: Member, type: object, privilege: view }
   param:   { module: member, action: profile }
   requirements:
     id:        \d+
@@ -221,16 +104,6 @@ member_profile_raw:
 member_profile_no_default:
   url: /member/profile/*
   param: { module: default, action: error }
-
-friend_show_image:
-  url:   /friend/showImage/:id
-  param: { module: friend, action: showImage }
-  requirements: { id: \d+ }
-
-community_home:
-  url:   /community/:id
-  param: { module: community, action: home }
-  requirements: { id: \d+ }
 
 privacy_policy:
   url:  /default/privacyPolicy
@@ -244,7 +117,3 @@ no_default:
   url: /default/*
   param: { module: default, action: error }
 
-# for cmd
-google_maps:
-  url:  /googlemaps
-  param: { module: googlemaps, action: index }

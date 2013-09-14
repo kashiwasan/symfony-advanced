@@ -17,9 +17,9 @@
  */
 class MemberProfileForm extends BaseForm
 {
-  public function __construct($profileMember = array(), $sations = array(), $CSRFSecret = null)
+  public function __construct($profileMember = array(), $options = array(), $CSRFSecret = null)
   {
-    parent::__construct(array(), $sations, $CSRFSecret);
+    parent::__construct(array(), $options, $CSRFSecret);
 
     foreach ($profileMember as $profile)
     {
@@ -87,10 +87,10 @@ class MemberProfileForm extends BaseForm
         if ('date' === $profile->getFormType())
         {
           $_values = array_map('intval', explode('-', $value['value']));
-          $sations = $profile->getProfileOption();
-          foreach ($sations as $sation)
+          $options = $profile->getProfileOption();
+          foreach ($options as $option)
           {
-            $ids[] = $sation->getId();
+            $ids[] = $option->getId();
           }
           $memberProfile->setValue($value['value']);
         }
@@ -189,11 +189,11 @@ class MemberProfileForm extends BaseForm
   private function getFormOptions($profileId)
   {
     $result = array();
-    $sations = Doctrine::getTable('ProfileOption')->retrieveByProfileId($profileId);
+    $options = Doctrine::getTable('ProfileOption')->retrieveByProfileId($profileId);
 
-    foreach ($sations as $sation)
+    foreach ($options as $option)
     {
-      $result[] = $sation->getId();
+      $result[] = $option->getId();
     }
 
     return $result;
@@ -202,11 +202,11 @@ class MemberProfileForm extends BaseForm
   private function getFormOptionsValue($profileId)
   {
     $result = array();
-    $sations = Doctrine::getTable('ProfileOption')->retrieveByProfileId($profileId);
+    $options = Doctrine::getTable('ProfileOption')->retrieveByProfileId($profileId);
 
-    foreach ($sations as $sation)
+    foreach ($options as $option)
     {
-      $result[$sation->getId()] = $sation->getValue();
+      $result[$option->getId()] = $option->getValue();
     }
 
     return $result;

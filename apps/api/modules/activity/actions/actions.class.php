@@ -158,25 +158,25 @@ class activityActions extends saJsonApiActions
     $this->forward400If(mb_strlen($body) > 140, 'The body text is too long.');
 
     $memberId = $this->getUser()->getMemberId();
-    $sations = array();
+    $options = array();
 
     if (isset($request['public_flag']))
     {
-      $sations['public_flag'] = $request['public_flag'];
+      $options['public_flag'] = $request['public_flag'];
     }
 
     if (isset($request['in_reply_to_activity_id']))
     {
-      $sations['in_reply_to_activity_id'] = $request['in_reply_to_activity_id'];
+      $options['in_reply_to_activity_id'] = $request['in_reply_to_activity_id'];
     }
 
     if (isset($request['uri']))
     {
-      $sations['uri'] = $request['uri'];
+      $options['uri'] = $request['uri'];
     }
     elseif (isset($request['url']))
     {
-      $sations['uri'] = $request['url'];
+      $options['uri'] = $request['url'];
     }
 
     if (isset($request['target']) && 'community' === $request['target'])
@@ -186,11 +186,11 @@ class activityActions extends saJsonApiActions
         $this->forward400('target_id parameter not specified.');
       }
 
-      $sations['foreign_table'] = 'community';
-      $sations['foreign_id'] = $request['target_id'];
+      $options['foreign_table'] = 'community';
+      $options['foreign_id'] = $request['target_id'];
     }
 
-    $sations['source'] = 'API';
+    $options['source'] = 'API';
 
     $imageFiles = $request->getFiles('images');
     if (!empty($imageFiles))
@@ -214,11 +214,11 @@ class activityActions extends saJsonApiActions
         $file->setFromValidatedFile($obj);
         $file->setName('ac_'.$this->getUser()->getMemberId().'_'.$file->getName());
         $file->save();
-        $sations['images'][]['file_id'] = $file->getId();
+        $options['images'][]['file_id'] = $file->getId();
       }
     }
 
-    $this->activity = Doctrine::getTable('ActivityData')->updateActivity($memberId, $body, $sations);
+    $this->activity = Doctrine::getTable('ActivityData')->updateActivity($memberId, $body, $options);
 
     if ('1' === $request['forceHtml'])
     {

@@ -30,7 +30,7 @@ Call it with:
 EOF;
   }
 
-  protected function execute($arguments = array(), $sations = array())
+  protected function execute($arguments = array(), $options = array())
   {
     sfConfig::set('sf_test', true);
 

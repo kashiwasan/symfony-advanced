@@ -26,7 +26,7 @@ abstract class saBaseSendMailTask extends sfDoctrineBaseTask
     $_SERVER['SCRIPT_NAME'] = '/index.php';
   }
 
-  protected function execute($arguments = array(), $sations = array())
+  protected function execute($arguments = array(), $options = array())
   {
     $this->saenDatabaseConnection();
 

@@ -33,7 +33,7 @@ Call it with:
 EOF;
   }
 
-  protected function execute($arguments = array(), $sations = array())
+  protected function execute($arguments = array(), $options = array())
   {
     // Remove E_STRICT and E_DEPRECATED from error_reporting
     error_reporting(error_reporting() & ~(E_STRICT | E_DEPRECATED));

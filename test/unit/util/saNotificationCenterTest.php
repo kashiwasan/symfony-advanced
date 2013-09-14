@@ -44,7 +44,7 @@ $t->is($notifications[0]['icon_url'], null);
 
 $conn->rollback();
 
-$t->info('member1 => member2 (link, with sations)');
+$t->info('member1 => member2 (link, with options)');
 $conn->beginTransaction();
 
 opNotificationCenter::notify($member1, $member2, 'hogehoge', array(

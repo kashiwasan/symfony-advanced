@@ -21,13 +21,13 @@ class saMailRoute extends sfRoute
     $member = null,
     $nonAuth = false;
 
-  public function __construct($pattern, array $defaults = array(), array $requirements = array(), array $sations = array())
+  public function __construct($pattern, array $defaults = array(), array $requirements = array(), array $options = array())
   {
-    parent::__construct($pattern, $defaults, $requirements, $sations);
+    parent::__construct($pattern, $defaults, $requirements, $options);
 
-    if (isset($this->sations['non_auth']))
+    if (isset($this->options['non_auth']))
     {
-      $this->nonAuth = $this->sations['non_auth'];
+      $this->nonAuth = $this->options['non_auth'];
     }
   }
 

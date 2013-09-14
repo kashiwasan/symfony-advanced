@@ -34,7 +34,7 @@ class designActions extends sfActions
   */
   public function executeLayout(sfWebRequest $request)
   {
-    $sation = array();
+    $option = array();
 
     $this->configs = array();
     $gadgetConfigs = Doctrine::getTable('Gadget')->getConfig();
@@ -50,9 +50,9 @@ class designActions extends sfActions
     $this->forward404Unless(isset($this->configs[$type]));
     $this->subtitle = $this->configs[$type]['name'];
 
-    $sation['layout_name'] = $type;
+    $option['layout_name'] = $type;
 
-    $this->form = new PickHomeLayoutForm(array(), $sation);
+    $this->form = new PickHomeLayoutForm(array(), $option);
 
     if ($request->isMethod(sfRequest::POST))
     {

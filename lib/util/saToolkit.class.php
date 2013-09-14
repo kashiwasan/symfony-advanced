@@ -63,7 +63,7 @@ class saToolkit
       $patterns = array(
         '/<input[^>]+>/is',
         '/<textarea.*?<\/textarea>/is',
-        '/<sation.*?<\/sation>/is',
+        '/<option.*?<\/option>/is',
         '/<img[^>]+>/is',
         '/<head.*?<\/head>/is',
       );
@@ -600,20 +600,20 @@ class saToolkit
    * @license http://www.saensource.org/licenses/mit-license.php MIT License
    *
    * @param string $input The input to load.
-   * @param array $sations The sations to use.
+   * @param array $options The options to use.
    * @return SimpleXmlElement|DOMDocument
    */
-  public static function loadXmlString($input, $sations = array())
+  public static function loadXmlString($input, $options = array())
   {
     $hasDisable = function_exists('libxml_disable_entity_loader');
     $internalErrors = libxml_use_internal_errors(true);
-    $isDisableEntityLoader = ($hasDisable && empty($sations['loadEntities']));
+    $isDisableEntityLoader = ($hasDisable && empty($options['loadEntities']));
     if ($isDisableEntityLoader)
     {
       $entityLoaderConfig = libxml_disable_entity_loader(true);
     }
 
-    $returnClass = isset($sations['return']) ? strtolower($sations['return']) : '';
+    $returnClass = isset($options['return']) ? strtolower($options['return']) : '';
 
     if ('simplexml' === $returnClass || 'simplexmlelement' === $returnClass)
     {

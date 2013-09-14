@@ -19,9 +19,9 @@ class saMemberProfileSearchForm extends BaseForm
 {
   protected static $profileFieldPrefix = 'profile_';
 
-  public function __construct($defaults = array(), $sations = array())
+  public function __construct($defaults = array(), $options = array())
   {
-    parent::__construct($defaults, $sations, false);
+    parent::__construct($defaults, $options, false);
   }
 
   protected function getProfiles()

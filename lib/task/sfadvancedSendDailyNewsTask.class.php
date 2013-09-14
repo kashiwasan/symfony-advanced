@@ -30,21 +30,21 @@ EOF;
     );
   }
 
-  protected function execute($arguments = array(), $sations = array())
+  protected function execute($arguments = array(), $options = array())
   {
-    parent::execute($arguments, $sations);
+    parent::execute($arguments, $options);
 
     $expectedOptions = array('pc_frontend', 'mobile_frontend');
 
-    if (isset($sations['app']))
+    if (isset($options['app']))
     {
-      if (in_array($sations['app'], $expectedOptions))
+      if (in_array($options['app'], $expectedOptions))
       {
-        $this->sendDailyNews($sations['app']);
+        $this->sendDailyNews($options['app']);
       }
       else
       {
-        throw new Exception('invalid sation');
+        throw new Exception('invalid option');
       }
     }
     else

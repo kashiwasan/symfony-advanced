@@ -23,14 +23,14 @@
  *
  * @param string $name parts name
  * @param string $id
- * @param array  $sations
+ * @param array  $options
  */
-function sa_include_parts($name, $id, $sations = array())
+function sa_include_parts($name, $id, $options = array())
 {
   $params = array(
     'id'      => $id,
     'name'    => $name,
-    'sations' => new saPartsOptionHolder($sations),
+    'options' => new saPartsOptionHolder($options),
   );
 
   $params['sa_content'] = get_partial('global/parts'.ucfirst($name), $params);
@@ -42,10 +42,10 @@ function sa_include_parts($name, $id, $sations = array())
 
   include_partial('global/partsLayout', $params);
 
-  $shorts = $params['sations']->getShortRequiredOptions();
+  $shorts = $params['options']->getShortRequiredOptions();
   if ($shorts)
   {
-    throw new LogicException(sprintf('The %s parts requires the following sations: \'%s\'.', $name, implode('\', \'', $shorts)));
+    throw new LogicException(sprintf('The %s parts requires the following options: \'%s\'.', $name, implode('\', \'', $shorts)));
   }
 }
 
@@ -54,15 +54,15 @@ function sa_include_parts($name, $id, $sations = array())
  *
  * @param string $id
  * @param string $body
- * @param array  $sations
+ * @param array  $options
  *
  * @see sa_include_parts
  */
-function sa_include_box($id, $body, $sations = array())
+function sa_include_box($id, $body, $options = array())
 {
-  $sations['body'] = $body;
+  $options['body'] = $body;
 
-  sa_include_parts('box', $id, $sations);
+  sa_include_parts('box', $id, $options);
 }
 
 /**
@@ -70,15 +70,15 @@ function sa_include_box($id, $body, $sations = array())
  *
  * @param string $id
  * @param mixed  $form  a sfForm object or an array of sfForm objects
- * @param array  $sations
+ * @param array  $options
  *
  * @see sa_include_parts
  */
-function sa_include_form($id, $form, $sations = array())
+function sa_include_form($id, $form, $options = array())
 {
-  $sations['form'] = $form;
+  $options['form'] = $form;
 
-  sa_include_parts('form', $id, $sations);
+  sa_include_parts('form', $id, $options);
 }
 
 /**
@@ -86,15 +86,15 @@ function sa_include_form($id, $form, $sations = array())
  *
  * @param string $id
  * @param array  $list
- * @param array  $sations
+ * @param array  $options
  *
  * @see sa_include_parts
  */
-function sa_include_list($id, $list, $sations = array())
+function sa_include_list($id, $list, $options = array())
 {
-  $sations['list'] = $list;
+  $options['list'] = $list;
 
-  sa_include_parts('list', $id, $sations);
+  sa_include_parts('list', $id, $options);
 }
 
 /**
@@ -102,15 +102,15 @@ function sa_include_list($id, $list, $sations = array())
  *
  * @param string $id
  * @param string $line
- * @param array  $sations
+ * @param array  $options
  *
  * @see sa_include_parts
  */
-function sa_include_line($id, $line, $sations = array())
+function sa_include_line($id, $line, $options = array())
 {
-  $sations['line'] = $line;
+  $options['line'] = $line;
 
-  sa_include_parts('line', $id, $sations);
+  sa_include_parts('line', $id, $options);
 }
 
 /**
@@ -119,14 +119,14 @@ function sa_include_line($id, $line, $sations = array())
  * @params string $id
  * @params mixed  $yesForm a sfForm object or array of sfForm objects
  * @params mixed  $noForm  a sfForm object or array of sfForm objects
- * @params array  $sations
+ * @params array  $options
  */
-function sa_include_yesno($id, $yesForm, $noForm, $sations = array())
+function sa_include_yesno($id, $yesForm, $noForm, $options = array())
 {
-  $sations['yes_form'] = $yesForm;
-  $sations['no_form'] = $noForm;
+  $options['yes_form'] = $yesForm;
+  $options['no_form'] = $noForm;
 
-  sa_include_parts('yesNo', $id, $sations);
+  sa_include_parts('yesNo', $id, $options);
 }
 
 /**
@@ -232,38 +232,38 @@ function include_page_title($title, $subtitle = '')
 /**
  * @deprecated since 3.0beta4
  */
-function include_list_box($id, $list, $sations = array())
+function include_list_box($id, $list, $options = array())
 {
   use_helper('Debug');
   log_message('include_list_box() is deprecated.', 'err');
 
-  $sations['list'] = $list;
+  $options['list'] = $list;
 
-  sa_include_parts('listBox', $id, $sations);
+  sa_include_parts('listBox', $id, $options);
 }
 
 /**
  * @deprecated since 3.0beta4
  */
-function include_simple_box($id, $title = '', $block = '', $sations = array())
+function include_simple_box($id, $title = '', $block = '', $options = array())
 {
   use_helper('Debug');
   log_message('include_simple_box() is deprecated.', 'err');
 
-  if(!isset($sations['border']))
+  if(!isset($options['border']))
   {
-    $sations['border'] = true;
+    $options['border'] = true;
   }
-  if(!isset($sations['class']))
+  if(!isset($options['class']))
   {
-    $sations['class'] = '';
+    $options['class'] = '';
   }
 
   $params = array(
     'id' => $id,
     'title' => $title,
     'block' => $block,
-    'sations' => $sations,
+    'options' => $options,
   );
 
   include_partial('global/partsSimpleBox', $params);
@@ -272,54 +272,54 @@ function include_simple_box($id, $title = '', $block = '', $sations = array())
 /**
  * @deprecated since 3.0beta4
  */
-function include_box($id, $title = '', $body = '', $sations = array())
+function include_box($id, $title = '', $body = '', $options = array())
 {
   use_helper('Debug');
   log_message('include_box() is deprecated.', 'err');
 
-  $sations['title'] = $title;
+  $options['title'] = $title;
 
-  if (!empty($sations['form']))
+  if (!empty($options['form']))
   {
     if ($body)
     {
-      $sations['info'] = $body;
+      $options['info'] = $body;
     }
 
-    if (!isset($sations['button']))
+    if (!isset($options['button']))
     {
-      $sations['button'] = '変更';
+      $options['button'] = '変更';
     }
 
-    if (!isset($sations['url']))
+    if (!isset($options['url']))
     {
       $request = sfContext::getInstance()->getRequest();
-      $sations['url'] = $request->getParameter('module').'/'.$request->getParameter('action');
+      $options['url'] = $request->getParameter('module').'/'.$request->getParameter('action');
     }
     else
     {
-      $sations['url'] = url_for($sations['url']);
+      $options['url'] = url_for($options['url']);
     }
 
-    sa_include_form($id, $sations['form'], $sations);
+    sa_include_form($id, $options['form'], $options);
   }
   else
   {
-    sa_include_box($id, $body, $sations);
+    sa_include_box($id, $body, $options);
   }
 }
 
 /**
  * @deprecated since 3.0beta4
  */
-function include_parts($parts_name, $id, $sation = array())
+function include_parts($parts_name, $id, $option = array())
 {
   use_helper('Debug');
   log_message('include_parts() is deprecated.', 'err');
 
   $params = array(
     'id'      => $id,
-    'sations' => $sation,
+    'options' => $option,
   );
   include_partial('global/parts'.ucfirst($parts_name), $params);
 }

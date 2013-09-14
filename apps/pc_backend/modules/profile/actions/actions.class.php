@@ -26,18 +26,18 @@ class profileActions extends sfActions
   public function executeList($request)
   {
     $this->profiles = Doctrine::getTable('Profile')->retrievesAll();
-    $this->sation_form = array();
+    $this->option_form = array();
 
     foreach ($this->profiles as $value)
     {
-      $this->sation_form[$value->getId()] = array();
-      foreach ($value->getProfileOption() as $sation)
+      $this->option_form[$value->getId()] = array();
+      foreach ($value->getProfileOption() as $option)
       {
-        $this->sation_form[$value->getId()][$sation->getId()] = new ProfileOptionForm(Doctrine::getTable('ProfileOption')->find($sation->getId()));
+        $this->option_form[$value->getId()][$option->getId()] = new ProfileOptionForm(Doctrine::getTable('ProfileOption')->find($option->getId()));
       }
       $newProfileOption = new ProfileOption();
       $newProfileOption->setProfileId($value->getId());
-      $this->sation_form[$value->getId()][0] = new ProfileOptionForm($newProfileOption);
+      $this->option_form[$value->getId()][0] = new ProfileOptionForm($newProfileOption);
     }
 
     if ($request->isMethod('post'))
@@ -45,9 +45,9 @@ class profileActions extends sfActions
       $parameter = $request->getParameter('profile_option');
       $profileId = $parameter['profile_id'];
       $profileOptionId = $parameter['id'] ? $parameter['id'] : 0;
-      if (isset($this->sation_form[$profileId][$profileOptionId]))
+      if (isset($this->option_form[$profileId][$profileOptionId]))
       {
-        $this->sation_form[$profileId][$profileOptionId]->bind($parameter);
+        $this->option_form[$profileId][$profileOptionId]->bind($parameter);
       }
     }
 

@@ -32,7 +32,7 @@ Call it with:
 EOF;
   }
 
-  protected function execute($arguments = array(), $sations = array())
+  protected function execute($arguments = array(), $options = array())
   {
     $configuration = $this->createConfiguration('pc_frontend', 'cli');
     $name = $arguments['name'];

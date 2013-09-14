@@ -20,29 +20,29 @@ class saMemcacheSessionStorage extends sfSessionStorage
   protected $memcache = null;
 
   /**
-   * Available sations:
+   * Available options:
    *
    * - host:       The default host (default to localhost)
    * - port:       The port for the default server (default to 11211)
    * - persistent: true if the connection must be persistent, false otherwise (true by default)
    *
-   * @param  array $sations  An associative array of sations
+   * @param  array $options  An associative array of options
    *
    * @see sfSessionStorage
    * @see sfMemcacheCache
    */
-  public function initialize($sations = array())
+  public function initialize($options = array())
   {
     $isAutoStart = true;
-    if (isset($sations['auto_start']))
+    if (isset($options['auto_start']))
     {
-      $isAutoStart = $sations['auto_start'];
+      $isAutoStart = $options['auto_start'];
     }
     // disable auto_start
-    $sations['auto_start'] = false;
+    $options['auto_start'] = false;
 
     // initialize the parent
-    parent::initialize($sations);
+    parent::initialize($options);
 
     if (!class_exists('Memcache'))
     {
@@ -88,10 +88,10 @@ class saMemcacheSessionStorage extends sfSessionStorage
    */
   public function sessionOpen($path = null, $name = null)
   {
-    $method = !empty($this->sations['persistent']) ? 'pconnect' : 'connect';
-    $host = empty($this->sations['host']) ? 'localhost' : $this->sations['host'];
-    $port = empty($this->sations['port']) ? 11211 : (int)$this->sations['port'];
-    $timeout = empty($this->sations['timeout']) ? 11211 : (int)$this->sations['timeout'];
+    $method = !empty($this->options['persistent']) ? 'pconnect' : 'connect';
+    $host = empty($this->options['host']) ? 'localhost' : $this->options['host'];
+    $port = empty($this->options['port']) ? 11211 : (int)$this->options['port'];
+    $timeout = empty($this->options['timeout']) ? 11211 : (int)$this->options['timeout'];
 
     if (!$this->memcache->$method($host, $port, $timeout))
     {
