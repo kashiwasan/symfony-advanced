@@ -1,4 +1,4 @@
-OpenPNE3.6 Update Process
+SfAdvanced.6 Update Process
 =========================
 
 Introduction
@@ -34,7 +34,7 @@ Copy config files in OpenPNE 3.6 as follows:
 
 ::
 
-  $ cd /path/to/new/OpenPNE3
+  $ cd /path/to/new/SfAdvanced
   $ cp config/ProjectConfiguration.class.php.sample config/ProjectConfiguration.class.php
   $ cp config/OpenPNE.yml.sample config/OpenPNE.yml
 
@@ -44,7 +44,7 @@ And copy the old config/database.yml to new config/database.yml. Then you should
 
 ::
 
-  $ cp /path/to/old/OpenPNE3/config/databases.yml /path/to/new/OpenPNE3/config/databases.yml
+  $ cp /path/to/old/SfAdvanced/config/databases.yml /path/to/new/SfAdvanced/config/databases.yml
   
 Copy the Plugin Directory
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -55,11 +55,11 @@ Copy the old directory plugins to new one, so that to use the plugins which you 
 
 Case of the system like CentOS or Ubuntu which has '-u' option
 
-  $ cp -au /path/to/old/OpenPNE3/plugins/. /path/to/new/OpenPNE3/plugins
+  $ cp -au /path/to/old/SfAdvanced/plugins/. /path/to/new/SfAdvanced/plugins
 
 Case of the system like MacOSX or FreeBSD which doesn't have '-u' but has '-n' option
 
-  $ cp -an /path/to/old/OpenPNE3/plugins/. /path/to/new/OpenPNE3/plugins
+  $ cp -an /path/to/old/SfAdvanced/plugins/. /path/to/new/SfAdvanced/plugins
 
 NOTE: check your system using 'man cp' to execute above commands.
 

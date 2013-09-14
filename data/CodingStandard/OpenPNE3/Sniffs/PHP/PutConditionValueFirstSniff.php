@@ -9,12 +9,12 @@
  */
 
 /**
- * OpenPNE3_Sniffs_PHP_PutConditionValueFirstSniff
+ * SfAdvanced_Sniffs_PHP_PutConditionValueFirstSniff
  *
  * @package    OpenPNE
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class OpenPNE3_Sniffs_PHP_PutConditionValueFirstSniff implements PHP_CodeSniffer_Sniff
+class SfAdvanced_Sniffs_PHP_PutConditionValueFirstSniff implements PHP_CodeSniffer_Sniff
 {
   public function register()
   {

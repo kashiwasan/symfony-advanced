@@ -9,12 +9,12 @@
  */
 
 /**
- * OpenPNE3_Sniffs_Commenting_ClassCommentSniff
+ * SfAdvanced_Sniffs_Commenting_ClassCommentSniff
  *
  * @package    OpenPNE
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class OpenPNE3_Sniffs_Commenting_ClassCommentSniff extends Squiz_Sniffs_Commenting_ClassCommentSniff
+class SfAdvanced_Sniffs_Commenting_ClassCommentSniff extends Squiz_Sniffs_Commenting_ClassCommentSniff
 {
   protected function processTags($commentStart, $commentEnd)
   {

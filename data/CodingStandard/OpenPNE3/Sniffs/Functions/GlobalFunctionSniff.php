@@ -9,12 +9,12 @@
  */
 
 /**
- * OpenPNE3_Sniffs_Functions_GlobalFunctionSniff
+ * SfAdvanced_Sniffs_Functions_GlobalFunctionSniff
  *
  * @package    OpenPNE
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class OpenPNE3_Sniffs_Functions_GlobalFunctionSniff extends Squiz_Sniffs_Functions_GlobalFunctionSniff
+class SfAdvanced_Sniffs_Functions_GlobalFunctionSniff extends Squiz_Sniffs_Functions_GlobalFunctionSniff
 {
   public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
   {

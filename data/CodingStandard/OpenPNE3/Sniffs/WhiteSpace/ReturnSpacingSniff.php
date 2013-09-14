@@ -9,12 +9,12 @@
  */
 
 /**
- * OpenPNE3_Sniffs_WhiteSpace_ReturnSpacingSniff
+ * SfAdvanced_Sniffs_WhiteSpace_ReturnSpacingSniff
  *
  * @package    OpenPNE
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class OpenPNE3_Sniffs_WhiteSpace_ReturnSpacingSniff implements PHP_CodeSniffer_Sniff
+class SfAdvanced_Sniffs_WhiteSpace_ReturnSpacingSniff implements PHP_CodeSniffer_Sniff
 {
   public function register()
   {

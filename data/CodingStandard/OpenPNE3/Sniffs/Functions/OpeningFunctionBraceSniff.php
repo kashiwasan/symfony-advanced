@@ -9,12 +9,12 @@
  */
 
 /**
- * OpenPNE3_Sniffs_Functions_OpeningFunctionBraceSniff
+ * SfAdvanced_Sniffs_Functions_OpeningFunctionBraceSniff
  *
  * @package    OpenPNE
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class OpenPNE3_Sniffs_Functions_OpeningFunctionBraceSniff extends Generic_Sniffs_Functions_OpeningFunctionBraceBsdAllmanSniff
+class SfAdvanced_Sniffs_Functions_OpeningFunctionBraceSniff extends Generic_Sniffs_Functions_OpeningFunctionBraceBsdAllmanSniff
 {
   public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
   {

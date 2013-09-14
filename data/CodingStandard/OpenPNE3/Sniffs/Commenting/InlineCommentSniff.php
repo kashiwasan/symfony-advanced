@@ -9,12 +9,12 @@
  */
 
 /**
- * OpenPNE3_Sniffs_Commenting_InlineCommentSniff
+ * SfAdvanced_Sniffs_Commenting_InlineCommentSniff
  *
  * @package    OpenPNE
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class OpenPNE3_Sniffs_Commenting_InlineCommentSniff extends PEAR_Sniffs_Commenting_InlineCommentSniff
+class SfAdvanced_Sniffs_Commenting_InlineCommentSniff extends PEAR_Sniffs_Commenting_InlineCommentSniff
 {
   public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
   {

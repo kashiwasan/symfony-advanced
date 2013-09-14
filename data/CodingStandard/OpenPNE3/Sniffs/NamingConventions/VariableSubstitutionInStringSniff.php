@@ -9,12 +9,12 @@
  */
 
 /**
- * OpenPNE3_Sniffs_NamingConventions_VariableSubstitutionInStringSniff
+ * SfAdvanced_Sniffs_NamingConventions_VariableSubstitutionInStringSniff
  *
  * @package    OpenPNE
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class OpenPNE3_Sniffs_NamingConventions_VariableSubstitutionInStringSniff extends PHP_CodeSniffer_Standards_AbstractVariableSniff
+class SfAdvanced_Sniffs_NamingConventions_VariableSubstitutionInStringSniff extends PHP_CodeSniffer_Standards_AbstractVariableSniff
 {
   protected function processMemberVar(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
   {

@@ -62,7 +62,7 @@ $t->is($result[0]['title'], 'OpenPNE 3.2RC1 リリースのお知らせ', '->fet
 $t->is($result[1]['title'], '', '->fetch() returns RSS entries that contains empty title');
 $t->is($result[0]['body'], 'OpenPNE 開発チームの海老原です。
 				本日 2009/11/30（月）、 開発版 OpenPNE 3.2RC1 をリリースしました。
-				今後の OpenPNE3 のリリーススケジュール にて発表 [...]', '->fetch() returns RSS entries that contains valid body');
+				今後の SfAdvanced のリリーススケジュール にて発表 [...]', '->fetch() returns RSS entries that contains valid body');
 $t->is($result[4]['body'], '<p>開発チームの海老原です。</p>
 				<p>11/23 に <a href="http://www.openpne.jp/archives/3931/">opAlbumPlugin のアップデート</a>が、 11/24 に <a href="http://www.openpne.jp/archives/3938/">opDiaryPlugin のアップデート</a>がありました。</p>
 				<p>どちらも重要なバグフィックスがおこなわれたリリースのため、 OpenPNE 3.1.5 にバンドルされているプラグインも、新しく更新されたバージョンに変更しました。</p>
@@ -82,7 +82,7 @@ $t->is($result[0]['title'], 'OpenPNE 3.2RC1 リリースのお知らせ', '->fet
 $t->is($result[1]['title'], '', '->fetch() returns Atom entries that contains empty title');
 $t->is($result[0]['body'], 'OpenPNE 開発チームの海老原です。
 				本日 2009/11/30（月）、 開発版 OpenPNE 3.2RC1 をリリースしました。
-				今後の OpenPNE3 のリリーススケジュール にて発表 [...]', '->fetch() returns Atom entries that contains valid body');
+				今後の SfAdvanced のリリーススケジュール にて発表 [...]', '->fetch() returns Atom entries that contains valid body');
 $t->is($result[4]['body'], '<p>開発チームの海老原です。</p>
 				<p>11/23 に <a href="http://www.openpne.jp/archives/3931/">opAlbumPlugin のアップデート</a>が、 11/24 に <a href="http://www.openpne.jp/archives/3938/">opDiaryPlugin のアップデート</a>がありました。</p>
 				<p>どちらも重要なバグフィックスがおこなわれたリリースのため、 OpenPNE 3.1.5 にバンドルされているプラグインも、新しく更新されたバージョンに変更しました。</p>

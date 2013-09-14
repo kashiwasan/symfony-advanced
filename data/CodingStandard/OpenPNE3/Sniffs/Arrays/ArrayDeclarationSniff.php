@@ -9,12 +9,12 @@
  */
 
 /**
- * OpenPNE3_Sniffs_Arrays_ArrayDeclarationSniff
+ * SfAdvanced_Sniffs_Arrays_ArrayDeclarationSniff
  *
  * @package    OpenPNE
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class OpenPNE3_Sniffs_Arrays_ArrayDeclarationSniff implements PHP_CodeSniffer_Sniff
+class SfAdvanced_Sniffs_Arrays_ArrayDeclarationSniff implements PHP_CodeSniffer_Sniff
 {
   public function register()
   {

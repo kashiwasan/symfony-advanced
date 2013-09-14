@@ -9,12 +9,12 @@
  */
 
 /**
- * OpenPNE3_Sniffs_Files_FileExtensionSniff
+ * SfAdvanced_Sniffs_Files_FileExtensionSniff
  *
  * @package    OpenPNE
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class OpenPNE3_Sniffs_Files_FileExtensionSniff  implements PHP_CodeSniffer_Sniff
+class SfAdvanced_Sniffs_Files_FileExtensionSniff  implements PHP_CodeSniffer_Sniff
 {
   public function register()
   {

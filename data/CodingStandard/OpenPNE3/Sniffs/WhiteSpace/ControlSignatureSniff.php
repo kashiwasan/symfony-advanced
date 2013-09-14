@@ -9,12 +9,12 @@
  */
 
 /**
- * OpenPNE3_Sniffs_WhiteSpace_ControlSignatureSniff
+ * SfAdvanced_Sniffs_WhiteSpace_ControlSignatureSniff
  *
  * @package    OpenPNE
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class OpenPNE3_Sniffs_WhiteSpace_ControlSignatureSniff extends PHP_CodeSniffer_Standards_AbstractPatternSniff
+class SfAdvanced_Sniffs_WhiteSpace_ControlSignatureSniff extends PHP_CodeSniffer_Standards_AbstractPatternSniff
 {
   protected function getPatterns()
   {

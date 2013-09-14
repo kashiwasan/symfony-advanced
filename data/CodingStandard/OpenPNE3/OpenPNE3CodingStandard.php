@@ -14,12 +14,12 @@ if (class_exists('PHP_CodeSniffer_Standards_CodingStandard', true) === false)
 }
 
 /**
- * OpenPNE3 Coding Standard
+ * SfAdvanced Coding Standard
  *
  * @package    OpenPNE
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class PHP_CodeSniffer_Standards_OpenPNE3_OpenPNE3CodingStandard extends PHP_CodeSniffer_Standards_CodingStandard
+class PHP_CodeSniffer_Standards_SfAdvanced_SfAdvancedCodingStandard extends PHP_CodeSniffer_Standards_CodingStandard
 {
   public function getIncludedSniffs()
   {

@@ -1,5 +1,5 @@
 ===========================
-OpenPNE3.6 セットアップ手順
+SfAdvanced.6 セットアップ手順
 ===========================
 
 はじめに
@@ -7,7 +7,7 @@ OpenPNE3.6 セットアップ手順
 
 このドキュメントは、 OpenPNE バージョン 3.6 を基にして書かれています。
 
-OpenPNE3 は以下のようなサーバ環境で動作させることを想定しています。
+SfAdvanced は以下のようなサーバ環境で動作させることを想定しています。
 
 Webサーバ
   Apache 
@@ -30,7 +30,7 @@ PHP
 セットアップ
 ============
 
-OpenPNE3 のソースコードを入手する
+SfAdvanced のソースコードを入手する
 ---------------------------------
 
 以下の URL に記載されている情報に従って、 OpenPNE 3 のソースコードをダウンロードしてください。
@@ -72,7 +72,7 @@ http://www.openpne.jp/pne-downloads/
 
 ::
 
-  $ cd OpenPNE3
+  $ cd SfAdvanced
   $ cp config/ProjectConfiguration.class.php.sample config/ProjectConfiguration.class.php
   $ cp config/OpenPNE.yml.sample config/OpenPNE.yml
 
@@ -149,11 +149,11 @@ cron ファイルに設定権限を付加します。
 
 ::
 
-  # 6 時に /path/to/OpenPNE3/bin/send_daily_news.cron というスクリプトを /path/to/php で実行することで /path/to/OpenPNE3 のデイリー・ニュースを配信する
-  00   6 * * * root sh /path/to/OpenPNE3/bin/send_daily_news.cron     /path/to/OpenPNE3 /path/to/php
+  # 6 時に /path/to/SfAdvanced/bin/send_daily_news.cron というスクリプトを /path/to/php で実行することで /path/to/SfAdvanced のデイリー・ニュースを配信する
+  00   6 * * * root sh /path/to/SfAdvanced/bin/send_daily_news.cron     /path/to/SfAdvanced /path/to/php
   
-  # 6 時に /path/to/OpenPNE3/bin/birthday_mail.cron というスクリプトを /path/to/php で実行することで /path/to/OpenPNE3 の誕生日通知メールを配信する
-  00   6 * * * root sh /path/to/OpenPNE3/bin/birthday_mail.cron     /path/to/OpenPNE3 /path/to/php
+  # 6 時に /path/to/SfAdvanced/bin/birthday_mail.cron というスクリプトを /path/to/php で実行することで /path/to/SfAdvanced の誕生日通知メールを配信する
+  00   6 * * * root sh /path/to/SfAdvanced/bin/birthday_mail.cron     /path/to/SfAdvanced /path/to/php
 
 なお、デイリー・ニュースはデフォルトの状態ではコンテンツがありません。
 

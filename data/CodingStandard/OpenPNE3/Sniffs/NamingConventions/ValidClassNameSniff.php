@@ -9,12 +9,12 @@
  */
 
 /**
- * OpenPNE3_Sniffs_NamingConventions_ValidClassNameSniff
+ * SfAdvanced_Sniffs_NamingConventions_ValidClassNameSniff
  *
  * @package    OpenPNE
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class OpenPNE3_Sniffs_NamingConventions_ValidClassNameSniff extends Squiz_Sniffs_Classes_ValidClassNameSniff
+class SfAdvanced_Sniffs_NamingConventions_ValidClassNameSniff extends Squiz_Sniffs_Classes_ValidClassNameSniff
 {
   public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
   {

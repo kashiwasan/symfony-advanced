@@ -9,7 +9,7 @@
  *   $ php OpenPNE2/test/unit/KtaiEmojiTest.php
  *
  * You must modify lib/vendor/OpenPNE2/KtaiEmoji/Common.php
- * (see https://github.com/tozuka/OpenPNE3/commit/813756aced83b3fa71d797283b3516b2c4fe9719)
+ * (see https://github.com/tozuka/SfAdvanced/commit/813756aced83b3fa71d797283b3516b2c4fe9719)
  */
 require_once(dirname(__FILE__).'/../../../symfony/lib/vendor/lime/lime.php');
 require_once(dirname(__FILE__).'/../../KtaiEmoji.php');

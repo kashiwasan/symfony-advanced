@@ -9,12 +9,12 @@
  */
 
 /**
- * OpenPNE3_Sniffs_NamingConventions_ValidClassFunctionNameSniff
+ * SfAdvanced_Sniffs_NamingConventions_ValidClassFunctionNameSniff
  *
  * @package    OpenPNE
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class OpenPNE3_Sniffs_NamingConventions_ValidClassFunctionNameSniff extends PHP_CodeSniffer_Standards_AbstractScopeSniff
+class SfAdvanced_Sniffs_NamingConventions_ValidClassFunctionNameSniff extends PHP_CodeSniffer_Standards_AbstractScopeSniff
 {
   public function __construct()
   {

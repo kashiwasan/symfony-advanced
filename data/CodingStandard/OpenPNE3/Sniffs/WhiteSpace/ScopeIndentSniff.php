@@ -9,12 +9,12 @@
  */
 
 /**
- * OpenPNE3_Sniffs_WhiteSpace_ScopeIndentSniff
+ * SfAdvanced_Sniffs_WhiteSpace_ScopeIndentSniff
  *
  * @package    OpenPNE
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class OpenPNE3_Sniffs_WhiteSpace_ScopeIndentSniff extends Generic_Sniffs_WhiteSpace_ScopeIndentSniff
+class SfAdvanced_Sniffs_WhiteSpace_ScopeIndentSniff extends Generic_Sniffs_WhiteSpace_ScopeIndentSniff
 {
   protected $indent = 2;
 }

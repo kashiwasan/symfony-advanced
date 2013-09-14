@@ -31,10 +31,10 @@
 		<guid isPermaLink="false">http://www.openpne.jp/?p=3988</guid>
 		<description><![CDATA[				OpenPNE 開発チームの海老原です。
 				本日 2009/11/30（月）、 開発版 OpenPNE 3.2RC1 をリリースしました。
-				今後の OpenPNE3 のリリーススケジュール にて発表 [...]]]></description>
+				今後の SfAdvanced のリリーススケジュール にて発表 [...]]]></description>
 			<content:encoded><![CDATA[				<p>OpenPNE 開発チームの海老原です。</p>
 				<p>本日 2009/11/30（月）、 開発版 OpenPNE 3.2RC1 をリリースしました。</p>
-				<p><a href="http://www.openpne.jp/archives/3836/">今後の OpenPNE3 のリリーススケジュール</a> にて発表させていただいたスケジュールでは、本日が 3.2.0 のリリース予定日となっていましたが、 3.2.0 のリリースは開発の遅れにより本日より 3 日後の 2009/12/03 (木) に延期させていただきたいと思います。もうしばらくお待ちください！</p>
+				<p><a href="http://www.openpne.jp/archives/3836/">今後の SfAdvanced のリリーススケジュール</a> にて発表させていただいたスケジュールでは、本日が 3.2.0 のリリース予定日となっていましたが、 3.2.0 のリリースは開発の遅れにより本日より 3 日後の 2009/12/03 (木) に延期させていただきたいと思います。もうしばらくお待ちください！</p>
 			</div>
 			<div class="textBody" id="extended">
 				<h2>機能追加・機能改善</h2>
@@ -56,9 +56,9 @@
 				<h3>OpenPNE 3.0.5 からのアップグレード</h3>
 				<p>アップグレード方法は、<a href="http://www.openpne.jp/openpne_3_0_5_to_3_2_upgrade_guide/">OpenPNE 3.0.5 からのアップグレード手順</a> をご覧ください。</p>
 				<h3>バージョンアップ</h3>
-				<p>バージョンアップ方法は、<a href="http://www.openpne.jp/openpne_3_2_update_guide/">OpenPNE3.2 バージョンアップ手順</a> をご覧ください。</p>
+				<p>バージョンアップ方法は、<a href="http://www.openpne.jp/openpne_3_2_update_guide/">SfAdvanced.2 バージョンアップ手順</a> をご覧ください。</p>
 				<h3>インストール</h3>
-				<p>インストール方法は、同梱の <a href="http://www.openpne.jp/openpne_3_2_setup_guide/">OpenPNE3.2 セットアップ手順</a> をご覧ください。</p>
+				<p>インストール方法は、同梱の <a href="http://www.openpne.jp/openpne_3_2_setup_guide/">SfAdvanced.2 セットアップ手順</a> をご覧ください。</p>
 				<h2>ダウンロード・チェンジログ</h2>
 				<h3>ダウンロード</h3>
 				<p><a href="http://www.openpne.jp/pne-downloads">http://www.openpne.jp/pne-downloads</a></p>
@@ -73,7 +73,7 @@
 		<comments>http://www.openpne.jp/archives/3982/#comments</comments>
 		<pubDate>Sat, 28 Nov 2009 21:00:51 +0000</pubDate>
 		<dc:creator>Kousuke Ebihara</dc:creator>
-				<category><![CDATA[OpenPNE3 プラグイン リリース情報]]></category>
+				<category><![CDATA[SfAdvanced プラグイン リリース情報]]></category>
 		<category><![CDATA[OpenPNEからのおしらせ]]></category>
 
 		<guid isPermaLink="false">http://www.openpne.jp/?p=3982</guid>
@@ -87,10 +87,10 @@
 				<li>opMessagePlugin 0.9.0 (OpenPNE 3.1.5 〜 3.2 beta1 に同梱されているもの)</li>
 				</ul>
 				<p><strong>影響を受けるシステム:</strong></p>
-				<p>対象のバージョンの opMessagePlugin を使用しているすべての OpenPNE3<br />
-				(ただし、2009/11/29 05:31 以降にセットアップをおこなった OpenPNE3 には対策版のプラグインがインストールされるため、影響を受けません)</p>
+				<p>対象のバージョンの opMessagePlugin を使用しているすべての SfAdvanced<br />
+				(ただし、2009/11/29 05:31 以降にセットアップをおこなった SfAdvanced には対策版のプラグインがインストールされるため、影響を受けません)</p>
 				<p><strong>想定される影響:</strong></p>
-				<p>OpenPNE3 にログインした状態で、悪意のあるプログラムコードが含まれたページにアクセスすると、任意のメッセージを削除、またはゴミ箱から復元されてしまう恐れがあります。</p>
+				<p>SfAdvanced にログインした状態で、悪意のあるプログラムコードが含まれたページにアクセスすると、任意のメッセージを削除、またはゴミ箱から復元されてしまう恐れがあります。</p>
 				<p><strong>対策方法:</strong></p>
 				<p>OpenPNE 3.0.3 〜 3.0.5 をお使いの場合、以下のコマンドを実行してアップデートを実施してください。</p>
 				<blockquote><pre>$ symfony opPlugin:install opMessagePlugin -r 0.8.2.1
@@ -143,9 +143,9 @@ $ symfony cc</pre>
 				</li>
 				</ul>
 				<h2>導入方法</h2>
-				<p><strong>OpenPNE3.1.3以上が必要です。 </strong><br />
+				<p><strong>SfAdvanced.1.3以上が必要です。 </strong><br />
 				3.1.3未満のバージョンをご利用している場合は、事前にバージョンアップを行ってください。</p>
-				<p><strong>OpenPNE3.2-beta1にはこのバージョンが自動的にインストールされます。</strong></p>
+				<p><strong>SfAdvanced.2-beta1にはこのバージョンが自動的にインストールされます。</strong></p>
 				<p>OpenPNE本体のバージョンを上げずに、プラグインのみをバージョンアップする場合は次のように行います。<br />
 				バージョンアップ前にデータベースのバックアップを行ってください。</p>
 				<pre style="overflow: auto; margin-bottom: 1em"><code>
@@ -154,7 +154,7 @@ $ ./symfony openpne:migrate
 $ ./symfony cc
 </code></pre>
 				<h2>今後のリリース</h2>
-				<p>OpenPNE3.3.xに同梱させるためのバージョン0.9.3-betaを今年のうちにリリースする予定です。<br />
+				<p>SfAdvanced.3.xに同梱させるためのバージョン0.9.3-betaを今年のうちにリリースする予定です。<br />
 				おもな機能として、アルバム機能との連動や、メンバーによるアプリの追加に関する機能の強化を行うつもりです。</p>
 				<p>目標は、<del datetime="2009-11-25T08:24:40+00:00">クリスマスはどうせ暇なので</del>皆さんにクリスマスプレゼント的な12月24日としています。</p>
 				<p>また、<a href="http://redmine.openpne.jp/issues/230">OpenPNE本体側にActivityが実装される予定なので</a>、その操作に関するAPIの実装を中心としたバージョンを<br />
@@ -229,9 +229,9 @@ $ ./symfony cc
 				<h3>OpenPNE 3.0.5 からのアップグレード</h3>
 				<p>アップグレード方法は、<a href="http://www.openpne.jp/openpne_3_0_5_to_3_2_upgrade_guide/">OpenPNE 3.0.5 からのアップグレード手順</a> をご覧ください。</p>
 				<h3>バージョンアップ</h3>
-				<p>バージョンアップ方法は、<a href="http://www.openpne.jp/openpne_3_1_update_guide/">OpenPNE3.1 バージョンアップ手順</a> をご覧ください。</p>
+				<p>バージョンアップ方法は、<a href="http://www.openpne.jp/openpne_3_1_update_guide/">SfAdvanced.1 バージョンアップ手順</a> をご覧ください。</p>
 				<h3>インストール</h3>
-				<p>インストール方法は、同梱の <a href="http://www.openpne.jp/openpne_3_1_setup_guide/">OpenPNE3.1 セットアップ手順</a> をご覧ください。</p>
+				<p>インストール方法は、同梱の <a href="http://www.openpne.jp/openpne_3_1_setup_guide/">SfAdvanced.1 セットアップ手順</a> をご覧ください。</p>
 				<h2>ダウンロード・チェンジログ</h2>
 				<h3>ダウンロード</h3>
 				<p><a href="http://www.openpne.jp/pne-downloads">http://www.openpne.jp/pne-downloads</a></p>
@@ -265,7 +265,7 @@ $ ./symfony cc
 		<comments>http://www.openpne.jp/archives/3938/#comments</comments>
 		<pubDate>Mon, 23 Nov 2009 15:13:22 +0000</pubDate>
 		<dc:creator>Rimpei Ogawa</dc:creator>
-				<category><![CDATA[OpenPNE3 プラグイン リリース情報]]></category>
+				<category><![CDATA[SfAdvanced プラグイン リリース情報]]></category>
 
 		<guid isPermaLink="false">http://www.openpne.jp/?p=3938</guid>
 			<wfw:commentRss>http://www.openpne.jp/archives/3938/feed/</wfw:commentRss>
@@ -276,16 +276,16 @@ $ ./symfony cc
 		<link>http://www.openpne.jp/archives/3931/</link>
 		<comments>http://www.openpne.jp/archives/3931/#comments</comments>
 		<dc:creator>mogi</dc:creator>
-				<category><![CDATA[OpenPNE3 プラグイン リリース情報]]></category>
+				<category><![CDATA[SfAdvanced プラグイン リリース情報]]></category>
 		<category><![CDATA[opAlbumPlugin]]></category>
 
 		<guid isPermaLink="false">http://www.openpne.jp/?p=3931</guid>
 		<description><![CDATA[				
 				OpenPNE 開発チームの茂木です。
-				OpenPNE3.1.5にて、opAlbumPluginの影響で、未ログインユーザがログインを必要としないアクションにアクセスできない状態になる、というバ [...]]]></description>
+				SfAdvanced.1.5にて、opAlbumPluginの影響で、未ログインユーザがログインを必要としないアクションにアクセスできない状態になる、というバ [...]]]></description>
 			<content:encoded><![CDATA[				<div class="textBody">
 				<p>OpenPNE 開発チームの茂木です。</p>
-				<p>OpenPNE3.1.5にて、opAlbumPluginの影響で、未ログインユーザがログインを必要としないアクションにアクセスできない状態になる、というバグが起きていたため、急遽対策をさせていただきました。<br />
+				<p>SfAdvanced.1.5にて、opAlbumPluginの影響で、未ログインユーザがログインを必要としないアクションにアクセスできない状態になる、というバグが起きていたため、急遽対策をさせていただきました。<br />
 				opAlbumPluginを利用している方はアップデートをお願いします。</p>
 				<h2>インストール方法</h2>
 				<p>opPlugin:install タスクを実行することで最新リリースへのアップデートをおこなうことができます。</p>
@@ -309,24 +309,24 @@ $ ./symfony cc
 		<comments>http://www.openpne.jp/archives/3925/#comments</comments>
 		<pubDate>Fri, 20 Nov 2009 11:54:18 +0000</pubDate>
 		<dc:creator>mogi</dc:creator>
-				<category><![CDATA[OpenPNE3 プラグイン リリース情報]]></category>
+				<category><![CDATA[SfAdvanced プラグイン リリース情報]]></category>
 
 		<guid isPermaLink="false">http://www.openpne.jp/?p=3925</guid>
 		<description><![CDATA[				
 				初めまして！
 				OpenPNE 開発チームの茂木です。
-				告知が遅れてしまったのですが、OpenPNE3 用のアルバムプラグイン、 opAlbumPlugin の 0.9.0 をリリースしま [...]]]></description>
+				告知が遅れてしまったのですが、SfAdvanced 用のアルバムプラグイン、 opAlbumPlugin の 0.9.0 をリリースしま [...]]]></description>
 			<content:encoded><![CDATA[				<div>
 				<p>初めまして！</p>
 				<p>OpenPNE 開発チームの茂木です。</p>
-				<p>告知が遅れてしまったのですが、OpenPNE3 用のアルバムプラグイン、 opAlbumPlugin の 0.9.0 をリリースしました。</p>
+				<p>告知が遅れてしまったのですが、SfAdvanced 用のアルバムプラグイン、 opAlbumPlugin の 0.9.0 をリリースしました。</p>
 				<p>既に、今週リリースされたOpenPNE 3.1.5 に同梱されています。</p>
 				<p>このプラグインは、OpenPNE2系で提供していたアルバム機能を移植したものです。</p>
 				<p>現状ではPC版の基本的なアルバム機能が実装されています。</p>
 				<p>これからのリリースで、携帯版やアルバム小窓などを追加して行きたいと考えています。</p>
-				<p>また、Doctrineにのみ対応しておりますので、OpenPNE3.1系でご利用ください。</p>
+				<p>また、Doctrineにのみ対応しておりますので、SfAdvanced.1系でご利用ください。</p>
 				<h2>インストール方法</h2>
-				<p>OpenPNE3のプラグインチャネルサーバからopAlbumPluginを入手し、インストールを行ってください。<br />
+				<p>SfAdvancedのプラグインチャネルサーバからopAlbumPluginを入手し、インストールを行ってください。<br />
 				これは以下のコマンドから行うことができます。</p>
 				<blockquote><p>$ symfony opPlugin:install -r 0.9.0 -s beta opAlbumPlugin</p></blockquote>
 				<p>完了後、以下のコマンドでプラグインが設置されているかを確かめることができます。</p>
@@ -347,7 +347,7 @@ $ ./symfony cc
 		<slash:comments>0</slash:comments>
 		</item>
 		<item>
-		<title>今週のOpenPNE3デモサイト委員会 #6</title>
+		<title>今週のSfAdvancedデモサイト委員会 #6</title>
 		<link>http://www.openpne.jp/archives/3891/</link>
 		<comments>http://www.openpne.jp/archives/3891/#comments</comments>
 		<pubDate>Fri, 20 Nov 2009 11:03:38 +0000</pubDate>
@@ -356,20 +356,20 @@ $ ./symfony cc
 		<category><![CDATA[その他]]></category>
 
 		<guid isPermaLink="false">http://www.openpne.jp/?p=3891</guid>
-		<description><![CDATA[				OpenPNE3デモサイト委員会、広報担当の今村です。
-				「今週のOpenPNE3デモサイト委員会」第6回です。
+		<description><![CDATA[				SfAdvancedデモサイト委員会、広報担当の今村です。
+				「今週のSfAdvancedデモサイト委員会」第6回です。
 				まずはデモサイトの現在のメンバー数からご報告します。
 				なんと今週も前回から1 [...]]]></description>
-			<content:encoded><![CDATA[				<p>OpenPNE3デモサイト委員会、広報担当の今村です。<br />
-				「今週のOpenPNE3デモサイト委員会」第6回です。</p>
+			<content:encoded><![CDATA[				<p>SfAdvancedデモサイト委員会、広報担当の今村です。<br />
+				「今週のSfAdvancedデモサイト委員会」第6回です。</p>
 				<p>まずはデモサイトの現在のメンバー数からご報告します。<br />
 				なんと今週も前回から100人以上増えて現在856人になりました！<br />
 				毎週100人くらいずつ参加者が増加していますので単純にこのままいくと12月には1000人越えするかもしれません！！</p>
 			</div>
 			<div class="textBody" id="extended">
 				<h3>Web全体に公開</h3>
-				<p>今日はOpenPNE3系特有の機能についてご紹介します。<br />
-				OpenPNE3では日記の公開範囲の設定に｢Web全体に公開｣というのがあります。<br />
+				<p>今日はSfAdvanced系特有の機能についてご紹介します。<br />
+				SfAdvancedでは日記の公開範囲の設定に｢Web全体に公開｣というのがあります。<br />
 				その名の通り、日記をSNS外にも公開できるという機能です。</p>
 				<h3>どうやって設定するの？</h3>
 				<p>設定方法はいたって簡単で、日記作成の公開範囲設定に｢Web全体に公開｣というラジオボタンがあるのでそれにチェックを入れるだけです。</p>
@@ -398,9 +398,9 @@ $ ./symfony cc
 				SNS内を紹介できるこの機能はSNSの発展に大いに力になると思っています。</p>
 				<p>■———————————————————■<br />
 				<a href="http://demo3.openpne.jp/">http://demo3.openpne.jp/</a><br />
-				“Master site”OpenPNE3デモサイト</p>
+				“Master site”SfAdvancedデモサイト</p>
 				<p><a href="http://redmine.openpne.jp/">http://redmine.openpne.jp/</a><br />
-				OpenPNE3プロジェクトRedmine</p>
+				SfAdvancedプロジェクトRedmine</p>
 				<p><a href="http://sns.openpne.jp/">http://sns.openpne.jp/</a><br />
 				バグ・要望報告は→OpenPNE公式SNSでもOK</p>
 				<p><a href="http://twitter.com/pnetan">http://twitter.com/pnetan/</a><br />
@@ -466,7 +466,7 @@ $ ./symfony cc
 				<p>このチケットでは携帯でセッションID付きURLを書き込んでもセッションIDを表示しないように修正し、より安全なSNSになるように対応します。</p>
 				<h2>OpenPNEプロジェクト参加者募集中！</h2>
 				<p>OpenPNEプロジェクトでは参加者を募集しています！<br />
-				現在OpenPNE3の開発が活発に行われていますが、3系、2系にかかわらず人材を募集しています。<br />
+				現在SfAdvancedの開発が活発に行われていますが、3系、2系にかかわらず人材を募集しています。<br />
 				OpenPNEの開発に興味がある場合、もっと詳しく知りたい場合はこちらまでご連絡ください。</p>
 				<p>■ OpenPNE開発者メーリングリスト<br />
 				    　　http://groups.google.co.jp/group/openpne-dev </p>

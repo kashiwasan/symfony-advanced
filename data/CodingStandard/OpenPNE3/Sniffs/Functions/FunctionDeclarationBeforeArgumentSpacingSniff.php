@@ -9,12 +9,12 @@
  */
 
 /**
- * OpenPNE3_Sniffs_Functions_FunctionDeclarationBeforeArgumentSpacingSniff
+ * SfAdvanced_Sniffs_Functions_FunctionDeclarationBeforeArgumentSpacingSniff
  *
  * @package    OpenPNE
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class OpenPNE3_Sniffs_Functions_FunctionDeclarationBeforeArgumentSpacingSniff implements PHP_CodeSniffer_Sniff
+class SfAdvanced_Sniffs_Functions_FunctionDeclarationBeforeArgumentSpacingSniff implements PHP_CodeSniffer_Sniff
 {
   public function register()
   {

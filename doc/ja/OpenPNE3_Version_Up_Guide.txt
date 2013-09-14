@@ -25,7 +25,7 @@ OpenPNE 3.6 バージョンアップ手順
 
 Web サーバ上の任意のディレクトリに OpenPNE 3.6 のソースファイルを設置します。（※新旧ソースファイル混在によるトラブルを防ぐため、上書きではなくファイルすべてを交換してください。）
 
-* OpenPNE3_Setup_Guide.txt の「OpenPNE3 のソースコードを入手する」を参照。
+* SfAdvanced_Setup_Guide.txt の「SfAdvanced のソースコードを入手する」を参照。
 
 設定ファイルの上書き
 ~~~~~~~~~~~~~~~~~~~~
@@ -34,7 +34,7 @@ OpenPNE 3.6 付属の設定ファイルをコピーしてください。
 
 ::
 
-  $ cd /path/to/new/OpenPNE3
+  $ cd /path/to/new/SfAdvanced
   $ cp config/ProjectConfiguration.class.php.sample config/ProjectConfiguration.class.php
   $ cp config/OpenPNE.yml.sample config/OpenPNE.yml
 
@@ -46,7 +46,7 @@ OpenPNE.yml の設定値を環境に合わせて変更してください。特�
 
 ::
 
-  $ cp /path/to/old/OpenPNE3/config/databases.yml /path/to/new/OpenPNE3/config/databases.yml
+  $ cp /path/to/old/SfAdvanced/config/databases.yml /path/to/new/SfAdvanced/config/databases.yml
 
 プラグインディレクトリのコピー
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -57,11 +57,11 @@ OpenPNE.yml の設定値を環境に合わせて変更してください。特�
 
 CentOS や Ubuntu など、 cp コマンドに -u オプションがある場合。
 
-  $ cp -au /path/to/old/OpenPNE3/plugins/. /path/to/new/OpenPNE3/plugins
+  $ cp -au /path/to/old/SfAdvanced/plugins/. /path/to/new/SfAdvanced/plugins
 
 MacOSX や FreeBSD など、 cp コマンドに -u オプションがなく -n オプションがある場合。
 
-  $ cp -an /path/to/old/OpenPNE3/plugins/. /path/to/new/OpenPNE3/plugins
+  $ cp -an /path/to/old/SfAdvanced/plugins/. /path/to/new/SfAdvanced/plugins
 
 * どちらのコマンドを実行可能かについては「man cp」コマンドを実行してチェックしてください。
 

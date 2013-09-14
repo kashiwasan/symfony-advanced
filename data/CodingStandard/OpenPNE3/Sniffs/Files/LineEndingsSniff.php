@@ -9,12 +9,12 @@
  */
 
 /**
- * OpenPNE3_Sniffs_Files_LineEndingsSniff
+ * SfAdvanced_Sniffs_Files_LineEndingsSniff
  *
  * @package    OpenPNE
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class OpenPNE3_Sniffs_Files_LineEndingsSniff extends Generic_Sniffs_Files_LineEndingsSniff
+class SfAdvanced_Sniffs_Files_LineEndingsSniff extends Generic_Sniffs_Files_LineEndingsSniff
 {
   public function register()
   {
