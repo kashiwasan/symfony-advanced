@@ -260,7 +260,7 @@
         }
     });
 
-    tinymce.PluginManager.requireLangPack('openpne');
+    tinymce.PluginManager.requireLangPack('sfadvanced');
 
     var config = op_mce_editor_get_config();
 
@@ -301,7 +301,7 @@
             for (var key in config) {
                 var value = config[key];
                 if (key != "op_color") {
-                    ed.addButton(key, {title : '{#openpne.' + key + '}', image: value.imageURL, cmd : 'mceOpenPNE_' + key});
+                    ed.addButton(key, {title : '{#sfadvanced.' + key + '}', image: value.imageURL, cmd : 'mceOpenPNE_' + key});
                 }
             }
 
@@ -347,7 +347,7 @@
         createControl: function(n, cm) {
             var c = null;
             if (n == "op_color") {
-                c = this._createOpenPNEColorButton("op_color", { title : "{#openpne.op_color}", image: config["op_color"].imageURL, cmd : "ForeColor"}, cm);
+                c = this._createOpenPNEColorButton("op_color", { title : "{#sfadvanced.op_color}", image: config["op_color"].imageURL, cmd : "ForeColor"}, cm);
             }
 
             if (n == "op_emoji_docomo" || 
@@ -357,19 +357,19 @@
                     op_emoji_docomo : {
                         carrier : "i",
                         emoji : [ {start : 1, end : 252} ],
-                        title : "{#openpne." + n + "}",
+                        title : "{#sfadvanced." + n + "}",
                         image: config[n].imageURL
                     },
                     op_emoji_au : {
                         carrier : "e",
                         emoji : [ {start : 1, end : 518}, {start : 700, end : 822} ],
-                        title : "{#openpne." + n + "}",
+                        title : "{#sfadvanced." + n + "}",
                         image: config[n].imageURL
                     },
                     op_emoji_softbank : {
                         carrier : "s",
                         emoji : [ {start : 1, end : 485} ],
-                        title : "{#openpne." + n + "}",
+                        title : "{#sfadvanced." + n + "}",
                         image: config[n].imageURL
                     }
                 }
@@ -377,7 +377,7 @@
             }
 
             if (n == "op_cmd" && config["op_cmd"]) {
-                c = this._createOpenPNECmdButton(n, {title: "{#openpne.op_cmd}", image: config["op_cmd"].imageURL, cmd: "mceOpenPNE_op_cmd"}, cm);
+                c = this._createOpenPNECmdButton(n, {title: "{#sfadvanced.op_cmd}", image: config["op_cmd"].imageURL, cmd: "mceOpenPNE_op_cmd"}, cm);
             }
 
             return c;
@@ -737,5 +737,5 @@
     });
 
     // Register plugin
-    tinymce.PluginManager.add('openpne', tinymce.plugins.OpenPNEPlugin);
+    tinymce.PluginManager.add('sfadvanced', tinymce.plugins.OpenPNEPlugin);
 })();

@@ -1,4 +1,4 @@
-tinyMCE.addI18n('en.openpne', {
+tinyMCE.addI18n('en.sfadvanced', {
     op_b : 'Bold',
     op_u : 'Underline',
     op_s : 'Strikethrough',

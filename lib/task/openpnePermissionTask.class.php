@@ -2,20 +2,20 @@
 
 /**
  * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.openpne.jp/)
+ * (c) OpenPNE Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class openpnePermissionTask extends sfProjectPermissionsTask
+class sfadvancedPermissionTask extends sfProjectPermissionsTask
 {
   protected
     $opFailed  = array();
 
   protected function configure()
   {
-    $this->namespace        = 'openpne';
+    $this->namespace        = 'sfadvanced';
     $this->name             = 'permission';
 
     $this->addOptions(array(
@@ -25,10 +25,10 @@ class openpnePermissionTask extends sfProjectPermissionsTask
 
     $this->briefDescription = 'Fixes directory permissions for OpenPNE';
     $this->detailedDescription = <<<EOF
-The [openpne:permission|INFO] task fixes directory permissions for OpenPNE.
+The [sfadvanced:permission|INFO] task fixes directory permissions for OpenPNE.
 Call it with:
 
-  [./symfony openpne:permission|INFO]
+  [./symfony sfadvanced:permission|INFO]
 EOF;
   }
 
@@ -52,7 +52,7 @@ EOF;
           'Permissions on some files could not be fixed.',
           'You may fix this problem for accessing "/pc_backend.php/sns/cache" via your web browser.',
           '',
-          'If you want to get more information, please execute "./symfony openpne:permission --env=dev".'
+          'If you want to get more information, please execute "./symfony sfadvanced:permission --env=dev".'
         ), 'INFO_LARGE');
       }
       else

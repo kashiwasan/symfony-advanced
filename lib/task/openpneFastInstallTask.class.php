@@ -2,23 +2,23 @@
 
 /**
  * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.openpne.jp/)
+ * (c) OpenPNE Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
  */
 
 /**
- * openpne:fast-install task. enables one-liner install.
+ * sfadvanced:fast-install task. enables one-liner install.
  *
  * @auther Hiromi Hishida <info@77-web.com>
  */
 
-class openpneFastInstallTask extends sfDoctrineBaseTask
+class sfadvancedFastInstallTask extends sfDoctrineBaseTask
 {
   protected function configure()
   {
-    $this->namespace        = 'openpne';
+    $this->namespace        = 'sfadvanced';
     $this->name             = 'fast-install';
 
     $this->addOptions(array(
@@ -36,10 +36,10 @@ class openpneFastInstallTask extends sfDoctrineBaseTask
 
     $this->briefDescription = 'Install OpenPNE';
     $this->detailedDescription = <<<EOF
-The [openpne:fast-install] task installs and configures OpenPNE.
+The [sfadvanced:fast-install] task installs and configures OpenPNE.
 Call it with:
 
-  [./symfony openpne:fast-install --dbms=mysql --dbuser=your-username --dbpassword=your-password --dbname=your-dbname --dbhost=localhost --internet]
+  [./symfony sfadvanced:fast-install --dbms=mysql --dbuser=your-username --dbpassword=your-password --dbname=your-dbname --dbhost=localhost --internet]
 
 EOF;
   }
@@ -256,7 +256,7 @@ EOF;
 
   protected function fixPerms()
   {
-    $permissions = new openpnePermissionTask($this->dispatcher, $this->formatter);
+    $permissions = new sfadvancedPermissionTask($this->dispatcher, $this->formatter);
     $permissions->run();
   }
 

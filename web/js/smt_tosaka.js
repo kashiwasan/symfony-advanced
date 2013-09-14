@@ -5,7 +5,7 @@ $(document).ready(function(){
     $('#pushLoading').show();
     if('none' !== $('.ncform').css('display'))
     {
-      $.getJSON( openpne.apiBase + 'push/search.json?apiKey=' + openpne.apiKey, function(json){
+      $.getJSON( sfadvanced.apiBase + 'push/search.json?apiKey=' + sfadvanced.apiKey, function(json){
         if(json.status=='success')
         {
           $pushHtml = $("#pushListTemplate").tmpl(json.data);
@@ -48,7 +48,7 @@ $(document).ready(function(){
     if (body_text == '') return;
 
     var params = {
-      apiKey: openpne.apiKey,
+      apiKey: sfadvanced.apiKey,
       body: body_text
     };
     if ($('#tosaka_postform_submit').attr('data-community-id'))
@@ -57,7 +57,7 @@ $(document).ready(function(){
       params.target_id = $('#tosaka_postform_submit').attr('data-community-id');
     }
 
-    $.getJSON(openpne.apiBase + 'activity/post.json', params, function(json) {
+    $.getJSON(sfadvanced.apiBase + 'activity/post.json', params, function(json) {
       if (json.status == 'success') {
         body_elem.val('');
         $(".postform").toggle();
@@ -65,7 +65,7 @@ $(document).ready(function(){
     });
   });
 
-  $.getJSON( openpne.apiBase + 'push/count.json?apiKey=' + openpne.apiKey, function(json){
+  $.getJSON( sfadvanced.apiBase + 'push/count.json?apiKey=' + sfadvanced.apiKey, function(json){
     if(json.status=='success')
     {
       $pushHtml = $("#pushCountTemplate").tmpl(json.data);

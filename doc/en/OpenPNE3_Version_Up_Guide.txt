@@ -82,7 +82,7 @@ In the project root directory, execute:
 
 ::
 
-  $ ./symfony openpne:migrate
+  $ ./symfony sfadvanced:migrate
   $ ./symfony plugin:publish-assets
 
 This command will update OpenPNE and plugins to newer version.
@@ -91,11 +91,11 @@ You have to execute the following command if your using version is earlier than 
 
 Please check the following blog post before performing the command.
 
-http://www.openpne.jp/archives/5689/
+http://www.sfadvanced.jp/archives/5689/
 
 ::
 
-  $ ./symfony openpne:fix-session-db
+  $ ./symfony sfadvanced:fix-session-db
 
 Now you are all updating.
 

@@ -2,7 +2,7 @@
 
 /**
  * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.openpne.jp/)
+ * (c) OpenPNE Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -31,25 +31,25 @@ class opPluginDependency extends PEAR_Dependency2
       return true;
     }
 
-    if ('openpne' === strtolower($dep['name']))
+    if ('sfadvanced' === strtolower($dep['name']))
     {
       $extra = $this->_getExtraString($dep);
 
-      if (isset($dep['min']) && !version_compare(OPENPNE_VERSION, $dep['min'], '>='))
+      if (isset($dep['min']) && !version_compare(SFADVANCED_VERSION, $dep['min'], '>='))
       {
-        return $this->handleOpenPNEDependencyError('%s requires OpenPNE'.$extra.', installed version is '.OPENPNE_VERSION);
+        return $this->handleOpenPNEDependencyError('%s requires OpenPNE'.$extra.', installed version is '.SFADVANCED_VERSION);
       }
 
-      if (isset($dep['max']) && !version_compare(OPENPNE_VERSION, $dep['max'], '<='))
+      if (isset($dep['max']) && !version_compare(SFADVANCED_VERSION, $dep['max'], '<='))
       {
-        return $this->handleOpenPNEDependencyError('%s requires OpenPNE'.$extra.', installed version is '.OPENPNE_VERSION);
+        return $this->handleOpenPNEDependencyError('%s requires OpenPNE'.$extra.', installed version is '.SFADVANCED_VERSION);
       }
 
       if (isset($dep['exclude']))
       {
         foreach ((array)$dep['exclude'] as $exclude)
         {
-          if (version_compare(OPENPNE_VERSION, $exclude, '=='))
+          if (version_compare(SFADVANCED_VERSION, $exclude, '=='))
           {
             return $this->handleOpenPNEDependencyError('%s is not compatible with OpenPNE version '.$exclude);
           }

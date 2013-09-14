@@ -20,7 +20,7 @@ $jsonData = array(
 );
 
 echo javascript_tag('
-var openpne = '.json_encode($jsonData).';
+var sfadvanced = '.json_encode($jsonData).';
 ');
 ?>
 <?php endif ?>

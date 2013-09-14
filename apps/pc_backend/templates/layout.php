@@ -56,7 +56,7 @@
 
 <?php if ($sf_user->isAuthenticated()) : ?>
 <div id="footer" style="width: 100%; background: #FFFFFF;">
-<p id="openpne_version">Powered by OpenPNE <?php echo OPENPNE_VERSION ?></p>
+<p id="sfadvanced_version">Powered by OpenPNE <?php echo SFADVANCED_VERSION ?></p>
 </div>
 <?php endif; ?>
 </body>

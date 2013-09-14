@@ -27,22 +27,22 @@ $activity3 = new ActivityData();
 $activity3->template = 'xxxx_template';
 
 $activity4 = new ActivityData();
-$activity4->body = 'http://www.openpne.jp';
+$activity4->body = 'http://www.sfadvanced.jp';
 
 $activity5 = new ActivityData();
-$activity5->body = 'http://www.openpne.jp';
+$activity5->body = 'http://www.sfadvanced.jp';
 $activity5->uri = '@homepage';
 
 $t->is(op_activity_body_filter($activity1), 'foo', 'op_activity_body_filter() returns "foo"');
 $t->is(op_activity_body_filter($activity2), 'Test test A test, bar!!!', 'op_activity_body_filter() returns "Test test A test, bar!!!"');
 $t->is(op_activity_body_filter($activity3), '', 'op_activity_body_filter() returns ""');
-$t->is(op_activity_body_filter($activity4), '<a href="http://www.openpne.jp" target="_blank">http://www.openpne.jp</a>', 'op_activity_body_filter() returns autolinked text');
-$t->is(op_activity_body_filter($activity4, false), 'http://www.openpne.jp', 'op_activity_body_filter() returns "http//www.openpne.jp"');
-$t->is(op_activity_body_filter($activity5), '<a href="/index.php/">http://www.openpne.jp</a>', 'op_activity_body_filter() returns linked text by uri of ActivityData');
+$t->is(op_activity_body_filter($activity4), '<a href="http://www.sfadvanced.jp" target="_blank">http://www.sfadvanced.jp</a>', 'op_activity_body_filter() returns autolinked text');
+$t->is(op_activity_body_filter($activity4, false), 'http://www.sfadvanced.jp', 'op_activity_body_filter() returns "http//www.sfadvanced.jp"');
+$t->is(op_activity_body_filter($activity5), '<a href="/index.php/">http://www.sfadvanced.jp</a>', 'op_activity_body_filter() returns linked text by uri of ActivityData');
 
 sfConfig::set('sf_app', 'mobile_frontend');
 
-$t->is(op_activity_body_filter($activity4), '<a href="http://sns.example.com/proxy?url=http%3A%2F%2Fwww.openpne.jp">http://www.openpne.jp</a>', 'op_activity_body_filter() returns autolinked text');
+$t->is(op_activity_body_filter($activity4), '<a href="http://sns.example.com/proxy?url=http%3A%2F%2Fwww.sfadvanced.jp">http://www.sfadvanced.jp</a>', 'op_activity_body_filter() returns autolinked text');
 
 function test_filter(sfEvent $event, $value)
 {

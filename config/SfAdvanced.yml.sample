@@ -214,10 +214,10 @@ supported_languages: ['en', 'ja_JP']
 ####################################
 
 # デフォルトで使用するチャンネルサーバ
-# default_plugin_channel_server: "plugins.openpne.jp"
+# default_plugin_channel_server: "plugins.sfadvanced.jp"
 
 # プラグインリストのベース URL
-# plugin_list_base_url: "http://plugins.openpne.jp/packages/"
+# plugin_list_base_url: "http://plugins.sfadvanced.jp/packages/"
 
 ###########################################
 # モバイル自動リンク設定 (Mobile Auto link)

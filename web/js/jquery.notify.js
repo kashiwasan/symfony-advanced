@@ -10,7 +10,7 @@
       $(this).click(function(){
         if ( false == settings.isDisableRead )
         {
-          $.getJSON( openpne.apiBase + 'push/read.json' , { 'id': notifyId, 'apiKey': openpne.apiKey }, function(d){
+          $.getJSON( sfadvanced.apiBase + 'push/read.json' , { 'id': notifyId, 'apiKey': sfadvanced.apiKey }, function(d){
             window.location = linkUrl;
           });
         }
@@ -30,11 +30,11 @@
         var pushElement = $(this).parents('.push');
         var memberId = pushElement.attr('data-member-id');
         var notifyId = pushElement.attr('data-notify-id');
-        $.getJSON( openpne.apiBase + 'push/read.json' , { 'id': notifyId, 'apiKey': openpne.apiKey }, function(d){});
+        $.getJSON( sfadvanced.apiBase + 'push/read.json' , { 'id': notifyId, 'apiKey': sfadvanced.apiKey }, function(d){});
         $.ajax({
-          url: openpne.apiBase + 'member/friend_accept.json',
+          url: sfadvanced.apiBase + 'member/friend_accept.json',
           type: 'GET',
-          data: 'member_id=' + memberId + '&apiKey=' + openpne.apiKey,
+          data: 'member_id=' + memberId + '&apiKey=' + sfadvanced.apiKey,
           dataType: 'json',
           success: function(data) {
             if(data.status=='success'){
@@ -63,11 +63,11 @@
         var pushElement = $(this).parents('.push');
         var memberId = pushElement.attr('data-member-id');
         var notifyId = pushElement.attr('data-notify-id');
-        $.getJSON( openpne.apiBase + 'push/read.json' , { 'id': notifyId, 'apiKey': openpne.apiKey }, function(d){});
+        $.getJSON( sfadvanced.apiBase + 'push/read.json' , { 'id': notifyId, 'apiKey': sfadvanced.apiKey }, function(d){});
         $.ajax({
-          url: openpne.apiBase + 'member/friend_reject.json',
+          url: sfadvanced.apiBase + 'member/friend_reject.json',
           type: 'GET',
-          data: 'member_id=' + memberId + '&apiKey=' + openpne.apiKey,
+          data: 'member_id=' + memberId + '&apiKey=' + sfadvanced.apiKey,
           dataType: 'json',
           success: function(data) {
             if(data.status=='success'){

@@ -2,7 +2,7 @@
 
 /**
  * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.openpne.jp/)
+ * (c) OpenPNE Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -26,14 +26,14 @@ class opFixWrongCategorizedCommunityTask extends sfDoctrineBaseTask
       new sfCommandOption('env', null, sfCommandOption::PARAMETER_REQUIRED, 'The environment', 'dev'),
     ));
 
-    $this->namespace        = 'openpne';
+    $this->namespace        = 'sfadvanced';
     $this->name             = 'fix-wrong-categorized-community';
     $this->briefDescription = 'Fixes wrong categorized communities by upgrading from OpenPNE 2';
     $this->detailedDescription = <<<EOF
-The [openpne:fix-wrong-categorized-community|INFO] task fixes wrong categorized communities by upgrading from OpenPNE 2.
+The [sfadvanced:fix-wrong-categorized-community|INFO] task fixes wrong categorized communities by upgrading from OpenPNE 2.
 Call it with:
 
-  [./symfony openpne:fix-wrong-categorized-community|INFO]
+  [./symfony sfadvanced:fix-wrong-categorized-community|INFO]
 EOF;
   }
 

@@ -2,7 +2,7 @@
 
 /**
  * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.openpne.jp/)
+ * (c) OpenPNE Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -44,7 +44,7 @@ class MemberConfigTable extends opAccessControlDoctrineTable
       $memberConfig->delete();
     }
 
-    $memberConfigSettings = sfConfig::get('openpne_member_config');
+    $memberConfigSettings = sfConfig::get('sfadvanced_member_config');
     if ($memberConfigSettings[$name]['IsUnique']) {
       $memberConfigs = $this->retrievesByName($name.'_pre');
       foreach ($memberConfigs as $config) {

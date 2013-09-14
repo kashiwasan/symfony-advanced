@@ -2,7 +2,7 @@
 
 /**
  * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.openpne.jp/)
+ * (c) OpenPNE Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -19,8 +19,8 @@ class SnsConfigForm extends BaseForm
 {
   public function configure()
   {
-    $snsConfig = sfConfig::get('openpne_sns_config');
-    $category = sfConfig::get('openpne_sns_category');
+    $snsConfig = sfConfig::get('sfadvanced_sns_config');
+    $category = sfConfig::get('sfadvanced_sns_category');
     if (empty($category[$this->getOption('category')]))
     {
       return false;
@@ -55,7 +55,7 @@ class SnsConfigForm extends BaseForm
 
   public function save()
   {
-    $config = sfConfig::get('openpne_sns_config');
+    $config = sfConfig::get('sfadvanced_sns_config');
     foreach ($this->getValues() as $key => $value)
     {
       $snsConfig = Doctrine::getTable('SnsConfig')->retrieveByName($key);

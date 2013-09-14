@@ -16,8 +16,8 @@ $(function(){
     $('#addFriendLink').hide();
     $.ajax({
       type: 'GET',
-      url: openpne.apiBase + 'member/friend_request.json',
-      data: 'member_id=<?php echo $member->getId() ?>&apiKey=' + openpne.apiKey,
+      url: sfadvanced.apiBase + 'member/friend_request.json',
+      data: 'member_id=<?php echo $member->getId() ?>&apiKey=' + sfadvanced.apiKey,
       success: function(json){
         $('#addFriendLinkFinish').show();
         $('#addFriendLinkLoading').hide();

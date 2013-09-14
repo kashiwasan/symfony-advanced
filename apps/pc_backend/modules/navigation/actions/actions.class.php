@@ -1,8 +1,8 @@
 <?php
 
 /**
- * this file is part of the openpne package.
- * (c) openpne project (http://www.openpne.jp/)
+ * this file is part of the sfadvanced package.
+ * (c) sfadvanced project (http://www.sfadvanced.jp/)
  *
  * for the full copyright and license information, please view the license
  * file and the notice file that were distributed with this source code.
@@ -11,7 +11,7 @@
 /**
  * navigation actions.
  *
- * @package    openpne
+ * @package    sfadvanced
  * @subpackage navigation
  * @author     kousuke ebihara <ebihara@tejimaya.com>
  * @author     Shogo Kawahara <kawahara@tejimaya.net>

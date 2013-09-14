@@ -3,7 +3,7 @@
 <?php end_slot() ?>
 
 <?php
-$categoryAttributes = sfConfig::get('openpne_sns_category_attribute'); 
+$categoryAttributes = sfConfig::get('sfadvanced_sns_category_attribute'); 
 $caption = !empty($categoryAttributes[$category]['Caption']) ? $categoryAttributes[$category]['Caption'] : $category;
 ?>
 

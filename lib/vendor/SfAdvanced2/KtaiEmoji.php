@@ -2865,7 +2865,7 @@ class OpenPNE_KtaiEmoji
                 break;
             default:
                 // PC向けau/SoftBank→DoCoMo絵文字変換
-                if ((!defined('OPENPNE_EMOJI_DOCOMO_FOR_PC') || OPENPNE_EMOJI_DOCOMO_FOR_PC) && $o_carrier !== 'i') {
+                if ((!defined('SFADVANCED_EMOJI_DOCOMO_FOR_PC') || SFADVANCED_EMOJI_DOCOMO_FOR_PC) && $o_carrier !== 'i') {
                     return self::convertEmoji($this->relation_list[$o_carrier]['i'][$o_id]);
                 }
 

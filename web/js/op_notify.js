@@ -1,6 +1,6 @@
 $(document).ready(function(){
   var is_read_flag = false;
-  $.getJSON( openpne.apiBase + 'push/count.json?apiKey=' + openpne.apiKey, function(json){
+  $.getJSON( sfadvanced.apiBase + 'push/count.json?apiKey=' + sfadvanced.apiKey, function(json){
     if(json.status=='success')
     {
       $pushHtml = $("#notificationCenterCountTemplate").tmpl(json.data);
@@ -14,7 +14,7 @@ $(document).ready(function(){
       $('#notificationCenterDetail').show();
       if (is_read_flag == false)
       {
-        $.getJSON( openpne.apiBase + 'push/search.json?apiKey=' + openpne.apiKey, function(json){
+        $.getJSON( sfadvanced.apiBase + 'push/search.json?apiKey=' + sfadvanced.apiKey, function(json){
           if(json.status=='success')
           {
             if(json.data[0])

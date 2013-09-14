@@ -35,7 +35,7 @@ SfAdvanced のソースコードを入手する
 
 以下の URL に記載されている情報に従って、 OpenPNE 3 のソースコードをダウンロードしてください。
 
-http://www.openpne.jp/pne-downloads/
+http://www.sfadvanced.jp/pne-downloads/
 
 ファイルの設置
 --------------
@@ -85,13 +85,13 @@ http://www.openpne.jp/pne-downloads/
 
 ::
 
-  $ ./symfony openpne:install
+  $ ./symfony sfadvanced:install
 
 このコマンドはデータベースを削除し、作り直します。他のシステムとデータベースを共有する場合などで、データベース自体の削除がおこなわれては都合が悪い場合、以下のオプションを付けてコマンドを実行してください。
 
 ::
 
-  $ ./symfony openpne:install --non-recreate-db
+  $ ./symfony sfadvanced:install --non-recreate-db
 
 --non-recrete-db オプションを付けて実行する場合、 OpenPNE はこれから作成しようとしているテーブル名と同名のテーブルを外部キーなどを考慮して適切な順序で削除しようとします。他システムのテーブルが予期せず削除されてしまったり、 OpenPNE の想定の外で外部キー制約などによりテーブルの削除に失敗したりといった危険を避けるため、 OpenPNE.yml の設定で OpenPNE が使用するテーブルにプレフィックスを付けておくことを強く推奨します。
 
@@ -101,7 +101,7 @@ http://www.openpne.jp/pne-downloads/
 
   table_prefix: "op_"
 
-openpne:install コマンドを実行すると、はじめに、以下の事項の入力を求められます。
+sfadvanced:install コマンドを実行すると、はじめに、以下の事項の入力を求められます。
 
 *  使用する DBMS （mysql, pgsql, sqlite から選択。ただし mysql 以外は未サポート）
 *  データベース名
@@ -170,11 +170,11 @@ cron ファイルに設定権限を付加します。
 /etc/postfix/virtual を以下のように設定します::
 
   example.com anything
-  @example.com openpne_user
+  @example.com sfadvanced_user
 
 /etc/aliases を以下のように設定します::
 
-  openpne_user: "| php /path/to/openpne/symfony openpne:execute-mail-action"
+  sfadvanced_user: "| php /path/to/sfadvanced/symfony sfadvanced:execute-mail-action"
 
 ブラウザからアクセス(PC)
 ------------------------

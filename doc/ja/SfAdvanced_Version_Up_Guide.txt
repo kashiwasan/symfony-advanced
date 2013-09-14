@@ -84,7 +84,7 @@ MacOSX や FreeBSD など、 cp コマンドに -u オプションがなく -n �
 
 ::
 
-  $ ./symfony openpne:migrate
+  $ ./symfony sfadvanced:migrate
   $ ./symfony plugin:publish-assets
 
 このコマンドは OpenPNE 本体、プラグインの両方を最新の状態にバージョンアップします。
@@ -95,11 +95,11 @@ OpenPNE 3.2.7.2、3.4.9、3.6beta6 以前からのバージョンアップの場
 
 【緊急リリース】OpenPNE 3 に存在するセッション管理の不備に関する複数の脆弱性のお知らせ
 
-http://www.openpne.jp/archives/5689/
+http://www.sfadvanced.jp/archives/5689/
 
 ::
 
-  $ ./symfony openpne:fix-session-db
+  $ ./symfony sfadvanced:fix-session-db
 
 以上でバージョンアップは完了です。
 

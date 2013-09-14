@@ -2,20 +2,20 @@
 
 /**
  * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.openpne.jp/)
+ * (c) OpenPNE Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
  */
 
 /**
- * openpneFixSessionDbTask
+ * sfadvancedFixSessionDbTask
  *
  * @package    OpenPNE
  * @subpackage task
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-class openpneFixSessionDbTask extends sfDoctrineBaseTask
+class sfadvancedFixSessionDbTask extends sfDoctrineBaseTask
 {
   protected function configure()
   {
@@ -24,14 +24,14 @@ class openpneFixSessionDbTask extends sfDoctrineBaseTask
       new sfCommandOption('env', null, sfCommandOption::PARAMETER_REQUIRED, 'The environment', 'dev'),
     ));
 
-    $this->namespace        = 'openpne';
+    $this->namespace        = 'sfadvanced';
     $this->name             = 'fix-session-db';
     $this->briefDescription = 'Fix serious bug in managing session with your database';
     $this->detailedDescription = <<<EOF
-The [openpne:fix-session-db|INFO] task fixes serious bug in managing session with your database.
+The [sfadvanced:fix-session-db|INFO] task fixes serious bug in managing session with your database.
 Call it with:
 
-  [./symfony openpne:fix-session-db|INFO]
+  [./symfony sfadvanced:fix-session-db|INFO]
 EOF;
   }
 

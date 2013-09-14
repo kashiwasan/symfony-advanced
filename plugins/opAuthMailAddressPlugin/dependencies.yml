@@ -17,6 +17,6 @@ php:
 
 # Package dependency (パッケージの依存性)
 package:
-  openpne: # The dependency with OpenPNE. (OpenPNE との依存性)
-    channel: plugins.openpne.jp
+  sfadvanced: # The dependency with OpenPNE. (OpenPNE との依存性)
+    channel: plugins.sfadvanced.jp
     min: "3.5.2dev"

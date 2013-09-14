@@ -2,20 +2,20 @@
 
 /**
  * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.openpne.jp/)
+ * (c) OpenPNE Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
  */
 
 /**
- * openpneVersionTask
+ * sfadvancedVersionTask
  *
  * @package    OpenPNE
  * @subpackage task
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class openpneVersionTask extends sfBaseTask
+class sfadvancedVersionTask extends sfBaseTask
 {
   protected function configure()
   {
@@ -24,14 +24,14 @@ class openpneVersionTask extends sfBaseTask
       new sfCommandOption('env', null, sfCommandOption::PARAMETER_REQUIRED, 'The environment', 'dev'),
     ));
 
-    $this->namespace        = 'openpne';
+    $this->namespace        = 'sfadvanced';
     $this->name             = 'version';
     $this->briefDescription = 'Show version information of OpenPNE and all installed plugins';
     $this->detailedDescription = <<<EOF
-The [openpne:version|INFO] task shows version information of OpenPNE and all installed plugins.
+The [sfadvanced:version|INFO] task shows version information of OpenPNE and all installed plugins.
 Call it with:
 
-  [./symfony openpne:version|INFO]
+  [./symfony sfadvanced:version|INFO]
 EOF;
   }
 
@@ -39,7 +39,7 @@ EOF;
   {
     $this->log($this->formatter->format('Core versions:', 'COMMENT'));
 
-    $this->displayLine('OpenPNE', OPENPNE_VERSION);
+    $this->displayLine('OpenPNE', SFADVANCED_VERSION);
     $this->displayLine('symfony', SYMFONY_VERSION);
 
     $this->log($this->formatter->format('OpenPNE plugin versions:', 'COMMENT'));

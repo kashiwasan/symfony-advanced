@@ -42,11 +42,11 @@ OpenPNE 3 の設置
 
 ZIP アーカイブを入手する場合、以下の URL にアクセスし、 OpenPNE 3.6.x の最新バージョンのパッケージをダウンロードしてください。
 
-http://github.com/openpne/SfAdvanced/downloads
+http://github.com/sfadvanced/SfAdvanced/downloads
 
 Git リポジトリを利用する場合、以下のコマンドを実行してください (バージョン番号は適切なものに変更してください)::
 
-  $ git clone git://github.com/openpne/SfAdvanced.git
+  $ git clone git://github.com/sfadvanced/SfAdvanced.git
   $ git checkout OpenPNE-3.6.x
 
 その後、 SfAdvanced のソースコード内にある web ディレクトリが、ウェブサーバの公開領域となるように設置してください (セットアップガイドも参照してください)。
@@ -78,18 +78,18 @@ OpenPNE2 の config.php を config/config.OpenPNE2.php としてコピーしま�
 
 各ディレクトリのパーミッションを適切なものに設定します::
 
-  $ ./symfony openpne:permission
+  $ ./symfony sfadvanced:permission
 
 アップグレードコマンドの実行
 ----------------------------
 
 2.12 からのアップグレードをおこなう場合、以下のコマンドを実行してください::
 
-  $ ./symfony openpne:upgrade-from-2 --origin=2.12
+  $ ./symfony sfadvanced:upgrade-from-2 --origin=2.12
 
 2.14 からのアップグレードをおこなう場合、以下のコマンドを実行してください::
 
-  $ ./symfony openpne:upgrade-from-2 --origin=2.14
+  $ ./symfony sfadvanced:upgrade-from-2 --origin=2.14
 
 コマンドを実行すると、アップグレードが開始され、アップグレードの過程が出力されていきます。
 
@@ -97,11 +97,11 @@ OpenPNE2 の config.php を config/config.OpenPNE2.php としてコピーしま�
 
 エラーの原因となるデータを修復するなどして、アップグレードが正常におこなえるようになった場合、以下のように --rules オプションを指定してコマンドを実行することで失敗した手順のみを再度実行することができます::
 
-  $ ./symfony openpne:upgrade-from-2 --origin=2.14 --rules=diary
+  $ ./symfony sfadvanced:upgrade-from-2 --origin=2.14 --rules=diary
 
 この --rules オプションは以下のように複数指定することができます::
 
-  $ ./symfony openpne:upgrade-from-2 --rules=diary --rules=skin_config
+  $ ./symfony sfadvanced:upgrade-from-2 --rules=diary --rules=skin_config
 
 注意事項
 ========

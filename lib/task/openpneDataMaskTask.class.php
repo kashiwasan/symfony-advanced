@@ -2,17 +2,17 @@
 
 /**
  * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.openpne.jp/)
+ * (c) OpenPNE Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class openpneDataMaskTask extends sfDoctrineBaseTask
+class sfadvancedDataMaskTask extends sfDoctrineBaseTask
 {
   protected function configure()
   {
-    $this->namespace        = 'openpne';
+    $this->namespace        = 'sfadvanced';
     $this->name             = 'data-mask';
 
     $this->addOptions(array(
@@ -28,7 +28,7 @@ class openpneDataMaskTask extends sfDoctrineBaseTask
 
     $this->briefDescription = 'mask data';
     $this->detailedDescription = <<<EOF
-The [openpne:data-mask|INFO] task masks data.
+The [sfadvanced:data-mask|INFO] task masks data.
 EOF;
   }
 

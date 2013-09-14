@@ -84,8 +84,8 @@ $(function(){
     $('#leaveCommunityLink').hide();
     $.ajax({
       type: 'GET',
-      url: openpne.apiBase + 'community/join.json',
-      data: 'community_id=<?php echo $community->getId() ?>&leave=true&apiKey=' + openpne.apiKey,
+      url: sfadvanced.apiBase + 'community/join.json',
+      data: 'community_id=<?php echo $community->getId() ?>&leave=true&apiKey=' + sfadvanced.apiKey,
       success: function(json){
         $('#leaveCommunityFinish').show();
         $('#leaveCommunityLoading').hide();
@@ -102,8 +102,8 @@ $(function(){
     $('#joinCommunityLink').hide();
     $.ajax({
       type: 'GET',
-      url: openpne.apiBase + 'community/join.json',
-      data: 'community_id=<?php echo $community->getId() ?>&apiKey=' + openpne.apiKey,
+      url: sfadvanced.apiBase + 'community/join.json',
+      data: 'community_id=<?php echo $community->getId() ?>&apiKey=' + sfadvanced.apiKey,
       success: function(json){
         $('#joinCommunityFinish').show();
         $('#joinCommunityLoading').hide();

@@ -88,9 +88,9 @@ $t->is(op_auto_link_text('http://example.com/?foo=1&bar=0'), '<a href="http://ex
 $t->is(op_auto_link_text('https://sub.example.com:8080/hoge?foo=1&bar=0#foo'), '<a href="https://sub.example.com:8080/hoge?foo=1&bar=0#foo" target="_blank">https://sub.example.com:8080/hoge?foo=1&bar=0#foo</a>');
 $t->is(op_auto_link_text('http://example.com'), '<a href="http://example.com" target="_blank">http://example.com</a>');
 $t->is(op_auto_link_text('www.example.com'), '<a href="http://www.example.com" target="_blank">www.example.com</a>');
-// see https://trac.openpne.jp/ticket/3553
+// see https://trac.sfadvanced.jp/ticket/3553
 $t->is(op_auto_link_text('http://example.com/#comment:1'), '<a href="http://example.com/#comment:1" target="_blank">http://example.com/#comment:1</a>');
-// see https://redmine.openpne.jp/issues/3289
+// see https://redmine.sfadvanced.jp/issues/3289
 $t->is(op_auto_link_text('http://example.com/テキスト'), '<a href="http://example.com/" target="_blank">http://example.com/</a>テキスト');
 $t->is(op_auto_link_text('http://example.com/hogeテキスト'), '<a href="http://example.com/hoge" target="_blank">http://example.com/hoge</a>テキスト');
 $t->is(op_auto_link_text('http://example.comテキスト'), '<a href="http://example.com" target="_blank">http://example.com</a>テキスト');

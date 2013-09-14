@@ -6,7 +6,7 @@
 </script>
 <script type="text/javascript">
 $(function(){
-  $.getJSON( openpne.apiBase + 'member/search.json?apiKey=' + openpne.apiKey + '&target=friend&target_id=<?php echo $member->getId()?>', function(json) {
+  $.getJSON( sfadvanced.apiBase + 'member/search.json?apiKey=' + sfadvanced.apiKey + '&target=friend&target_id=<?php echo $member->getId()?>', function(json) {
     $('#friendListTemplate').tmpl(json.data).appendTo('#memberFriendList');
   });
 });

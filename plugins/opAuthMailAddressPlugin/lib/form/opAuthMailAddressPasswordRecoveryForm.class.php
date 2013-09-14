@@ -2,7 +2,7 @@
 
 /**
  * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.openpne.jp/)
+ * (c) OpenPNE Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -21,7 +21,7 @@ class opAuthMailAddressPasswordRecoveryForm extends BaseForm
 
   public function configure()
   {
-    $config = sfConfig::get('openpne_member_config');
+    $config = sfConfig::get('sfadvanced_member_config');
     $choices = $config['secret_question']['Choices'];
 
     $this->setWidgets(array(

@@ -47,8 +47,8 @@ is_restrict_mail_template: true
 # キー設定 (Keys)
 ######################################
 
-# A secret for generating CSRF token (You should change this if you want to run OpenPNEs on multiple servers)
-# CSRF トークンを生成するためのシークレット (複数 Web サーバで OpenPNE を動作させる場合、この設定を変更する必要があります)
+# A secret for generating CSRF token (You should change this if you want to run SfAdvanceds on multiple servers)
+# CSRF トークンを生成するためのシークレット (複数 Web サーバで SfAdvanced を動作させる場合、この設定を変更する必要があります)
 #csrf_secret: ""
 
 # A secret for generating sid token
@@ -144,7 +144,7 @@ ssl_selectable_actions:
 
   # 携帯版設定
   # for mobile_frontend
-  #   * OpenPNE は SSL 通信で得られた携帯電話個体識別番号は信頼しないため、携帯電話個体識別番号を扱うアクション群がデフォルト設定となっています
+  #   * SfAdvanced は SSL 通信で得られた携帯電話個体識別番号は信頼しないため、携帯電話個体識別番号を扱うアクション群がデフォルト設定となっています
   #   * ここで指定された、携帯電話個体識別番号を扱うアクションでは、携帯電話個体識別番号を扱う場合のみ HTTP を選択し、それ以外の場合は HTTPS を使わせるようにしています
   mobile_frontend: ["member/register", "member/registerInput", "member/registerEnd", "member/login", "member/configUID", "member/registerMobileToRegisterEnd"]
 
@@ -169,9 +169,9 @@ imagemagick_path: '/usr/bin/convert'
 
 # 画像生成クラス設定 (Configuration of class for image-generating)
 #   この設定を有効にすると、 use_imagemagick の設定を無視して任意のクラスで画像を生成します。
-#   (If this configuration is enabled, OpenPNE generates image by using the specified class avoid "use_imagemagick")
+#   (If this configuration is enabled, SfAdvanced generates image by using the specified class avoid "use_imagemagick")
 #   使用されるクラス名は、 sfImageGenerator[image_generator_name] となります
-#   (OpenPNE use a class that is named as "sfImageGenerator[image_generator_name]")
+#   (SfAdvanced use a class that is named as "sfImageGenerator[image_generator_name]")
 #image_generator_name: "GD"
 
 # 画像ストレージ設定 (Configuration of using storage for storing image) [experimental; unsupported yet (実験的な機能・未サポート)]
@@ -186,12 +186,12 @@ image_storage: Default  # DB に画像バイナリを保存します (Store imag
 # データベース (Database)
 ######################################
 
-# テーブル名のプレフィックス (例: table_prefix: "op_")
-# Table name prefix (e.g: table_prefix: "op_")
+# テーブル名のプレフィックス (例: table_prefix: op_")
+# Table name prefix (e.g: table_prefix: op_")
 table_prefix: ""
 
-# Query Cache および Result Cacheのキープレフィックス (例: doctrine_cache_key_prefix: "op_")
-# Key prefix of Query Cache & Result Cache (e.g: doctrine_cache_key_prefix: "op_")
+# Query Cache および Result Cacheのキープレフィックス (例: doctrine_cache_key_prefix: op_")
+# Key prefix of Query Cache & Result Cache (e.g: doctrine_cache_key_prefix: op_")
 doctrine_cache_key_prefix: ""
 
 ######################################

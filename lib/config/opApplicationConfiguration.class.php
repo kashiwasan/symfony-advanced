@@ -2,7 +2,7 @@
 
 /**
  * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.openpne.jp/)
+ * (c) OpenPNE Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -482,13 +482,13 @@ abstract class opApplicationConfiguration extends sfApplicationConfiguration
 
   protected function setConfigHandlers()
   {
-    $this->getConfigCache()->registerConfigHandler('config/sns_config.yml', 'opConfigConfigHandler', array('prefix' => 'openpne_sns_'));
+    $this->getConfigCache()->registerConfigHandler('config/sns_config.yml', 'opConfigConfigHandler', array('prefix' => 'sfadvanced_sns_'));
     include($this->getConfigCache()->checkConfig('config/sns_config.yml'));
 
-    $this->getConfigCache()->registerConfigHandler('config/member_config.yml', 'opConfigConfigHandler', array('prefix' => 'openpne_member_'));
+    $this->getConfigCache()->registerConfigHandler('config/member_config.yml', 'opConfigConfigHandler', array('prefix' => 'sfadvanced_member_'));
     include($this->getConfigCache()->checkConfig('config/member_config.yml'));
 
-    $this->getConfigCache()->registerConfigHandler('config/community_config.yml', 'opConfigConfigHandler', array('prefix' => 'openpne_community_'));
+    $this->getConfigCache()->registerConfigHandler('config/community_config.yml', 'opConfigConfigHandler', array('prefix' => 'sfadvanced_community_'));
     include($this->getConfigCache()->checkConfig('config/community_config.yml'));
   }
 

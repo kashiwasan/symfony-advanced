@@ -2,7 +2,7 @@
 
 /**
  * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.openpne.jp/)
+ * (c) OpenPNE Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -468,9 +468,9 @@ abstract class opMemberAction extends sfActions
 
   protected function filterConfigCategory()
   {
-    $categories = sfConfig::get('openpne_member_category');
+    $categories = sfConfig::get('sfadvanced_member_category');
     $categoryCaptions = array();
-    $categoryAttributes = sfConfig::get('openpne_member_category_attribute');
+    $categoryAttributes = sfConfig::get('sfadvanced_member_category_attribute');
 
     $ignoredSnsConfig = Doctrine::getTable('SnsConfig')->get('ignored_sns_config', array());
     if ($ignoredSnsConfig)

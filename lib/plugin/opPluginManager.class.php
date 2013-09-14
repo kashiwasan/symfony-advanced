@@ -2,7 +2,7 @@
 
 /**
  * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.openpne.jp/)
+ * (c) OpenPNE Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -20,8 +20,8 @@ error_reporting(error_reporting() & ~(E_STRICT | E_DEPRECATED));
  */
 class opPluginManager extends sfSymfonyPluginManager
 {
-  const OPENPNE_PLUGIN_CHANNEL = 'plugins.openpne.jp';
-  const OPENPNE_PLUGIN_LIST_BASE_URL = 'http://plugins.openpne.jp/packages/';
+  const SFADVANCED_PLUGIN_CHANNEL = 'plugins.sfadvanced.jp';
+  const SFADVANCED_PLUGIN_LIST_BASE_URL = 'http://plugins.sfadvanced.jp/packages/';
 
   protected $channel = null;
 
@@ -197,43 +197,43 @@ class opPluginManager extends sfSymfonyPluginManager
 
   static public function getDefaultPluginChannelServerName()
   {
-    return sfConfig::get('op_default_plugin_channel_server', self::OPENPNE_PLUGIN_CHANNEL);
+    return sfConfig::get('op_default_plugin_channel_server', self::SFADVANCED_PLUGIN_CHANNEL);
   }
 
   static public function getPluginListBaseUrl()
   {
-    return sfConfig::get('op_plugin_list_base_url', self::OPENPNE_PLUGIN_LIST_BASE_URL);
+    return sfConfig::get('op_plugin_list_base_url', self::SFADVANCED_PLUGIN_LIST_BASE_URL);
   }
 
   protected function registerOpenPNEPackage()
   {
-    $openpne = new PEAR_PackageFile_v2_rw();
-    $openpne->setPackage('openpne');
-    $openpne->setChannel('plugins.openpne.jp');
-    $openpne->setConfig($this->environment->getConfig());
-    $openpne->setPackageType('php');
-    $openpne->setAPIVersion(preg_replace('/\d+(\-\w+)?$/', '0', OPENPNE_VERSION));
-    $openpne->setAPIStability(false === strpos(OPENPNE_VERSION, 'dev') ? 'stable' : 'beta');
-    $openpne->setReleaseVersion(str_replace('-', '', OPENPNE_VERSION));
-    $openpne->setReleaseStability(false === strpos(OPENPNE_VERSION, 'dev') ? 'stable' : 'beta');
-    $openpne->setDate(date('Y-m-d'));
-    $openpne->setDescription('openpne');
-    $openpne->setSummary('openpne');
-    $openpne->setLicense('Apache License');
-    $openpne->clearContents();
-    $openpne->resetFilelist();
-    $openpne->addMaintainer('lead', 'ebihara', 'Kousuke Ebihara', 'ebihara@php.net');
-    $openpne->setNotes('-');
-    $openpne->setPearinstallerDep('1.4.3');
-    $openpne->setPhpDep('5.2.3');
+    $sfadvanced = new PEAR_PackageFile_v2_rw();
+    $sfadvanced->setPackage('sfadvanced');
+    $sfadvanced->setChannel('plugins.sfadvanced.jp');
+    $sfadvanced->setConfig($this->environment->getConfig());
+    $sfadvanced->setPackageType('php');
+    $sfadvanced->setAPIVersion(preg_replace('/\d+(\-\w+)?$/', '0', SFADVANCED_VERSION));
+    $sfadvanced->setAPIStability(false === strpos(SFADVANCED_VERSION, 'dev') ? 'stable' : 'beta');
+    $sfadvanced->setReleaseVersion(str_replace('-', '', SFADVANCED_VERSION));
+    $sfadvanced->setReleaseStability(false === strpos(SFADVANCED_VERSION, 'dev') ? 'stable' : 'beta');
+    $sfadvanced->setDate(date('Y-m-d'));
+    $sfadvanced->setDescription('sfadvanced');
+    $sfadvanced->setSummary('sfadvanced');
+    $sfadvanced->setLicense('Apache License');
+    $sfadvanced->clearContents();
+    $sfadvanced->resetFilelist();
+    $sfadvanced->addMaintainer('lead', 'ebihara', 'Kousuke Ebihara', 'ebihara@php.net');
+    $sfadvanced->setNotes('-');
+    $sfadvanced->setPearinstallerDep('1.4.3');
+    $sfadvanced->setPhpDep('5.2.3');
 
     // This is a stupid hack. This makes a validator skip validation because that validator
     // doesn't support 3.X.X-betaX-dev formatted version number. Validation of dummy OpenPNE
     // package doesn't make a sense...
-    $openpne->_isValid = PEAR_VALIDATE_NORMAL;
+    $sfadvanced->_isValid = PEAR_VALIDATE_NORMAL;
 
-    $this->environment->getRegistry()->deletePackage('openpne', 'plugins.openpne.jp');
-    if (!$this->environment->getRegistry()->addPackage2($openpne))
+    $this->environment->getRegistry()->deletePackage('sfadvanced', 'plugins.sfadvanced.jp');
+    if (!$this->environment->getRegistry()->addPackage2($sfadvanced))
     {
       throw new sfPluginException('Unable to register the OpenPNE package');
     }

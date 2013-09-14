@@ -7,7 +7,7 @@
 </script>
 <script type="text/javascript">
 $(function(){
-  $.getJSON( openpne.apiBase + 'member/search.json?target=community&target_id=<?php echo $community->getId() ?>&apiKey=' + openpne.apiKey, function(json) {
+  $.getJSON( sfadvanced.apiBase + 'member/search.json?target=community&target_id=<?php echo $community->getId() ?>&apiKey=' + sfadvanced.apiKey, function(json) {
     $('#communityMemberJoinListTemplate').tmpl(json.data).appendTo('#communityMemberJoinList');
     $('#communityMemberJoinList').show();
     $('#communityMemberJoinListLoading').hide();
@@ -19,8 +19,8 @@ $(function(){
   });
   $('#communityMemberJoinListSearch').blur(function(){
     var keyword = $('#communityMemberJoinListSearch').val();
-    var requestData = { target: 'community', target_id: <?php echo $community->getId(); ?>, keyword: keyword, apiKey: openpne.apiKey };
-    $.getJSON( openpne.apiBase + 'member/search.json', requestData, function(json) {
+    var requestData = { target: 'community', target_id: <?php echo $community->getId(); ?>, keyword: keyword, apiKey: sfadvanced.apiKey };
+    $.getJSON( sfadvanced.apiBase + 'member/search.json', requestData, function(json) {
       $result = $('#communityMemberJoinListTemplate').tmpl(json.data);
       $('#communityMemberJoinList').html($result);
       $('#communityMemberJoinList').show();

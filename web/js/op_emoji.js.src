@@ -1,6 +1,6 @@
 (function($) {
 
-$.widget("openpne.opEmoji", {
+$.widget("sfadvanced.opEmoji", {
   options: {
     useAu: false,
     useSb: false

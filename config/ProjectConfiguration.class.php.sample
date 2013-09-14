@@ -5,7 +5,7 @@ sfCoreAutoload::register();
 
 require_once dirname(__FILE__).'/../lib/config/opProjectConfiguration.class.php';
 
-define('OPENPNE3_CONFIG_DIR', dirname(__FILE__));
+define('SFADVANCED3_CONFIG_DIR', dirname(__FILE__));
 
 class ProjectConfiguration extends opProjectConfiguration
 {

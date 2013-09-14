@@ -29,7 +29,7 @@ opPlugin:install によるインストール
 Doctrine を利用している場合のみ
 
 ::
-  $ ./symfony openpne:migrate --target=opExamplePlugin --no-update-plugin
+  $ ./symfony sfadvanced:migrate --target=opExamplePlugin --no-update-plugin
 
 手動インストール
 ----------------
@@ -55,7 +55,7 @@ Doctrine を利用している場合のみ
 Doctrine を利用している場合のみ
 
 ::
-  $ ./symfony openpne:migrate --target=opExamplePlugin --no-update-plugin
+  $ ./symfony sfadvanced:migrate --target=opExamplePlugin --no-update-plugin
 
 アンインストール
 ================
@@ -63,7 +63,7 @@ Doctrine を利用している場合のみ
 opPlugin:uninstall によるアンインストール
 -----------------------------------------
 
-openpne:install コマンドで自動的にインストールされたプラグインや opPlugin:install コマンドでインストールされたプラグインは、opPlugin:uninstall コマンドを利用してアンインストールすることができます。
+sfadvanced:install コマンドで自動的にインストールされたプラグインや opPlugin:install コマンドでインストールされたプラグインは、opPlugin:uninstall コマンドを利用してアンインストールすることができます。
 
 アンインストールコマンドの実行
 ++++++++++++++++++++++++++++++

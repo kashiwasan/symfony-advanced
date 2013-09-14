@@ -7,7 +7,7 @@
 </script>
 <script type="text/javascript">
 $(function(){
-  $.getJSON( openpne.apiBase + 'member/search.json?apiKey=' + openpne.apiKey, function(json) {
+  $.getJSON( sfadvanced.apiBase + 'member/search.json?apiKey=' + sfadvanced.apiKey, function(json) {
     $result = $('#friendListTemplate').tmpl(json.data);
     $('#memberFriendList').html($result);
     $('#memberFriendList').show();
@@ -20,8 +20,8 @@ $(function(){
   });
   $('#memberFriendSearch').blur(function(){
     var keyword = $('#memberFriendSearch').val();
-    var requestData = { keyword: keyword, apiKey: openpne.apiKey };
-    $.getJSON( openpne.apiBase + 'member/search.json', requestData, function(json) {
+    var requestData = { keyword: keyword, apiKey: sfadvanced.apiKey };
+    $.getJSON( sfadvanced.apiBase + 'member/search.json', requestData, function(json) {
       $result = $('#friendListTemplate').tmpl(json.data);
       $('#memberFriendList').html($result);
       $('#memberFriendList').show();

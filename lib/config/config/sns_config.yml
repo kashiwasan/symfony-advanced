@@ -314,14 +314,14 @@ footer:
     FormType:   "textarea"
     ValueType:  "string"
     IsRequired: false
-    Default:    "Powered by <a href=\"http://www.openpne.jp/\" target=\"_blank\">OpenPNE</a>"
+    Default:    "Powered by <a href=\"http://www.sfadvanced.jp/\" target=\"_blank\">OpenPNE</a>"
   footer_after:
     Name:       "footer_after"
     Caption:    "ログイン後フッター"
     FormType:   "textarea"
     ValueType:  "string"
     IsRequired: false
-    Default:    "Powered by <a href=\"http://www.openpne.jp/\" target=\"_blank\">OpenPNE</a>"
+    Default:    "Powered by <a href=\"http://www.sfadvanced.jp/\" target=\"_blank\">OpenPNE</a>"
 
 permit_member_config:
 

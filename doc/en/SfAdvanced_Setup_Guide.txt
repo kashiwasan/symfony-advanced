@@ -35,7 +35,7 @@ Downloading OpenPNE 3
 
 Download a package of OpenPNE 3 from the following URL.
 
-http://www.openpne.jp/pne-downloads/
+http://www.sfadvanced.jp/pne-downloads/
 
 Setting Files
 -------------
@@ -86,14 +86,14 @@ Execute the following command to begin installing process.
 
 ::
 
-  $ ./symfony openpne:install
+  $ ./symfony sfadvanced:install
   
 This command deletes the database and rebuild it. 
 If you don't want to delete your specified database -- for example, OpenPNE will share the database with other systems, execute that command with the following option.
 
 ::
 
-  $ ./symfony openpne:install --non-recreate-db
+  $ ./symfony sfadvanced:install --non-recreate-db
   
 This option attempts to remove the old tables in proper order by considering the new one.
 It is strongly recommended to set prefixes with the tables used by OpenPNE in "OpenPNE.yml" for avoiding deleting tables of other system unexpectedly or failing deleting tables.
@@ -104,7 +104,7 @@ NOTE: Take care with their prefixes that avoid conflicting table names shared wi
 
   table_prefix: "op_"
   
-After Running "openpne:install", you will be required inputting the following:
+After Running "sfadvanced:install", you will be required inputting the following:
 
 * The DBMS (mysql, pgsql or sqlite, but we are now only support mysql)
 * The Database Name
@@ -174,11 +174,11 @@ Setting example (when Postfix is used)
 In /etc/postfix/virtual, set::
 
   example.com anything
-  @example.com openpne_user
+  @example.com sfadvanced_user
 
 In /etc/aliases, set::
 
-  openpne_user: "| php /path/to/openpne/symfony openpne:execute-mail-action"
+  sfadvanced_user: "| php /path/to/sfadvanced/symfony sfadvanced:execute-mail-action"
 
 Access from Web Browser (PC)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~

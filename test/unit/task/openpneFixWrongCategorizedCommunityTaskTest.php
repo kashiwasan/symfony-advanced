@@ -20,7 +20,7 @@ class opInteractiveTaskTestHandlerFixCommunityCategories extends opInteractiveTa
 
   public function beginTask()
   {
-    $this->execute('openpne:fix-wrong-categorized-community --env=test')
+    $this->execute('sfadvanced:fix-wrong-categorized-community --env=test')
       ->outputUntilLiteral('(タスクの実行を続行しますか？ [Y/n])');
 
     return $this;

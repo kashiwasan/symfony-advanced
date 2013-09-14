@@ -2,31 +2,31 @@
 
 /**
  * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.openpne.jp/)
+ * (c) OpenPNE Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
  */
 
 /**
- * openpneExecuteMailActionTask
+ * sfadvancedExecuteMailActionTask
  *
  * @package    OpenPNE
  * @subpackage task
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class openpneExecuteMailActionTask extends sfBaseTask
+class sfadvancedExecuteMailActionTask extends sfBaseTask
 {
   protected function configure()
   {
-    $this->namespace        = 'openpne';
+    $this->namespace        = 'sfadvanced';
     $this->name             = 'execute-mail-action';
     $this->briefDescription = '';
     $this->detailedDescription = <<<EOF
-The [openpne:execute-mail-action|INFO] task does things.
+The [sfadvanced:execute-mail-action|INFO] task does things.
 Call it with:
 
-  [./symfony openpne:execute-mail-action|INFO]
+  [./symfony sfadvanced:execute-mail-action|INFO]
 EOF;
   }
 

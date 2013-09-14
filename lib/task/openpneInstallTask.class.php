@@ -2,17 +2,17 @@
 
 /**
  * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.openpne.jp/)
+ * (c) OpenPNE Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class openpneInstallTask extends sfDoctrineBaseTask
+class sfadvancedInstallTask extends sfDoctrineBaseTask
 {
   protected function configure()
   {
-    $this->namespace        = 'openpne';
+    $this->namespace        = 'sfadvanced';
     $this->name             = 'install';
 
     $this->addOptions(array(
@@ -25,10 +25,10 @@ class openpneInstallTask extends sfDoctrineBaseTask
 
     $this->briefDescription = 'Install OpenPNE';
     $this->detailedDescription = <<<EOF
-The [openpne:install|INFO] task installs and configures OpenPNE.
+The [sfadvanced:install|INFO] task installs and configures OpenPNE.
 Call it with:
 
-  [./symfony openpne:install|INFO]
+  [./symfony sfadvanced:install|INFO]
 EOF;
   }
 
@@ -387,7 +387,7 @@ EOF;
 
   protected function fixPerms()
   {
-    $permissions = new openpnePermissionTask($this->dispatcher, $this->formatter);
+    $permissions = new sfadvancedPermissionTask($this->dispatcher, $this->formatter);
     $permissions->run();
   }
 
@@ -408,7 +408,7 @@ EOF;
         $value.' is UNSUPPORTED by this version of OpenPNE!',
         '',
         'DO NOT use this DBMS, unless you are expert at this DBMS and you can cope some troubles.',
-        'If you want to give us some feedback about this DBMS, please visit: http://redmine.openpne.jp/',
+        'If you want to give us some feedback about this DBMS, please visit: http://redmine.sfadvanced.jp/',
         '',
         'Do you give up using this DBMS? (Y/n)',
         ), 'ERROR_LARGE', true)

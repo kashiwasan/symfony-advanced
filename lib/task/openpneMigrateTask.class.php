@@ -2,19 +2,19 @@
 
 /**
  * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.openpne.jp/)
+ * (c) OpenPNE Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class openpneMigrateTask extends sfDoctrineBaseTask
+class sfadvancedMigrateTask extends sfDoctrineBaseTask
 {
   protected $migrationException = null;
 
   protected function configure()
   {
-    $this->namespace        = 'openpne';
+    $this->namespace        = 'sfadvanced';
     $this->name             = 'migrate';
 
     require sfConfig::get('sf_data_dir').'/version.php';
@@ -29,12 +29,12 @@ class openpneMigrateTask extends sfDoctrineBaseTask
 
     $this->briefDescription = 'migrate OpenPNE and/or the plugins to newer/older version one';
     $this->detailedDescription = <<<EOF
-The [openpne:migrate|INFO] task lets OpenPNE migrate and/or the plugins newer version.
+The [sfadvanced:migrate|INFO] task lets OpenPNE migrate and/or the plugins newer version.
 
 Call it with:
-  1.  [./symfony openpne:migrate|INFO]
-  2.  [./symfony openpne:migrate --target=opSamplePlugin|INFO]
-  3.  [./symfony openpne:migrate --target=OpenPNE|INFO]
+  1.  [./symfony sfadvanced:migrate|INFO]
+  2.  [./symfony sfadvanced:migrate --target=opSamplePlugin|INFO]
+  3.  [./symfony sfadvanced:migrate --target=OpenPNE|INFO]
 
     1. In the first form, any targets aren't specified.
        This task executes the migration scripts for OpenPNE and all the plugins to newer revision.
@@ -211,7 +211,7 @@ EOF;
 
     $task = new sfCacheClearTask($this->dispatcher, $this->formatter);
     @$task->run();
-    $task = new openpnePermissionTask($this->dispatcher, $this->formatter);
+    $task = new sfadvancedPermissionTask($this->dispatcher, $this->formatter);
     @$task->run();
   }
 
@@ -224,7 +224,7 @@ EOF;
 
     $task = new sfCacheClearTask($this->dispatcher, $this->formatter);
     @$task->run();
-    $task = new openpnePermissionTask($this->dispatcher, $this->formatter);
+    $task = new sfadvancedPermissionTask($this->dispatcher, $this->formatter);
     @$task->run();
 
     $options = array();

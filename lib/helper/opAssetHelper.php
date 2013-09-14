@@ -4,7 +4,7 @@ require_once sfConfig::get('sf_symfony_lib_dir').'/helper/AssetHelper.php';
 
 /**
  * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.openpne.jp/)
+ * (c) OpenPNE Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -16,7 +16,7 @@ require_once sfConfig::get('sf_symfony_lib_dir').'/helper/AssetHelper.php';
  *
  * @package    OpenPNE
  * @subpackage helper
- * @author     Yuya Watanabe <watanabe@openpne.jp>
+ * @author     Yuya Watanabe <watanabe@sfadvanced.jp>
  */
 
 
@@ -24,7 +24,7 @@ require_once sfConfig::get('sf_symfony_lib_dir').'/helper/AssetHelper.php';
  * Returns <script> tags for all javascripts for smartphone pages added to the response object.
  *
  * you can use this helper to decide the location of javascripts in pages.
- * by default, if you don't call this helper, openpne will automatically include javascripts before </head>.
+ * by default, if you don't call this helper, sfadvanced will automatically include javascripts before </head>.
  * calling this helper disables this behavior.
  *
  * @return string <script> tags
@@ -60,7 +60,7 @@ function op_smt_include_javascripts()
  * Returns <link> tags for all stylesheets smartphone pages added to the response object.
  *
  * You can use this helper to decide the location of stylesheets in pages.
- * By default, if you don't call this helper, openpne will automatically include stylesheets before </head>.
+ * By default, if you don't call this helper, sfadvanced will automatically include stylesheets before </head>.
  * Calling this helper disables this behavior.
  *
  * @return string <link> tags

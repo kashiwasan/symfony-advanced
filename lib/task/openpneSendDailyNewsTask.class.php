@@ -2,25 +2,25 @@
 
 /**
  * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.openpne.jp/)
+ * (c) OpenPNE Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class openpneSendDailyNewsTask extends opBaseSendMailTask
+class sfadvancedSendDailyNewsTask extends opBaseSendMailTask
 {
   protected function configure()
   {
     parent::configure();
-    $this->namespace        = 'openpne';
+    $this->namespace        = 'sfadvanced';
     $this->name             = 'send-daily-news';
     $this->briefDescription = '';
     $this->detailedDescription = <<<EOF
-The [openpne:send-birthday-mail|INFO] task does things.
+The [sfadvanced:send-birthday-mail|INFO] task does things.
 Call it with:
 
-  [php symfony openpne:send-birthday-mail|INFO]
+  [php symfony sfadvanced:send-birthday-mail|INFO]
 EOF;
 
     $this->addOptions(
@@ -52,7 +52,7 @@ EOF;
       $php = $this->findPhpBinary();
       foreach ($expectedOptions as $app)
       {
-        exec($php.' '.sfConfig::get('sf_root_dir').'/symfony openpne:send-daily-news --app='.$app);
+        exec($php.' '.sfConfig::get('sf_root_dir').'/symfony sfadvanced:send-daily-news --app='.$app);
       }
     }
   }

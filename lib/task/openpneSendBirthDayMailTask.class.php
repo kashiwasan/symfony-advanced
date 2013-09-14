@@ -2,25 +2,25 @@
 
 /**
  * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.openpne.jp/)
+ * (c) OpenPNE Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class openpneSendBirthDayMailTask extends opBaseSendMailTask
+class sfadvancedSendBirthDayMailTask extends opBaseSendMailTask
 {
   protected function configure()
   {
     parent::configure();
-    $this->namespace        = 'openpne';
+    $this->namespace        = 'sfadvanced';
     $this->name             = 'send-birthday-mail';
     $this->briefDescription = '';
     $this->detailedDescription = <<<EOF
-The [openpne:send-birthday-mail|INFO] task does things.
+The [sfadvanced:send-birthday-mail|INFO] task does things.
 Call it with:
 
-  [php symfony openpne:send-birthday-mail|INFO]
+  [php symfony sfadvanced:send-birthday-mail|INFO]
 EOF;
   }
 

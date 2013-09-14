@@ -1,5 +1,5 @@
-<?php $categoryAttributes = sfConfig::get('openpne_sns_category_attribute'); ?>
-<?php foreach (sfConfig::get('openpne_sns_category') as $category => $configs) :?>
+<?php $categoryAttributes = sfConfig::get('sfadvanced_sns_category_attribute'); ?>
+<?php foreach (sfConfig::get('sfadvanced_sns_category') as $category => $configs) :?>
 <?php
 if (!empty($categoryAttributes[$category]['Hidden']) || !empty($categoryAttributes[$category]['Advanced']))
 {

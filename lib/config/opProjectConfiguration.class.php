@@ -2,7 +2,7 @@
 
 /**
  * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.openpne.jp/)
+ * (c) OpenPNE Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -146,7 +146,7 @@ class opProjectConfiguration extends sfProjectConfiguration
     }
     else
     {
-      $path = OPENPNE3_CONFIG_DIR.'/OpenPNE.yml';
+      $path = SFADVANCED3_CONFIG_DIR.'/OpenPNE.yml';
       $config = sfYaml::load($path.'.sample');
       if (is_readable($path))
       {

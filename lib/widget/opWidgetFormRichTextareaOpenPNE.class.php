@@ -2,7 +2,7 @@
 
 /**
  * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.openpne.jp/)
+ * (c) OpenPNE Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -20,7 +20,7 @@ class opWidgetFormRichTextareaOpenPNE extends opWidgetFormRichTextarea
   static protected $isFirstRenderOpenPNE  = true;
   static protected $isConfiguredTinyMCE   = false;
 
-  static protected $plugins = array('openpne');
+  static protected $plugins = array('sfadvanced');
 
   static protected $buttons = array(
     'op_b' => array('caption' => 'Bold'),

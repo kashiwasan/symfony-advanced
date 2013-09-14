@@ -2,7 +2,7 @@
 
 /**
  * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.openpne.jp/)
+ * (c) OpenPNE Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -100,8 +100,8 @@ class CommunityConfigForm extends BaseForm
 
   public function setConfigSettings($category = '')
   {
-    $categories = sfConfig::get('openpne_community_category');
-    $configs = sfConfig::get('openpne_community_config');
+    $categories = sfConfig::get('sfadvanced_community_category');
+    $configs = sfConfig::get('sfadvanced_community_config');
 
     if (!$category)
     {

@@ -1,4 +1,4 @@
-tinyMCE.addI18n('ja.openpne', {
+tinyMCE.addI18n('ja.sfadvanced', {
     op_b : '太字',
     op_u : '下線',
     op_s : '取り消し線',

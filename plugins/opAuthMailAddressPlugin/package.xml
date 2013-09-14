@@ -4,7 +4,7 @@
     http://pear.php.net/dtd/package-2.0
     http://pear.php.net/dtd/package-2.0.xsd">
  <name>opAuthMailAddressPlugin</name>
- <channel>plugins.openpne.jp</channel>
+ <channel>plugins.sfadvanced.jp</channel>
  <summary>opAuthMailAddressPlugin</summary>
  <description>opAuthMailAddressPlugin</description>
  <lead>
@@ -91,8 +91,8 @@ Bug（バグ） #2598: 他の認証プラグインで「秘密の質問」の項
     <min>1.4.0</min>
    </pearinstaller>
    <package>
-    <name>openpne</name>
-    <channel>plugins.openpne.jp</channel>
+    <name>sfadvanced</name>
+    <channel>plugins.sfadvanced.jp</channel>
     <min>3.5.2dev</min>
    </package>
   </required>

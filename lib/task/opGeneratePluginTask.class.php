@@ -2,7 +2,7 @@
 
 /**
  * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.openpne.jp/)
+ * (c) OpenPNE Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -51,7 +51,7 @@ EOF;
     $finder = sfFinder::type('any')->discard('.sf');
     $this->getFilesystem()->mirror(dirname(__FILE__).'/skeleton/opPlugin', $opPluginDir, $finder);
 
-    $fixPerms = new openpnePermissionTask($this->dispatcher, $this->formatter);
+    $fixPerms = new sfadvancedPermissionTask($this->dispatcher, $this->formatter);
     $fixPerms->setCommandApplication($this->commandApplication);
     @$fixPerms->run();
   }

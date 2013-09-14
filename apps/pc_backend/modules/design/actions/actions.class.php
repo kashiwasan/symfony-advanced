@@ -1,8 +1,8 @@
 <?php
 
 /**
- * this file is part of the openpne package.
- * (c) openpne project (http://www.openpne.jp/)
+ * this file is part of the sfadvanced package.
+ * (c) sfadvanced project (http://www.sfadvanced.jp/)
  *
  * for the full copyright and license information, please view the license
  * file and the notice file that were distributed with this source code.
@@ -11,7 +11,7 @@
 /**
  * design actions.
  *
- * @package    openpne
+ * @package    sfadvanced
  * @subpackage design
  * @author     kousuke ebihara <ebihara@tejimaya.com>
  */
@@ -312,7 +312,7 @@ class designActions extends sfActions
       'mobile_footer'    => 'HTML Insertion Area (in page footer)',
     );
 
-    $snsConfigSettings = sfConfig::get('openpne_sns_config');
+    $snsConfigSettings = sfConfig::get('sfadvanced_sns_config');
     $default = isset($snsConfigSettings[$this->type]['Default']) ? $snsConfigSettings[$this->type]['Default'] : null;
 
     $this->form = new opDesignHtmlForm(array('html' => Doctrine::getTable('SnsConfig')->get($this->type, $default)), array('type' => $this->type));
