@@ -10,7 +10,7 @@ cache/*
 data/migrations/generated/*
 config/ProjectConfiguration.class.php
 config/databases.yml
-config/OpenPNE.yml
+config/SfAdvanced.yml
 config/plugins.yml
 lib/model/doctrine/base/*
 data/sql/*.*
@@ -21,5 +21,5 @@ web/*Plugin
 web/sf
 data/config/*
 web/cache/*
-config/config.OpenPNE2.php
+config/config.SfAdvanced2.php
 data/*.lck

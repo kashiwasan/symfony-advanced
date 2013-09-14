@@ -1,11 +1,11 @@
 <?php
 
-class OpenPNE_KtaiEmoji_Docomo extends OpenPNE_KtaiEmoji_Common
+class SfAdvanced_KtaiEmoji_Docomo extends SfAdvanced_KtaiEmoji_Common
 {
     /**
      * constructor
      */
-    function OpenPNE_KtaiEmoji_Docomo()
+    function SfAdvanced_KtaiEmoji_Docomo()
     {
         $this->carrier_id = 'i';
         $this->value_list = array(
@@ -268,7 +268,7 @@ class OpenPNE_KtaiEmoji_Docomo extends OpenPNE_KtaiEmoji_Common
     {
         static $singleton;
         if (empty($singleton)) {
-            $singleton = new OpenPNE_KtaiEmoji_Docomo();
+            $singleton = new SfAdvanced_KtaiEmoji_Docomo();
         }
         return $singleton;
     }

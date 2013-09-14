@@ -112,7 +112,7 @@
 
 <h2>参考情報</h2>
 
-<p>OpenPNE では Twig というテンプレートエンジンを使用しています。</p>
+<p>SfAdvanced では Twig というテンプレートエンジンを使用しています。</p>
 
 <p>より詳細な情報は <a href="http://www.twig-project.org/documentation" target="_blank">Twig</a> のドキュメントを参照してください。</p>
 

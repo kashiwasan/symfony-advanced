@@ -9,7 +9,7 @@ use_helper('Tag');
 $t = new lime_test(27, new lime_output_color());
 
 //------------------------------------------------------------
-$t->diag('opWidgetFormRichTextareaOpenPNE::toHtml() non strip');
+$t->diag('opWidgetFormRichTextareaSfAdvanced::toHtml() non strip');
 
 $patterns = array(
   array(
@@ -60,10 +60,10 @@ $patterns = array(
 );
 foreach ($patterns as $pattern)
 {
-  $t->is(opWidgetFormRichTextareaOpenPNE::toHtml($pattern[0], false, true, true), $pattern[1], $pattern[2]);
+  $t->is(opWidgetFormRichTextareaSfAdvanced::toHtml($pattern[0], false, true, true), $pattern[1], $pattern[2]);
 }
 //------------------------------------------------------------
-$t->diag('opWidgetFormRichTextareaOpenPNE::toHtml() strip');
+$t->diag('opWidgetFormRichTextareaSfAdvanced::toHtml() strip');
 
 $patterns2 = array(
   array(
@@ -114,10 +114,10 @@ $patterns2 = array(
 );
 foreach ($patterns2 as $pattern2)
 {
-  $t->is(opWidgetFormRichTextareaOpenPNE::toHtml($pattern2[0], true, true, true), $pattern2[1], $pattern2[2]);
+  $t->is(opWidgetFormRichTextareaSfAdvanced::toHtml($pattern2[0], true, true, true), $pattern2[1], $pattern2[2]);
 }
 //------------------------------------------------------------
-$t->diag('opWidgetFormRichTextareaOpenPNE::toHtml() followup');
+$t->diag('opWidgetFormRichTextareaSfAdvanced::toHtml() followup');
 
 $patterns3 = array(
   array(
@@ -168,5 +168,5 @@ $patterns3 = array(
 );
 foreach ($patterns3 as $pattern3)
 {
-  $t->is(opWidgetFormRichTextareaOpenPNE::toHtml($pattern3[0], false, true, true), $pattern3[1], $pattern3[2]);
+  $t->is(opWidgetFormRichTextareaSfAdvanced::toHtml($pattern3[0], false, true, true), $pattern3[1], $pattern3[2]);
 }

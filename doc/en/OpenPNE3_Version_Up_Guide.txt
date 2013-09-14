@@ -4,7 +4,7 @@ SfAdvanced.6 Update Process
 Introduction
 ------------
 
-This document is for all of the version OpenPNE 3.2.0 or later to OpenPNE 3.6.x.
+This document is for all of the version SfAdvanced 3.2.0 or later to SfAdvanced 3.6.x.
 
 ※You should backup database before updating.
 
@@ -23,24 +23,24 @@ Update process
 Setting Files
 ~~~~~~~~~~~~~
 
-Set the OpenPNE 3.6 files to your web server.
+Set the SfAdvanced 3.6 files to your web server.
 
 Avoiding problems with mixing the old and new files, you have to change all of the files instead of overwriting.
 
 Update the Configuration File
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Copy config files in OpenPNE 3.6 as follows:
+Copy config files in SfAdvanced 3.6 as follows:
 
 ::
 
   $ cd /path/to/new/SfAdvanced
   $ cp config/ProjectConfiguration.class.php.sample config/ProjectConfiguration.class.php
-  $ cp config/OpenPNE.yml.sample config/OpenPNE.yml
+  $ cp config/SfAdvanced.yml.sample config/SfAdvanced.yml
 
 NOTE: If you write your original configuration to your old config/ProjectConfiguration.class.php, you should change the new file referring to the old one.
 
-And copy the old config/database.yml to new config/database.yml. Then you should change the config values in the OpenPNE.yml as your environment. Make sure you set "base_url" and "mail_domain", because they are used for posting and delivering mail.
+And copy the old config/database.yml to new config/database.yml. Then you should change the config values in the SfAdvanced.yml as your environment. Make sure you set "base_url" and "mail_domain", because they are used for posting and delivering mail.
 
 ::
 
@@ -85,9 +85,9 @@ In the project root directory, execute:
   $ ./symfony sfadvanced:migrate
   $ ./symfony plugin:publish-assets
 
-This command will update OpenPNE and plugins to newer version.
+This command will update SfAdvanced and plugins to newer version.
 
-You have to execute the following command if your using version is earlier than or equal to OpenPNE 3.2.7.2, OpenPNE 3.4.9 or OpenPNE 3.6beta6.
+You have to execute the following command if your using version is earlier than or equal to SfAdvanced 3.2.7.2, SfAdvanced 3.4.9 or SfAdvanced 3.6beta6.
 
 Please check the following blog post before performing the command.
 

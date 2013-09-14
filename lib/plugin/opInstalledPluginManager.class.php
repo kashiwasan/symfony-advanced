@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -11,9 +11,9 @@
 error_reporting(error_reporting() & ~(E_STRICT | E_DEPRECATED));
 
 /**
- * opInstalledPluginManager allows you to manage installed OpenPNE plugins.
+ * opInstalledPluginManager allows you to manage installed SfAdvanced plugins.
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage plugin
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
@@ -68,7 +68,7 @@ class opInstalledPluginManager
   {
     $result = array();
 
-    $plugins = sfContext::getInstance()->getConfiguration()->getAllOpenPNEPlugins();
+    $plugins = sfContext::getInstance()->getConfiguration()->getAllSfAdvancedPlugins();
     foreach ($plugins as $pluginName)
     {
       $result[$pluginName] = $this->getPluginInstance($pluginName);

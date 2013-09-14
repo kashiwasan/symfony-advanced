@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -11,7 +11,7 @@
 /**
  * opAuthMailAddressPasswordRecoveryForm
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage form
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
@@ -66,7 +66,7 @@ class opAuthMailAddressPasswordRecoveryForm extends BaseForm
       throw new sfValidatorError($validator, 'invalid');
     }
 
-    // To keep backward compatibility with OpenPNE 1.x, your answer is checked as Shift-JIS too.
+    // To keep backward compatibility with SfAdvanced 1.x, your answer is checked as Shift-JIS too.
     if (!in_array($this->member->getConfig('secret_answer'), array(md5($values['secret_answer']), md5(mb_convert_encoding($values['secret_answer'], 'SJIS-win', 'UTF-8')))))
     {
       throw new sfValidatorError($validator, 'invalid');
@@ -99,6 +99,6 @@ class opAuthMailAddressPasswordRecoveryForm extends BaseForm
       'subject' => '【'.opConfig::get('sns_name').'】パスワード再設定用URL発行のお知らせ',
     );
 
-    sfOpenPNEMailSend::sendTemplateMail('passwordRecovery', $this->member->getEMailAddress(), opConfig::get('admin_mail_address'), $params);
+    sfSfAdvancedMailSend::sendTemplateMail('passwordRecovery', $this->member->getEMailAddress(), opConfig::get('admin_mail_address'), $params);
   }
 }

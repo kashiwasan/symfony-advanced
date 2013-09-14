@@ -1,17 +1,17 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
  */
 
 /**
- * opApplicationConfiguration represents a configuration for OpenPNE application.
+ * opApplicationConfiguration represents a configuration for SfAdvanced application.
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage config
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
@@ -48,8 +48,8 @@ abstract class opApplicationConfiguration extends sfApplicationConfiguration
     require_once dirname(__FILE__).'/../config/opSecurityConfigHandler.class.php';
 
     $DS = DIRECTORY_SEPARATOR;
-    $OpenPNE2Path = sfConfig::get('sf_lib_dir').$DS.'vendor'.$DS;  // ##PROJECT_LIB_DIR##/vendor/
-    set_include_path($OpenPNE2Path.PATH_SEPARATOR.get_include_path());
+    $SfAdvanced2Path = sfConfig::get('sf_lib_dir').$DS.'vendor'.$DS;  // ##PROJECT_LIB_DIR##/vendor/
+    set_include_path($SfAdvanced2Path.PATH_SEPARATOR.get_include_path());
     $result = parent::setup();
 
     if (0 !== strpos(sfConfig::get('sf_task_name'), 'sfDoctrineBuild'))
@@ -113,7 +113,7 @@ abstract class opApplicationConfiguration extends sfApplicationConfiguration
     return array_keys($this->getAllPluginPaths());
   }
 
-  public function getAllOpenPNEPlugins()
+  public function getAllSfAdvancedPlugins()
   {
     $list = $this->getAllPlugins();
     $result = array();

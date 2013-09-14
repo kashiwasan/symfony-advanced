@@ -5,9 +5,9 @@ SfAdvanced.6 Setup Process
 Introduction
 ============
 
-This document is for OpenPNE 3.6.
+This document is for SfAdvanced 3.6.
 
-OpenPNE 3 should work under the following server environment.
+SfAdvanced 3 should work under the following server environment.
 
 Web Server
   Apache
@@ -30,10 +30,10 @@ Database Server
 Setup
 =====
 
-Downloading OpenPNE 3
+Downloading SfAdvanced 3
 ---------------------
 
-Download a package of OpenPNE 3 from the following URL.
+Download a package of SfAdvanced 3 from the following URL.
 
 http://www.sfadvanced.jp/pne-downloads/
 
@@ -75,9 +75,9 @@ Copy config files as follows
 
   $ cd SfAdvanced
   $ cp config/ProjectConfiguration.class.php.sample config/ProjectConfiguration.class.php
-  $ cp config/OpenPNE.yml.sample config/OpenPNE.yml
+  $ cp config/SfAdvanced.yml.sample config/SfAdvanced.yml
   
-Then you should change the config values in OpenPNE.yml as your environment. Make sure you set "base_url" and "mail_domain", because they are used for posting and delivering mail.
+Then you should change the config values in SfAdvanced.yml as your environment. Make sure you set "base_url" and "mail_domain", because they are used for posting and delivering mail.
 
 Install Command Execution
 -------------------------
@@ -89,16 +89,16 @@ Execute the following command to begin installing process.
   $ ./symfony sfadvanced:install
   
 This command deletes the database and rebuild it. 
-If you don't want to delete your specified database -- for example, OpenPNE will share the database with other systems, execute that command with the following option.
+If you don't want to delete your specified database -- for example, SfAdvanced will share the database with other systems, execute that command with the following option.
 
 ::
 
   $ ./symfony sfadvanced:install --non-recreate-db
   
 This option attempts to remove the old tables in proper order by considering the new one.
-It is strongly recommended to set prefixes with the tables used by OpenPNE in "OpenPNE.yml" for avoiding deleting tables of other system unexpectedly or failing deleting tables.
+It is strongly recommended to set prefixes with the tables used by SfAdvanced in "SfAdvanced.yml" for avoiding deleting tables of other system unexpectedly or failing deleting tables.
 
-NOTE: Take care with their prefixes that avoid conflicting table names shared with the other system. And they are not for installing multiple OpenPNEs per identical database.
+NOTE: Take care with their prefixes that avoid conflicting table names shared with the other system. And they are not for installing multiple SfAdvanceds per identical database.
 
 ::
 
@@ -114,7 +114,7 @@ After Running "sfadvanced:install", you will be required inputting the following
 * The Database Port Number(optional)
 * (If you inputted "MySQL" for the DBMS and "localhost" for the hostname)The Database Socket Path(optional)
 
-After that OpenPNE automatically is installed.
+After that SfAdvanced automatically is installed.
 
 Delete the Development Files
 ----------------------------

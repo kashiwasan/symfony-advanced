@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @copyright 2005-2009 OpenPNE Project
+ * @copyright 2005-2009 SfAdvanced Project
  * @license   http://www.php.net/license/3_01.txt PHP License 3.01
  */
 
@@ -10,10 +10,10 @@ require_once 'simplepie.inc';
 /**
  * This class is for fetching RSS / Atom feed
  *
- * This is ported from OpenPNE_RSS in OpenPNE2Path.
+ * This is ported from SfAdvanced_RSS in SfAdvanced2Path.
  * The opRssFetcher delegates some behaviors to SimplePie
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage util
  * @author     Rimpei Ogawa <ogawa@tejimaya.com>
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>

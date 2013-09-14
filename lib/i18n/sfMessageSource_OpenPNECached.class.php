@@ -1,22 +1,22 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
  */
 
 /**
- * sfMessageSource_OpenPNECached
+ * sfMessageSource_SfAdvancedCached
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage i18n
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  * @author     Masato Nagasawa <nagasawa@tejimaya.com>
  */
-class sfMessageSource_OpenPNECached extends sfMessageSource_File
+class sfMessageSource_SfAdvancedCached extends sfMessageSource_File
 {
   protected $dataExt = '.xml.php';
 

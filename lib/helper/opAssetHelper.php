@@ -3,8 +3,8 @@
 require_once sfConfig::get('sf_symfony_lib_dir').'/helper/AssetHelper.php';
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -14,7 +14,7 @@ require_once sfConfig::get('sf_symfony_lib_dir').'/helper/AssetHelper.php';
  * opAssetHelper provides helper function for Assets like css or javascript
  * this helpler refered to symfony's AssetHelper
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage helper
  * @author     Yuya Watanabe <watanabe@sfadvanced.jp>
  */

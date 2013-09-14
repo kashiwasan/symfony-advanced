@@ -1,11 +1,11 @@
 ==================================
-OpenPNE 2 からのアップグレード手順
+SfAdvanced 2 からのアップグレード手順
 ==================================
 
 はじめに
 ========
 
-このドキュメントは、 OpenPNE 2.12.x もしくは OpenPNE 2.14.x から OpenPNE 3.6.x へのバージョンアップ作業の手順を示したものです。
+このドキュメントは、 SfAdvanced 2.12.x もしくは SfAdvanced 2.14.x から SfAdvanced 3.6.x へのバージョンアップ作業の手順を示したものです。
 
 ※アップグレードをおこなう前に、データベースのバックアップを取っておくことを強くお勧めします。
 
@@ -35,19 +35,19 @@ PHP
   
   PostgreSQL, SQLite は現時点で未サポート（将来的にサポート予定）
 
-OpenPNE 3 の設置
+SfAdvanced 3 の設置
 ----------------
 
-まず OpenPNE を入手してください。
+まず SfAdvanced を入手してください。
 
-ZIP アーカイブを入手する場合、以下の URL にアクセスし、 OpenPNE 3.6.x の最新バージョンのパッケージをダウンロードしてください。
+ZIP アーカイブを入手する場合、以下の URL にアクセスし、 SfAdvanced 3.6.x の最新バージョンのパッケージをダウンロードしてください。
 
 http://github.com/sfadvanced/SfAdvanced/downloads
 
 Git リポジトリを利用する場合、以下のコマンドを実行してください (バージョン番号は適切なものに変更してください)::
 
   $ git clone git://github.com/sfadvanced/SfAdvanced.git
-  $ git checkout OpenPNE-3.6.x
+  $ git checkout SfAdvanced-3.6.x
 
 その後、 SfAdvanced のソースコード内にある web ディレクトリが、ウェブサーバの公開領域となるように設置してください (セットアップガイドも参照してください)。
 
@@ -62,15 +62,15 @@ config/ProjectConfiguration.class.php.sample を config/ProjectConfiguration.cla
 
   $ cp /path/to/SfAdvanced/config/ProjectConfiguration.class.php.sample /path/to/SfAdvanced/config/ProjectConfiguration.class.php
 
-次に、config/OpenPNE.yml.sample を config/OpenPNE.yml としてコピーします。
+次に、config/SfAdvanced.yml.sample を config/SfAdvanced.yml としてコピーします。
 
-  $ cp /path/to/SfAdvanced/config/OpenPNE.yml.sample /path/to/SfAdvanced/config/OpenPNE.yml
+  $ cp /path/to/SfAdvanced/config/SfAdvanced.yml.sample /path/to/SfAdvanced/config/SfAdvanced.yml
 
-その際、 OpenPNE.yml の設定値は OpenPNE2 の config.php に合わせて変更してください。特に base_url と mail_domain はメール投稿、メール配信の際に利用されるので必ず設定をおこなってください。
+その際、 SfAdvanced.yml の設定値は SfAdvanced2 の config.php に合わせて変更してください。特に base_url と mail_domain はメール投稿、メール配信の際に利用されるので必ず設定をおこなってください。
 
-OpenPNE2 の config.php を config/config.OpenPNE2.php としてコピーします::
+SfAdvanced2 の config.php を config/config.SfAdvanced2.php としてコピーします::
 
-  $ cp /path/to/OpenPNE2/config.php /path/to/SfAdvanced/config/config.OpenPNE2.php
+  $ cp /path/to/SfAdvanced2/config.php /path/to/SfAdvanced/config/config.SfAdvanced2.php
 
 以下のコマンドを実行し、プラグインをインストールします::
 
@@ -108,11 +108,11 @@ OpenPNE2 の config.php を config/config.OpenPNE2.php としてコピーしま�
 
 アップグレードに際していくつか注意事項があります。
 
-* fix_old_image_data のコンバートで「Allowed memory size of xxxx bytes exhausted ... 」というようなエラーメッセージとともに失敗する場合、 php.ini の memory_limit ディレクティブの設定を見直すか、それが難しい場合は config/config.OpenPNE2.php の IMAGE_MAX_FILESIZE の設定値を大きな値に設定してください
+* fix_old_image_data のコンバートで「Allowed memory size of xxxx bytes exhausted ... 」というようなエラーメッセージとともに失敗する場合、 php.ini の memory_limit ディレクティブの設定を見直すか、それが難しい場合は config/config.SfAdvanced2.php の IMAGE_MAX_FILESIZE の設定値を大きな値に設定してください
 
-* OpenPNE2 に Google のAPIキーを設定している場合、 SfAdvanced の管理画面で再設定する必要があります。
+* SfAdvanced2 に Google のAPIキーを設定している場合、 SfAdvanced の管理画面で再設定する必要があります。
 
-   1. OpenPNE2 の config.php に記述してある Google Maps API key と Google AJAX Search API key をコピーします。
+   1. SfAdvanced2 の config.php に記述してある Google Maps API key と Google AJAX Search API key をコピーします。
 
    2. SfAdvanced の管理画面( /pc_backend.php )を開いて、 「SNS設定」 -> 「APIキーの設定」( /pc_backend.php/sns/config/category/api_keys ) を開きます。
 
@@ -152,5 +152,5 @@ OpenPNE2 の config.php を config/config.OpenPNE2.php としてコピーしま�
 
 * ナビメニューの設定はコンバートしません
 
-* OpenPNE2 のナビメニューにないメニュー項目、 SfAdvanced にない機能のメニュー項目はナビメニューからクリックできないようになっています。対応するにはナビメニューの設定を調節し、 CSS に記述を加えるか、 OpenPNE2 互換スキンを使わないように管理画面から opSkinClassicPlugin を無効にしてください
+* SfAdvanced2 のナビメニューにないメニュー項目、 SfAdvanced にない機能のメニュー項目はナビメニューからクリックできないようになっています。対応するにはナビメニューの設定を調節し、 CSS に記述を加えるか、 SfAdvanced2 互換スキンを使わないように管理画面から opSkinClassicPlugin を無効にしてください
 

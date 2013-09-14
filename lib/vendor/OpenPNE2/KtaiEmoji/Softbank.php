@@ -1,11 +1,11 @@
 <?php
 
-class OpenPNE_KtaiEmoji_Softbank extends OpenPNE_KtaiEmoji_Common
+class SfAdvanced_KtaiEmoji_Softbank extends SfAdvanced_KtaiEmoji_Common
 {
     /**
      * constructor
      */
-    function OpenPNE_KtaiEmoji_Softbank()
+    function SfAdvanced_KtaiEmoji_Softbank()
     {
         $this->carrier_id = 's';
         $this->value_list = array(
@@ -487,7 +487,7 @@ class OpenPNE_KtaiEmoji_Softbank extends OpenPNE_KtaiEmoji_Common
     {
         static $singleton;
         if (empty($singleton)) {
-            $singleton = new OpenPNE_KtaiEmoji_Softbank();
+            $singleton = new SfAdvanced_KtaiEmoji_Softbank();
         }
         return $singleton;
     }

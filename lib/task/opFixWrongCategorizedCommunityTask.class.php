@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -11,7 +11,7 @@
 /**
  * opFixWrongCategorizedCommunityTask
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage task
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
@@ -28,9 +28,9 @@ class opFixWrongCategorizedCommunityTask extends sfDoctrineBaseTask
 
     $this->namespace        = 'sfadvanced';
     $this->name             = 'fix-wrong-categorized-community';
-    $this->briefDescription = 'Fixes wrong categorized communities by upgrading from OpenPNE 2';
+    $this->briefDescription = 'Fixes wrong categorized communities by upgrading from SfAdvanced 2';
     $this->detailedDescription = <<<EOF
-The [sfadvanced:fix-wrong-categorized-community|INFO] task fixes wrong categorized communities by upgrading from OpenPNE 2.
+The [sfadvanced:fix-wrong-categorized-community|INFO] task fixes wrong categorized communities by upgrading from SfAdvanced 2.
 Call it with:
 
   [./symfony sfadvanced:fix-wrong-categorized-community|INFO]
@@ -48,9 +48,9 @@ EOF;
       return;
     }
 
-    if (!$this->hasOpenPNE2CommunityTable())
+    if (!$this->hasSfAdvanced2CommunityTable())
     {
-      throw new RuntimeException('This task needs some OpenPNE 2 tables (c_commu, c_commu_category and c_commu_category_parent) in your master DB.'.PHP_EOL.'(このタスクの実行には OpenPNE 2 のテーブル (c_commu, c_commu_category, c_commu_category_parent) が必要です。)');
+      throw new RuntimeException('This task needs some SfAdvanced 2 tables (c_commu, c_commu_category and c_commu_category_parent) in your master DB.'.PHP_EOL.'(このタスクの実行には SfAdvanced 2 のテーブル (c_commu, c_commu_category, c_commu_category_parent) が必要です。)');
     }
 
     $this->changeCollectionForConvert();
@@ -64,10 +64,10 @@ EOF;
         if ($new)
         {
           $list = $this->detectLackedCommunityIdsByCategoryId($old, $max);
-          $this->createNewCommunityFromOpenPNE2($list);
+          $this->createNewCommunityFromSfAdvanced2($list);
 
           $result = $this->moveCommunities($old, $new);
-          $this->log(sprintf('OpenPNE 2 category=%d => OpenPNE 3 category=%d : %d communities are moved', $old, $new, $result));
+          $this->log(sprintf('SfAdvanced 2 category=%d => SfAdvanced 3 category=%d : %d communities are moved', $old, $new, $result));
         }
       }
     }
@@ -103,10 +103,10 @@ EOF;
   protected function askToBegin()
   {
     $messages = array(
-      'This task fixes some communities which belongs to wrong category by upgrading from OpenPNE2.',
-      '(このタスクは、 OpenPNE 2 からのアップグレードによって誤ったカテゴリと紐づいてしまったコミュニティを修復します)',
-      'If you haven\'t upgraded from OpenPNE 2, or you want to repair them by your hand, cancel this task.',
-      '(OpenPNE 2 からのアップグレードを実施していなかったり、手動での修復を望む場合、このタスクを中断してください)',
+      'This task fixes some communities which belongs to wrong category by upgrading from SfAdvanced2.',
+      '(このタスクは、 SfAdvanced 2 からのアップグレードによって誤ったカテゴリと紐づいてしまったコミュニティを修復します)',
+      'If you haven\'t upgraded from SfAdvanced 2, or you want to repair them by your hand, cancel this task.',
+      '(SfAdvanced 2 からのアップグレードを実施していなかったり、手動での修復を望む場合、このタスクを中断してください)',
       '',
       'Do you continue this task? [Y/n]',
       '(タスクの実行を続行しますか？ [Y/n])',
@@ -118,16 +118,16 @@ EOF;
   protected function askToRecoverWrongCategorized($min, $max)
   {
     $messages = array(
-      sprintf('Auto-detected communities which OpenPNE 3 recognized to fix are ID:"%d" to ID:"%d".', $min, $max),
-      sprintf('(OpenPNE 3 が修正するべきだと自動認識したコミュニティは ID:"%d" から ID:"%d" です)', $min, $max),
+      sprintf('Auto-detected communities which SfAdvanced 3 recognized to fix are ID:"%d" to ID:"%d".', $min, $max),
+      sprintf('(SfAdvanced 3 が修正するべきだと自動認識したコミュニティは ID:"%d" から ID:"%d" です)', $min, $max),
       '',
       'This task tries to fix these communities automatically by the following steps:',
       '(このタスクは以下のステップによってコミュニティを自動修復しようとします)',
-      '    1. Salvage a missing community from OpenPNE 2 data. "Missing community" has data of community member, but doesn\'t have data of itself.',
-      '      (欠損したコミュニティを OpenPNE 2 のデータから復旧します。「欠損したコミュニティ」には、メンバーのデータは存在するものの、',
+      '    1. Salvage a missing community from SfAdvanced 2 data. "Missing community" has data of community member, but doesn\'t have data of itself.',
+      '      (欠損したコミュニティを SfAdvanced 2 のデータから復旧します。「欠損したコミュニティ」には、メンバーのデータは存在するものの、',
       '       コミュニティ自体のデータが存在していません)',
-      '    2. Re-categorize all communities which are imported from OpenPNE 2',
-      '      (OpenPNE 2 から存在していたすべてのコミュニティのカテゴリ分けをもう一度おこないます)',
+      '    2. Re-categorize all communities which are imported from SfAdvanced 2',
+      '      (SfAdvanced 2 から存在していたすべてのコミュニティのカテゴリ分けをもう一度おこないます)',
       '',
       'Do you want to fix these communities automatically? [Y/n]',
       '(これらのコミュニティを自動修復しますか？) [Y/n]',
@@ -162,7 +162,7 @@ EOF;
     return $conn->fetchColumn('SELECT c_commu_id FROM c_commu WHERE c_commu_category_id = ? AND c_commu_id NOT IN (SELECT id FROM community WHERE id <= ?) AND c_commu_id IN (SELECT community_id FROM community_member WHERE community_id = c_commu_id)', array($oldCategoryId, $oldMaxId));
   }
 
-  protected function createNewCommunityFromOpenPNE2($idList)
+  protected function createNewCommunityFromSfAdvanced2($idList)
   {
     if (!$idList)
     {
@@ -173,7 +173,7 @@ EOF;
     $idListString = implode(',', $idList);
 
     $conn->exec($this->generateSQLToSalvageLackedCommunity($idListString));
-    $this->log('Created new community from OpenPNE2 : '.$idListString);
+    $this->log('Created new community from SfAdvanced2 : '.$idListString);
   }
 
   protected function generateSQLToSalvageLackedCommunity($idListString)
@@ -218,7 +218,7 @@ EOF;
     return $categoryTable;
   }
 
-  protected function hasOpenPNE2CommunityTable()
+  protected function hasSfAdvanced2CommunityTable()
   {
     $conn = opDoctrineQuery::getMasterConnectionDirect();
 

@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -11,7 +11,7 @@
 /**
  * opDoctrineRecord
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage util
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
@@ -27,7 +27,7 @@ abstract class opDoctrineRecord extends sfDoctrineRecord implements Zend_Acl_Res
   * PostgreSQL's behavior is like ISO 8601. It accepts "0000-01-01" (it is the year 1 B.C.).
   * In definition of Standard SQL, TIMESTAMP accepts "0001-01-01 00:00:00".
   *
-  * OpenPNE will support many type of RDBMS. So we should select acceptable format of every RDBMSs.
+  * SfAdvanced will support many type of RDBMS. So we should select acceptable format of every RDBMSs.
   * As you can see, it is "0001-01-01 00:00:00".
   *
   * I referred to hnw's entry: http://openlab.dino.co.jp/2007/11/10/170436147.html [ja]

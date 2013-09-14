@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -15,7 +15,7 @@
  * rule for api frontend actions.
  * All methods in this interface are used for identifying an API.
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage routing
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
@@ -25,7 +25,7 @@ interface opAPIRouteInterface
   * Gets an API name
   *
   * This method is for getting a name that is used for identifying an API
-  * by OpenPNE.
+  * by SfAdvanced.
   *
   * @return string
   */

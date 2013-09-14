@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -22,7 +22,7 @@ abstract class opBaseSendMailTask extends sfDoctrineBaseTask
   {
     parent::initialize($dispatcher, $formatter);
 
-    // This is just a hack to make OpenPNE generate a valid url in some helper function
+    // This is just a hack to make SfAdvanced generate a valid url in some helper function
     $_SERVER['SCRIPT_NAME'] = '/index.php';
   }
 

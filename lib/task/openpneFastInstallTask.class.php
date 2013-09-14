@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -34,9 +34,9 @@ class sfadvancedFastInstallTask extends sfDoctrineBaseTask
       new sfCommandOption('internet', null, sfCommandOption::PARAMETER_NONE, 'Connect Internet Option to download plugins list.'),
     ));
 
-    $this->briefDescription = 'Install OpenPNE';
+    $this->briefDescription = 'Install SfAdvanced';
     $this->detailedDescription = <<<EOF
-The [sfadvanced:fast-install] task installs and configures OpenPNE.
+The [sfadvanced:fast-install] task installs and configures SfAdvanced.
 Call it with:
 
   [./symfony sfadvanced:fast-install --dbms=mysql --dbuser=your-username --dbpassword=your-password --dbname=your-dbname --dbhost=localhost --internet]

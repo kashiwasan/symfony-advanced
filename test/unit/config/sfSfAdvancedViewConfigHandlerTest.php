@@ -9,7 +9,7 @@ function strip_cl($content)
   return str_replace(array("\r\n", "\n", "\r"), '', $content);
 }
 
-class myHandler extends sfOpenPNEViewConfigHandler
+class myHandler extends sfSfAdvancedViewConfigHandler
 {
   public function setConfiguration($config)
   {

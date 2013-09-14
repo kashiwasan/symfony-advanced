@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -11,7 +11,7 @@
 /**
  * opMigration provides way to migrate
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage migration
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
@@ -93,14 +93,14 @@ class opMigration extends Doctrine_Migration
   */
   protected function setTargetName($name)
   {
-    if ($name && $name !== 'OpenPNE')
+    if ($name && $name !== 'SfAdvanced')
     {
       $this->targetName = $name;
       $this->pluginInstance = opPlugin::getInstance($this->targetName, $this->dispatcher);
     }
     else
     {
-      $this->targetName = 'OpenPNE';
+      $this->targetName = 'SfAdvanced';
     }
   }
 
@@ -199,7 +199,7 @@ class opMigration extends Doctrine_Migration
   */
   protected function getMigrationScriptDirectory()
   {
-    if ($this->targetName === 'OpenPNE')
+    if ($this->targetName === 'SfAdvanced')
     {
       $dir = sfConfig::get('sf_data_dir').'/migrations';
     }

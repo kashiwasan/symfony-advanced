@@ -3,7 +3,7 @@
 /**
  * Mail Notification Form
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage form
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */

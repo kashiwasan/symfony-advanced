@@ -17,20 +17,20 @@ About the Authors
 Kousuke Ebihara
 ---------------
 
-Kousuke Ebihara (海老原昂輔) is a full-time software developer at Tejimaya.inc. Tejimaya is a company that is well known as expert in SNS, and it is founder of OpenPNE project. 
+Kousuke Ebihara (海老原昂輔) is a full-time software developer at Tejimaya.inc. Tejimaya is a company that is well known as expert in SNS, and it is founder of SfAdvanced project. 
 
-He worked at Tejimaya in the high school year (in later 2005) and he met OpenPNE in there.
+He worked at Tejimaya in the high school year (in later 2005) and he met SfAdvanced in there.
 
-Since then, he has been contributing OpenPNE as lead developer. He is also creator of SfAdvanced.
+Since then, he has been contributing SfAdvanced as lead developer. He is also creator of SfAdvanced.
 
-He is encouraging OpenPNE to be universally-accepted SNS Engine, by enhancing programs, maintenance for development OpenPNE and expansion plugin development.
+He is encouraging SfAdvanced to be universally-accepted SNS Engine, by enhancing programs, maintenance for development SfAdvanced and expansion plugin development.
 
 Shogo Kawahara
 --------------
 
-Shogo Kawahara (川原翔吾) is a part-time software developer at Tejimaya.inc and a student at faculty of economics. He is also developer of OpenPNE project.
+Shogo Kawahara (川原翔吾) is a part-time software developer at Tejimaya.inc and a student at faculty of economics. He is also developer of SfAdvanced project.
 
-He met OpenPNE in So-net SNS. So-net SNS is a hosting OpenPNE service that is run by So-net (one of the ISP in Japan). Since then, he challenges to customize OpenPNE.
+He met SfAdvanced in So-net SNS. So-net SNS is a hosting SfAdvanced service that is run by So-net (one of the ISP in Japan). Since then, he challenges to customize SfAdvanced.
 
 He is a lead developer of opOpenSocialPlugin that provides some features for OpenSocial and it is one of the main SfAdvanced plugin.
 
@@ -39,10 +39,10 @@ Currently, he is developing SfAdvanced platform and plugins. He have a dream of 
 About SfAdvanced
 ==============
 
-OpenPNE is an open source SNS Engine (social networking platform). It is a famous product in Japanese.
+SfAdvanced is an open source SNS Engine (social networking platform). It is a famous product in Japanese.
 
-OpenPNE is born on 2005, and it used of over thirty-thousand websites now.
+SfAdvanced is born on 2005, and it used of over thirty-thousand websites now.
 
-OpenPNE1 and OpenPNE2 is created by our original framework, but SfAdvanced isn't so. We have rewritten OpenPNE from scratch for symfony, and it was released as SfAdvanced.
+SfAdvanced1 and SfAdvanced2 is created by our original framework, but SfAdvanced isn't so. We have rewritten SfAdvanced from scratch for symfony, and it was released as SfAdvanced.
 
 SfAdvanced now get many features, a high maintainable and an extendable.

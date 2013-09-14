@@ -1,16 +1,16 @@
 <?php
 /**
- * @copyright 2005-2008 OpenPNE Project
+ * @copyright 2005-2008 SfAdvanced Project
  * @license   http://www.php.net/license/3_01.txt PHP License 3.01
  */
 
-require_once 'OpenPNE2/KtaiEmoji/Common.php';
-require_once 'OpenPNE2/KtaiEmoji/Docomo.php';
-require_once 'OpenPNE2/KtaiEmoji/Au.php';
-require_once 'OpenPNE2/KtaiEmoji/Softbank.php';
-require_once 'OpenPNE2/KtaiEmoji/Img.php';
+require_once 'SfAdvanced2/KtaiEmoji/Common.php';
+require_once 'SfAdvanced2/KtaiEmoji/Docomo.php';
+require_once 'SfAdvanced2/KtaiEmoji/Au.php';
+require_once 'SfAdvanced2/KtaiEmoji/Softbank.php';
+require_once 'SfAdvanced2/KtaiEmoji/Img.php';
 
-class OpenPNE_KtaiEmoji
+class SfAdvanced_KtaiEmoji
 {
     //変換テーブル
     var $relation_list;
@@ -18,7 +18,7 @@ class OpenPNE_KtaiEmoji
     /**
      * constructor
      */
-    function OpenPNE_KtaiEmoji()
+    function SfAdvanced_KtaiEmoji()
     {
         //変換リスト
         //Docomo => SoftBank
@@ -2801,7 +2801,7 @@ class OpenPNE_KtaiEmoji
     {
         static $singleton;
         if (empty($singleton)) {
-            $singleton = new OpenPNE_KtaiEmoji();
+            $singleton = new SfAdvanced_KtaiEmoji();
         }
         return $singleton;
     }
@@ -2814,27 +2814,27 @@ class OpenPNE_KtaiEmoji
         $emoji_code = '';
         switch ($carrier) {
         case 'i':
-            $converter = OpenPNE_KtaiEmoji_Docomo::getInstance();
+            $converter = SfAdvanced_KtaiEmoji_Docomo::getInstance();
             $emoji_code = $converter->get_emoji_code4emoji($emoji);
             break;
         case 's':
-            $converter = OpenPNE_KtaiEmoji_Softbank::getInstance();
+            $converter = SfAdvanced_KtaiEmoji_Softbank::getInstance();
             $emoji_code = $converter->get_emoji_code4emoji($emoji);
             break;
         case 'e':
-            $converter = OpenPNE_KtaiEmoji_Au::getInstance();
+            $converter = SfAdvanced_KtaiEmoji_Au::getInstance();
             $emoji_code = $converter->get_emoji_code4emoji($emoji);
             break;
         default:
             //キャリアが指定されていない場合は全てのキャリアでチェックを行う
-            $converter = OpenPNE_KtaiEmoji_Docomo::getInstance();
+            $converter = SfAdvanced_KtaiEmoji_Docomo::getInstance();
             $emoji_code = $converter->get_emoji_code4emoji($emoji);
             if (!$emoji_code) {
-                $converter = OpenPNE_KtaiEmoji_Softbank::getInstance();
+                $converter = SfAdvanced_KtaiEmoji_Softbank::getInstance();
                 $emoji_code = $converter->get_emoji_code4emoji($emoji);
             }
             if (!$emoji_code) {
-                $converter = OpenPNE_KtaiEmoji_Au::getInstance();
+                $converter = SfAdvanced_KtaiEmoji_Au::getInstance();
                 $emoji_code = $converter->get_emoji_code4emoji($emoji);
             }
             break;
@@ -2855,13 +2855,13 @@ class OpenPNE_KtaiEmoji
             $c_code = $o_id;
             switch ($c_carrier) {
             case 'i':
-                $converter = OpenPNE_KtaiEmoji_Docomo::getInstance();
+                $converter = SfAdvanced_KtaiEmoji_Docomo::getInstance();
                 break;
             case 's':
-                $converter = OpenPNE_KtaiEmoji_Softbank::getInstance();
+                $converter = SfAdvanced_KtaiEmoji_Softbank::getInstance();
                 break;
             case 'e':
-                $converter = OpenPNE_KtaiEmoji_Au::getInstance();
+                $converter = SfAdvanced_KtaiEmoji_Au::getInstance();
                 break;
             default:
                 // PC向けau/SoftBank→DoCoMo絵文字変換
@@ -2870,7 +2870,7 @@ class OpenPNE_KtaiEmoji
                 }
 
                 $c_code = $o_code;  // 画像出力の際にキャリア情報が必要になるため、絵文字IDではなく絵文字コードを用いる
-                $converter = OpenPNE_KtaiEmoji_Img::getInstance();
+                $converter = SfAdvanced_KtaiEmoji_Img::getInstance();
                 break;
             }
             return $converter->get_emoji4emoji_code_id($c_code);
@@ -2882,7 +2882,7 @@ class OpenPNE_KtaiEmoji
   public static function convertEmoji($str)
   {
     $pattern = '/\[([ies]:[0-9]{1,3})\]/';
-    return preg_replace_callback($pattern, array('OpenPNE_KtaiEmoji', 'convertEmojiCallback'), $str);
+    return preg_replace_callback($pattern, array('SfAdvanced_KtaiEmoji', 'convertEmojiCallback'), $str);
   }
 
   protected static function convertEmojiCallback($matches)
@@ -2916,20 +2916,20 @@ class OpenPNE_KtaiEmoji
     }
   }
 
-  public static function convertDoCoMoEmojiToOpenPNEFormat($bin)
+  public static function convertDoCoMoEmojiToSfAdvancedFormat($bin)
   {
     $iemoji = '\xF8[\x9F-\xFC]|\xF9[\x40-\xFC]';
     if (preg_match('/'.$iemoji.'/', $bin))
     {
       $unicode = mb_convert_encoding($bin, 'UCS2', 'SJIS-win');
-      $emoji_code = OpenPNE_KtaiEmoji::getInstance();
+      $emoji_code = SfAdvanced_KtaiEmoji::getInstance();
       $code = $emoji_code->get_emoji_code4emoji(sprintf('&#x%02X%02X;', ord($unicode[0]), ord($unicode[1])), 'i');
       return '['.$code.']';
     }
     return '';
   }
 
-  public static function convertEZwebEmojiToOpenPNEFormat($bin)
+  public static function convertEZwebEmojiToSfAdvancedFormat($bin)
   {
     $sjis = (ord($bin[0]) << 8) + ord($bin[1]);
     if ($sjis >= 0xF340 && $sjis <= 0xF493)
@@ -2990,12 +2990,12 @@ class OpenPNE_KtaiEmoji
     {
       return '';
     }
-    $emoji_code = OpenPNE_KtaiEmoji::getInstance();
+    $emoji_code = SfAdvanced_KtaiEmoji::getInstance();
     $code = $emoji_code->get_emoji_code4emoji(sprintf('&#x%04X;', $unicode), 'e');
     return '['.$code.']';
   }
 
-  public static function convertSoftBankEmojiToOpenPNEFormat($bin)
+  public static function convertSoftBankEmojiToSfAdvancedFormat($bin)
   {
     $sjis1 = ord($bin[0]);
     $sjis2 = ord($bin[1]);
@@ -3047,7 +3047,7 @@ class OpenPNE_KtaiEmoji
       default:
         return '';
     }
-    $emoji_code = OpenPNE_KtaiEmoji::getInstance();
+    $emoji_code = SfAdvanced_KtaiEmoji::getInstance();
     $code = $emoji_code->get_emoji_code4emoji(sprintf('&#x%04X;', $codepoint), 's');
     return '['.$code.']';
   }

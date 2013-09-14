@@ -4,7 +4,7 @@
 # 
 # See Also: ./op2_test_data.sql
 # 
-# Step1. OpenPNE 2
+# Step1. SfAdvanced 2
 # ================
 # 
 # ::
@@ -21,7 +21,7 @@
 #      └── category3
 #          └── communityC
 # 
-# Step2. Wrong Converted OpenPNE 3 (with modified by user)
+# Step2. Wrong Converted SfAdvanced 3 (with modified by user)
 # ========================================================
 # 
 # ::
@@ -40,7 +40,7 @@
 #     (communityE has gone away)
 #     (communityG has been removed by its admin)
 # 
-# Step3. Corrected OpenPNE 3 by the task
+# Step3. Corrected SfAdvanced 3 by the task
 # ======================================
 # 
 # ::
@@ -49,7 +49,7 @@
 #      └── category1
 #           ├── communityA
 #           ├── communityD <--- communityD is here correctly
-#           ├── communityE <--- communityE comes here from old OpenPNE 2 data
+#           ├── communityE <--- communityE comes here from old SfAdvanced 2 data
 #           └── communityF <--- do nothing to new-commer
 #     parent2
 #      ├── category3

@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -25,9 +25,9 @@ class opPluginReleaseTask extends sfBaseTask
 
     $this->namespace        = 'opPlugin';
     $this->name             = 'release';
-    $this->briefDescription = 'Creates the plugin definition file and archive the OpenPNE plugin.';
+    $this->briefDescription = 'Creates the plugin definition file and archive the SfAdvanced plugin.';
     $this->detailedDescription = <<<EOF
-The [opPlugin:release|INFO] task creates the plugin definition file, and archive the OpenPNE plugin.
+The [opPlugin:release|INFO] task creates the plugin definition file, and archive the SfAdvanced plugin.
 Call it with:
 
   [./symfony opPlugin:release opSamplePlugin|INFO]

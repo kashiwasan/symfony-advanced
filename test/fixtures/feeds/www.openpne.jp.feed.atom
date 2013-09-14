@@ -4,8 +4,8 @@
   xml:lang="ja"
   xml:base="http://www.sfadvanced.jp/wp-atom.php"
    >
-	<title type="text">OpenPNE</title>
-	<subtitle type="text">オープンソースのSNSエンジン OpenPNEプロジェクト</subtitle>
+	<title type="text">SfAdvanced</title>
+	<subtitle type="text">オープンソースのSNSエンジン SfAdvancedプロジェクト</subtitle>
 
 	<updated>2009-11-29T16:16:36Z</updated>
 	<generator uri="http://wordpress.org/" version="2.8.6">WordPress</generator>
@@ -19,17 +19,17 @@
 			<name>Kousuke Ebihara</name>
 						<uri>http://d.hatena.ne.jp/co3k/</uri>
 					</author>
-		<title type="html"><![CDATA[OpenPNE 3.2RC1 リリースのお知らせ]]></title>
+		<title type="html"><![CDATA[SfAdvanced 3.2RC1 リリースのお知らせ]]></title>
 		<link rel="alternate" type="text/html" href="http://www.sfadvanced.jp/archives/3988/" />
 		<link rel="enclosure" type="image/png" length="1000" href="http://www.example.com/sfadvanced.png"/>
 		<id>http://www.sfadvanced.jp/?p=3988</id>
 		<updated>2009-11-29T16:16:36Z</updated>
 		<published>2009-11-29T16:16:36Z</published>
-		<category scheme="http://www.sfadvanced.jp" term="OpenPNE リリース情報" /><category scheme="http://www.sfadvanced.jp" term="OpenPNEからのおしらせ" />		<summary type="html"><![CDATA[				OpenPNE 開発チームの海老原です。
-				本日 2009/11/30（月）、 開発版 OpenPNE 3.2RC1 をリリースしました。
+		<category scheme="http://www.sfadvanced.jp" term="SfAdvanced リリース情報" /><category scheme="http://www.sfadvanced.jp" term="SfAdvancedからのおしらせ" />		<summary type="html"><![CDATA[				SfAdvanced 開発チームの海老原です。
+				本日 2009/11/30（月）、 開発版 SfAdvanced 3.2RC1 をリリースしました。
 				今後の SfAdvanced のリリーススケジュール にて発表 [...]]]></summary>
-		<content type="html" xml:base="http://www.sfadvanced.jp/archives/3988/"><![CDATA[				<p>OpenPNE 開発チームの海老原です。</p>
-				<p>本日 2009/11/30（月）、 開発版 OpenPNE 3.2RC1 をリリースしました。</p>
+		<content type="html" xml:base="http://www.sfadvanced.jp/archives/3988/"><![CDATA[				<p>SfAdvanced 開発チームの海老原です。</p>
+				<p>本日 2009/11/30（月）、 開発版 SfAdvanced 3.2RC1 をリリースしました。</p>
 				<p><a href="http://www.sfadvanced.jp/archives/3836/">今後の SfAdvanced のリリーススケジュール</a> にて発表させていただいたスケジュールでは、本日が 3.2.0 のリリース予定日となっていましたが、 3.2.0 のリリースは開発の遅れにより本日より 3 日後の 2009/12/03 (木) に延期させていただきたいと思います。もうしばらくお待ちください！</p>
 			</div>
 			<div class="textBody" id="extended">
@@ -38,7 +38,7 @@
 				<li>#305: Add description for sending e-mail by periodic executed script to setup document (定期実行スクリプトによるメール配信のための手段をドキュメントに追記する) (Kousuke Ebihara)</li>
 				<li>#279: ログイン最終日時の表記方法をわかりやすくする (Shogo Kawahara)</li>
 				</ul>
-				<p>詳細は、 <a href="http://redmine.sfadvanced.jp/projects/op3/changelog#OpenPNE%203.2RC1">ChangeLog</a> をご覧ください。</p>
+				<p>詳細は、 <a href="http://redmine.sfadvanced.jp/projects/op3/changelog#SfAdvanced%203.2RC1">ChangeLog</a> をご覧ください。</p>
 				<h2>バグ修正</h2>
 				<ul>
 				<li>#278: The display of Lastlogin of the member who has not login yet is not &#8220;not login yet&#8221;. (ログインしたことのないメンバーの最終ログインの表示が&#8221;未ログイン&#8221;でない) (Shogo Kawahara)</li>
@@ -47,10 +47,10 @@
 				<li>#303: 「もっと写真をみる」でエラー (Kousuke Ebihara)</li>
 				<li>#304: 他人のプロフィール画面のコミュニティリストの「もっと見る」のリンク先が自分のコミュニティリストになっている (Kousuke Ebihara)</li>
 				</ul>
-				<p>その他のバグ修正については、 <a href="http://redmine.sfadvanced.jp/projects/op3/changelog#OpenPNE%203.2RC1">ChangeLog</a> をご覧ください。</p>
+				<p>その他のバグ修正については、 <a href="http://redmine.sfadvanced.jp/projects/op3/changelog#SfAdvanced%203.2RC1">ChangeLog</a> をご覧ください。</p>
 				<h2>バージョンアップ・インストール</h2>
-				<h3>OpenPNE 3.0.5 からのアップグレード</h3>
-				<p>アップグレード方法は、<a href="http://www.sfadvanced.jp/sfadvanced_3_0_5_to_3_2_upgrade_guide/">OpenPNE 3.0.5 からのアップグレード手順</a> をご覧ください。</p>
+				<h3>SfAdvanced 3.0.5 からのアップグレード</h3>
+				<p>アップグレード方法は、<a href="http://www.sfadvanced.jp/sfadvanced_3_0_5_to_3_2_upgrade_guide/">SfAdvanced 3.0.5 からのアップグレード手順</a> をご覧ください。</p>
 				<h3>バージョンアップ</h3>
 				<p>バージョンアップ方法は、<a href="http://www.sfadvanced.jp/sfadvanced_3_2_update_guide/">SfAdvanced.2 バージョンアップ手順</a> をご覧ください。</p>
 				<h3>インストール</h3>
@@ -59,7 +59,7 @@
 				<h3>ダウンロード</h3>
 				<p><a href="http://www.sfadvanced.jp/pne-downloads">http://www.sfadvanced.jp/pne-downloads</a></p>
 				<h3>チェンジログ</h3>
-				<p> <a href="http://redmine.sfadvanced.jp/projects/op3/changelog#OpenPNE%203.2RC1">ChangeLog</a></p>
+				<p> <a href="http://redmine.sfadvanced.jp/projects/op3/changelog#SfAdvanced%203.2RC1">ChangeLog</a></p>
 ]]></content>
 		<link rel="replies" type="text/html" href="http://www.sfadvanced.jp/archives/3988/#comments" thr:count="0"/>
 		<link rel="replies" type="application/atom+xml" href="http://www.sfadvanced.jp/archives/3988/feed/atom/" thr:count="0"/>
@@ -74,14 +74,14 @@
 		<id>http://www.sfadvanced.jp/?p=3982</id>
 		<updated>2009-11-28T21:00:51Z</updated>
 		<published>2009-11-28T21:00:51Z</published>
-		<category scheme="http://www.sfadvanced.jp" term="SfAdvanced プラグイン リリース情報" /><category scheme="http://www.sfadvanced.jp" term="OpenPNEからのおしらせ" />		<summary type="html"><![CDATA[				OpenPNE 開発チームの海老原です。
+		<category scheme="http://www.sfadvanced.jp" term="SfAdvanced プラグイン リリース情報" /><category scheme="http://www.sfadvanced.jp" term="SfAdvancedからのおしらせ" />		<summary type="html"><![CDATA[				SfAdvanced 開発チームの海老原です。
 				本日 2009/11/29 (日) 、 opMessagePlugin にクロスサイト・リクエスト・フォージュリ (CSRF) の脆弱性が発見されたため、緊急リリ [...]]]></summary>
-		<content type="html" xml:base="http://www.sfadvanced.jp/archives/3982/"><![CDATA[				<p>OpenPNE 開発チームの海老原です。</p>
+		<content type="html" xml:base="http://www.sfadvanced.jp/archives/3982/"><![CDATA[				<p>SfAdvanced 開発チームの海老原です。</p>
 				<p>本日 2009/11/29 (日) 、 opMessagePlugin にクロスサイト・リクエスト・フォージュリ (CSRF) の脆弱性が発見されたため、緊急リリースをおこないました。</p>
 				<p><strong>対象:</strong></p>
 				<ul>
-				<li>opMessagePlugin 0.8.2 以前 (OpenPNE 3.0.0 〜 3.0.5 に同梱されているもの)</li>
-				<li>opMessagePlugin 0.9.0 (OpenPNE 3.1.5 〜 3.2 beta1 に同梱されているもの)</li>
+				<li>opMessagePlugin 0.8.2 以前 (SfAdvanced 3.0.0 〜 3.0.5 に同梱されているもの)</li>
+				<li>opMessagePlugin 0.9.0 (SfAdvanced 3.1.5 〜 3.2 beta1 に同梱されているもの)</li>
 				</ul>
 				<p><strong>影響を受けるシステム:</strong></p>
 				<p>対象のバージョンの opMessagePlugin を使用しているすべての SfAdvanced<br />
@@ -89,21 +89,21 @@
 				<p><strong>想定される影響:</strong></p>
 				<p>SfAdvanced にログインした状態で、悪意のあるプログラムコードが含まれたページにアクセスすると、任意のメッセージを削除、またはゴミ箱から復元されてしまう恐れがあります。</p>
 				<p><strong>対策方法:</strong></p>
-				<p>OpenPNE 3.0.3 〜 3.0.5 をお使いの場合、以下のコマンドを実行してアップデートを実施してください。</p>
+				<p>SfAdvanced 3.0.3 〜 3.0.5 をお使いの場合、以下のコマンドを実行してアップデートを実施してください。</p>
 				<blockquote><pre>$ symfony opPlugin:install opMessagePlugin -r 0.8.2.1
 $ symfony propel:build-model
 $ symfony propel:build-form
 $ symfony propel:build-filter
 $ symfony cc</pre>
 				</blockquote>
-				<p>OpenPNE 3.1.5 〜 OpenPNE 3.2beta1 をお使いの場合、以下のコマンドを実行してアップデートを実施してください。</p>
+				<p>SfAdvanced 3.1.5 〜 SfAdvanced 3.2beta1 をお使いの場合、以下のコマンドを実行してアップデートを実施してください。</p>
 				<blockquote><pre>$ symfony opPlugin:install opMessagePlugin -r 0.9.0.1
 $ symfony doctrine:build-model
 $ symfony doctrine:build-form
 $ symfony doctrine:build-filter
 $ symfony cc</pre>
 				</blockquote>
-				<p>OpenPNE 3.0.0, 3.0.1, 3.0.2 をお使いの方は、 OpenPNE 3.0.3 へのアップデートを実施してください。</p>
+				<p>SfAdvanced 3.0.0, 3.0.1, 3.0.2 をお使いの方は、 SfAdvanced 3.0.3 へのアップデートを実施してください。</p>
 ]]></content>
 		<link rel="replies" type="text/html" href="http://www.sfadvanced.jp/archives/3982/#comments" thr:count="0"/>
 		<link rel="replies" type="application/atom+xml" href="http://www.sfadvanced.jp/archives/3982/feed/atom/" thr:count="0"/>
@@ -118,12 +118,12 @@ $ symfony cc</pre>
 		<id>http://www.sfadvanced.jp/?p=3966</id>
 		<updated>2009-11-25T08:30:33Z</updated>
 		<published>2009-11-25T08:24:38Z</published>
-		<category scheme="http://www.sfadvanced.jp" term="その他" />		<summary type="html"><![CDATA[				OpenPNE開発チームの川原です。
+		<category scheme="http://www.sfadvanced.jp" term="その他" />		<summary type="html"><![CDATA[				SfAdvanced開発チームの川原です。
 				昨日2009年11月24日、opOpenSocialPlugin 0.9.2-betaをリリースしました。
 				0.9.1-betaからのおもな変更点
 				
  [...]]]></summary>
-		<content type="html" xml:base="http://www.sfadvanced.jp/archives/3966/"><![CDATA[				<p>OpenPNE開発チームの川原です。</p>
+		<content type="html" xml:base="http://www.sfadvanced.jp/archives/3966/"><![CDATA[				<p>SfAdvanced開発チームの川原です。</p>
 				<p>昨日2009年11月24日、opOpenSocialPlugin 0.9.2-betaをリリースしました。</p>
 				<h2>0.9.1-betaからのおもな変更点</h2>
 				<ul>
@@ -145,7 +145,7 @@ $ symfony cc</pre>
 				<p><strong>SfAdvanced.1.3以上が必要です。 </strong><br />
 				3.1.3未満のバージョンをご利用している場合は、事前にバージョンアップを行ってください。</p>
 				<p><strong>SfAdvanced.2-beta1にはこのバージョンが自動的にインストールされます。</strong></p>
-				<p>OpenPNE本体のバージョンを上げずに、プラグインのみをバージョンアップする場合は次のように行います。<br />
+				<p>SfAdvanced本体のバージョンを上げずに、プラグインのみをバージョンアップする場合は次のように行います。<br />
 				バージョンアップ前にデータベースのバックアップを行ってください。</p>
 				<pre style="overflow: auto; margin-bottom: 1em"><code>
 $ ./symfony opPlugin:install -s beta -r 0.9.2 opOpenSocialPlugin
@@ -156,11 +156,11 @@ $ ./symfony cc
 				<p>SfAdvanced.3.xに同梱させるためのバージョン0.9.3-betaを今年のうちにリリースする予定です。<br />
 				おもな機能として、アルバム機能との連動や、メンバーによるアプリの追加に関する機能の強化を行うつもりです。</p>
 				<p>目標は、<del datetime="2009-11-25T08:24:40+00:00">クリスマスはどうせ暇なので</del>皆さんにクリスマスプレゼント的な12月24日としています。</p>
-				<p>また、<a href="http://redmine.sfadvanced.jp/issues/230">OpenPNE本体側にActivityが実装される予定なので</a>、その操作に関するAPIの実装を中心としたバージョンを<br />
+				<p>また、<a href="http://redmine.sfadvanced.jp/issues/230">SfAdvanced本体側にActivityが実装される予定なので</a>、その操作に関するAPIの実装を中心としたバージョンを<br />
 				バージョンを1.0.0とする予定です。</p>
 				<h2>開発やバグ報告・要望について</h2>
 				<p>これまで、Issue TrackingをGithub上で行っていましたが、ロードマップの管理などの利便性の観点から<br />
-				<a href="http://redmine.sfadvanced.jp/">OpenPNE Issue Tracking System</a>上で行うことにしました。</p>
+				<a href="http://redmine.sfadvanced.jp/">SfAdvanced Issue Tracking System</a>上で行うことにしました。</p>
 				<p><a href="http://redmine.sfadvanced.jp/projects/plg-open-social/issues/new">こちらから、報告ができます。</a></p>
 				<p>また、このプラグインはGithub上でソースコードの管理を行っています。<br />
 				http://github.com/kawahara/opOpenSocialPlugin</p>
@@ -175,27 +175,27 @@ $ ./symfony cc
 			<name>Kousuke Ebihara</name>
 						<uri>http://d.hatena.ne.jp/co3k/</uri>
 					</author>
-		<title type="html"><![CDATA[OpenPNE 3.2beta1 リリースのお知らせ]]></title>
+		<title type="html"><![CDATA[SfAdvanced 3.2beta1 リリースのお知らせ]]></title>
 		<link rel="alternate" type="text/html" href="http://www.sfadvanced.jp/archives/3949/" />
 		<id>http://www.sfadvanced.jp/?p=3949</id>
 		<updated>2009-11-24T15:19:01Z</updated>
 		<published>2009-11-24T15:18:23Z</published>
-		<category scheme="http://www.sfadvanced.jp" term="OpenPNE リリース情報" /><category scheme="http://www.sfadvanced.jp" term="OpenPNEからのおしらせ" />		<summary type="html"><![CDATA[				OpenPNE 開発チームの海老原です。
-				本日 2009/11/25（水）、 開発版 OpenPNE 3.2beta1 をリリースしました。
-				今回のバージョンから、 OpenPNE 3.0.5 以 [...]]]></summary>
-		<content type="html" xml:base="http://www.sfadvanced.jp/archives/3949/"><![CDATA[				<p>OpenPNE 開発チームの海老原です。</p>
-				<p>本日 2009/11/25（水）、 開発版 OpenPNE 3.2beta1 をリリースしました。</p>
-				<p>今回のバージョンから、 OpenPNE 3.0.5 以上からのアップグレードに対応しました。大変お待たせしました。</p>
-				<p>また、新しいプラグインの同梱についてはこのバージョンで締め切りました。 OpenPNE 3.0.x で同梱されていたプラグインで、まだこのバージョンに同梱されていないものについては、 OpenPNE 3.3.x 以上で同梱をおこなう予定です。</p>
+		<category scheme="http://www.sfadvanced.jp" term="SfAdvanced リリース情報" /><category scheme="http://www.sfadvanced.jp" term="SfAdvancedからのおしらせ" />		<summary type="html"><![CDATA[				SfAdvanced 開発チームの海老原です。
+				本日 2009/11/25（水）、 開発版 SfAdvanced 3.2beta1 をリリースしました。
+				今回のバージョンから、 SfAdvanced 3.0.5 以 [...]]]></summary>
+		<content type="html" xml:base="http://www.sfadvanced.jp/archives/3949/"><![CDATA[				<p>SfAdvanced 開発チームの海老原です。</p>
+				<p>本日 2009/11/25（水）、 開発版 SfAdvanced 3.2beta1 をリリースしました。</p>
+				<p>今回のバージョンから、 SfAdvanced 3.0.5 以上からのアップグレードに対応しました。大変お待たせしました。</p>
+				<p>また、新しいプラグインの同梱についてはこのバージョンで締め切りました。 SfAdvanced 3.0.x で同梱されていたプラグインで、まだこのバージョンに同梱されていないものについては、 SfAdvanced 3.3.x 以上で同梱をおこなう予定です。</p>
 			</div>
 			<div class="textBody" id="extended">
 				<h2>機能追加・機能改善</h2>
 				<ul>
-				<li>#237: Added support for migrating from OpenPNE 3.0.x (OpenPNE 3.0.x からの移行をサポートする) (Kousuke Ebihara)</li>
-				<li>#239: Added support for migrating from OpenPNE 3.1.x (OpenPNE 3.1.x からの移行をサポートする) (Kousuke Ebihara)</li>
-				<li>#248: add manager OpenPNE&#8217;s richtextarea (OpenPNEのリッチテキストエリアを管理する機能を実装する） (Shogo Kawahara)</li>
+				<li>#237: Added support for migrating from SfAdvanced 3.0.x (SfAdvanced 3.0.x からの移行をサポートする) (Kousuke Ebihara)</li>
+				<li>#239: Added support for migrating from SfAdvanced 3.1.x (SfAdvanced 3.1.x からの移行をサポートする) (Kousuke Ebihara)</li>
+				<li>#248: add manager SfAdvanced&#8217;s richtextarea (SfAdvancedのリッチテキストエリアを管理する機能を実装する） (Shogo Kawahara)</li>
 				</ul>
-				<p>詳細は、 <a href="http://redmine.sfadvanced.jp/projects/op3/changelog#OpenPNE%203.2beta1">ChangeLog</a> をご覧ください。</p>
+				<p>詳細は、 <a href="http://redmine.sfadvanced.jp/projects/op3/changelog#SfAdvanced%203.2beta1">ChangeLog</a> をご覧ください。</p>
 				<h2>バグ修正</h2>
 				<ul>
 				<li>#234: The display of the type of the date in the profile is not correct (プロフィール画面の日付型データが表示が正しくない） (Kousuke Ebihara)</li>
@@ -204,14 +204,14 @@ $ ./symfony cc
 				<li>#250: Non-logged-in member can&#8217;t access some pages that don&#8217;t need authentication (認証の不要なページに未ログインユーザがアクセスできない) (Kousuke Ebihara)</li>
 				<li>#253: 3.1.5でPCメールアドレスを変更しようとするとエラーが発生する (Kousuke Ebihara)</li>
 				</ul>
-				<p>その他のバグ修正については、 <a href="http://redmine.sfadvanced.jp/projects/op3/changelog#OpenPNE%203.2beta1">ChangeLog</a> をご覧ください。</p>
+				<p>その他のバグ修正については、 <a href="http://redmine.sfadvanced.jp/projects/op3/changelog#SfAdvanced%203.2beta1">ChangeLog</a> をご覧ください。</p>
 				<h2>バンドルされるプラグインの追加・更新情報</h2>
 				<p>以下のプラグインが更新されます。</p>
 				<ul>
 				<li>opOpenSocialPlugin 0.9.1 -> 0.9.2</li>
 				</ul>
 				<h2>注意事項</h2>
-				<p>3.0.x に同梱されていたプラグインの一部は Doctrine に未対応のため、 OpenPNE 3.2.x ではご利用いただけません。</p>
+				<p>3.0.x に同梱されていたプラグインの一部は Doctrine に未対応のため、 SfAdvanced 3.2.x ではご利用いただけません。</p>
 				<p>同梱されているプラグインは以下となります。</p>
 				<ul>
 				<li>opAuthMailAddressPlugin</li>
@@ -227,8 +227,8 @@ $ ./symfony cc
 				<li>opAlbumPlugin</li>
 				</ul>
 				<h2>バージョンアップ・インストール</h2>
-				<h3>OpenPNE 3.0.5 からのアップグレード</h3>
-				<p>アップグレード方法は、<a href="http://www.sfadvanced.jp/sfadvanced_3_0_5_to_3_2_upgrade_guide/">OpenPNE 3.0.5 からのアップグレード手順</a> をご覧ください。</p>
+				<h3>SfAdvanced 3.0.5 からのアップグレード</h3>
+				<p>アップグレード方法は、<a href="http://www.sfadvanced.jp/sfadvanced_3_0_5_to_3_2_upgrade_guide/">SfAdvanced 3.0.5 からのアップグレード手順</a> をご覧ください。</p>
 				<h3>バージョンアップ</h3>
 				<p>バージョンアップ方法は、<a href="http://www.sfadvanced.jp/sfadvanced_3_1_update_guide/">SfAdvanced.1 バージョンアップ手順</a> をご覧ください。</p>
 				<h3>インストール</h3>
@@ -237,7 +237,7 @@ $ ./symfony cc
 				<h3>ダウンロード</h3>
 				<p><a href="http://www.sfadvanced.jp/pne-downloads">http://www.sfadvanced.jp/pne-downloads</a></p>
 				<h3>チェンジログ</h3>
-				<p> <a href="http://redmine.sfadvanced.jp/projects/op3/changelog#OpenPNE%203.2beta1">ChangeLog</a></p>
+				<p> <a href="http://redmine.sfadvanced.jp/projects/op3/changelog#SfAdvanced%203.2beta1">ChangeLog</a></p>
 ]]></content>
 		<link rel="replies" type="text/html" href="http://www.sfadvanced.jp/archives/3949/#comments" thr:count="0"/>
 		<link rel="replies" type="application/atom+xml" href="http://www.sfadvanced.jp/archives/3949/feed/atom/" thr:count="0"/>
@@ -248,15 +248,15 @@ $ ./symfony cc
 			<name>Kousuke Ebihara</name>
 						<uri>http://d.hatena.ne.jp/co3k/</uri>
 					</author>
-		<title type="html"><![CDATA[OpenPNE 3.1.5 にバンドルされているプラグインを更新しました]]></title>
+		<title type="html"><![CDATA[SfAdvanced 3.1.5 にバンドルされているプラグインを更新しました]]></title>
 		<link rel="alternate" type="text/html" href="http://www.sfadvanced.jp/archives/3945/" />
 		<id>http://www.sfadvanced.jp/?p=3945</id>
 		<updated>2009-11-24T04:34:54Z</updated>
 		<published>2009-11-24T04:33:46Z</published>
-		<category scheme="http://www.sfadvanced.jp" term="OpenPNEからのおしらせ" />
+		<category scheme="http://www.sfadvanced.jp" term="SfAdvancedからのおしらせ" />
 		<content type="html" xml:base="http://www.sfadvanced.jp/archives/3945/"><![CDATA[				<p>開発チームの海老原です。</p>
 				<p>11/23 に <a href="http://www.sfadvanced.jp/archives/3931/">opAlbumPlugin のアップデート</a>が、 11/24 に <a href="http://www.sfadvanced.jp/archives/3938/">opDiaryPlugin のアップデート</a>がありました。</p>
-				<p>どちらも重要なバグフィックスがおこなわれたリリースのため、 OpenPNE 3.1.5 にバンドルされているプラグインも、新しく更新されたバージョンに変更しました。</p>
+				<p>どちらも重要なバグフィックスがおこなわれたリリースのため、 SfAdvanced 3.1.5 にバンドルされているプラグインも、新しく更新されたバージョンに変更しました。</p>
 				<p>以下のコマンドを実行することで、更新された opAlbumPlugin と opDiaryPlugin が利用できます。<br />
 				<code>./symfony sfadvanced:migrate</code></p>
 ]]></content>
@@ -288,10 +288,10 @@ $ ./symfony cc
 		<id>http://www.sfadvanced.jp/?p=3931</id>
 		<updated>2009-11-23T10:57:27Z</updated>
 		<category scheme="http://www.sfadvanced.jp" term="SfAdvanced プラグイン リリース情報" /><category scheme="http://www.sfadvanced.jp" term="opAlbumPlugin" />		<summary type="html"><![CDATA[				
-				OpenPNE 開発チームの茂木です。
+				SfAdvanced 開発チームの茂木です。
 				SfAdvanced.1.5にて、opAlbumPluginの影響で、未ログインユーザがログインを必要としないアクションにアクセスできない状態になる、というバ [...]]]></summary>
 		<content type="html" xml:base="http://www.sfadvanced.jp/archives/3931/"><![CDATA[				<div class="textBody">
-				<p>OpenPNE 開発チームの茂木です。</p>
+				<p>SfAdvanced 開発チームの茂木です。</p>
 				<p>SfAdvanced.1.5にて、opAlbumPluginの影響で、未ログインユーザがログインを必要としないアクションにアクセスできない状態になる、というバグが起きていたため、急遽対策をさせていただきました。<br />
 				opAlbumPluginを利用している方はアップデートをお願いします。</p>
 				<h2>インストール方法</h2>
@@ -323,14 +323,14 @@ $ ./symfony cc
 		<published>2009-11-20T11:54:18Z</published>
 		<category scheme="http://www.sfadvanced.jp" term="SfAdvanced プラグイン リリース情報" />		<summary type="html"><![CDATA[				
 				初めまして！
-				OpenPNE 開発チームの茂木です。
+				SfAdvanced 開発チームの茂木です。
 				告知が遅れてしまったのですが、SfAdvanced 用のアルバムプラグイン、 opAlbumPlugin の 0.9.0 をリリースしま [...]]]></summary>
 		<content type="html" xml:base="http://www.sfadvanced.jp/archives/3925/"><![CDATA[				<div>
 				<p>初めまして！</p>
-				<p>OpenPNE 開発チームの茂木です。</p>
+				<p>SfAdvanced 開発チームの茂木です。</p>
 				<p>告知が遅れてしまったのですが、SfAdvanced 用のアルバムプラグイン、 opAlbumPlugin の 0.9.0 をリリースしました。</p>
-				<p>既に、今週リリースされたOpenPNE 3.1.5 に同梱されています。</p>
-				<p>このプラグインは、OpenPNE2系で提供していたアルバム機能を移植したものです。</p>
+				<p>既に、今週リリースされたSfAdvanced 3.1.5 に同梱されています。</p>
+				<p>このプラグインは、SfAdvanced2系で提供していたアルバム機能を移植したものです。</p>
 				<p>現状ではPC版の基本的なアルバム機能が実装されています。</p>
 				<p>これからのリリースで、携帯版やアルバム小窓などを追加して行きたいと考えています。</p>
 				<p>また、Doctrineにのみ対応しておりますので、SfAdvanced.1系でご利用ください。</p>
@@ -364,7 +364,7 @@ $ ./symfony cc
 		<title type="html"><![CDATA[今週のSfAdvancedデモサイト委員会 #6]]></title>
 		<link rel="alternate" type="text/html" href="http://www.sfadvanced.jp/archives/3891/" />
 		<id>http://www.sfadvanced.jp/?p=3891</id>
-		<category scheme="http://www.sfadvanced.jp" term="OpenPNEからのおしらせ" /><category scheme="http://www.sfadvanced.jp" term="その他" />		<summary type="html"><![CDATA[				SfAdvancedデモサイト委員会、広報担当の今村です。
+		<category scheme="http://www.sfadvanced.jp" term="SfAdvancedからのおしらせ" /><category scheme="http://www.sfadvanced.jp" term="その他" />		<summary type="html"><![CDATA[				SfAdvancedデモサイト委員会、広報担当の今村です。
 				「今週のSfAdvancedデモサイト委員会」第6回です。
 				まずはデモサイトの現在のメンバー数からご報告します。
 				なんと今週も前回から1 [...]]]></summary>
@@ -388,7 +388,7 @@ $ ./symfony cc
 				タイトル、本文を入力したら、次は公開権限の設定です。</p>
 				<p><img src="http://www.sfadvanced.jp/wp-content/uploads/2009/11/e6a8a9e99990.png" alt="権限" title="権限" width="288" height="184" class="alignnone size-full wp-image-3902" /></p>
 				<p>「Web全体に公開」のラジオボタンを選択しましょう。<br />
-				ちなみに「Web全体に公開」以外の権限はOpenPNE2でもあったのでおなじみかと思います。<br />
+				ちなみに「Web全体に公開」以外の権限はSfAdvanced2でもあったのでおなじみかと思います。<br />
 				公開権限について簡単に説明すると以下な感じです。</p>
 				<ul>
 				<li>・Web全体に公開　　　 SNS外でもSNS内でもネット上の誰でも閲覧可能</li>
@@ -410,7 +410,7 @@ $ ./symfony cc
 				<p><a href="http://redmine.sfadvanced.jp/">http://redmine.sfadvanced.jp/</a><br />
 				SfAdvancedプロジェクトRedmine</p>
 				<p><a href="http://sns.sfadvanced.jp/">http://sns.sfadvanced.jp/</a><br />
-				バグ・要望報告は→OpenPNE公式SNSでもOK</p>
+				バグ・要望報告は→SfAdvanced公式SNSでもOK</p>
 				<p><a href="http://twitter.com/pnetan">http://twitter.com/pnetan/</a><br />
 				Pnetanつぶやきなう<br />
 				■———————————————————■</p>
@@ -424,17 +424,17 @@ $ ./symfony cc
 			<name>imamura</name>
 						<uri>http://</uri>
 					</author>
-		<title type="html"><![CDATA[安定版OpenPNE2.14.3と旧安定版OpenPNE2.12.16リリースしました]]></title>
+		<title type="html"><![CDATA[安定版SfAdvanced2.14.3と旧安定版SfAdvanced2.12.16リリースしました]]></title>
 		<link rel="alternate" type="text/html" href="http://www.sfadvanced.jp/archives/3884/" />
 		<id>http://www.sfadvanced.jp/?p=3884</id>
 		<updated>2009-11-19T08:03:05Z</updated>
 		<published>2009-11-19T08:03:05Z</published>
-		<category scheme="http://www.sfadvanced.jp" term="OpenPNE リリース情報" /><category scheme="http://www.sfadvanced.jp" term="OpenPNEからのおしらせ" />		<summary type="html"><![CDATA[				OpenPNE開発チームの今村です。
-				本日2009/11/19（木）、安定版 OpenPNE2.14.3 , 旧安定版 OpenPNE2.12.16 をリリースしました。
-				OpenPNE2系は20 [...]]]></summary>
-		<content type="html" xml:base="http://www.sfadvanced.jp/archives/3884/"><![CDATA[				<p>OpenPNE開発チームの今村です。<br />
-				本日2009/11/19（木）、安定版 OpenPNE2.14.3 , 旧安定版 OpenPNE2.12.16 をリリースしました。<br />
-				OpenPNE2系は2009年最後のリリースになります。</p>
+		<category scheme="http://www.sfadvanced.jp" term="SfAdvanced リリース情報" /><category scheme="http://www.sfadvanced.jp" term="SfAdvancedからのおしらせ" />		<summary type="html"><![CDATA[				SfAdvanced開発チームの今村です。
+				本日2009/11/19（木）、安定版 SfAdvanced2.14.3 , 旧安定版 SfAdvanced2.12.16 をリリースしました。
+				SfAdvanced2系は20 [...]]]></summary>
+		<content type="html" xml:base="http://www.sfadvanced.jp/archives/3884/"><![CDATA[				<p>SfAdvanced開発チームの今村です。<br />
+				本日2009/11/19（木）、安定版 SfAdvanced2.14.3 , 旧安定版 SfAdvanced2.12.16 をリリースしました。<br />
+				SfAdvanced2系は2009年最後のリリースになります。</p>
 			</div>
 			<div class="textBody" id="extended">
 				<h2>バグ修正</h2>
@@ -466,18 +466,18 @@ $ ./symfony cc
 				<h2>今後のリリース予定について</h2>
 				<p>2010年最初のリリースは下記を予定しています。</p>
 				<ul>
-				<li>・2010/01/21（木）　OpenPNE2.14.4とOpenPNE2.12.17</li>
+				<li>・2010/01/21（木）　SfAdvanced2.14.4とSfAdvanced2.12.17</li>
 				</ul>
 				<p>また、このリリースで下記のチケットを対応予定です。</p>
 				<ul>
 				<li>・<a href="http://trac.sfadvanced.jp/ticket/4367">#4367</a>：携帯URLに含まれるセッションパラメータをサイト内に書き込んだ際に表示しないようにする</li>
 				</ul>
 				<p>このチケットでは携帯でセッションID付きURLを書き込んでもセッションIDを表示しないように修正し、より安全なSNSになるように対応します。</p>
-				<h2>OpenPNEプロジェクト参加者募集中！</h2>
-				<p>OpenPNEプロジェクトでは参加者を募集しています！<br />
+				<h2>SfAdvancedプロジェクト参加者募集中！</h2>
+				<p>SfAdvancedプロジェクトでは参加者を募集しています！<br />
 				現在SfAdvancedの開発が活発に行われていますが、3系、2系にかかわらず人材を募集しています。<br />
-				OpenPNEの開発に興味がある場合、もっと詳しく知りたい場合はこちらまでご連絡ください。</p>
-				<p>■ OpenPNE開発者メーリングリスト<br />
+				SfAdvancedの開発に興味がある場合、もっと詳しく知りたい場合はこちらまでご連絡ください。</p>
+				<p>■ SfAdvanced開発者メーリングリスト<br />
 				    　　http://groups.google.co.jp/group/sfadvanced-dev </p>
 ]]></content>
 		<link rel="replies" type="text/html" href="http://www.sfadvanced.jp/archives/3884/#comments" thr:count="0"/>

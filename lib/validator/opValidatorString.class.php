@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -12,7 +12,7 @@
  * opValidatorString validates a string.
  * It support to trim double byte spaces.
  * 
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage validator
  * @author     Shogo Kawahara <kawahara@tejimaya.net>
  */

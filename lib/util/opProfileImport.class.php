@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -11,7 +11,7 @@
 /**
  * opProfileImport
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage util
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
@@ -19,7 +19,7 @@ class opProfileImport
 {
   public
     $member = null,
-    $tableToOpenPNE = array(),
+    $tableToSfAdvanced = array(),
     $profiles = array(),
     $names = array(),
     $emails = array(),
@@ -29,7 +29,7 @@ class opProfileImport
   public function setData($data)
   {
     $result = array();
-    $list = array_flip($this->tableToOpenPNE);
+    $list = array_flip($this->tableToSfAdvanced);
 
     foreach ($list as $k => $v)
     {
@@ -42,7 +42,7 @@ class opProfileImport
 
   public function getSupportedProfiles()
   {
-    return array_keys($this->tableToOpenPNE);
+    return array_keys($this->tableToSfAdvanced);
   }
 
   protected function getSetterMethodName($key)
@@ -64,7 +64,7 @@ class opProfileImport
           return null;
         }
 
-        $this->setMemberProfile($this->member, $this->tableToOpenPNE[$key], array_shift($data[$key]));
+        $this->setMemberProfile($this->member, $this->tableToSfAdvanced[$key], array_shift($data[$key]));
       }
       elseif (in_array($key, $this->names))
       {
@@ -105,7 +105,7 @@ class opProfileImport
           return null;
         }
 
-        $this->member->setConfig($this->tableToOpenPNE[$key], array_shift($data[$key]));
+        $this->member->setConfig($this->tableToSfAdvanced[$key], array_shift($data[$key]));
       }
       else
       {

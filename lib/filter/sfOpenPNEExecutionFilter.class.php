@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -16,10 +16,10 @@
  * And of course using this class is deprecated. You should not begin to
  * use this class, and you have to replace the code that is using this class.
  * 
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage filter
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-class sfOpenPNEExecutionFilter extends opExecutionFilter
+class sfSfAdvancedExecutionFilter extends opExecutionFilter
 {
 }

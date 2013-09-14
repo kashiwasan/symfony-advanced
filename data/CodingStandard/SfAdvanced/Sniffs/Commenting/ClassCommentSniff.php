@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -11,7 +11,7 @@
 /**
  * SfAdvanced_Sniffs_Commenting_ClassCommentSniff
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
 class SfAdvanced_Sniffs_Commenting_ClassCommentSniff extends Squiz_Sniffs_Commenting_ClassCommentSniff
@@ -39,11 +39,11 @@ class SfAdvanced_Sniffs_Commenting_ClassCommentSniff extends Squiz_Sniffs_Commen
     {
       $package = $this->commentParser->getPackage();
 
-      if ('OpenPNE' !== $package->getContent()
+      if ('SfAdvanced' !== $package->getContent()
           && !preg_match('/^op.+Plugin$/', $package->getContent())
       )
       {
-        $error = '@package must be "OpenPNE" or plugin name.';
+        $error = '@package must be "SfAdvanced" or plugin name.';
         $this->currentFile->addError($error, $commentEnd);
       }
     }

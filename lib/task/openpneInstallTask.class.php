@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -23,9 +23,9 @@ class sfadvancedInstallTask extends sfDoctrineBaseTask
       new sfCommandOption('internet', null, sfCommandOption::PARAMETER_NONE, 'Connect Internet Option to download plugins list.'),
     ));
 
-    $this->briefDescription = 'Install OpenPNE';
+    $this->briefDescription = 'Install SfAdvanced';
     $this->detailedDescription = <<<EOF
-The [sfadvanced:install|INFO] task installs and configures OpenPNE.
+The [sfadvanced:install|INFO] task installs and configures SfAdvanced.
 Call it with:
 
   [./symfony sfadvanced:install|INFO]
@@ -405,7 +405,7 @@ EOF;
         '===================',
         ' WARNING',
         '===================',
-        $value.' is UNSUPPORTED by this version of OpenPNE!',
+        $value.' is UNSUPPORTED by this version of SfAdvanced!',
         '',
         'DO NOT use this DBMS, unless you are expert at this DBMS and you can cope some troubles.',
         'If you want to give us some feedback about this DBMS, please visit: http://redmine.sfadvanced.jp/',

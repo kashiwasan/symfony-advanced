@@ -3,7 +3,7 @@
 /**
  * DesignBannerImageForm
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage form
  * @author     Masato Nagasawa <nagasawa@tejimaya.com>
  */

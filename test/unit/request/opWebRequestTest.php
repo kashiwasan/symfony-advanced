@@ -14,7 +14,7 @@ $uids = array(
     'softbank_fallback' => '200000000000000',
 );
 
-class myOpenPNEWebRequest extends opWebRequest
+class mySfAdvancedWebRequest extends opWebRequest
 {
     public $isSecure = false;
 
@@ -49,7 +49,7 @@ class myOpenPNEWebRequest extends opWebRequest
 }
 
 $dispatcher = new sfEventDispatcher();
-$request = new myOpenPNEWebRequest($dispatcher);
+$request = new mySfAdvancedWebRequest($dispatcher);
 
 // ---
 
@@ -70,12 +70,12 @@ $t->info('check retrieving mobile uid for docomo');
 $request->setMobile('DoCoMo/2.0 P903i(c100;TB;W24H12;ser012345678901235;icc'.$uids['docomo_fallback'].')', array('HTTP_X_DCMGUID' => $uids['docomo']));
 $t->is($request->getMobileUID(false), md5($uids['docomo']), '->getMobileUID() returns a valid normal uid');
 $fallbacks = $request->getMobileFallbackUID();
-$t->is($fallbacks[0], md5($uids['docomo_fallback']), '->getMobileFallbackUID() returns a valid OpenPNE 3 fallback uid');
-$t->is($fallbacks[1], md5('icc'.$uids['docomo_fallback']), '->getMobileFallbackUID() returns a valid OpenPNE 2 fallback uid');
+$t->is($fallbacks[0], md5($uids['docomo_fallback']), '->getMobileFallbackUID() returns a valid SfAdvanced 3 fallback uid');
+$t->is($fallbacks[1], md5('icc'.$uids['docomo_fallback']), '->getMobileFallbackUID() returns a valid SfAdvanced 2 fallback uid');
 
 // docomo (fallback uid)
 $request->setMobile('DoCoMo/2.0 P903i(c100;TB;W24H12;ser012345678901235;icc'.$uids['docomo_fallback'].')', array('HTTP_X_DCMGUID' => null));
-$t->is($request->getMobileUID(), md5($uids['docomo_fallback']), '->getMobileUID() returns OpenPNE 3 fallback uid when uid is not specified in the request');
+$t->is($request->getMobileUID(), md5($uids['docomo_fallback']), '->getMobileUID() returns SfAdvanced 3 fallback uid when uid is not specified in the request');
 $t->is($request->getMobileUID(false), false, '->getMobileUID() returns no uids when uid is not specified in the request and fallback uid is not allowed');
 
 // docomo (no uid)
@@ -87,12 +87,12 @@ $t->info('check retrieving mobile uid for softbank');
 $request->setMobile('SoftBank/1.0/930SH/SHJ001/SN'.$uids['softbank_fallback'].' Browser/NetFront/3.4 Profile/MIDP-2.0 Configuration/CLDC-1.1', array('HTTP_X_JPHONE_UID' => $uids['softbank']));
 $t->is($request->getMobileUID(false), md5($uids['softbank']), '->getMobileUID() returns a valid normal uid');
 $fallbacks = $request->getMobileFallbackUID();
-$t->is($fallbacks[0], md5($uids['softbank_fallback']), '->getMobileFallbackUID() returns a valid OpenPNE 3 fallback uid');
-$t->is($fallbacks[1], md5('SN'.$uids['softbank_fallback']), '->getMobileFallbackUID() returns a valid OpenPNE 2 fallback uid');
+$t->is($fallbacks[0], md5($uids['softbank_fallback']), '->getMobileFallbackUID() returns a valid SfAdvanced 3 fallback uid');
+$t->is($fallbacks[1], md5('SN'.$uids['softbank_fallback']), '->getMobileFallbackUID() returns a valid SfAdvanced 2 fallback uid');
 
 // softbank (fallback uid)
 $request->setMobile('SoftBank/1.0/930SH/SHJ001/SN'.$uids['softbank_fallback'].' Browser/NetFront/3.4 Profile/MIDP-2.0 Configuration/CLDC-1.1', array('HTTP_X_JPHONE_UID' => null));
-$t->is($request->getMobileUID(), md5($uids['softbank_fallback']), '->getMobileUID() returns OpenPNE 3 fallback uid when uid is not specified in the request');
+$t->is($request->getMobileUID(), md5($uids['softbank_fallback']), '->getMobileUID() returns SfAdvanced 3 fallback uid when uid is not specified in the request');
 $t->is($request->getMobileUID(false), false, '->getMobileUID() returns no uids when uid is not specified in the request and fallback uid is not allowed');
 
 // softbank (no uid)

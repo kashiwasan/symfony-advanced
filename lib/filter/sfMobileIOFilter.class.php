@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -11,7 +11,7 @@
 /**
  * sfMobileIOFilter
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage filter
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
@@ -93,18 +93,18 @@ class sfMobileIOFilter extends sfFilter
         if ($c1 == 0xF7 || $c1 == 0xF9 || $c1 == 0xFB)
         {
           $bin = substr($value, $i, 2);
-          $emoji = OpenPNE_KtaiEmoji::convertSoftBankEmojiToOpenPNEFormat($bin);
+          $emoji = SfAdvanced_KtaiEmoji::convertSoftBankEmojiToSfAdvancedFormat($bin);
         }
       } 
       elseif ($c1 == 0xF8 || $c1 == 0xF9)
       {
         $bin = substr($value, $i, 2);
-        $emoji = OpenPNE_KtaiEmoji::convertDoCoMoEmojiToOpenPNEFormat($bin);
+        $emoji = SfAdvanced_KtaiEmoji::convertDoCoMoEmojiToSfAdvancedFormat($bin);
       }
       elseif (0xF3 <= $c1 && $c1 <= 0xF7)
       {
         $bin = substr($value, $i, 2);
-        $emoji = OpenPNE_KtaiEmoji::convertEZWebEmojiToOpenPNEFormat($bin);
+        $emoji = SfAdvanced_KtaiEmoji::convertEZWebEmojiToSfAdvancedFormat($bin);
       }
       if ($emoji)
       {

@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -31,6 +31,6 @@ EOF;
 
   protected function execute($arguments = array(), $options = array())
   {
-    throw new Exception('The "sfadvanced:generate-migrations" is not supported since OpenPNE 3.5.2. Use "doctrine:generate-migrations-diff".');
+    throw new Exception('The "sfadvanced:generate-migrations" is not supported since SfAdvanced 3.5.2. Use "doctrine:generate-migrations-diff".');
   }
 }

@@ -1,17 +1,17 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
  */
 
 /**
- * opPearRest interacts with a PEAR channel for OpenPNE plugin
+ * opPearRest interacts with a PEAR channel for SfAdvanced plugin
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage plugin
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */

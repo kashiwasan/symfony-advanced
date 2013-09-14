@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -11,7 +11,7 @@
 /**
  * opProfileExport
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage util
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
@@ -19,7 +19,7 @@ class opProfileExport
 {
   public
     $member = null,
-    $tableToOpenPNE = array(),
+    $tableToSfAdvanced = array(),
     $profiles = array(),
     $names = array(),
     $emails = array(),
@@ -30,7 +30,7 @@ class opProfileExport
   {
     $result = array();
 
-    foreach ($this->tableToOpenPNE as $k => $v)
+    foreach ($this->tableToSfAdvanced as $k => $v)
     {
       if (!in_array($v, $allowed))
       {
@@ -64,7 +64,7 @@ class opProfileExport
 
       if (in_array($key, $this->profiles))
       {
-        return (string)$this->member->getProfile($this->tableToOpenPNE[$key]);
+        return (string)$this->member->getProfile($this->tableToSfAdvanced[$key]);
       }
       elseif (in_array($key, $this->names))
       {
@@ -80,7 +80,7 @@ class opProfileExport
       }
       elseif (in_array($key, $this->configs))
       {
-        return $this->member->getConfig($this->tableToOpenPNE[$key]);
+        return $this->member->getConfig($this->tableToSfAdvanced[$key]);
       }
     }
 

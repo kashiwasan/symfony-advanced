@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -13,17 +13,17 @@ class opGenerateModuleTask extends sfBaseTask
   protected function configure()
   {
     $this->addArguments(array(
-      new sfCommandArgument('plugin', sfCommandArgument::REQUIRED, 'The OpenPNE plugin name'),
+      new sfCommandArgument('plugin', sfCommandArgument::REQUIRED, 'The SfAdvanced plugin name'),
       new sfCommandArgument('application', sfCommandArgument::REQUIRED, 'The application name'),
       new sfCommandArgument('module', sfCommandArgument::REQUIRED, 'The module name'),
     ));
 
     $this->namespace = 'opGenerate';
     $this->name = 'module';
-    $this->briefDescription = 'Generates a new module for OpenPNE plugin';
+    $this->briefDescription = 'Generates a new module for SfAdvanced plugin';
     $this->detailedDescription = <<<EOF
 The [opGenerate:module|INFO] task creates the basic directory structure
-for a new module in an existing OpenPNE plugin application:
+for a new module in an existing SfAdvanced plugin application:
 
   [./symfony opGenerate:module opSamplePlugin pc_frontend sample|INFO]
 
@@ -32,7 +32,7 @@ if you have configured it in [config/properties.ini|COMMENT] or
 [%sf_plugins_dir%/config/properties.ini|COMMENT]:
 
   [[symfony]|NONE]
-    name=OpenPNE
+    name=SfAdvanced
     author=Your Name <youremail@example.com>
 
 You can customize the default skeleton used by the task by creating a

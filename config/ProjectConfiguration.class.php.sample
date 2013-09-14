@@ -9,20 +9,20 @@ define('SFADVANCED3_CONFIG_DIR', dirname(__FILE__));
 
 class ProjectConfiguration extends opProjectConfiguration
 {
-  public function setupProjectOpenPNE()
+  public function setupProjectSfAdvanced()
   {
     // You can write your own configurations
 
-    // In default, OpenPNE saves session data file to default session.save_path.
+    // In default, SfAdvanced saves session data file to default session.save_path.
     // But in some cases, you may need to change the session save path:
     // session_save_path('/tmp');
   }
 
-  public function setupProjectOpenPNEDoctrine($manager)
+  public function setupProjectSfAdvancedDoctrine($manager)
   {
     // You can write your own configurations.
 
-    // In default, OpenPNE uses foreign key.
+    // In default, SfAdvanced uses foreign key.
     // If you want not to use foreign key, comment out the following configuration:
     // $manager->setAttribute(Doctrine::ATTR_EXPORT, Doctrine::EXPORT_ALL ^ Doctrine::EXPORT_CONSTRAINTS);
   }

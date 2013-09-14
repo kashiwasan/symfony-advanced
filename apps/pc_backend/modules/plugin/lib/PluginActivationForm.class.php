@@ -3,7 +3,7 @@
 /**
  * Plugin Activation Form
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage form
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  * @author     Shogo Kawahara <kawahara@bucyou.net>

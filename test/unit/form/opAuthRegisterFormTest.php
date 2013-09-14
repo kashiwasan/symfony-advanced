@@ -7,7 +7,7 @@ $t = new lime_test(null, new lime_output_color());
 
 //------------------------------------------------------------
 
-class opDummyWebRequest extends sfOpenPNEWebRequest
+class opDummyWebRequest extends sfSfAdvancedWebRequest
 {
   public function getMobileUID()
   {

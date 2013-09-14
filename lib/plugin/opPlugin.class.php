@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -12,9 +12,9 @@
 error_reporting(error_reporting() & ~(E_STRICT | E_DEPRECATED));
 
 /**
- * opPlugin allows you to touch OpenPNE plugin.
+ * opPlugin allows you to touch SfAdvanced plugin.
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage plugin
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */

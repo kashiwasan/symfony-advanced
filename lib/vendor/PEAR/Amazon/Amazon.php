@@ -1,18 +1,18 @@
 <?php
 /**
- * @copyright 2005-2008 OpenPNE Project
+ * @copyright 2005-2008 SfAdvanced Project
  * @license   http://www.php.net/license/3_01.txt PHP License 3.01
  */
 
 require_once 'Services/AmazonECS4.php';
 
 /**
- * OpenPNEでAmazonECSを利用するためのクラス
+ * SfAdvancedでAmazonECSを利用するためのクラス
  *
- * @package OpenPNE
+ * @package SfAdvanced
  * @author Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class OpenPNE_Amazon extends Services_AmazonECS4
+class SfAdvanced_Amazon extends Services_AmazonECS4
 {
     /**
      * Category(AmazonECS3)とSearchIndexの変換テーブル

@@ -1,23 +1,23 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
  */
 
 /**
- * opWidgetFormRichTextareaOpenPNE
+ * opWidgetFormRichTextareaSfAdvanced
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage widget
  * @author     Shogo Kawahara <kawahara@ejimaya.net>
  */
-class opWidgetFormRichTextareaOpenPNE extends opWidgetFormRichTextarea
+class opWidgetFormRichTextareaSfAdvanced extends opWidgetFormRichTextarea
 {
-  static protected $isFirstRenderOpenPNE  = true;
+  static protected $isFirstRenderSfAdvanced  = true;
   static protected $isConfiguredTinyMCE   = false;
 
   static protected $plugins = array('sfadvanced');
@@ -224,7 +224,7 @@ class opWidgetFormRichTextareaOpenPNE extends opWidgetFormRichTextarea
 
     $js = '';
 
-    if (self::$isFirstRenderOpenPNE)
+    if (self::$isFirstRenderSfAdvanced)
     {
       sfProjectConfiguration::getActive()->loadHelpers('Partial');
       sfContext::getInstance()->getResponse()->addJavascript('jquery.min.js');
@@ -243,7 +243,7 @@ class opWidgetFormRichTextareaOpenPNE extends opWidgetFormRichTextarea
       $js .= sprintf("function op_mce_editor_get_config() { return %s; }\n", json_encode(self::getButtons()));
       $js .= sprintf('function op_get_relative_uri_root() { return "%s"; }', $relativeUrlRoot);
 
-      self::$isFirstRenderOpenPNE = false;
+      self::$isFirstRenderSfAdvanced = false;
     }
 
     if ($js)
@@ -254,7 +254,7 @@ class opWidgetFormRichTextareaOpenPNE extends opWidgetFormRichTextarea
 
     $id = $this->getId($name, $attributes);
     $this->setOption('textarea_template', '<div id="'.$id.'_buttonmenu" class="'.$id.'">'
-      .get_partial('global/richTextareaOpenPNEButton', array(
+      .get_partial('global/richTextareaSfAdvancedButton', array(
         'id' => $id,
         'configs' => self::getButtons(),
         'onclick_actions' => self::$buttonOnclickActions

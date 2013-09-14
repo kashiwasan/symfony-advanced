@@ -3,7 +3,7 @@
 /**
  * mail actions.
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage mail
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */

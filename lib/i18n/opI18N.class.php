@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -51,7 +51,7 @@ class opI18N extends sfI18N
         $catalogues[$name] = array();
       }
 
-      $messageSource = sfMessageSource::factory('OpenPNE', array());
+      $messageSource = sfMessageSource::factory('SfAdvanced', array());
       $data = $messageSource->loadData($file);
 
       $catalogues[$name] = array_merge($data, $catalogues[$name]);
@@ -71,7 +71,7 @@ class opI18N extends sfI18N
     $cachedDir = sfConfig::get('sf_app_cache_dir').DIRECTORY_SEPARATOR.'i18n';
     if (is_file($cachedDir.DIRECTORY_SEPARATOR.'messages.ja.xml.php'))
     {
-      $this->messageSource = sfMessageSource::factory('OpenPNECached', $cachedDir);
+      $this->messageSource = sfMessageSource::factory('SfAdvancedCached', $cachedDir);
     }
     else
     {

@@ -1,23 +1,23 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
  */
 
 /**
- * The base class of the all security user classes for OpenPNE.
+ * The base class of the all security user classes for SfAdvanced.
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage user
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
 abstract class opBaseSecurityUser extends sfBasicSecurityUser
 {
-  const SITE_IDENTIFIER_NAMESPACE = 'OpenPNE/user/opSecurityUser/site_identifier';
+  const SITE_IDENTIFIER_NAMESPACE = 'SfAdvanced/user/opSecurityUser/site_identifier';
 
   public function initialize(sfEventDispatcher $dispatcher, sfStorage $storage, $options = array())
   {
@@ -46,7 +46,7 @@ abstract class opBaseSecurityUser extends sfBasicSecurityUser
       $this->logout();
 
       // So we need to clear all data of the current session because they might be tainted by attacker.
-      // If OpenPNE uses that tainted data, it may cause limited session fixation attack.
+      // If SfAdvanced uses that tainted data, it may cause limited session fixation attack.
       $this->clearSessionData();
 
       return null;

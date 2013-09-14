@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -11,13 +11,13 @@
 /**
  * opOpenIDSregProfileExport
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage util
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
 class opOpenIDSregProfileExport extends opProfileExport
 {
-  public $tableToOpenPNE = array(
+  public $tableToSfAdvanced = array(
     'nickname' => 'name',
     'email'    => 'email',
     'fullname' => 'name',

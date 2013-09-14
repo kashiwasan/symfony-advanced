@@ -5,7 +5,7 @@ SfAdvanced.6 セットアップ手順
 はじめに
 ========
 
-このドキュメントは、 OpenPNE バージョン 3.6 を基にして書かれています。
+このドキュメントは、 SfAdvanced バージョン 3.6 を基にして書かれています。
 
 SfAdvanced は以下のようなサーバ環境で動作させることを想定しています。
 
@@ -33,7 +33,7 @@ PHP
 SfAdvanced のソースコードを入手する
 ---------------------------------
 
-以下の URL に記載されている情報に従って、 OpenPNE 3 のソースコードをダウンロードしてください。
+以下の URL に記載されている情報に従って、 SfAdvanced 3 のソースコードをダウンロードしてください。
 
 http://www.sfadvanced.jp/pne-downloads/
 
@@ -74,9 +74,9 @@ http://www.sfadvanced.jp/pne-downloads/
 
   $ cd SfAdvanced
   $ cp config/ProjectConfiguration.class.php.sample config/ProjectConfiguration.class.php
-  $ cp config/OpenPNE.yml.sample config/OpenPNE.yml
+  $ cp config/SfAdvanced.yml.sample config/SfAdvanced.yml
 
-その後、 OpenPNE.yml の設定値を環境に合わせて変更してください。特に base_url と mail_domain はメール投稿、メール配信の際に利用されるので必ず設定をおこなってください。
+その後、 SfAdvanced.yml の設定値を環境に合わせて変更してください。特に base_url と mail_domain はメール投稿、メール配信の際に利用されるので必ず設定をおこなってください。
 
 インストールコマンドの実行
 --------------------------
@@ -93,9 +93,9 @@ http://www.sfadvanced.jp/pne-downloads/
 
   $ ./symfony sfadvanced:install --non-recreate-db
 
---non-recrete-db オプションを付けて実行する場合、 OpenPNE はこれから作成しようとしているテーブル名と同名のテーブルを外部キーなどを考慮して適切な順序で削除しようとします。他システムのテーブルが予期せず削除されてしまったり、 OpenPNE の想定の外で外部キー制約などによりテーブルの削除に失敗したりといった危険を避けるため、 OpenPNE.yml の設定で OpenPNE が使用するテーブルにプレフィックスを付けておくことを強く推奨します。
+--non-recrete-db オプションを付けて実行する場合、 SfAdvanced はこれから作成しようとしているテーブル名と同名のテーブルを外部キーなどを考慮して適切な順序で削除しようとします。他システムのテーブルが予期せず削除されてしまったり、 SfAdvanced の想定の外で外部キー制約などによりテーブルの削除に失敗したりといった危険を避けるため、 SfAdvanced.yml の設定で SfAdvanced が使用するテーブルにプレフィックスを付けておくことを強く推奨します。
 
-※このプレフィックスは同一 DB に対して複数の OpenPNE をインストールするためのものではなく、 DB を共有している他システムとテーブル名がバッティングするのを避けるためのものであることに注意してください。
+※このプレフィックスは同一 DB に対して複数の SfAdvanced をインストールするためのものではなく、 DB を共有している他システムとテーブル名がバッティングするのを避けるためのものであることに注意してください。
 
 ::
 

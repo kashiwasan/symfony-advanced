@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -13,7 +13,7 @@
  *
  * Emoji is the picture characters or emoticons used in Japan.
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage filter
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
@@ -37,7 +37,7 @@ class opEmojiFilter extends sfFilter
       list($list, $content) = opToolkit::replacePatternsToMarker($content);
     }
 
-    $content = OpenPNE_KtaiEmoji::convertEmoji($content);
+    $content = SfAdvanced_KtaiEmoji::convertEmoji($content);
 
     if (!$request->isMobile())
     {

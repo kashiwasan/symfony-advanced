@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -11,13 +11,13 @@
 /**
  * opOpenIDSregProfileImport
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage util
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
 class opOpenIDSregProfileImport extends opProfileImport
 {
-  public $tableToOpenPNE = array(
+  public $tableToSfAdvanced = array(
     'nickname' => 'name',
     'email'    => 'email',
     'fullname' => 'name',
@@ -38,7 +38,7 @@ class opOpenIDSregProfileImport extends opProfileImport
   public function setData($data)
   {
     $result = array();
-    $list = array_flip($this->tableToOpenPNE);
+    $list = array_flip($this->tableToSfAdvanced);
 
     foreach ($list as $k => $v)
     {
@@ -82,7 +82,7 @@ class opOpenIDSregProfileImport extends opProfileImport
           return null;
         }
 
-        $this->setMemberProfile($this->member, $this->tableToOpenPNE[$key], $data[$key]);
+        $this->setMemberProfile($this->member, $this->tableToSfAdvanced[$key], $data[$key]);
       }
       elseif (in_array($key, $this->names))
       {
@@ -121,7 +121,7 @@ class opOpenIDSregProfileImport extends opProfileImport
           return null;
         }
 
-        $this->member->setConfig($this->tableToOpenPNE[$key], $data[$key]);
+        $this->member->setConfig($this->tableToSfAdvanced[$key], $data[$key]);
       }
       else
       {

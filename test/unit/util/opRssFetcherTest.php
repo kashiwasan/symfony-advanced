@@ -45,27 +45,27 @@ $t->is($instance->createSimplePieObject('Invalid Format URI'), false, '->createS
 
 $t->diag('->getFeedTitle()');
 
-$t->is($mock->getFeedTitle('www.sfadvanced.jp.feed.rss'), 'OpenPNE', '->getFeedTitle() returns RSS feed title');
-$t->is($mock->getFeedTitle('www.sfadvanced.jp.feed.atom'), 'OpenPNE', '->getFeedTitle() returns Atom feed title');
+$t->is($mock->getFeedTitle('www.sfadvanced.jp.feed.rss'), 'SfAdvanced', '->getFeedTitle() returns RSS feed title');
+$t->is($mock->getFeedTitle('www.sfadvanced.jp.feed.atom'), 'SfAdvanced', '->getFeedTitle() returns Atom feed title');
 $t->is($instance->getFeedTitle('http://example.com/undefined.rss'), false, '->getFeedTitle() returns false if the specified uri is 404');
 
 $t->diag('->getFeedDescription()');
 
-$t->is($mock->getFeedDescription('www.sfadvanced.jp.feed.rss'), 'オープンソースのSNSエンジン OpenPNEプロジェクト', '->getFeedTitle() returns RSS feed description');
-$t->is($mock->getFeedDescription('www.sfadvanced.jp.feed.atom'), 'オープンソースのSNSエンジン OpenPNEプロジェクト', '->getFeedTitle() returns Atom feed description');
+$t->is($mock->getFeedDescription('www.sfadvanced.jp.feed.rss'), 'オープンソースのSNSエンジン SfAdvancedプロジェクト', '->getFeedTitle() returns RSS feed description');
+$t->is($mock->getFeedDescription('www.sfadvanced.jp.feed.atom'), 'オープンソースのSNSエンジン SfAdvancedプロジェクト', '->getFeedTitle() returns Atom feed description');
 $t->is($instance->getFeedDescription('http://example.com/undefined.rss'), false, '->getFeedTitle() returns false if the specified uri is 404');
 
 $t->diag('->fetch()');
 $result = $mock->fetch('www.sfadvanced.jp.feed.rss');
 $t->is(count($result), 10, '->fetch() for www.sfadvanced.jp is returns array that contains recently 10 RSS entries');
-$t->is($result[0]['title'], 'OpenPNE 3.2RC1 リリースのお知らせ', '->fetch() returns RSS entries that contains valid title');
+$t->is($result[0]['title'], 'SfAdvanced 3.2RC1 リリースのお知らせ', '->fetch() returns RSS entries that contains valid title');
 $t->is($result[1]['title'], '', '->fetch() returns RSS entries that contains empty title');
-$t->is($result[0]['body'], 'OpenPNE 開発チームの海老原です。
-				本日 2009/11/30（月）、 開発版 OpenPNE 3.2RC1 をリリースしました。
+$t->is($result[0]['body'], 'SfAdvanced 開発チームの海老原です。
+				本日 2009/11/30（月）、 開発版 SfAdvanced 3.2RC1 をリリースしました。
 				今後の SfAdvanced のリリーススケジュール にて発表 [...]', '->fetch() returns RSS entries that contains valid body');
 $t->is($result[4]['body'], '<p>開発チームの海老原です。</p>
 				<p>11/23 に <a href="http://www.sfadvanced.jp/archives/3931/">opAlbumPlugin のアップデート</a>が、 11/24 に <a href="http://www.sfadvanced.jp/archives/3938/">opDiaryPlugin のアップデート</a>がありました。</p>
-				<p>どちらも重要なバグフィックスがおこなわれたリリースのため、 OpenPNE 3.1.5 にバンドルされているプラグインも、新しく更新されたバージョンに変更しました。</p>
+				<p>どちらも重要なバグフィックスがおこなわれたリリースのため、 SfAdvanced 3.1.5 にバンドルされているプラグインも、新しく更新されたバージョンに変更しました。</p>
 				<p>以下のコマンドを実行することで、更新された opAlbumPlugin と opDiaryPlugin が利用できます。<br />
 				<code>./symfony sfadvanced:migrate</code></p>', '->fetch() returns RSS entries that contains valid content');
 $t->is($result[5]['body'], '', '->fetch() returns RSS entries that contains empty body');
@@ -78,14 +78,14 @@ $t->is($result[7]['enclosure'], '', '->fetch() returns RSS entries that contains
 
 $result = $mock->fetch('www.sfadvanced.jp.feed.atom');
 $t->is(count($result), 10, '->fetch() for www.sfadvanced.jp is returns array that contains recently 10 Atom entries');
-$t->is($result[0]['title'], 'OpenPNE 3.2RC1 リリースのお知らせ', '->fetch() returns Atom entries that contains valid title');
+$t->is($result[0]['title'], 'SfAdvanced 3.2RC1 リリースのお知らせ', '->fetch() returns Atom entries that contains valid title');
 $t->is($result[1]['title'], '', '->fetch() returns Atom entries that contains empty title');
-$t->is($result[0]['body'], 'OpenPNE 開発チームの海老原です。
-				本日 2009/11/30（月）、 開発版 OpenPNE 3.2RC1 をリリースしました。
+$t->is($result[0]['body'], 'SfAdvanced 開発チームの海老原です。
+				本日 2009/11/30（月）、 開発版 SfAdvanced 3.2RC1 をリリースしました。
 				今後の SfAdvanced のリリーススケジュール にて発表 [...]', '->fetch() returns Atom entries that contains valid body');
 $t->is($result[4]['body'], '<p>開発チームの海老原です。</p>
 				<p>11/23 に <a href="http://www.sfadvanced.jp/archives/3931/">opAlbumPlugin のアップデート</a>が、 11/24 に <a href="http://www.sfadvanced.jp/archives/3938/">opDiaryPlugin のアップデート</a>がありました。</p>
-				<p>どちらも重要なバグフィックスがおこなわれたリリースのため、 OpenPNE 3.1.5 にバンドルされているプラグインも、新しく更新されたバージョンに変更しました。</p>
+				<p>どちらも重要なバグフィックスがおこなわれたリリースのため、 SfAdvanced 3.1.5 にバンドルされているプラグインも、新しく更新されたバージョンに変更しました。</p>
 				<p>以下のコマンドを実行することで、更新された opAlbumPlugin と opDiaryPlugin が利用できます。<br />
 				<code>./symfony sfadvanced:migrate</code></p>', '->fetch() returns Atom entries that contains valid content');
 $t->is($result[5]['body'], '', '->fetch() returns Atom entries that contains empty body');
@@ -97,9 +97,9 @@ $t->is($result[8]['date'], '', '->fetch() returns Atom entries that contains emp
 $t->isa_ok($result[0]['enclosure'], 'SimplePie_Enclosure', '->fetch() returns Atom entries that contains valid enclosure');
 $t->is($result[7]['enclosure'], '', '->fetch() returns Atom entries that contains empty enclosure');
 $result = $mock->fetch('www.sfadvanced.jp.feed.rss', true);
-$t->is($result[0], 'OpenPNE', '->fetch() returns also RSS feed title if the second parameter is true');
+$t->is($result[0], 'SfAdvanced', '->fetch() returns also RSS feed title if the second parameter is true');
 $result = $mock->fetch('www.sfadvanced.jp.feed.atom', true);
-$t->is($result[0], 'OpenPNE', '->fetch() returns also Atom feed title if the second parameter is true');
+$t->is($result[0], 'SfAdvanced', '->fetch() returns also Atom feed title if the second parameter is true');
 $t->is($instance->fetch('http://example.com/undefined.rss'), false, '->fetch() returns false if the specified uri is 404');
 $t->is($mock->fetch('www.sfadvanced.jp.feed.empty.rss'), false, '->fetch() returns false if the specified feed does not have any entries');
 $t->is($mock->fetch('www.sfadvanced.jp.feed.empty.rss', true), false, '->fetch() returns false if the specified feed does not have any entries even if the second parameter is specified');

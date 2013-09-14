@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -11,7 +11,7 @@
 /**
  * opAclBuilder builds instances of the Zend_Acl by the specified conditions
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage acl
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */

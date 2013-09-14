@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -24,9 +24,9 @@ class opPluginArchiveTask extends sfBaseTask
 
     $this->namespace        = 'opPlugin';
     $this->name             = 'archive';
-    $this->briefDescription = 'Creates the OpenPNE plugin archive.';
+    $this->briefDescription = 'Creates the SfAdvanced plugin archive.';
     $this->detailedDescription = <<<EOF
-The [opPlugin:archive|INFO] task creates the OpenPNE plugin archive.
+The [opPlugin:archive|INFO] task creates the SfAdvanced plugin archive.
 Call it with:
 
   [./symfony opPlugin:archive opSamplePlugin ~/Documents/myPlugins|INFO]

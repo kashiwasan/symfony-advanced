@@ -3,9 +3,9 @@
 /**
  * 絵文字を画像に変換するためのクラス
  */
-class OpenPNE_KtaiEmoji_Img extends OpenPNE_KtaiEmoji_Common
+class SfAdvanced_KtaiEmoji_Img extends SfAdvanced_KtaiEmoji_Common
 {
-    function OpenPNE_KtaiEmoji_Img()
+    function SfAdvanced_KtaiEmoji_Img()
     {
         $this->emoji_image_dir = 'skin/default/img/emoji/';
         $this->emoji_image_extension = '.gif';
@@ -1401,7 +1401,7 @@ class OpenPNE_KtaiEmoji_Img extends OpenPNE_KtaiEmoji_Common
     {
         static $singleton;
         if (empty($singleton)) {
-            $singleton = new OpenPNE_KtaiEmoji_Img();
+            $singleton = new SfAdvanced_KtaiEmoji_Img();
         }
         return $singleton;
     }

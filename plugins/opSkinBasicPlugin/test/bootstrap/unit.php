@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -10,7 +10,7 @@
 
 $_test_dir = realpath(dirname(__FILE__).'/..');
 
-// chdir to the symfony(OpenPNE) project directory
+// chdir to the symfony(SfAdvanced) project directory
 chdir(dirname(__FILE__).'/../../../..');
 
 require_once 'config/ProjectConfiguration.class.php';

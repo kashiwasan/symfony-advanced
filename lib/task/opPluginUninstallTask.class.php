@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -25,9 +25,9 @@ class opPluginUninstallTask extends sfPluginUninstallTask
 
     $this->namespace        = 'opPlugin';
     $this->name             = 'uninstall';
-    $this->briefDescription = 'Uninstalls the OpenPNE plugin';
+    $this->briefDescription = 'Uninstalls the SfAdvanced plugin';
     $this->detailedDescription = <<<EOF
-The [opPlugin:uninstall|INFO] task uninstalls the OpenPNE plugin.
+The [opPlugin:uninstall|INFO] task uninstalls the SfAdvanced plugin.
 Call it with:
 
   [./symfony opPlugin:uninstall opSamplePlugin|INFO]

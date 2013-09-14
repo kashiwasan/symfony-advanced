@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -11,7 +11,7 @@
 /**
  * advanced actions.
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage advanced
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  * @author     Kimura Youichi <kim.upsilon@bucyou.net>
@@ -57,9 +57,9 @@ class advancedActions extends sfActions
   public function executeRichTextarea(sfWebRequest $request)
   {
     $this->sortForm = new BaseForm();
-    $this->configForm = new opRichTextareaOpenPNEConfigForm();
-    $this->buttonConfigForm = new opRichTextareaOpenPNEButtonConfigForm();
-    $this->buttonConfig = opWidgetFormRichTextareaOpenPNE::getAllButtons();
+    $this->configForm = new opRichTextareaSfAdvancedConfigForm();
+    $this->buttonConfigForm = new opRichTextareaSfAdvancedButtonConfigForm();
+    $this->buttonConfig = opWidgetFormRichTextareaSfAdvanced::getAllButtons();
     if ($request->isMethod(sfWebRequest::POST))
     {
       $this->configForm->bind($request->getParameter('config'));

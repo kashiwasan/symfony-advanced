@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -13,16 +13,16 @@ class opGenerateAppTask extends sfBaseTask
   protected function configure()
   {
     $this->addArguments(array(
-      new sfCommandArgument('plugin', sfCommandArgument::REQUIRED, 'The OpenPNE plugin name'),
+      new sfCommandArgument('plugin', sfCommandArgument::REQUIRED, 'The SfAdvanced plugin name'),
       new sfCommandArgument('application', sfCommandArgument::REQUIRED, 'The application name'),
     ));
 
     $this->namespace = 'opGenerate';
     $this->name = 'app';
-    $this->briefDescription = 'Generates a new application for OpenPNE plugin';
+    $this->briefDescription = 'Generates a new application for SfAdvanced plugin';
     $this->detailedDescription = <<<EOF
 The [opGenerate:app|INFO] task creates the basic directory structure
-for a new application in an existing OpenPNE plugin:
+for a new application in an existing SfAdvanced plugin:
 
   [./symfony opGenerate:app opSamplePlugin pc_frontend|INFO]
 

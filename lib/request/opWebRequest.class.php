@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -11,7 +11,7 @@
 /**
  * opWebRequest class manages web requests.
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage request
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
@@ -149,7 +149,7 @@ class opWebRequest extends sfWebRequest
       return false;
     }
 
-    // OpenPNE doesn't trust mobile uid in SSL connection
+    // SfAdvanced doesn't trust mobile uid in SSL connection
     if ($this->isSecure())
     {
       return false;
@@ -161,8 +161,8 @@ class opWebRequest extends sfWebRequest
       // result of opWebRequest::getMobileFallbackUID() is already hashed
       $uids = $this->getMobileFallbackUID();
 
-      // to keep backward compatible of this method with OpenPNE 3.4 and before,
-      // only returns OpenPNE 3 format UID
+      // to keep backward compatible of this method with SfAdvanced 3.4 and before,
+      // only returns SfAdvanced 3 format UID
       if (isset($uids[0])) {
         $uid = $uids[0];
       }
@@ -174,7 +174,7 @@ class opWebRequest extends sfWebRequest
  /**
   * Returns a fallback mobile UIDs.
   *
-  * This method returns both of OpenPNE 3 format and OpenPNE 2 one.
+  * This method returns both of SfAdvanced 3 format and SfAdvanced 2 one.
   *
   * @return array  list of fallback mobile UIDs
   */
@@ -188,7 +188,7 @@ class opWebRequest extends sfWebRequest
       if ($uid) {
         $uids = array(
             $this->hashMobileUid($uid),
-            $this->hashMobileUid('SN'.$uid)  // OpenPNE 2 format
+            $this->hashMobileUid('SN'.$uid)  // SfAdvanced 2 format
         );
       }
     }
@@ -198,7 +198,7 @@ class opWebRequest extends sfWebRequest
       if ($uid) {
         $uids = array(
             $this->hashMobileUid($uid),
-            $this->hashMobileUid('icc'.$uid)  // OpenPNE 2 format
+            $this->hashMobileUid('icc'.$uid)  // SfAdvanced 2 format
         );
       }
     }
@@ -224,7 +224,7 @@ class opWebRequest extends sfWebRequest
  /**
   * Checks whether the mobile UID is a valid or not.
   *
-  * This method consideres the older versions of OpenPNE(-2.14).
+  * This method consideres the older versions of SfAdvanced(-2.14).
   *
   * @params  string $hashedUid
   *
@@ -392,7 +392,7 @@ class opWebRequest extends sfWebRequest
     
     if (
       !$this->getMobile()->isSoftBank()  // The gateway is usable only for SoftBank mobile phone
-      || !sfConfig::get('op_use_ssl', false)  // OpenPNE doesn't consider SSL
+      || !sfConfig::get('op_use_ssl', false)  // SfAdvanced doesn't consider SSL
       || !$this->isSecure()  // Non-SSL connection is already passed the gateway
       || $this->getMobile()->getUID() // This UID is granted by the gateway
       || $this->getCookie(self::SB_GW_COOKIE_NAME)  // Redirecting has already done

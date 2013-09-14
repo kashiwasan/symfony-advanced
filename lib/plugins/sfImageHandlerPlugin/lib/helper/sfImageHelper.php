@@ -11,7 +11,7 @@
 /**
  * sfImageHelper.
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage helper
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */

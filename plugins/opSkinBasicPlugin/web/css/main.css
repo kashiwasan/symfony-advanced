@@ -97,7 +97,7 @@ form p {
 }
 
 /*==============================================================================
- * OpenPNE Common Style
+ * SfAdvanced Common Style
  *----------------------------------------------------------------------------*/
 body {
   line-height: 1.2;
@@ -1685,7 +1685,7 @@ div.apiKey {
 }
 
 /*==============================================================================
- * toolbar of opWidgetFormRichTextareaOpenPNE
+ * toolbar of opWidgetFormRichTextareaSfAdvanced
  *----------------------------------------------------------------------------*/
 div.parts table.mceToolbar {
   table-layout: auto;
@@ -1693,7 +1693,7 @@ div.parts table.mceToolbar {
 }
 
 /*==============================================================================
- * Decoration by opWidgetFormRichTextareaOpenPNE
+ * Decoration by opWidgetFormRichTextareaSfAdvanced
  *----------------------------------------------------------------------------*/
 span.op_b {
         text-decoration: inherit;

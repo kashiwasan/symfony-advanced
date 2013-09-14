@@ -194,7 +194,7 @@ class opThisIsNotAValidClass
 
 /**
  * Short description doesn't have a blank line.
- * @package OpenPNE
+ * @package SfAdvanced
  * @author  Your name here
  */
 class opThisIsNotAValidClass
@@ -215,7 +215,7 @@ class opThisIsNotAValidClass
 /**
  * It doesn't have author.
  *
- * @package OpenPNE
+ * @package SfAdvanced
  */
 class opThisIsNotAValidClass
 {
@@ -233,7 +233,7 @@ class opThisIsNotAValidClass
 /**
  * Good class.
  *
- * @package OpenPNE
+ * @package SfAdvanced
  * @author  Kousuke Ebihara <ebiahra@tejimaya.com>
  */
 class opThisIsAValidClass

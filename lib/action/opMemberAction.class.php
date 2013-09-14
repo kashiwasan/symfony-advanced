@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -11,7 +11,7 @@
 /**
  * opMemberAction
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage action
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
@@ -23,7 +23,7 @@ abstract class opMemberAction extends sfActions
     {
       if (isset($this->request['a']))
       {
-        $this->handleOpenPNE2FormatUrl();
+        $this->handleSfAdvanced2FormatUrl();
       }
     }
 
@@ -38,7 +38,7 @@ abstract class opMemberAction extends sfActions
     }
   }
 
-  protected function handleOpenPNE2FormatUrl()
+  protected function handleSfAdvanced2FormatUrl()
   {
     $path = sfConfig::get('sf_app_config_dir').'/op2urls.php';
     if (!is_file($path))

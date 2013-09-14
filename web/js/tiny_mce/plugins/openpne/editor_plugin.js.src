@@ -8,7 +8,7 @@
 (function() {
     var DOM = tinymce.DOM, Event = tinymce.dom.Event, is = tinymce.is, each = tinymce.each;
 
-    tinymce.create('tinymce.ui.OpenPNEColorButton:tinymce.ui.ColorSplitButton', {
+    tinymce.create('tinymce.ui.SfAdvancedColorButton:tinymce.ui.ColorSplitButton', {
         renderHTML : function() {
             var s = this.settings, h = '<a id="' + this.id + '" href="javascript:;" class="mceButton mceButtonEnabled ' + s['class']
                 + '" onmousedown="return false;" onclick="return false;" title="' + tinymce.DOM.encode(s.title) + '">';
@@ -50,12 +50,12 @@
                     style : {
                         backgroundColor : '#' + c
                     },
-                    // OpenPNE: Does not use t.editor
+                    // SfAdvanced: Does not use t.editor
                     // 'title': t.editor.getLang('colors.' + c, c),
                     'data-mce-color' : '#' + c
                 });
 
-                // OpenPNE: Does not use t.editor
+                // SfAdvanced: Does not use t.editor
                 // if (t.editor.forcedHighContrastMode) {
                 //     n = DOM.add(n, 'canvas', { width: 16, height: 16, 'aria-hidden': 'true' });
                 //     if (n.getContext && (context = n.getContext("2d"))) {
@@ -118,8 +118,8 @@
         }
     });
 
-    tinymce.create('tinymce.ui.OpenPNEEmojiButton:tinymce.ui.ColorSplitButton', {
-        OpenPNEEmojiButton : function(id, s) {
+    tinymce.create('tinymce.ui.SfAdvancedEmojiButton:tinymce.ui.ColorSplitButton', {
+        SfAdvancedEmojiButton : function(id, s) {
             var t = this;
 
             t.parent(id, s);
@@ -197,7 +197,7 @@
             DOM.show(t.id + '_menu');
             DOM.addClass(e, 'mceSplitButtonSelected');
             p2 = DOM.getPos(e);
-            // OpenPNE: Change the position of the emoji palette
+            // SfAdvanced: Change the position of the emoji palette
             var pp = DOM.get(t.id + '_menu');
             DOM.setStyles(t.id + '_menu', {
                 // left : p2.x,
@@ -228,7 +228,7 @@
         hideMenu : function(e) {
             var t = this;
 
-            // OpenPNE: Execute hideMenu regardless of value of t.isMenuVisible
+            // SfAdvanced: Execute hideMenu regardless of value of t.isMenuVisible
             // if (t.isMenuVisible) {
             {
                 // Prevent double toogles by canceling the mouse click event to the button
@@ -251,7 +251,7 @@
         }
     });
 
-    tinymce.create('tinymce.ui.OpenPNECmdButton:tinymce.ui.Button', {
+    tinymce.create('tinymce.ui.SfAdvancedCmdButton:tinymce.ui.Button', {
         renderHTML : function() {
             var s = this.settings;
             var h = '<a id="' + this.id + '" href="javascript:;" class="mceButton mceButtonEnabled ' + s['class'] + '" style="width:40px; margin-left: 25px;" onmousedown="return false;" onclick="return false;" title="' + tinymce.DOM.encode(s.title) + '"><img class="mceIcon" style="width:40px;" src="' + s.image + '" /></a>';
@@ -264,7 +264,7 @@
 
     var config = op_mce_editor_get_config();
 
-    tinymce.create('tinymce.plugins.OpenPNEPlugin', {
+    tinymce.create('tinymce.plugins.SfAdvancedPlugin', {
         init : function(ed, url) {
             var t = this;
 
@@ -272,28 +272,28 @@
             ed.settings.content_css = url + "/css/editor.css";
 
             // command
-            ed.addCommand('mceOpenPNE_op_b', function() {
+            ed.addCommand('mceSfAdvanced_op_b', function() {
                 tinyMCE.execCommand("Bold");
             });
-            ed.addCommand('mceOpenPNE_op_u', function() {
+            ed.addCommand('mceSfAdvanced_op_u', function() {
                 tinyMCE.execCommand("Underline");
             });
-            ed.addCommand('mceOpenPNE_op_s', function() {
+            ed.addCommand('mceSfAdvanced_op_s', function() {
                 tinyMCE.execCommand("Strikethrough");
             });
-            ed.addCommand('mceOpenPNE_op_i', function() {
+            ed.addCommand('mceSfAdvanced_op_i', function() {
                 tinyMCE.execCommand("Italic");
             });
-            ed.addCommand('mceOpenPNE_op_large', function() {
+            ed.addCommand('mceSfAdvanced_op_large', function() {
                 tinyMCE.execCommand("FontSize", false, 5);
             });
-            ed.addCommand('mceOpenPNE_op_small', function() {
+            ed.addCommand('mceSfAdvanced_op_small', function() {
                 tinyMCE.execCommand("FontSize", false, 1);
             });
-            ed.addCommand('mceOpenPNE_op_image', function() {
+            ed.addCommand('mceSfAdvanced_op_image', function() {
                 window.open(config.op_image.contentURL.unescapeHTML(), '', 'width=600,height=550,toolbar=no,scrollbars=yes,left=10,top=10');
             });
-            ed.addCommand('mceOpenPNE_op_cmd', function() {
+            ed.addCommand('mceSfAdvanced_op_cmd', function() {
                 window.open(config.op_cmd.contentURL.unescapeHTML());
             });
 
@@ -301,7 +301,7 @@
             for (var key in config) {
                 var value = config[key];
                 if (key != "op_color") {
-                    ed.addButton(key, {title : '{#sfadvanced.' + key + '}', image: value.imageURL, cmd : 'mceOpenPNE_' + key});
+                    ed.addButton(key, {title : '{#sfadvanced.' + key + '}', image: value.imageURL, cmd : 'mceSfAdvanced_' + key});
                 }
             }
 
@@ -347,7 +347,7 @@
         createControl: function(n, cm) {
             var c = null;
             if (n == "op_color") {
-                c = this._createOpenPNEColorButton("op_color", { title : "{#sfadvanced.op_color}", image: config["op_color"].imageURL, cmd : "ForeColor"}, cm);
+                c = this._createSfAdvancedColorButton("op_color", { title : "{#sfadvanced.op_color}", image: config["op_color"].imageURL, cmd : "ForeColor"}, cm);
             }
 
             if (n == "op_emoji_docomo" || 
@@ -373,11 +373,11 @@
                         image: config[n].imageURL
                     }
                 }
-                c = this._createOpenPNEEmojiButton(n, emoji_config[n], cm);
+                c = this._createSfAdvancedEmojiButton(n, emoji_config[n], cm);
             }
 
             if (n == "op_cmd" && config["op_cmd"]) {
-                c = this._createOpenPNECmdButton(n, {title: "{#sfadvanced.op_cmd}", image: config["op_cmd"].imageURL, cmd: "mceOpenPNE_op_cmd"}, cm);
+                c = this._createSfAdvancedCmdButton(n, {title: "{#sfadvanced.op_cmd}", image: config["op_cmd"].imageURL, cmd: "mceSfAdvanced_op_cmd"}, cm);
             }
 
             return c;
@@ -385,7 +385,7 @@
 
         getInfo : function() {
             return {
-                longname : 'OpenPNE plugin',
+                longname : 'SfAdvanced plugin',
                 author : 'Kousuke Ebihara, Shogo Kawahara',
                 version : "2.0"
             }
@@ -418,7 +418,7 @@
             return tagname;
         },
 
-        _createOpenPNEColorButton : function(id, s, cm) {
+        _createSfAdvancedColorButton : function(id, s, cm) {
             var t = cm, ed = t.editor, cmd, c;
 
             if (t.get(id)) {
@@ -440,7 +440,7 @@
 
             s = tinymce.extend({ title : s.title, 'class' : 'mce_' + id, 'menu_class' : ed.getParam('skin') + 'Skin', scope : s.scope, more_colors_title : ed.getLang('more_colors') }, s);
 
-            c = new tinymce.ui.OpenPNEColorButton(id, s);
+            c = new tinymce.ui.SfAdvancedColorButton(id, s);
             ed.onMouseDown.add(c.hideMenu, c);
 
             ed.onRemove.add(function() {
@@ -450,7 +450,7 @@
             return t.add(c);
         },
 
-        _createOpenPNEEmojiButton : function(id, s, cm) {
+        _createSfAdvancedEmojiButton : function(id, s, cm) {
             var t = cm, ed = t.editor, cmd, c;
 
             if (t.get(id)) {
@@ -472,7 +472,7 @@
 
             s = tinymce.extend({ title : s.title, 'class' : 'mce_' + id, 'menu_class' : ed.getParam('skin') + 'Skin', scope : s.scope}, s);
 
-            c = new tinymce.ui.OpenPNEEmojiButton(id, s);
+            c = new tinymce.ui.SfAdvancedEmojiButton(id, s);
             ed.onMouseDown.add(c.hideMenu, c);
 
             ed.onRemove.add(function() {
@@ -482,7 +482,7 @@
             return t.add(c);
         },
 
-        _createOpenPNECmdButton : function(id, s, cm) {
+        _createSfAdvancedCmdButton : function(id, s, cm) {
             var t = cm, ed = t.editor, cmd, c;
 
             if (t.get(id)) {
@@ -504,7 +504,7 @@
 
             s = tinymce.extend({ title : s.title, 'class' : 'mce_' + id, 'menu_class' : ed.getParam('skin') + 'Skin', scope : s.scope}, s);
 
-            c = new tinymce.ui.OpenPNECmdButton(id, s);
+            c = new tinymce.ui.SfAdvancedCmdButton(id, s);
 
             ed.onPostRender.add(function() {
                 var parentContainer = document.getElementById(c.id).parentNode;
@@ -737,5 +737,5 @@
     });
 
     // Register plugin
-    tinymce.PluginManager.add('sfadvanced', tinymce.plugins.OpenPNEPlugin);
+    tinymce.PluginManager.add('sfadvanced', tinymce.plugins.SfAdvancedPlugin);
 })();

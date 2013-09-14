@@ -9,10 +9,10 @@
 	>
 
 <channel>
-	<title>OpenPNE</title>
+	<title>SfAdvanced</title>
 	<atom:link href="http://www.sfadvanced.jp/feed/" rel="self" type="application/rss+xml" />
 	<link>http://www.sfadvanced.jp</link>
-	<description>オープンソースのSNSエンジン OpenPNEプロジェクト</description>
+	<description>オープンソースのSNSエンジン SfAdvancedプロジェクト</description>
 	<lastBuildDate>Sun, 29 Nov 2009 16:16:36 +0000</lastBuildDate>
 	<generator>http://wordpress.org/?v=2.8.6</generator>
 	<language>ja</language>

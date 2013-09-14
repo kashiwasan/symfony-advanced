@@ -10,7 +10,7 @@ if (!isset($app))
   $app = array_pop($dirPieces);
 }
 
-// chdir to the symfony(OpenPNE) project directory
+// chdir to the symfony(SfAdvanced) project directory
 chdir(dirname(__FILE__).'/../../../..');
 
 require_once 'config/ProjectConfiguration.class.php';

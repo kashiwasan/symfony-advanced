@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -11,7 +11,7 @@
 /**
  * opUtilHelper provides basic utility helper functions.
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage helper
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  * @author     Rimpei Ogawa <ogawa@tejimaya.com>
@@ -822,7 +822,7 @@ function op_decoration($string, $is_strip = false, $is_use_stylesheet = null, $i
     }
   }
 
-  return opWidgetFormRichTextareaOpenPNE::toHtml($string, $is_strip, $is_use_stylesheet, $is_html_tag_followup);
+  return opWidgetFormRichTextareaSfAdvanced::toHtml($string, $is_strip, $is_use_stylesheet, $is_html_tag_followup);
 }
 
 function op_is_accessible_url($uri)

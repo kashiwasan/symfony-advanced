@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -12,9 +12,9 @@
 error_reporting(error_reporting() & ~(E_STRICT | E_DEPRECATED));
 
 /**
- * opPluginManager allows you to manage OpenPNE plugins.
+ * opPluginManager allows you to manage SfAdvanced plugins.
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage plugin
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
@@ -56,10 +56,10 @@ class opPluginManager extends sfSymfonyPluginManager
 
     parent::__construct($dispatcher, $environment);
 
-    // register OpenPNE for dependencies
+    // register SfAdvanced for dependencies
     try
     {
-      $this->registerOpenPNEPackage();
+      $this->registerSfAdvancedPackage();
     }
     catch (sfPluginException $e) {}
   }
@@ -186,13 +186,13 @@ class opPluginManager extends sfSymfonyPluginManager
   static public function enablePlugin($plugin, $configDir)
   {
     // do nothing.
-    // OpenPNE plugin don't want to rewrite config/ProjectConfiguration.class.php
+    // SfAdvanced plugin don't want to rewrite config/ProjectConfiguration.class.php
   }
 
   static public function disablePlugin($plugin, $configDir)
   {
     // do nothing.
-    // OpenPNE plugin don't want to rewrite config/ProjectConfiguration.class.php
+    // SfAdvanced plugin don't want to rewrite config/ProjectConfiguration.class.php
   }
 
   static public function getDefaultPluginChannelServerName()
@@ -205,7 +205,7 @@ class opPluginManager extends sfSymfonyPluginManager
     return sfConfig::get('op_plugin_list_base_url', self::SFADVANCED_PLUGIN_LIST_BASE_URL);
   }
 
-  protected function registerOpenPNEPackage()
+  protected function registerSfAdvancedPackage()
   {
     $sfadvanced = new PEAR_PackageFile_v2_rw();
     $sfadvanced->setPackage('sfadvanced');
@@ -228,14 +228,14 @@ class opPluginManager extends sfSymfonyPluginManager
     $sfadvanced->setPhpDep('5.2.3');
 
     // This is a stupid hack. This makes a validator skip validation because that validator
-    // doesn't support 3.X.X-betaX-dev formatted version number. Validation of dummy OpenPNE
+    // doesn't support 3.X.X-betaX-dev formatted version number. Validation of dummy SfAdvanced
     // package doesn't make a sense...
     $sfadvanced->_isValid = PEAR_VALIDATE_NORMAL;
 
     $this->environment->getRegistry()->deletePackage('sfadvanced', 'plugins.sfadvanced.jp');
     if (!$this->environment->getRegistry()->addPackage2($sfadvanced))
     {
-      throw new sfPluginException('Unable to register the OpenPNE package');
+      throw new sfPluginException('Unable to register the SfAdvanced package');
     }
   }
 }

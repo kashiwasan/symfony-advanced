@@ -2,7 +2,7 @@
 
 $_test_dir = realpath(dirname(__FILE__).'/..');
 
-// chdir to the symfony(OpenPNE) project directory
+// chdir to the symfony(SfAdvanced) project directory
 chdir(dirname(__FILE__).'/../../../..');
 
 require_once 'config/ProjectConfiguration.class.php';

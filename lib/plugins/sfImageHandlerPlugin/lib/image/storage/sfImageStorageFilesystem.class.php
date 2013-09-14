@@ -22,7 +22,7 @@ class sfImageStorageFilesystem extends sfImageStorageDefault
     $baseDir = sfConfig::get('op_image_storage_filesystem_master_dir');
     if (!is_dir($baseDir))
     {
-      throw new RuntimeException('"op_image_storage_filesystem_master_dir" must be configured in OpenPNE.yml');
+      throw new RuntimeException('"op_image_storage_filesystem_master_dir" must be configured in SfAdvanced.yml');
     }
     $path = $baseDir.DIRECTORY_SEPARATOR.str_replace(DIRECTORY_SEPARATOR, '-', $filename);
 

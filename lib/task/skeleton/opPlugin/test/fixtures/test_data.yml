@@ -1,7 +1,7 @@
 Member:
   member_1:
     id: ~
-    name: "OpenPNE君"
+    name: "SfAdvanced君"
     is_active: 1
 
 MemberConfig:

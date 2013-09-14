@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -11,7 +11,7 @@
 /**
  * OpenID actions.
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage OpenID
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
@@ -299,7 +299,7 @@ EOF;
 
     if ($sreg)
     {
-      foreach ($sregExport->tableToOpenPNE as $k => $v)
+      foreach ($sregExport->tableToSfAdvanced as $k => $v)
       {
         if (isset($sreg->required[$k]))
         {
@@ -316,7 +316,7 @@ EOF;
     {
       foreach ($ax->requested_attributes as $k => $v)
       {
-        $table = $axExport->tableToOpenPNE;
+        $table = $axExport->tableToSfAdvanced;
         if (empty($table[$k]))
         {
           break;

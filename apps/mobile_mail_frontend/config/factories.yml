@@ -82,7 +82,7 @@ all:
   i18n:
     class: sfI18N
     param:
-      source:               OpenPNE
+      source:               SfAdvanced
       debug:                false
       untranslated_prefix:  "[T]"
       untranslated_suffix:  "[/T]"

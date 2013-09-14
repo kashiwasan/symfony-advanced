@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -11,7 +11,7 @@
 /**
  * opSecurityConfigHandler
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage config
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
@@ -21,7 +21,7 @@ class opSecurityConfigHandler extends sfSecurityConfigHandler
 
   public function execute($configFiles)
   {
-    $configFiles = self::filterOpenPNEPluginConfig($configFiles);
+    $configFiles = self::filterSfAdvancedPluginConfig($configFiles);
 
     // parse the yaml
     $config = self::getConfiguration($configFiles);
@@ -52,7 +52,7 @@ class opSecurityConfigHandler extends sfSecurityConfigHandler
     return $config;
   }
 
-  static protected function filterOpenPNEPluginConfig($configFiles)
+  static protected function filterSfAdvancedPluginConfig($configFiles)
   {
     // A security.yml in the plugin root configuration directory should be ignored
     $regexp = '/'.preg_quote(sfConfig::get('sf_plugins_dir').DIRECTORY_SEPARATOR, '/')

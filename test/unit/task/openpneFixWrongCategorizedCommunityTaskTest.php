@@ -68,7 +68,7 @@ class opInteractiveTaskTestHandlerFixCommunityCategories extends opInteractiveTa
     return $this;
   }
 
-  public function dropOpenPNE2Tables()
+  public function dropSfAdvanced2Tables()
   {
     $tables = array(
       'c_commu_category_parent', 'c_commu_category', 'c_commu',
@@ -100,9 +100,9 @@ class opInteractiveTaskTestHandlerFixCommunityCategories extends opInteractiveTa
     return $result;
   }
 
-  public function testMissingOpenPNE2TableError($comment = '')
+  public function testMissingSfAdvanced2TableError($comment = '')
   {
-    $error = 'This task needs some OpenPNE 2 tables (c_commu, c_commu_category and c_commu_category_parent) in your master DB.'.'(このタスクの実行には OpenPNE 2 のテーブル (c_commu, c_commu_category, c_commu_category_parent) が必要です。)';
+    $error = 'This task needs some SfAdvanced 2 tables (c_commu, c_commu_category and c_commu_category_parent) in your master DB.'.'(このタスクの実行には SfAdvanced 2 のテーブル (c_commu, c_commu_category, c_commu_category_parent) が必要です。)';
 
     $this->testError($error, $comment);
 
@@ -136,10 +136,10 @@ $handler
   ->output()
   ->testOutput('>> fix-wrong-categorized-community task aborted', 'Aborted when the user input "n"')
 
-  ->dropOpenPNE2Tables()
+  ->dropSfAdvanced2Tables()
   ->beginTask()
   ->input('y')
-  ->testMissingOpenPNE2TableError('Failed when missing OpenPNE 2 tables')
+  ->testMissingSfAdvanced2TableError('Failed when missing SfAdvanced 2 tables')
 
   ->importTestData()
   ->beginTask()
@@ -160,18 +160,18 @@ $handler
   ->importTestData()
   ->beginTask()
   ->input('y')
-  ->outputUntil('/^Auto\-detected communities which OpenPNE 3 recognized to fix are ID\:"([0-9]+)" to ID\:"([0-9]+)".$/', $matches)
+  ->outputUntil('/^Auto\-detected communities which SfAdvanced 3 recognized to fix are ID\:"([0-9]+)" to ID\:"([0-9]+)".$/', $matches)
   ->is('1', $matches[1], 'Start of auto-detected community is ID:1')
   ->is('6', $matches[2], 'End of auto-detected community is ID:6')
   ->outputUntilSelectSpecifyCommunity()
   ->input('y')
   ->info('Start convertion')
   ->output()
-  ->testOutput('Created new community from OpenPNE2 : 5', 'Created communityE from OpenPNE 2 data')
+  ->testOutput('Created new community from SfAdvanced2 : 5', 'Created communityE from SfAdvanced 2 data')
   ->output()
-  ->testOutput('OpenPNE 2 category=1 => OpenPNE 3 category=3 : 2 communities are moved', 'Moves a community from c_commu_category=1 to community_category=3')
+  ->testOutput('SfAdvanced 2 category=1 => SfAdvanced 3 category=3 : 2 communities are moved', 'Moves a community from c_commu_category=1 to community_category=3')
   ->output()
-  ->testOutput('OpenPNE 2 category=3 => OpenPNE 3 category=5 : 1 communities are moved', 'Moves a community from c_commu_category=3 to community_category=5')
+  ->testOutput('SfAdvanced 2 category=3 => SfAdvanced 3 category=5 : 1 communities are moved', 'Moves a community from c_commu_category=3 to community_category=5')
   ->output() // end of the task
   ->testOutput('>> fix-wrong-categorized-community task finished', 'Task was finished successfully')
   ->is($handler->getCommunityCategoryByCommunityId(1), 3, 'CommunityA belongs to category1')

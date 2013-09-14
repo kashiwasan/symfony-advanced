@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -22,26 +22,26 @@ class sfadvancedMigrateTask extends sfDoctrineBaseTask
     $this->addOptions(array(
       new sfCommandOption('application', null, sfCommandOption::PARAMETER_OPTIONAL, 'The application name', null),
       new sfCommandOption('env', null, sfCommandOption::PARAMETER_REQUIRED, 'The environment', 'prod'),
-      new sfCommandOption('target', null, sfCommandOption::PARAMETER_OPTIONAL, 'The target of migration. This must be "OpenPNE" or a plugin name.'),
+      new sfCommandOption('target', null, sfCommandOption::PARAMETER_OPTIONAL, 'The target of migration. This must be "SfAdvanced" or a plugin name.'),
       new sfCommandOption('no-update-plugin', null, sfCommandOption::PARAMETER_NONE, 'Do not update plugins'),
       new sfCommandOption('no-build-model', null, sfCommandOption::PARAMETER_NONE, 'Do not build model classes'),
     ));
 
-    $this->briefDescription = 'migrate OpenPNE and/or the plugins to newer/older version one';
+    $this->briefDescription = 'migrate SfAdvanced and/or the plugins to newer/older version one';
     $this->detailedDescription = <<<EOF
-The [sfadvanced:migrate|INFO] task lets OpenPNE migrate and/or the plugins newer version.
+The [sfadvanced:migrate|INFO] task lets SfAdvanced migrate and/or the plugins newer version.
 
 Call it with:
   1.  [./symfony sfadvanced:migrate|INFO]
   2.  [./symfony sfadvanced:migrate --target=opSamplePlugin|INFO]
-  3.  [./symfony sfadvanced:migrate --target=OpenPNE|INFO]
+  3.  [./symfony sfadvanced:migrate --target=SfAdvanced|INFO]
 
     1. In the first form, any targets aren't specified.
-       This task executes the migration scripts for OpenPNE and all the plugins to newer revision.
+       This task executes the migration scripts for SfAdvanced and all the plugins to newer revision.
 
     2. In the second form, the specified plugin will be migrated newer revision.
 
-    3. In the third form, OpenPNE will be migrated newer revision.
+    3. In the third form, SfAdvanced will be migrated newer revision.
 EOF;
   }
 
@@ -90,7 +90,7 @@ EOF;
     }
     else
     {
-      $targets = array_merge(array('OpenPNE'), $this->getEnabledOpenPNEPlugin());
+      $targets = array_merge(array('SfAdvanced'), $this->getEnabledSfAdvancedPlugin());
     }
     $databaseManager = new sfDatabaseManager($this->configuration);
     foreach ($targets as $target)
@@ -106,7 +106,7 @@ EOF;
       }
       catch (Doctrine_Migration_Exception $e)
       {
-        if ('OpenPNE' === $target)
+        if ('SfAdvanced' === $target)
         {
           throw $e;
         }
@@ -162,7 +162,7 @@ EOF;
 
   protected function dataLoadForInitializePlugin($pluginName)
   {
-    if ('OpenPNE' === $pluginName)
+    if ('SfAdvanced' === $pluginName)
     {
       return null;
     }
@@ -217,7 +217,7 @@ EOF;
 
   protected function installPlugins($target = null)
   {
-    if ('OpenPNE' === $target)
+    if ('SfAdvanced' === $target)
     {
       return null;
     }
@@ -237,7 +237,7 @@ EOF;
     $task->run(array(), $options);
   }
 
-  protected function getEnabledOpenPNEPlugin()
+  protected function getEnabledSfAdvancedPlugin()
   {
     $list = $this->configuration->getPlugins();
     $result = array();

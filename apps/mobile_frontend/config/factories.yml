@@ -76,7 +76,7 @@ all:
   storage:
     class: sfSessionStorage
     param:
-      session_name: OpenPNE_mobile_frontend
+      session_name: SfAdvanced_mobile_frontend
 #
 #  view_cache:
 #    class: sfFileCache
@@ -89,7 +89,7 @@ all:
   i18n:
     class: opI18N
     param:
-      source:               OpenPNE
+      source:               SfAdvanced
       debug:                false
       untranslated_prefix:  "[T]"
       untranslated_suffix:  "[/T]"

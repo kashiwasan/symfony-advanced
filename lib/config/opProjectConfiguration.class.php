@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -16,7 +16,7 @@ if (!defined('E_DEPRECATED'))
 /**
  * opProjectConfiguration
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage config
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
@@ -41,7 +41,7 @@ class opProjectConfiguration extends sfProjectConfiguration
 
     require_once dirname(__FILE__).'/../util/opToolkit.class.php';
 
-    $this->setOpenPNEConfiguration();
+    $this->setSfAdvancedConfiguration();
 
     sfConfig::set('doctrine_model_builder_options', array(
       'baseClassName' => 'opDoctrineRecord',
@@ -50,7 +50,7 @@ class opProjectConfiguration extends sfProjectConfiguration
     $this->dispatcher->connect('command.pre_command', array(__CLASS__, 'listenToPreCommandEvent'));
     $this->dispatcher->connect('doctrine.filter_cli_config', array(__CLASS__, 'filterDoctrineCliConfig'));
 
-    $this->setupProjectOpenPNE();
+    $this->setupProjectSfAdvanced();
   }
 
   public function configurePluginPath()
@@ -70,7 +70,7 @@ class opProjectConfiguration extends sfProjectConfiguration
 
   protected function configureSessionStorage($name, $options = array())
   {
-    $sessionName = 'OpenPNE_'.sfConfig::get('sf_app', 'default');
+    $sessionName = 'SfAdvanced_'.sfConfig::get('sf_app', 'default');
     $params = array('session_name' => $sessionName);
 
     if ('memcache' === $name)
@@ -134,19 +134,19 @@ class opProjectConfiguration extends sfProjectConfiguration
     $manager->registerConnectionDriver('pgsql', 'Doctrine_Connection_Pgsql_ExtraFunctions');
     $manager->registerConnectionDriver('sqlite', 'Doctrine_Connection_Sqlite_ExtraFunctions');
 
-    $this->setupProjectOpenPNEDoctrine($manager);
+    $this->setupProjectSfAdvancedDoctrine($manager);
   }
 
-  protected function setOpenPNEConfiguration()
+  protected function setSfAdvancedConfiguration()
   {
-    $opConfigCachePath = sfConfig::get('sf_cache_dir').DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'OpenPNE.yml.php';
+    $opConfigCachePath = sfConfig::get('sf_cache_dir').DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'SfAdvanced.yml.php';
     if (is_readable($opConfigCachePath))
     {
       $config = (array)include($opConfigCachePath);
     }
     else
     {
-      $path = SFADVANCED3_CONFIG_DIR.'/OpenPNE.yml';
+      $path = SFADVANCED_CONFIG_DIR.'/SfAdvanced.yml';
       $config = sfYaml::load($path.'.sample');
       if (is_readable($path))
       {

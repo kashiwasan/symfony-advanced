@@ -1,29 +1,29 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
  */
 
 /**
- * opRichTextareaOpenPNEButtonConfigForm
+ * opRichTextareaSfAdvancedButtonConfigForm
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage form 
  * @author     Shogo Kawahara <kawahara@tejimaya.net>
  */
-class opRichTextareaOpenPNEButtonConfigForm extends sfForm
+class opRichTextareaSfAdvancedButtonConfigForm extends sfForm
 {
   public function configure()
   {
     //initialize
-    new opWidgetFormRichTextareaOpenPNE();
+    new opWidgetFormRichTextareaSfAdvanced();
 
-    $allButtons = opWidgetFormRichTextareaOpenPNE::getAllButtons();
-    $buttons    = opWidgetFormRichTextareaOpenPNE::getButtons();
+    $allButtons = opWidgetFormRichTextareaSfAdvanced::getAllButtons();
+    $buttons    = opWidgetFormRichTextareaSfAdvanced::getButtons();
     $diff       = array_diff(array_keys($allButtons), array_keys($buttons));
     foreach ($buttons as $key => $button)
     {

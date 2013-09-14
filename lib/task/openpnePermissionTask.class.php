@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of the OpenPNE package.
- * (c) OpenPNE Project (http://www.sfadvanced.jp/)
+ * This file is part of the SfAdvanced package.
+ * (c) SfAdvanced Project (http://www.sfadvanced.jp/)
  *
  * For the full copyright and license information, please view the LICENSE
  * file and the NOTICE file that were distributed with this source code.
@@ -23,9 +23,9 @@ class sfadvancedPermissionTask extends sfProjectPermissionsTask
       new sfCommandOption('env', null, sfCommandOption::PARAMETER_REQUIRED, 'The environment', 'prod'),
     ));
 
-    $this->briefDescription = 'Fixes directory permissions for OpenPNE';
+    $this->briefDescription = 'Fixes directory permissions for SfAdvanced';
     $this->detailedDescription = <<<EOF
-The [sfadvanced:permission|INFO] task fixes directory permissions for OpenPNE.
+The [sfadvanced:permission|INFO] task fixes directory permissions for SfAdvanced.
 Call it with:
 
   [./symfony sfadvanced:permission|INFO]

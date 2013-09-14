@@ -11,7 +11,7 @@
 /**
  * opFileLogger
  *
- * @package    OpenPNE
+ * @package    SfAdvanced
  * @subpackage log
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
