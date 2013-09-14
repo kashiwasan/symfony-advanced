@@ -1,0 +1,2 @@
+
+tinyMCE.addI18n('en.sfadvanced',{sa_b:'Bold',sa_u:'Underline',sa_s:'Strikethrough',sa_i:'Italic',sa_large:'Large',sa_small:'Small',sa_color:'Select text color',sa_emoji_docomo:'Input Emoji（DoCoMo）',sa_emoji_au:'Inputt Emoji（au）',sa_emoji_softbank:'Input Emoji（SoftBank）',sa_cmd:'About Cmd'});
