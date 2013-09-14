@@ -9,7 +9,7 @@
 <?php if (Doctrine::getTable('SnsConfig')->get('customizing_css')): ?>
 <link rel="stylesheet" type="text/css" href="<?php echo url_for('@customizing_css') ?>" />
 <?php endif; ?>
-<?php if (opConfig::get('enable_jsonapi') && opToolkit::isSecurePage()): ?>
+<?php if (saConfig::get('enable_jsonapi') && saToolkit::isSecurePage()): ?>
 <?php
 use_helper('Javascript');
 
@@ -31,7 +31,7 @@ var sfadvanced = '.json_encode($jsonData).';
 <?php include_javascripts() ?>
 <?php echo $sa_config->get('pc_html_head') ?>
 </head>
-<body id="<?php printf('page_%s_%s', $view->getModuleName(), $view->getActionName()) ?>" class="<?php echo opToolkit::isSecurePage() ? 'secure_page' : 'insecure_page' ?>">
+<body id="<?php printf('page_%s_%s', $view->getModuleName(), $view->getActionName()) ?>" class="<?php echo saToolkit::isSecurePage() ? 'secure_page' : 'insecure_page' ?>">
 <?php echo $sa_config->get('pc_html_top2') ?>
 <div id="Body">
 <?php echo $sa_config->get('pc_html_top') ?>
@@ -51,7 +51,7 @@ var sfadvanced = '.json_encode($jsonData).';
 $context = sfContext::getInstance();
 $module = $context->getActionStack()->getLastEntry()->getModuleName();
 $localNavOptions = array(
-  'is_secure' => opToolkit::isSecurePage(),
+  'is_secure' => saToolkit::isSecurePage(),
   'type'      => sfConfig::get('sf_nav_type', sfConfig::get('mod_'.$module.'_default_nav', 'default')),
   'culture'   => $context->getUser()->getCulture(),
 );
@@ -108,7 +108,7 @@ include_component('default', 'localNav', $localNavOptions);
 <a href="javascript:void(0)" id="SmtSwitchLink"><?php echo __('View this page on smartphone style') ?></a>
 <?php echo javascript_tag('
 document.getElementById("SmtSwitchLink").addEventListener("click", function() {
-  opCookie.set("disable_smt", "0", undefined, sfadvanced.baseUrl);
+  saCookie.set("disable_smt", "0", undefined, sfadvanced.baseUrl);
   location.reload();
 }, false);
 ') ?>

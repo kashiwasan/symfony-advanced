@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class MemberProfileTable extends opAccessControlDoctrineTable
+class MemberProfileTable extends saAccessControlDoctrineTable
 {
   public function getProfileListByMemberId($memberId)
   {
@@ -133,15 +133,15 @@ class MemberProfileTable extends opAccessControlDoctrineTable
           return $result;
         }
 
-        $option = Doctrine::getTable('ProfileOptionTranslation')->createQuery()
+        $sation = Doctrine::getTable('ProfileOptionTranslation')->createQuery()
           ->select('value')
           ->where('id = ?', $result['MemberProfile_profile_option_id'])
           ->andWhere('lang = ?', sfContext::getInstance()->getUser()->getCulture())
           ->fetchOne(array(), Doctrine::HYDRATE_NONE);
 
-        if ($option)
+        if ($sation)
         {
-          $result['MemberProfile_value'] = $option[0];
+          $result['MemberProfile_value'] = $sation[0];
         }
       }
 
@@ -185,14 +185,14 @@ class MemberProfileTable extends opAccessControlDoctrineTable
       }
       elseif ('date' === $item->getFormType())
       {
-        $options = $item->getProfileOption();
+        $sations = $item->getProfileOption();
         $i = 0;
         foreach ($value as $k => $v)
         {
-          $option = $options[$i++];
+          $sation = $sations[$i++];
           if ($v)
           {
-            $ids = $this->filterMemberIdByProfileOption($ids, $column, $v, $option, $publicFlag);
+            $ids = $this->filterMemberIdByProfileOption($ids, $column, $v, $sation, $publicFlag);
           }
         }
         continue;
@@ -212,7 +212,7 @@ class MemberProfileTable extends opAccessControlDoctrineTable
   {
     $_result = array();
     $q = Doctrine::getTable('MemberProfile')->createQuery('m');
-    $q = opFormItemGenerator::filterSearchQuery($q, 'm.'.$column, $value, $item->toArray())
+    $q = saFormItemGenerator::filterSearchQuery($q, 'm.'.$column, $value, $item->toArray())
       ->select('m.member_id')
       ->andWhere('m.profile_id = ?', $item->getId());
 
@@ -359,16 +359,16 @@ class MemberProfileTable extends opAccessControlDoctrineTable
     return $ids;
   }
 
-  public function createChild(Doctrine_Record $parent, $memberId, $profileId, $optionIds, $values = array())
+  public function createChild(Doctrine_Record $parent, $memberId, $profileId, $sationIds, $values = array())
   {
     $parent->clearChildren();
 
-    foreach ($optionIds as $i => $optionId)
+    foreach ($sationIds as $i => $sationId)
     {
       $childProfile = new MemberProfile();
       $childProfile->setMemberId($memberId);
       $childProfile->setProfileId($profileId);
-      $childProfile->setProfileOptionId($optionId);
+      $childProfile->setProfileOptionId($sationId);
       if (isset($values[$i]))
       {
         $childProfile->setValue($values[$i]);
@@ -389,7 +389,7 @@ class MemberProfileTable extends opAccessControlDoctrineTable
 
   public function appendRules(Zend_Acl $acl, $resource = null)
   {
-    $assertion = new opMemberProfilePublicFlagAssertion();
+    $assertion = new saMemberProfilePublicFlagAssertion();
 
     return $acl
       ->allow('everyone', $resource, 'view', $assertion)
@@ -400,7 +400,7 @@ class MemberProfileTable extends opAccessControlDoctrineTable
   }
 }
 
-class opMemberProfilePublicFlagAssertion implements Zend_Acl_Assert_Interface
+class saMemberProfilePublicFlagAssertion implements Zend_Acl_Assert_Interface
 {
   public function assert(Zend_Acl $acl, Zend_Acl_Role_Interface $role = null, Zend_Acl_Resource_Interface $resource = null, $privilege = null)
   {

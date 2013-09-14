@@ -37,18 +37,18 @@ class InviteForm extends MemberConfigPcAddressForm
 
     if (sfConfig::get('sa_is_use_captcha', false))
     {
-      $this->embedForm('captcha', new opCaptchaForm());
+      $this->embedForm('captcha', new saCaptchaForm());
     }
 
     if ('mobile_frontend' === sfConfig::get('sf_app'))
     {
-      opToolkit::appendMobileInputModeAttributesForFormWidget($this->getWidget('mail_address'), 'alphabet');
+      saToolkit::appendMobileInputModeAttributesForFormWidget($this->getWidget('mail_address'), 'alphabet');
     }
   }
 
   public function validate($validator, $values, $arguments = array())
   {
-    if (opToolkit::isMobileEmailAddress($values['mail_address']))
+    if (saToolkit::isMobileEmailAddress($values['mail_address']))
     {
       $mailValidator = new sfValidatorMobileEmail();
       $values['mobile_address'] = $mailValidator->clean($values['mail_address']);
@@ -56,12 +56,12 @@ class InviteForm extends MemberConfigPcAddressForm
     }
     else
     {
-      $mailValidator = new opValidatorPCEmail();
+      $mailValidator = new saValidatorPCEmail();
       $values['pc_address'] = $mailValidator->clean($values['mail_address']);
       $mode = 'pc';
     }
 
-    if (!opToolkit::isEnabledRegistration($mode))
+    if (!saToolkit::isEnabledRegistration($mode))
     {
       throw new sfValidatorError($validator, 'invalid');
     }
@@ -80,8 +80,8 @@ class InviteForm extends MemberConfigPcAddressForm
 
   protected function validateAddress($configName, $configValue)
   {
-    $activation = opActivateBehavior::getEnabled();
-    opActivateBehavior::disable();
+    $activation = saActivateBehavior::getEnabled();
+    saActivateBehavior::disable();
 
     if ($config = Doctrine::getTable('MemberConfig')->retrieveByNameAndValue($configName, $configValue))
     {
@@ -89,7 +89,7 @@ class InviteForm extends MemberConfigPcAddressForm
       {
         if ($activation)
         {
-          opActivateBehavior::enable();
+          saActivateBehavior::enable();
         }
         return false;
       }
@@ -103,7 +103,7 @@ class InviteForm extends MemberConfigPcAddressForm
 
     if ($activation)
     {
-      opActivateBehavior::enable();
+      saActivateBehavior::enable();
     }
     return true;
   }
@@ -134,12 +134,12 @@ class InviteForm extends MemberConfigPcAddressForm
     $params = array(
       'token'    => $token,
       'authMode' => $authMode,
-      'isMobile' => opToolkit::isMobileEmailAddress($to),
+      'isMobile' => saToolkit::isMobileEmailAddress($to),
       'name'     => $this->getOption('invited') ? sfContext::getInstance()->getUser()->getMember()->getName() : null,
       'message'  => $this->getOption('invited') ? $this->getValue('message') : null,
-      'subject' => opConfig::get('sns_name').'招待状',
+      'subject' => saConfig::get('sns_name').'招待状',
     );
-    opMailSend::sendTemplateMail('requestRegisterURL', $to, opConfig::get('admin_mail_address'), $params);
+    saMailSend::sendTemplateMail('requestRegisterURL', $to, saConfig::get('admin_mail_address'), $params);
   }
 
   public function save()

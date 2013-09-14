@@ -15,7 +15,7 @@
  * @subpackage test
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-class opTesterHtmlEscape extends sfTester
+class saTesterHtmlEscape extends sfTester
 {
   protected
     $response,
@@ -32,7 +32,7 @@ class opTesterHtmlEscape extends sfTester
     $this->context = $this->browser->getContext();
     $this->response = $this->browser->getResponse();
 
-    $this->context->getConfiguration()->loadHelpers(array('Escaping', 'opUtil'));
+    $this->context->getConfiguration()->loadHelpers(array('Escaping', 'saUtil'));
   }
 
   static public function getRawTestData($namespace, $name)

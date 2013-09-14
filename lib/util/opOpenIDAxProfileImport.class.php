@@ -9,66 +9,66 @@
  */
 
 /**
- * opOpenIDAxProfileImport
+ * saOpenIDAxProfileImport
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opOpenIDAxProfileImport extends opProfileImport
+class saOpenIDAxProfileImport extends saProfileImport
 {
   public $tableToSfAdvanced = array(
-    'http://schema.openid.net/namePerson/friendly'     => 'name',
-    'http://schema.openid.net/contact/email'           => 'email',
-    'http://schema.openid.net/namePerson'              => 'name',
-    'http://schema.openid.net/birthDate'               => 'sa_preset_birthday',
-    'http://schema.openid.net/birthDate/birthYear'     => 'sa_preset_birthday',
-    'http://schema.openid.net/birthDate/birthMonth'    => 'sa_preset_birthday',
-    'http://schema.openid.net/birthDate/birthday'      => 'sa_preset_birthday',
-    'http://schema.openid.net/person/gender'           => 'sa_preset_sex',
-    'http://schema.openid.net/contact/postalCode/home' => 'sa_preset_postal_code',
-    'http://schema.openid.net/contact/phone/default'   => 'sa_preset_telephone_number',
-    'http://schema.openid.net/contact/country/home'    => 'sa_preset_country',
-    'http://schema.openid.net/media/biography'         => 'sa_preset_self_introduction',
-    'http://schema.openid.net/pref/language'           => 'language',
-    'http://schema.openid.net/pref/timezone'           => 'time_zone',
-    'http://schema.openid.net/media/image/default'     => 'image',
-    'http://schema.openid.net/media/image/aspect11'    => 'image',
-    'http://schema.openid.net/media/image/aspect43'    => 'image',
-    'http://schema.openid.net/media/image/aspect34'    => 'image',
+    'http://schema.saenid.net/namePerson/friendly'     => 'name',
+    'http://schema.saenid.net/contact/email'           => 'email',
+    'http://schema.saenid.net/namePerson'              => 'name',
+    'http://schema.saenid.net/birthDate'               => 'sa_preset_birthday',
+    'http://schema.saenid.net/birthDate/birthYear'     => 'sa_preset_birthday',
+    'http://schema.saenid.net/birthDate/birthMonth'    => 'sa_preset_birthday',
+    'http://schema.saenid.net/birthDate/birthday'      => 'sa_preset_birthday',
+    'http://schema.saenid.net/person/gender'           => 'sa_preset_sex',
+    'http://schema.saenid.net/contact/postalCode/home' => 'sa_preset_postal_code',
+    'http://schema.saenid.net/contact/phone/default'   => 'sa_preset_telephone_number',
+    'http://schema.saenid.net/contact/country/home'    => 'sa_preset_country',
+    'http://schema.saenid.net/media/biography'         => 'sa_preset_self_introduction',
+    'http://schema.saenid.net/pref/language'           => 'language',
+    'http://schema.saenid.net/pref/timezone'           => 'time_zone',
+    'http://schema.saenid.net/media/image/default'     => 'image',
+    'http://schema.saenid.net/media/image/aspect11'    => 'image',
+    'http://schema.saenid.net/media/image/aspect43'    => 'image',
+    'http://schema.saenid.net/media/image/aspect34'    => 'image',
   );
 
   public
     $profiles = array(
-      'http://schema.openid.net/birthDate',
-      'http://schema.openid.net/birthDate/birthYear',
-      'http://schema.openid.net/birthDate/birthMonth',
-      'http://schema.openid.net/birthDate/birthday',
-      'http://schema.openid.net/person/gender',
-      'http://schema.openid.net/contact/postalCode/home',
-      'http://schema.openid.net/contact/country/home',
-      'http://schema.openid.net/media/biography',
-      'http://schema.openid.net/contact/phone/default',
+      'http://schema.saenid.net/birthDate',
+      'http://schema.saenid.net/birthDate/birthYear',
+      'http://schema.saenid.net/birthDate/birthMonth',
+      'http://schema.saenid.net/birthDate/birthday',
+      'http://schema.saenid.net/person/gender',
+      'http://schema.saenid.net/contact/postalCode/home',
+      'http://schema.saenid.net/contact/country/home',
+      'http://schema.saenid.net/media/biography',
+      'http://schema.saenid.net/contact/phone/default',
     ),
     $names = array(
-      'http://schema.openid.net/namePerson/friendly',
-      'http://schema.openid.net/namePerson',
+      'http://schema.saenid.net/namePerson/friendly',
+      'http://schema.saenid.net/namePerson',
     ),
     $emails = array(
-      'http://schema.openid.net/contact/email',
+      'http://schema.saenid.net/contact/email',
     ),
     $images = array(
-      'http://schema.openid.net/media/image/default',
-      'http://schema.openid.net/media/image/aspect11',
-      'http://schema.openid.net/media/image/aspect43',
-      'http://schema.openid.net/media/image/aspect34',
+      'http://schema.saenid.net/media/image/default',
+      'http://schema.saenid.net/media/image/aspect11',
+      'http://schema.saenid.net/media/image/aspect43',
+      'http://schema.saenid.net/media/image/aspect34',
     ),
     $configs = array(
-      'http://schema.openid.net/pref/language',
-      'http://schema.openid.net/pref/timezone',
+      'http://schema.saenid.net/pref/language',
+      'http://schema.saenid.net/pref/timezone',
     );
 
-  public function getValue($data, $name, $ns = 'http://schema.openid.net/')
+  public function getValue($data, $name, $ns = 'http://schema.saenid.net/')
   {
     if (empty($data[$ns.$name]))
     {
@@ -160,7 +160,7 @@ class opOpenIDAxProfileImport extends opProfileImport
           'type'     => $type,
         );
 
-        $validator = new opValidatorImageFile();
+        $validator = new saValidatorImageFile();
         $validFile = $validator->clean($image);
 
         $file = new File();

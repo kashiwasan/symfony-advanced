@@ -9,13 +9,13 @@
  */
 
 /**
- * opAuthAdapter will handle authentication for SfAdvanced.
+ * saAuthAdapter will handle authentication for SfAdvanced.
  *
  * @package    SfAdvanced
  * @subpackage user
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-abstract class opAuthAdapter
+abstract class saAuthAdapter
 {
   protected
     $authModuleName = '',
@@ -56,7 +56,7 @@ abstract class opAuthAdapter
       $default = include(sfContext::getInstance()->getConfigCache()->checkConfig($configPath));
 
       // plugins
-      $configPath = sfConfig::get('sf_plugins_dir').'/opAuth'.$this->getAuthModeName().'Plugin/config/auth.yml';
+      $configPath = sfConfig::get('sf_plugins_dir').'/saAuth'.$this->getAuthModeName().'Plugin/config/auth.yml';
       sfContext::getInstance()->getConfigCache()->registerConfigHandler($configPath, 'sfSimpleYamlConfigHandler', array());
       $plugins = include(sfContext::getInstance()->getConfigCache()->checkConfig($configPath));
 
@@ -192,17 +192,17 @@ abstract class opAuthAdapter
 
   public static function getAuthRegisterFormClassName($authMode)
   {
-    return 'opAuthRegisterForm'.ucfirst($authMode);
+    return 'saAuthRegisterForm'.ucfirst($authMode);
   }
 
   public static function getAuthLoginFormClassName($authMode)
   {
-    return 'opAuthLoginForm'.ucfirst($authMode);
+    return 'saAuthLoginForm'.ucfirst($authMode);
   }
 
   public static function getAuthConfigFormClassName($authMode)
   {
-    return 'opAuthConfigForm'.ucfirst($authMode);
+    return 'saAuthConfigForm'.ucfirst($authMode);
   }
 
  /**
@@ -210,7 +210,7 @@ abstract class opAuthAdapter
   */
   public static function getAuthFormClassName($authMode)
   {
-    return 'opAuthForm_'.$authMode;
+    return 'saAuthForm_'.$authMode;
   }
 
  /**
@@ -263,7 +263,7 @@ abstract class opAuthAdapter
   */
   public function register($form)
   {
-    if ($form instanceof opAuthRegisterForm)
+    if ($form instanceof saAuthRegisterForm)
     {
       return $form->save();
     }
@@ -298,11 +298,11 @@ abstract class opAuthAdapter
   */
   public function activate()
   {
-    opActivateBehavior::disable();
+    saActivateBehavior::disable();
     $member = sfContext::getInstance()->getUser()->getMember();
     $member->setIsActive(true);
     $result = $member->save();
-    opActivateBehavior::enable();
+    saActivateBehavior::enable();
     return $result;
   }
 

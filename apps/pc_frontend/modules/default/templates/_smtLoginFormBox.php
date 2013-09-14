@@ -1,6 +1,6 @@
 <?php foreach ($forms as $form) : ?>
 
-<?php echo form_tag(url_for(sprintf('@login'.'?%s=%s', opAuthForm::AUTH_MODE_FIELD_NAME, $form->getAuthMode()))) ?>
+<?php echo form_tag(url_for(sprintf('@login'.'?%s=%s', saAuthForm::AUTH_MODE_FIELD_NAME, $form->getAuthMode()))) ?>
 
 <?php $errors = array(); ?>
 <?php if ($form->hasGlobalErrors()): ?>
@@ -61,7 +61,7 @@
 <?php echo $form->renderHiddenFields(); ?>
 </form>
 <?php if ($form->getAuthAdapter()->getAuthConfig('invite_mode') == 2
-  && opToolkit::isEnabledRegistration('pc')
+  && saToolkit::isEnabledRegistration('pc')
   && $form->getAuthAdapter()->getAuthConfig('self_invite_action')) : ?>
 <?php echo link_to(__('Register'), $form->getAuthAdapter()->getAuthConfig('self_invite_action')) ?>
 <?php endif; ?>

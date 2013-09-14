@@ -9,13 +9,13 @@
  */
 
 /**
- * opToolkit provides basic utility methods for SfAdvanced.
+ * saToolkit provides basic utility methods for SfAdvanced.
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opToolkit
+class saToolkit
 {
  /**
   * Returns the list of mobile e-mail address domains.
@@ -63,7 +63,7 @@ class opToolkit
       $patterns = array(
         '/<input[^>]+>/is',
         '/<textarea.*?<\/textarea>/is',
-        '/<option.*?<\/option>/is',
+        '/<sation.*?<\/sation>/is',
         '/<img[^>]+>/is',
         '/<head.*?<\/head>/is',
       );
@@ -88,7 +88,7 @@ class opToolkit
 
   public static function isEnabledRegistration($mode = '')
   {
-    $registration = opConfig::get('enable_registration');
+    $registration = saConfig::get('enable_registration');
     if ($registration == 3)
     {
       return true;
@@ -189,7 +189,7 @@ class opToolkit
   public static function stripNullByteDeep($value)
   {
     return is_array($value) ?
-      array_map(array('opToolkit', 'stripNullByteDeep'), $value) :
+      array_map(array('saToolkit', 'stripNullByteDeep'), $value) :
       (is_string($value) ? preg_replace("/[\x{0}-\x{08}\x{0b}-\x{1f}\x{7f}-\x{9f}\x{ad}]/u", '', $value) : $value);
   }
 
@@ -268,7 +268,7 @@ class opToolkit
 
     foreach ($routes as $route)
     {
-      if ($route instanceof opAPIRouteInterface)
+      if ($route instanceof saAPIRouteInterface)
       {
         $caption = $route->getAPICaption();
 
@@ -323,7 +323,7 @@ class opToolkit
 
     foreach ($array as $key => $value)
     {
-      $result[$key] = is_array($value) ? call_user_func(array('opToolkit', 'arrayMapRecursive'), $callback, $value) : call_user_func($callback, $value);
+      $result[$key] = is_array($value) ? call_user_func(array('saToolkit', 'arrayMapRecursive'), $callback, $value) : call_user_func($callback, $value);
     }
 
     return $result;
@@ -494,7 +494,7 @@ class opToolkit
    * All rights reserved.
    *
    * @author  Masaki Fujimoto <fujimoto@php.net>
-   * @license http://www.opensource.org/licenses/bsd-license.php The BSD License
+   * @license http://www.saensource.org/licenses/bsd-license.php The BSD License
    *
    * @param  int    $length  Length of a hash
    * @return string
@@ -510,13 +510,13 @@ class opToolkit
       $srand = true;
     }
 
-    // Is the "open_basedir" is on, and accessing to /proc is allowed?
-    // If the "open_basedir" is empty, this method consider that accessing to it is allowed.
+    // Is the "saen_basedir" is on, and accessing to /proc is allowed?
+    // If the "saen_basedir" is empty, this method consider that accessing to it is allowed.
     $devfile = '/proc/net/dev';
-    $open_basedir_conf = ini_get('open_basedir');
-    $devfile_enabled = (empty($open_basedir_conf)
-      || (preg_match('#:/proc#', $open_basedir_conf) > 0
-      ||  preg_match('#^/proc#', $open_basedir_conf) > 0));
+    $saen_basedir_conf = ini_get('saen_basedir');
+    $devfile_enabled = (empty($saen_basedir_conf)
+      || (preg_match('#:/proc#', $saen_basedir_conf) > 0
+      ||  preg_match('#^/proc#', $saen_basedir_conf) > 0));
 
     $value = '';
     for ($i = 0; $i < 2; $i++)
@@ -597,23 +597,23 @@ class opToolkit
    *
    * @copyright Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
    * @link http://cakephp.org CakePHP(tm) Project
-   * @license http://www.opensource.org/licenses/mit-license.php MIT License
+   * @license http://www.saensource.org/licenses/mit-license.php MIT License
    *
    * @param string $input The input to load.
-   * @param array $options The options to use.
+   * @param array $sations The sations to use.
    * @return SimpleXmlElement|DOMDocument
    */
-  public static function loadXmlString($input, $options = array())
+  public static function loadXmlString($input, $sations = array())
   {
     $hasDisable = function_exists('libxml_disable_entity_loader');
     $internalErrors = libxml_use_internal_errors(true);
-    $isDisableEntityLoader = ($hasDisable && empty($options['loadEntities']));
+    $isDisableEntityLoader = ($hasDisable && empty($sations['loadEntities']));
     if ($isDisableEntityLoader)
     {
       $entityLoaderConfig = libxml_disable_entity_loader(true);
     }
 
-    $returnClass = isset($options['return']) ? strtolower($options['return']) : '';
+    $returnClass = isset($sations['return']) ? strtolower($sations['return']) : '';
 
     if ('simplexml' === $returnClass || 'simplexmlelement' === $returnClass)
     {

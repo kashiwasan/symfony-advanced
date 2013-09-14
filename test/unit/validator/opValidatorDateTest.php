@@ -4,9 +4,9 @@ include_once dirname(__FILE__) . '/../../bootstrap/unit.php';
 
 $t = new lime_test(84, new lime_output_color());
 
-$v = new opValidatorDate();
+$v = new saValidatorDate();
 
-$t->diag('opValidatorDate');
+$t->diag('saValidatorDate');
 
 // clean
 $t->diag('->clean()');
@@ -129,8 +129,8 @@ catch (sfValidatorError $e)
 }
 $v->setOption('date_format', null);
 
-// option with_time
-$t->diag('option with_time');
+// sation with_time
+$t->diag('sation with_time');
 $v->setOption('with_time', true);
 $t->is($v->clean(array('year' => 2005, 'month' => 10, 'day' => 15, 'hour' => 12, 'minute' => 10, 'second' => 15)), '2005-10-15 12:10:15', '->clean() accepts an array as an input');
 $t->is($v->clean(array('year' => '2005', 'month' => '10', 'day' => '15', 'hour' => '12', 'minute' => '10', 'second' => '15')), '2005-10-15 12:10:15', '->clean() accepts an array as an input');
@@ -150,71 +150,71 @@ catch (sfValidatorError $e)
   $t->pass('->clean() throws a sfValidatorError if the time is not valid');
 }
 
-$t->is($v->clean('18 october 2005 12:30'), '2005-10-18 12:30:00', '->clean() can accept date time with the with_time option');
+$t->is($v->clean('18 october 2005 12:30'), '2005-10-18 12:30:00', '->clean() can accept date time with the with_time sation');
 $v->setOption('date_format', '~(?P<day>\d{2})/(?P<month>\d{2})/(?P<year>\d{4})~');
-$t->is($v->clean('18/10/2005'), '2005-10-18 00:00:00', '->clean() can accept date time with the with_time option');
+$t->is($v->clean('18/10/2005'), '2005-10-18 00:00:00', '->clean() can accept date time with the with_time sation');
 $v->setOption('date_format', '~(?P<day>\d{2})/(?P<month>\d{2})/(?P<year>\d{4}) (?P<hour>\d{2})\:(?P<minute>\d{2})~');
-$t->is($v->clean('18/10/2005 12:30'), '2005-10-18 12:30:00', '->clean() can accept date time with the with_time option');
+$t->is($v->clean('18/10/2005 12:30'), '2005-10-18 12:30:00', '->clean() can accept date time with the with_time sation');
 $v->setOption('date_format', null);
 
 // change date output
 $t->diag('change date output');
 $v->setOption('with_time', false);
 $v->setOption('date_output', 'U');
-$t->is($v->clean('1989-01-08'), strtotime('1989-01-08'), '->clean() output format can be change with the date_output option');
+$t->is($v->clean('1989-01-08'), strtotime('1989-01-08'), '->clean() output format can be change with the date_output sation');
 $v->setOption('datetime_output', 'U');
 $v->setOption('with_time', true);
-$t->is($v->clean('1989-01-08 00:00:00'), strtotime('1989-01-08 00:00:00'), '->clean() output format can be change with the date_output option');
+$t->is($v->clean('1989-01-08 00:00:00'), strtotime('1989-01-08 00:00:00'), '->clean() output format can be change with the date_output sation');
 
-$v = new opValidatorDate();
+$v = new saValidatorDate();
 
-// max and min options
-$t->diag('max and min options');
+// max and min sations
+$t->diag('max and min sations');
 $v->setOption('min', '1 Jan 2005');
 $v->setOption('max', '31 Dec 2007');
-$t->is($v->clean('18 october 2005'), '2005-10-18', '->clean() can accept a max/min option');
+$t->is($v->clean('18 october 2005'), '2005-10-18', '->clean() can accept a max/min sation');
 try
 {
   $v->clean('18 october 2004');
-  $t->fail('->clean() throws an exception if the date is not within the range provided by the min/max options');
+  $t->fail('->clean() throws an exception if the date is not within the range provided by the min/max sations');
 }
 catch (sfValidatorError $e)
 {
-  $t->pass('->clean() throws an exception if the date is not within the range provided by the min/max options');
+  $t->pass('->clean() throws an exception if the date is not within the range provided by the min/max sations');
 }
 try
 {
   $v->clean('18 october 2008');
-  $t->fail('->clean() throws an exception if the date is not within the range provided by the min/max options');
+  $t->fail('->clean() throws an exception if the date is not within the range provided by the min/max sations');
 }
 catch (sfValidatorError $e)
 {
-  $t->pass('->clean() throws an exception if the date is not within the range provided by the min/max options');
+  $t->pass('->clean() throws an exception if the date is not within the range provided by the min/max sations');
 }
 
-$t->is($v->clean(array('year' => 2006, 'month' => 1, 'day' => 8)), '2006-01-08', '->clean() can accept a max/min option array');
+$t->is($v->clean(array('year' => 2006, 'month' => 1, 'day' => 8)), '2006-01-08', '->clean() can accept a max/min sation array');
 try
 {
   $v->clean(array('year' => 1989, 'month' => 1, 'day' => 8));
-  $t->fail('->clean() throws an exception if the date is not within the range provided by the min/max options');
+  $t->fail('->clean() throws an exception if the date is not within the range provided by the min/max sations');
 }
 catch (sfValidatorError $e)
 {
-  $t->pass('->clean() throws an exception if the date is not within the range provided by the min/max options');
+  $t->pass('->clean() throws an exception if the date is not within the range provided by the min/max sations');
 }
 try
 {
   $v->clean(array('year' => 2010, 'month' => 1, 'day' => 8));
-  $t->fail('->clean() throws an exception if the date is not within the range provided by the min/max options');
+  $t->fail('->clean() throws an exception if the date is not within the range provided by the min/max sations');
 }
 catch (sfValidatorError $e)
 {
-  $t->pass('->clean() throws an exception if the date is not within the range provided by the min/max options');
+  $t->pass('->clean() throws an exception if the date is not within the range provided by the min/max sations');
 }
 
 // required = true, isEmpty() = true
 $t->diag('required = true, isEmpty() = true');
-$v = new opValidatorDate();
+$v = new saValidatorDate();
 
 foreach (array(
   array('year' => '', 'month' => '', 'day' => ''),
@@ -259,7 +259,7 @@ foreach (array(
 
 // required = false, isEmpty() = true
 $t->diag('required = false, isEmpty() = true');
-$v = new opValidatorDate();
+$v = new saValidatorDate();
 $v->setOption('required', false);
 
 foreach (array(
@@ -304,7 +304,7 @@ foreach (array(
 
 // required = true, isEmpty() = false
 $t->diag('required = true, isEmpty() = false');
-$v = new opValidatorDate();
+$v = new saValidatorDate();
 $v->setOption('empty_value', new DateTime('1989-01-08'));
 
 foreach (array(

@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class opI18N extends sfI18N
+class saI18N extends sfI18N
 {
   protected
     $terms = null,
@@ -16,9 +16,9 @@ class opI18N extends sfI18N
 
   public $titleize = false;
 
-  public function initialize(sfApplicationConfiguration $configuration, sfCache $cache = null, $options = array())
+  public function initialize(sfApplicationConfiguration $configuration, sfCache $cache = null, $sations = array())
   {
-    parent::initialize($configuration, $cache, $options);
+    parent::initialize($configuration, $cache, $sations);
 
     $application = sfConfig::get('sf_app');
     if ('pc_backend' == $application)
@@ -62,7 +62,7 @@ class opI18N extends sfI18N
     foreach ($catalogues as $filename => $catalogue)
     {
       $path = $cacheDir.DIRECTORY_SEPARATOR.$filename.'.php';
-      opToolkit::writeCacheFile($path, '<?php return '.var_export($catalogue, true).';');
+      saToolkit::writeCacheFile($path, '<?php return '.var_export($catalogue, true).';');
     }
   }
 

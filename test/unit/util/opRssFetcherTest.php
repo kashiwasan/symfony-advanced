@@ -6,7 +6,7 @@ $t = new lime_test(42, new lime_output_color());
 
 //------------------------------------------------------------
 
-class opRssFetcherMock extends opRssFetcher
+class saRssFetcherMock extends saRssFetcher
 {
   public function createSimplePieObject($fileName)
   {
@@ -30,10 +30,10 @@ class opRssFetcherMock extends opRssFetcher
 }
 
 //------------------------------------------------------------
-$t->diag('opRssFetcher');
+$t->diag('saRssFetcher');
 
-$instance = new opRssFetcher('UTF-8');
-$mock = new opRssFetcherMock('UTF-8');
+$instance = new saRssFetcher('UTF-8');
+$mock = new saRssFetcherMock('UTF-8');
 
 $t->diag('->__construct()');
 $t->is($instance->charset, 'UTF-8', '__construct() sets the specified character set to its property');
@@ -64,9 +64,9 @@ $t->is($result[0]['body'], 'SfAdvanced 開発チームの海老原です。
 				本日 2009/11/30（月）、 開発版 SfAdvanced 3.2RC1 をリリースしました。
 				今後の SfAdvanced のリリーススケジュール にて発表 [...]', '->fetch() returns RSS entries that contains valid body');
 $t->is($result[4]['body'], '<p>開発チームの海老原です。</p>
-				<p>11/23 に <a href="http://www.sfadvanced.jp/archives/3931/">opAlbumPlugin のアップデート</a>が、 11/24 に <a href="http://www.sfadvanced.jp/archives/3938/">opDiaryPlugin のアップデート</a>がありました。</p>
+				<p>11/23 に <a href="http://www.sfadvanced.jp/archives/3931/">saAlbumPlugin のアップデート</a>が、 11/24 に <a href="http://www.sfadvanced.jp/archives/3938/">saDiaryPlugin のアップデート</a>がありました。</p>
 				<p>どちらも重要なバグフィックスがおこなわれたリリースのため、 SfAdvanced 3.1.5 にバンドルされているプラグインも、新しく更新されたバージョンに変更しました。</p>
-				<p>以下のコマンドを実行することで、更新された opAlbumPlugin と opDiaryPlugin が利用できます。<br />
+				<p>以下のコマンドを実行することで、更新された saAlbumPlugin と saDiaryPlugin が利用できます。<br />
 				<code>./symfony sfadvanced:migrate</code></p>', '->fetch() returns RSS entries that contains valid content');
 $t->is($result[5]['body'], '', '->fetch() returns RSS entries that contains empty body');
 $t->is($result[0]['link'], 'http://www.sfadvanced.jp/archives/3988/', '->fetch() returns RSS entries that contains valid link');
@@ -84,9 +84,9 @@ $t->is($result[0]['body'], 'SfAdvanced 開発チームの海老原です。
 				本日 2009/11/30（月）、 開発版 SfAdvanced 3.2RC1 をリリースしました。
 				今後の SfAdvanced のリリーススケジュール にて発表 [...]', '->fetch() returns Atom entries that contains valid body');
 $t->is($result[4]['body'], '<p>開発チームの海老原です。</p>
-				<p>11/23 に <a href="http://www.sfadvanced.jp/archives/3931/">opAlbumPlugin のアップデート</a>が、 11/24 に <a href="http://www.sfadvanced.jp/archives/3938/">opDiaryPlugin のアップデート</a>がありました。</p>
+				<p>11/23 に <a href="http://www.sfadvanced.jp/archives/3931/">saAlbumPlugin のアップデート</a>が、 11/24 に <a href="http://www.sfadvanced.jp/archives/3938/">saDiaryPlugin のアップデート</a>がありました。</p>
 				<p>どちらも重要なバグフィックスがおこなわれたリリースのため、 SfAdvanced 3.1.5 にバンドルされているプラグインも、新しく更新されたバージョンに変更しました。</p>
-				<p>以下のコマンドを実行することで、更新された opAlbumPlugin と opDiaryPlugin が利用できます。<br />
+				<p>以下のコマンドを実行することで、更新された saAlbumPlugin と saDiaryPlugin が利用できます。<br />
 				<code>./symfony sfadvanced:migrate</code></p>', '->fetch() returns Atom entries that contains valid content');
 $t->is($result[5]['body'], '', '->fetch() returns Atom entries that contains empty body');
 $t->is($result[0]['link'], 'http://www.sfadvanced.jp/archives/3988/', '->fetch() returns Atom entries that contains valid link');
@@ -105,8 +105,8 @@ $t->is($mock->fetch('www.sfadvanced.jp.feed.empty.rss'), false, '->fetch() retur
 $t->is($mock->fetch('www.sfadvanced.jp.feed.empty.rss', true), false, '->fetch() returns false if the specified feed does not have any entries even if the second parameter is specified');
 
 $t->diag('::autoDiscovery');
-$url = opRssFetcher::autoDiscovery(opRssFetcherMock::calcFixtureFilePath('www.sfadvanced.jp.html'));
+$url = saRssFetcher::autoDiscovery(saRssFetcherMock::calcFixtureFilePath('www.sfadvanced.jp.html'));
 $t->is($url, 'http://www.sfadvanced.jp/feed/', '::autoDiscovery() returns a valid feed url');
-$url = opRssFetcher::autoDiscovery(opRssFetcherMock::calcFixtureFilePath('www.co3k.org.html'));
+$url = saRssFetcher::autoDiscovery(saRssFetcherMock::calcFixtureFilePath('www.co3k.org.html'));
 $t->is($url, '', '::autoDiscovery() returns an empty string if the specified uri does not have related feeds');
 

@@ -9,13 +9,13 @@
  */
 
 /**
- * opValidatorColor validates hex.
+ * saValidatorColor validates hex.
  *
  * @package    SfAdvanced
  * @subpackage validator
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opValidatorColor extends opValidatorHex
+class saValidatorColor extends saValidatorHex
 {
   protected function doClean($value)
   {

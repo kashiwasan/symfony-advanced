@@ -9,13 +9,13 @@
  */
 
 /**
- * opDoctrineEventNotifier
+ * saDoctrineEventNotifier
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Eitarow Fukamachi <fukamachi@tejimaya.com>
  */
-class opDoctrineEventNotifier extends Doctrine_Record_Listener
+class saDoctrineEventNotifier extends Doctrine_Record_Listener
 {
   protected static function notify($when, $action, $doctrineEvent)
   {
@@ -25,7 +25,7 @@ class opDoctrineEventNotifier extends Doctrine_Record_Listener
     }
 
     $dispatcher = sfContext::getInstance()->getEventDispatcher();
-    $dispatcher->notify(new opDoctrineEvent($doctrineEvent, $when, $action));
+    $dispatcher->notify(new saDoctrineEvent($doctrineEvent, $when, $action));
   }
 
   public function preSave(Doctrine_Event $event)

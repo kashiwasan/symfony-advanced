@@ -33,9 +33,9 @@ function getCenterMuchScreen(element)
 }
 
 /**
- * opCookie class
+ * saCookie class
  */
-var opCookie = {
+var saCookie = {
 
  /**
   * Sets a cookie data

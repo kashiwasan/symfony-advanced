@@ -16,7 +16,7 @@
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  * @author     Rimpei Ogawa <ogawa@tejimaya.com>
  */
-class sfWidgetFormSchemaFormatterPc extends opWidgetFormSchemaFormatter
+class sfWidgetFormSchemaFormatterPc extends saWidgetFormSchemaFormatter
 {
   protected
     $helpFormat            = '<div class="help">%help%</div>',

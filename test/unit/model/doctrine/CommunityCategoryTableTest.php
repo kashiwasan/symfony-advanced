@@ -22,7 +22,7 @@ $t->is($categories[0]->getSortOrder(), 1);
 
 //------------------------------------------------------------
 $t->diag('CommunityCategoryTable::getAllRootsQuery()');
-$t->isa_ok($table->getAllRootsQuery(), 'opDoctrineQuery');
+$t->isa_ok($table->getAllRootsQuery(), 'saDoctrineQuery');
 $t->is($table->getAllRootsQuery(false)->getDql(), ' FROM CommunityCategory WHERE lft = 1');
 $t->is($table->getAllRootsQuery(true)->getDql(), ' FROM CommunityCategory WHERE lft = 1 ORDER BY sort_order');
 
@@ -36,7 +36,7 @@ $t->is($categories[0]->getSortOrder(), 1);
 
 //------------------------------------------------------------
 $t->diag('CommunityCategoryTable::getAllChildrenQuery()');
-$t->isa_ok($table->getAllChildrenQuery(), 'opDoctrineQuery');
+$t->isa_ok($table->getAllChildrenQuery(), 'saDoctrineQuery');
 $t->is($table->getAllChildrenQuery(false)->getDql(), ' FROM CommunityCategory WHERE lft > 1');
 $t->is($table->getAllChildrenQuery(true)->getDql(), ' FROM CommunityCategory WHERE lft > 1 ORDER BY sort_order');
 

@@ -9,21 +9,21 @@
  */
 
 /**
- * opRichTextareaSfAdvancedButtonConfigForm
+ * saRichTextareaSfAdvancedButtonConfigForm
  *
  * @package    SfAdvanced
  * @subpackage form 
  * @author     Shogo Kawahara <kawahara@tejimaya.net>
  */
-class opRichTextareaSfAdvancedButtonConfigForm extends sfForm
+class saRichTextareaSfAdvancedButtonConfigForm extends sfForm
 {
   public function configure()
   {
     //initialize
-    new opWidgetFormRichTextareaSfAdvanced();
+    new saWidgetFormRichTextareaSfAdvanced();
 
-    $allButtons = opWidgetFormRichTextareaSfAdvanced::getAllButtons();
-    $buttons    = opWidgetFormRichTextareaSfAdvanced::getButtons();
+    $allButtons = saWidgetFormRichTextareaSfAdvanced::getAllButtons();
+    $buttons    = saWidgetFormRichTextareaSfAdvanced::getButtons();
     $diff       = array_diff(array_keys($allButtons), array_keys($buttons));
     foreach ($buttons as $key => $button)
     {

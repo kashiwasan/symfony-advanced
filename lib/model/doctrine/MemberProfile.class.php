@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class MemberProfile extends BaseMemberProfile implements opAccessControlRecordInterface
+class MemberProfile extends BaseMemberProfile implements saAccessControlRecordInterface
 {
   public function __toString()
   {
@@ -16,8 +16,8 @@ class MemberProfile extends BaseMemberProfile implements opAccessControlRecordIn
     {
       if ($this->getProfileOptionId())
       {
-        $option = Doctrine::getTable('ProfileOption')->find($this->getProfileOptionId());
-        return (string)$option->getValue();
+        $sation = Doctrine::getTable('ProfileOption')->find($this->getProfileOptionId());
+        return (string)$sation->getValue();
       }
 
       $children = $this->getChildrenValues(true);
@@ -109,8 +109,8 @@ class MemberProfile extends BaseMemberProfile implements opAccessControlRecordIn
         {
           if ($isToString)
           {
-            $option = Doctrine::getTable('ProfileOption')->find($child->getProfileOptionId());
-            $values[] = $option->getValue();
+            $sation = Doctrine::getTable('ProfileOption')->find($child->getProfileOptionId());
+            $values[] = $sation->getValue();
           }
           else
           {

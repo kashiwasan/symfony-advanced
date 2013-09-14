@@ -9,12 +9,12 @@
  */
 
 /**
- * opRuntimeException
+ * saRuntimeException
  *
  * @package    SfAdvanced
  * @subpackage exception
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opRuntimeException extends RuntimeException
+class saRuntimeException extends RuntimeException
 {
 }

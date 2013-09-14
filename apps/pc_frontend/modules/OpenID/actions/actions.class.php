@@ -19,7 +19,7 @@ class OpenIDActions extends sfActions
 {
   public function preExecute()
   {
-    $this->forward404Unless(opConfig::get('enable_openid'));
+    $this->forward404Unless(saConfig::get('enable_openid'));
   }
 
  /**
@@ -29,7 +29,7 @@ class OpenIDActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
-    opApplicationConfiguration::registerJanRainOpenID();
+    saApplicationConfiguration::registerJanRainOpenID();
     require_once 'Auth/OpenID/Server.php';
     require_once 'Auth/OpenID/FileStore.php';
 
@@ -38,70 +38,70 @@ class OpenIDActions extends sfActions
 
     $this->getResponse()->setHttpHeader('X-XRDS-Location', $this->getController()->genUrl('OpenID/signonXrds', true));
 
-    $openIDRequest = $server->decodeRequest();
-    if (!$openIDRequest)
+    $saenIDRequest = $server->decodeRequest();
+    if (!$saenIDRequest)
     {
       $_SESSION['request'] = null;
       return sfView::SUCCESS;
     }
 
-    $sregRequest = Auth_OpenID_SRegRequest::fromOpenIDRequest($openIDRequest);
-    $axRequest = Auth_OpenID_AX_FetchRequest::fromOpenIDRequest($openIDRequest);
+    $sregRequest = Auth_OpenID_SRegRequest::fromOpenIDRequest($saenIDRequest);
+    $axRequest = Auth_OpenID_AX_FetchRequest::fromOpenIDRequest($saenIDRequest);
     $this->requestedProfiles = $this->createListOfRequestedProfiles($sregRequest, $axRequest);
 
-    $_SESSION['request'] = serialize($openIDRequest);
-    if (!empty($openIDRequest->mode) && in_array($openIDRequest->mode, array('checkid_immediate', 'checkid_setup')))
+    $_SESSION['request'] = serialize($saenIDRequest);
+    if (!empty($saenIDRequest->mode) && in_array($saenIDRequest->mode, array('checkid_immediate', 'checkid_setup')))
     {
-      if ($openIDRequest->idSelect())
+      if ($saenIDRequest->idSelect())
       {
-        if ($openIDRequest->mode === 'checkid_immediate')
+        if ($saenIDRequest->mode === 'checkid_immediate')
         {
-          $response = $openIDRequest->answer(false);
+          $response = $saenIDRequest->answer(false);
         }
         else
         {
           $this->getRequest()->setMethod(sfWebRequest::GET);
-          $_SERVER['QUERY_STRING'] = http_build_query($openIDRequest->message->toPostArgs());
+          $_SERVER['QUERY_STRING'] = http_build_query($saenIDRequest->message->toPostArgs());
           $this->forwardUnless($this->getUser()->isAuthenticated() && $this->getUser()->getMember(), 'member', 'login');
 
-          $log = Doctrine::getTable('OpenIDTrustLog')->findByOpenID($openIDRequest->trust_root, $this->getUser()->getMemberId());
+          $log = Doctrine::getTable('OpenIDTrustLog')->findByOpenID($saenIDRequest->trust_root, $this->getUser()->getMemberId());
           if ($log && $log->is_permanent)
           {
             $request->setParameter('trust', '1');
             $this->forward('OpenID', 'trust');
           }
 
-          $this->info = $openIDRequest;
+          $this->info = $saenIDRequest;
 
           return 'Trust';
         }
       }
-      elseif (!$openIDRequest->identity && !$openIDRequest->idSelect())
+      elseif (!$saenIDRequest->identity && !$saenIDRequest->idSelect())
       {
         $this->forward('@error');
       }
-      elseif ($openIDRequest->immediate)
+      elseif ($saenIDRequest->immediate)
       {
-        $response = $openIDRequest->answer(false, $url);
+        $response = $saenIDRequest->answer(false, $url);
       }
       else
       {
         $this->forwardUnless($this->getUser()->isAuthenticated() && $this->getUser()->getMember(), 'member', 'login');
 
-        $log = Doctrine::getTable('OpenIDTrustLog')->findByOpenID($openIDRequest->trust_root, $this->getUser()->getMemberId());
+        $log = Doctrine::getTable('OpenIDTrustLog')->findByOpenID($saenIDRequest->trust_root, $this->getUser()->getMemberId());
         if ($log && $log->is_permanent)
         {
           $request->setParameter('trust', '1');
           $this->forward('OpenID', 'trust');
         }
 
-        $this->info = $openIDRequest;
+        $this->info = $saenIDRequest;
         return 'Trust';
       }
     }
     else
     {
-      $response = $server->handleRequest($openIDRequest);
+      $response = $server->handleRequest($saenIDRequest);
     }
 
     $response = $server->encodeResponse($response);
@@ -110,7 +110,7 @@ class OpenIDActions extends sfActions
 
   public function executeTrust(sfWebRequest $request)
   {
-    opApplicationConfiguration::registerJanRainOpenID();
+    saApplicationConfiguration::registerJanRainOpenID();
     require_once 'Auth/OpenID/Server.php';
     require_once 'Auth/OpenID/FileStore.php';
     require_once 'Auth/OpenID/SReg.php';
@@ -151,7 +151,7 @@ class OpenIDActions extends sfActions
 
     if ($sregRequest)
     {
-      $sregExchange = new opOpenIDProfileExchange('sreg', $this->getUser()->getMember());
+      $sregExchange = new saOpenIDProfileExchange('sreg', $this->getUser()->getMember());
       $sregResp = Auth_OpenID_SRegResponse::extractResponse($sregRequest, $sregExchange->getData($allowedProfiles));
       $response->addExtension($sregResp);
     }
@@ -159,7 +159,7 @@ class OpenIDActions extends sfActions
     if ($axRequest && !($axRequest instanceof Auth_OpenID_AX_Error))
     {
       $axResp = new Auth_OpenID_AX_FetchResponse();
-      $axExchange = new opOpenIDProfileExchange('ax', $this->getUser()->getMember());
+      $axExchange = new saOpenIDProfileExchange('ax', $this->getUser()->getMember());
       $userData = $axExchange->getData($allowedProfiles);
 
       foreach ($axRequest->requested_attributes as $k => $v)
@@ -245,7 +245,7 @@ EOF;
 <?xml version="1.0" encoding="UTF-8"?>
 <xrds:XRDS
     xmlns:xrds="xri://\$xrds"
-    xmlns:openid="http://openid.net/xmlns/1.0"
+    xmlns:saenid="http://saenid.net/xmlns/1.0"
     xmlns="xri://\$xrd*(\$v*2.0)">
   <XRD>
     <Service priority="0">
@@ -294,8 +294,8 @@ EOF;
 
     $result = array();
 
-    $sregExport = new opOpenIDSregProfileExport();
-    $axExport = new opOpenIDAxProfileExport();
+    $sregExport = new saOpenIDSregProfileExport();
+    $axExport = new saOpenIDAxProfileExport();
 
     if ($sreg)
     {
@@ -305,7 +305,7 @@ EOF;
         {
           $sregRequired[] = $v;
         }
-        elseif (isset($sreg->optional[$k]))
+        elseif (isset($sreg->sational[$k]))
         {
           $sregOptional[] = $v;
         }

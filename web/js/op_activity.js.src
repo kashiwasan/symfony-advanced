@@ -11,7 +11,7 @@
  *
  * @author Shogo Kawahara <kawahara@bucyou.net>
  */
-var opActivity = function(id, posturl){
+var saActivity = function(id, posturl){
   var t = this;
 
   var addEventListener = function (obj, type, listener, useCapture){
@@ -39,7 +39,7 @@ var opActivity = function(id, posturl){
 
   this.post = function () {
     var req = getHttpRequest();
-    req.open("POST", posturl, true);
+    req.saen("POST", posturl, true);
     req.setRequestHeader("X-Requested-With", "XMLHttpRequest");
     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 

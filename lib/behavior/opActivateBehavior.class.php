@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class opActivateBehavior extends Doctrine_Template
+class saActivateBehavior extends Doctrine_Template
 {
   protected $_options = array(
     'name'    => 'is_active',
@@ -24,7 +24,7 @@ class opActivateBehavior extends Doctrine_Template
       'fields' => array($this->_options['name']),
     ));
 
-    $this->addListener(new opActivateListener());
+    $this->addListener(new saActivateListener());
   }
 
   public static function enable()

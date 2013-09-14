@@ -38,7 +38,7 @@
 				<li>#305: Add description for sending e-mail by periodic executed script to setup document (定期実行スクリプトによるメール配信のための手段をドキュメントに追記する) (Kousuke Ebihara)</li>
 				<li>#279: ログイン最終日時の表記方法をわかりやすくする (Shogo Kawahara)</li>
 				</ul>
-				<p>詳細は、 <a href="http://redmine.sfadvanced.jp/projects/op3/changelog#SfAdvanced%203.2RC1">ChangeLog</a> をご覧ください。</p>
+				<p>詳細は、 <a href="http://redmine.sfadvanced.jp/projects/sa3/changelog#SfAdvanced%203.2RC1">ChangeLog</a> をご覧ください。</p>
 				<h2>バグ修正</h2>
 				<ul>
 				<li>#278: The display of Lastlogin of the member who has not login yet is not &#8220;not login yet&#8221;. (ログインしたことのないメンバーの最終ログインの表示が&#8221;未ログイン&#8221;でない) (Shogo Kawahara)</li>
@@ -47,7 +47,7 @@
 				<li>#303: 「もっと写真をみる」でエラー (Kousuke Ebihara)</li>
 				<li>#304: 他人のプロフィール画面のコミュニティリストの「もっと見る」のリンク先が自分のコミュニティリストになっている (Kousuke Ebihara)</li>
 				</ul>
-				<p>その他のバグ修正については、 <a href="http://redmine.sfadvanced.jp/projects/op3/changelog#SfAdvanced%203.2RC1">ChangeLog</a> をご覧ください。</p>
+				<p>その他のバグ修正については、 <a href="http://redmine.sfadvanced.jp/projects/sa3/changelog#SfAdvanced%203.2RC1">ChangeLog</a> をご覧ください。</p>
 				<h2>バージョンアップ・インストール</h2>
 				<h3>SfAdvanced 3.0.5 からのアップグレード</h3>
 				<p>アップグレード方法は、<a href="http://www.sfadvanced.jp/sfadvanced_3_0_5_to_3_2_upgrade_guide/">SfAdvanced 3.0.5 からのアップグレード手順</a> をご覧ください。</p>
@@ -59,7 +59,7 @@
 				<h3>ダウンロード</h3>
 				<p><a href="http://www.sfadvanced.jp/pne-downloads">http://www.sfadvanced.jp/pne-downloads</a></p>
 				<h3>チェンジログ</h3>
-				<p> <a href="http://redmine.sfadvanced.jp/projects/op3/changelog#SfAdvanced%203.2RC1">ChangeLog</a></p>
+				<p> <a href="http://redmine.sfadvanced.jp/projects/sa3/changelog#SfAdvanced%203.2RC1">ChangeLog</a></p>
 ]]></content>
 		<link rel="replies" type="text/html" href="http://www.sfadvanced.jp/archives/3988/#comments" thr:count="0"/>
 		<link rel="replies" type="application/atom+xml" href="http://www.sfadvanced.jp/archives/3988/feed/atom/" thr:count="0"/>
@@ -75,29 +75,29 @@
 		<updated>2009-11-28T21:00:51Z</updated>
 		<published>2009-11-28T21:00:51Z</published>
 		<category scheme="http://www.sfadvanced.jp" term="SfAdvanced プラグイン リリース情報" /><category scheme="http://www.sfadvanced.jp" term="SfAdvancedからのおしらせ" />		<summary type="html"><![CDATA[				SfAdvanced 開発チームの海老原です。
-				本日 2009/11/29 (日) 、 opMessagePlugin にクロスサイト・リクエスト・フォージュリ (CSRF) の脆弱性が発見されたため、緊急リリ [...]]]></summary>
+				本日 2009/11/29 (日) 、 saMessagePlugin にクロスサイト・リクエスト・フォージュリ (CSRF) の脆弱性が発見されたため、緊急リリ [...]]]></summary>
 		<content type="html" xml:base="http://www.sfadvanced.jp/archives/3982/"><![CDATA[				<p>SfAdvanced 開発チームの海老原です。</p>
-				<p>本日 2009/11/29 (日) 、 opMessagePlugin にクロスサイト・リクエスト・フォージュリ (CSRF) の脆弱性が発見されたため、緊急リリースをおこないました。</p>
+				<p>本日 2009/11/29 (日) 、 saMessagePlugin にクロスサイト・リクエスト・フォージュリ (CSRF) の脆弱性が発見されたため、緊急リリースをおこないました。</p>
 				<p><strong>対象:</strong></p>
 				<ul>
-				<li>opMessagePlugin 0.8.2 以前 (SfAdvanced 3.0.0 〜 3.0.5 に同梱されているもの)</li>
-				<li>opMessagePlugin 0.9.0 (SfAdvanced 3.1.5 〜 3.2 beta1 に同梱されているもの)</li>
+				<li>saMessagePlugin 0.8.2 以前 (SfAdvanced 3.0.0 〜 3.0.5 に同梱されているもの)</li>
+				<li>saMessagePlugin 0.9.0 (SfAdvanced 3.1.5 〜 3.2 beta1 に同梱されているもの)</li>
 				</ul>
 				<p><strong>影響を受けるシステム:</strong></p>
-				<p>対象のバージョンの opMessagePlugin を使用しているすべての SfAdvanced<br />
+				<p>対象のバージョンの saMessagePlugin を使用しているすべての SfAdvanced<br />
 				(ただし、2009/11/29 05:31 以降にセットアップをおこなった SfAdvanced には対策版のプラグインがインストールされるため、影響を受けません)</p>
 				<p><strong>想定される影響:</strong></p>
 				<p>SfAdvanced にログインした状態で、悪意のあるプログラムコードが含まれたページにアクセスすると、任意のメッセージを削除、またはゴミ箱から復元されてしまう恐れがあります。</p>
 				<p><strong>対策方法:</strong></p>
 				<p>SfAdvanced 3.0.3 〜 3.0.5 をお使いの場合、以下のコマンドを実行してアップデートを実施してください。</p>
-				<blockquote><pre>$ symfony opPlugin:install opMessagePlugin -r 0.8.2.1
+				<blockquote><pre>$ symfony saPlugin:install saMessagePlugin -r 0.8.2.1
 $ symfony propel:build-model
 $ symfony propel:build-form
 $ symfony propel:build-filter
 $ symfony cc</pre>
 				</blockquote>
 				<p>SfAdvanced 3.1.5 〜 SfAdvanced 3.2beta1 をお使いの場合、以下のコマンドを実行してアップデートを実施してください。</p>
-				<blockquote><pre>$ symfony opPlugin:install opMessagePlugin -r 0.9.0.1
+				<blockquote><pre>$ symfony saPlugin:install saMessagePlugin -r 0.9.0.1
 $ symfony doctrine:build-model
 $ symfony doctrine:build-form
 $ symfony doctrine:build-filter
@@ -114,17 +114,17 @@ $ symfony cc</pre>
 			<name>Shogo Kawahara</name>
 						<uri>http://</uri>
 					</author>
-		<title type="html"><![CDATA[opOpenSocialPlugin 0.9.2リリースのお知らせ]]></title>
+		<title type="html"><![CDATA[saOpenSocialPlugin 0.9.2リリースのお知らせ]]></title>
 		<id>http://www.sfadvanced.jp/?p=3966</id>
 		<updated>2009-11-25T08:30:33Z</updated>
 		<published>2009-11-25T08:24:38Z</published>
 		<category scheme="http://www.sfadvanced.jp" term="その他" />		<summary type="html"><![CDATA[				SfAdvanced開発チームの川原です。
-				昨日2009年11月24日、opOpenSocialPlugin 0.9.2-betaをリリースしました。
+				昨日2009年11月24日、saOpenSocialPlugin 0.9.2-betaをリリースしました。
 				0.9.1-betaからのおもな変更点
 				
  [...]]]></summary>
 		<content type="html" xml:base="http://www.sfadvanced.jp/archives/3966/"><![CDATA[				<p>SfAdvanced開発チームの川原です。</p>
-				<p>昨日2009年11月24日、opOpenSocialPlugin 0.9.2-betaをリリースしました。</p>
+				<p>昨日2009年11月24日、saOpenSocialPlugin 0.9.2-betaをリリースしました。</p>
 				<h2>0.9.1-betaからのおもな変更点</h2>
 				<ul>
 				<li>バグ修正</li>
@@ -148,7 +148,7 @@ $ symfony cc</pre>
 				<p>SfAdvanced本体のバージョンを上げずに、プラグインのみをバージョンアップする場合は次のように行います。<br />
 				バージョンアップ前にデータベースのバックアップを行ってください。</p>
 				<pre style="overflow: auto; margin-bottom: 1em"><code>
-$ ./symfony opPlugin:install -s beta -r 0.9.2 opOpenSocialPlugin
+$ ./symfony saPlugin:install -s beta -r 0.9.2 saOpenSocialPlugin
 $ ./symfony sfadvanced:migrate
 $ ./symfony cc
 </code></pre>
@@ -161,9 +161,9 @@ $ ./symfony cc
 				<h2>開発やバグ報告・要望について</h2>
 				<p>これまで、Issue TrackingをGithub上で行っていましたが、ロードマップの管理などの利便性の観点から<br />
 				<a href="http://redmine.sfadvanced.jp/">SfAdvanced Issue Tracking System</a>上で行うことにしました。</p>
-				<p><a href="http://redmine.sfadvanced.jp/projects/plg-open-social/issues/new">こちらから、報告ができます。</a></p>
+				<p><a href="http://redmine.sfadvanced.jp/projects/plg-saen-social/issues/new">こちらから、報告ができます。</a></p>
 				<p>また、このプラグインはGithub上でソースコードの管理を行っています。<br />
-				http://github.com/kawahara/opOpenSocialPlugin</p>
+				http://github.com/kawahara/saOpenSocialPlugin</p>
 				<p>forkやpull requestはお気軽に！</p>
 ]]></content>
 		<link rel="replies" type="text/html" href="http://www.sfadvanced.jp/archives/3966/#comments" thr:count="0"/>
@@ -195,7 +195,7 @@ $ ./symfony cc
 				<li>#239: Added support for migrating from SfAdvanced 3.1.x (SfAdvanced 3.1.x からの移行をサポートする) (Kousuke Ebihara)</li>
 				<li>#248: add manager SfAdvanced&#8217;s richtextarea (SfAdvancedのリッチテキストエリアを管理する機能を実装する） (Shogo Kawahara)</li>
 				</ul>
-				<p>詳細は、 <a href="http://redmine.sfadvanced.jp/projects/op3/changelog#SfAdvanced%203.2beta1">ChangeLog</a> をご覧ください。</p>
+				<p>詳細は、 <a href="http://redmine.sfadvanced.jp/projects/sa3/changelog#SfAdvanced%203.2beta1">ChangeLog</a> をご覧ください。</p>
 				<h2>バグ修正</h2>
 				<ul>
 				<li>#234: The display of the type of the date in the profile is not correct (プロフィール画面の日付型データが表示が正しくない） (Kousuke Ebihara)</li>
@@ -204,27 +204,27 @@ $ ./symfony cc
 				<li>#250: Non-logged-in member can&#8217;t access some pages that don&#8217;t need authentication (認証の不要なページに未ログインユーザがアクセスできない) (Kousuke Ebihara)</li>
 				<li>#253: 3.1.5でPCメールアドレスを変更しようとするとエラーが発生する (Kousuke Ebihara)</li>
 				</ul>
-				<p>その他のバグ修正については、 <a href="http://redmine.sfadvanced.jp/projects/op3/changelog#SfAdvanced%203.2beta1">ChangeLog</a> をご覧ください。</p>
+				<p>その他のバグ修正については、 <a href="http://redmine.sfadvanced.jp/projects/sa3/changelog#SfAdvanced%203.2beta1">ChangeLog</a> をご覧ください。</p>
 				<h2>バンドルされるプラグインの追加・更新情報</h2>
 				<p>以下のプラグインが更新されます。</p>
 				<ul>
-				<li>opOpenSocialPlugin 0.9.1 -> 0.9.2</li>
+				<li>saOpenSocialPlugin 0.9.1 -> 0.9.2</li>
 				</ul>
 				<h2>注意事項</h2>
 				<p>3.0.x に同梱されていたプラグインの一部は Doctrine に未対応のため、 SfAdvanced 3.2.x ではご利用いただけません。</p>
 				<p>同梱されているプラグインは以下となります。</p>
 				<ul>
-				<li>opAuthMailAddressPlugin</li>
-				<li>opAuthMobileUIDPlugin</li>
-				<li>opAuthOpenIDPlugin</li>
-				<li>opCommunityTopicPlugin</li>
-				<li>opWebAPIPlugin</li>
-				<li>opDiaryPlugin</li>
-				<li>opBlogPlugin</li>
-				<li>opOpenSocialPlugin</li>
-				<li>opAshiatoPlugin</li>
-				<li>opMessagePlugin</li>
-				<li>opAlbumPlugin</li>
+				<li>saAuthMailAddressPlugin</li>
+				<li>saAuthMobileUIDPlugin</li>
+				<li>saAuthOpenIDPlugin</li>
+				<li>saCommunityTopicPlugin</li>
+				<li>saWebAPIPlugin</li>
+				<li>saDiaryPlugin</li>
+				<li>saBlogPlugin</li>
+				<li>saOpenSocialPlugin</li>
+				<li>saAshiatoPlugin</li>
+				<li>saMessagePlugin</li>
+				<li>saAlbumPlugin</li>
 				</ul>
 				<h2>バージョンアップ・インストール</h2>
 				<h3>SfAdvanced 3.0.5 からのアップグレード</h3>
@@ -237,7 +237,7 @@ $ ./symfony cc
 				<h3>ダウンロード</h3>
 				<p><a href="http://www.sfadvanced.jp/pne-downloads">http://www.sfadvanced.jp/pne-downloads</a></p>
 				<h3>チェンジログ</h3>
-				<p> <a href="http://redmine.sfadvanced.jp/projects/op3/changelog#SfAdvanced%203.2beta1">ChangeLog</a></p>
+				<p> <a href="http://redmine.sfadvanced.jp/projects/sa3/changelog#SfAdvanced%203.2beta1">ChangeLog</a></p>
 ]]></content>
 		<link rel="replies" type="text/html" href="http://www.sfadvanced.jp/archives/3949/#comments" thr:count="0"/>
 		<link rel="replies" type="application/atom+xml" href="http://www.sfadvanced.jp/archives/3949/feed/atom/" thr:count="0"/>
@@ -255,9 +255,9 @@ $ ./symfony cc
 		<published>2009-11-24T04:33:46Z</published>
 		<category scheme="http://www.sfadvanced.jp" term="SfAdvancedからのおしらせ" />
 		<content type="html" xml:base="http://www.sfadvanced.jp/archives/3945/"><![CDATA[				<p>開発チームの海老原です。</p>
-				<p>11/23 に <a href="http://www.sfadvanced.jp/archives/3931/">opAlbumPlugin のアップデート</a>が、 11/24 に <a href="http://www.sfadvanced.jp/archives/3938/">opDiaryPlugin のアップデート</a>がありました。</p>
+				<p>11/23 に <a href="http://www.sfadvanced.jp/archives/3931/">saAlbumPlugin のアップデート</a>が、 11/24 に <a href="http://www.sfadvanced.jp/archives/3938/">saDiaryPlugin のアップデート</a>がありました。</p>
 				<p>どちらも重要なバグフィックスがおこなわれたリリースのため、 SfAdvanced 3.1.5 にバンドルされているプラグインも、新しく更新されたバージョンに変更しました。</p>
-				<p>以下のコマンドを実行することで、更新された opAlbumPlugin と opDiaryPlugin が利用できます。<br />
+				<p>以下のコマンドを実行することで、更新された saAlbumPlugin と saDiaryPlugin が利用できます。<br />
 				<code>./symfony sfadvanced:migrate</code></p>
 ]]></content>
 		<link rel="replies" type="text/html" href="http://www.sfadvanced.jp/archives/3945/#comments" thr:count="0"/>
@@ -269,7 +269,7 @@ $ ./symfony cc
 			<name>Rimpei Ogawa</name>
 						<uri>http://</uri>
 					</author>
-		<title type="html"><![CDATA[opDiaryPlugin 0.9.2 をリリースしました]]></title>
+		<title type="html"><![CDATA[saDiaryPlugin 0.9.2 をリリースしました]]></title>
 		<link rel="alternate" type="text/html" href="http://www.sfadvanced.jp/archives/3938/" />
 		<id>http://www.sfadvanced.jp/?p=3938</id>
 		<updated>2009-11-23T15:13:22Z</updated>
@@ -283,26 +283,26 @@ $ ./symfony cc
 			<name>mogi</name>
 						<uri>http://</uri>
 					</author>
-		<title type="html"><![CDATA[opAlbumPlugin 0.9.1 をリリースしました]]></title>
+		<title type="html"><![CDATA[saAlbumPlugin 0.9.1 をリリースしました]]></title>
 		<link rel="alternate" type="text/html" href="http://www.sfadvanced.jp/archives/3931/" />
 		<id>http://www.sfadvanced.jp/?p=3931</id>
 		<updated>2009-11-23T10:57:27Z</updated>
-		<category scheme="http://www.sfadvanced.jp" term="SfAdvanced プラグイン リリース情報" /><category scheme="http://www.sfadvanced.jp" term="opAlbumPlugin" />		<summary type="html"><![CDATA[				
+		<category scheme="http://www.sfadvanced.jp" term="SfAdvanced プラグイン リリース情報" /><category scheme="http://www.sfadvanced.jp" term="saAlbumPlugin" />		<summary type="html"><![CDATA[				
 				SfAdvanced 開発チームの茂木です。
-				SfAdvanced.1.5にて、opAlbumPluginの影響で、未ログインユーザがログインを必要としないアクションにアクセスできない状態になる、というバ [...]]]></summary>
+				SfAdvanced.1.5にて、saAlbumPluginの影響で、未ログインユーザがログインを必要としないアクションにアクセスできない状態になる、というバ [...]]]></summary>
 		<content type="html" xml:base="http://www.sfadvanced.jp/archives/3931/"><![CDATA[				<div class="textBody">
 				<p>SfAdvanced 開発チームの茂木です。</p>
-				<p>SfAdvanced.1.5にて、opAlbumPluginの影響で、未ログインユーザがログインを必要としないアクションにアクセスできない状態になる、というバグが起きていたため、急遽対策をさせていただきました。<br />
-				opAlbumPluginを利用している方はアップデートをお願いします。</p>
+				<p>SfAdvanced.1.5にて、saAlbumPluginの影響で、未ログインユーザがログインを必要としないアクションにアクセスできない状態になる、というバグが起きていたため、急遽対策をさせていただきました。<br />
+				saAlbumPluginを利用している方はアップデートをお願いします。</p>
 				<h2>インストール方法</h2>
-				<p>opPlugin:install タスクを実行することで最新リリースへのアップデートをおこなうことができます。</p>
-				<blockquote><p>$ symfony opPlugin:install -r 0.9.1 -s beta opAlbumPlugin</p></blockquote>
+				<p>saPlugin:install タスクを実行することで最新リリースへのアップデートをおこなうことができます。</p>
+				<blockquote><p>$ symfony saPlugin:install -r 0.9.1 -s beta saAlbumPlugin</p></blockquote>
 				<p>完了後、以下のコマンドでプラグインが設置されているかを確かめることができます。</p>
 				<blockquote><p>$ symfony plugin:list</p></blockquote>
 				<p>以下のように表示されます。</p>
-				<blockquote><p>opAlbumPlugin 0.9.1-beta # <a href="http://plugins.sfadvanced.jp/">plugins.sfadvanced.jp</a> (<a href="http://plugins.sfadvanced.jp/">plugins.sfadvanced.jp</a>)</p></blockquote>
+				<blockquote><p>saAlbumPlugin 0.9.1-beta # <a href="http://plugins.sfadvanced.jp/">plugins.sfadvanced.jp</a> (<a href="http://plugins.sfadvanced.jp/">plugins.sfadvanced.jp</a>)</p></blockquote>
 				<p>プラグイン取得後、以下を実行します。</p>
-				<blockquote><p>$ symfony sfadvanced:migrate –target=opAlbumPlugin</p></blockquote>
+				<blockquote><p>$ symfony sfadvanced:migrate –target=saAlbumPlugin</p></blockquote>
 				<p>キャッシュの削除をしてください。</p>
 				<blockquote><p>$ symfony cc</p></blockquote>
 				<p>これで、アップデートが完了します。</p></div>
@@ -316,7 +316,7 @@ $ ./symfony cc
 			<name>mogi</name>
 						<uri>http://</uri>
 					</author>
-		<title type="html"><![CDATA[opAlbumPlugin 0.9.0 をリリースしました]]></title>
+		<title type="html"><![CDATA[saAlbumPlugin 0.9.0 をリリースしました]]></title>
 		<link rel="alternate" type="text/html" href="http://www.sfadvanced.jp/archives/3925/" />
 		<id>http://www.sfadvanced.jp/?p=3925</id>
 		<updated>2009-11-20T11:56:17Z</updated>
@@ -324,32 +324,32 @@ $ ./symfony cc
 		<category scheme="http://www.sfadvanced.jp" term="SfAdvanced プラグイン リリース情報" />		<summary type="html"><![CDATA[				
 				初めまして！
 				SfAdvanced 開発チームの茂木です。
-				告知が遅れてしまったのですが、SfAdvanced 用のアルバムプラグイン、 opAlbumPlugin の 0.9.0 をリリースしま [...]]]></summary>
+				告知が遅れてしまったのですが、SfAdvanced 用のアルバムプラグイン、 saAlbumPlugin の 0.9.0 をリリースしま [...]]]></summary>
 		<content type="html" xml:base="http://www.sfadvanced.jp/archives/3925/"><![CDATA[				<div>
 				<p>初めまして！</p>
 				<p>SfAdvanced 開発チームの茂木です。</p>
-				<p>告知が遅れてしまったのですが、SfAdvanced 用のアルバムプラグイン、 opAlbumPlugin の 0.9.0 をリリースしました。</p>
+				<p>告知が遅れてしまったのですが、SfAdvanced 用のアルバムプラグイン、 saAlbumPlugin の 0.9.0 をリリースしました。</p>
 				<p>既に、今週リリースされたSfAdvanced 3.1.5 に同梱されています。</p>
 				<p>このプラグインは、SfAdvanced2系で提供していたアルバム機能を移植したものです。</p>
 				<p>現状ではPC版の基本的なアルバム機能が実装されています。</p>
 				<p>これからのリリースで、携帯版やアルバム小窓などを追加して行きたいと考えています。</p>
 				<p>また、Doctrineにのみ対応しておりますので、SfAdvanced.1系でご利用ください。</p>
 				<h2>インストール方法</h2>
-				<p>SfAdvancedのプラグインチャネルサーバからopAlbumPluginを入手し、インストールを行ってください。<br />
+				<p>SfAdvancedのプラグインチャネルサーバからsaAlbumPluginを入手し、インストールを行ってください。<br />
 				これは以下のコマンドから行うことができます。</p>
-				<blockquote><p>$ symfony opPlugin:install -r 0.9.0 -s beta opAlbumPlugin</p></blockquote>
+				<blockquote><p>$ symfony saPlugin:install -r 0.9.0 -s beta saAlbumPlugin</p></blockquote>
 				<p>完了後、以下のコマンドでプラグインが設置されているかを確かめることができます。</p>
 				<blockquote><p>$ symfony plugin:list</p></blockquote>
 				<p>以下のように表示されます。</p>
-				<blockquote><p>opAlbumPlugin 0.9.0-beta # <a href="http://plugins.sfadvanced.jp/" target="_blank">plugins.sfadvanced.jp</a> (<a href="http://plugins.sfadvanced.jp/" target="_blank">plugins.sfadvanced.jp</a>)</p></blockquote>
+				<blockquote><p>saAlbumPlugin 0.9.0-beta # <a href="http://plugins.sfadvanced.jp/" target="_blank">plugins.sfadvanced.jp</a> (<a href="http://plugins.sfadvanced.jp/" target="_blank">plugins.sfadvanced.jp</a>)</p></blockquote>
 				<p>プラグイン取得後、以下を実行します。</p>
-				<blockquote><p>$ symfony sfadvanced:migrate &#8211;target=opAlbumPlugin</p></blockquote>
+				<blockquote><p>$ symfony sfadvanced:migrate &#8211;target=saAlbumPlugin</p></blockquote>
 				<p>キャッシュの削除をしてください。</p>
 				<blockquote><p>$ symfony cc</p></blockquote>
 				<p>これで、インストールが完了します。</p>
 				<h2>パッケージのみを入手したい場合</h2>
 				<p>パッケージ単体は、<br />
-				<a href="http://plugins.sfadvanced.jp/get/opAlbumPlugin-0.9.0.tgz" target="_blank">http://plugins.sfadvanced.jp/get/opAlbumPlugin-0.9.0.tgz</a><br />
+				<a href="http://plugins.sfadvanced.jp/get/saAlbumPlugin-0.9.0.tgz" target="_blank">http://plugins.sfadvanced.jp/get/saAlbumPlugin-0.9.0.tgz</a><br />
 				からダウンロードすることができます。</div>
 ]]></content>
 		<link rel="replies" type="text/html" href="http://www.sfadvanced.jp/archives/3925/#comments" thr:count="0"/>
@@ -383,7 +383,7 @@ $ ./symfony cc
 				<p>設定方法はいたって簡単で、日記作成の公開範囲設定に｢Web全体に公開｣というラジオボタンがあるのでそれにチェックを入れるだけです。</p>
 				<p>ではさっそく画像を見ながら実際に「Web全体に公開」する日記を作成してみましょう。<br />
 				まず日記作成ページにアクセスすると↓のような画面が表示されます。</p>
-				<p><img src="http://www.sfadvanced.jp/wp-content/uploads/2009/11/op3_diary-300x220.png" alt="op3_diary" title="op3_diary" width="300" height="220" class="alignnone size-medium wp-image-3892" /></p>
+				<p><img src="http://www.sfadvanced.jp/wp-content/uploads/2009/11/sa3_diary-300x220.png" alt="sa3_diary" title="sa3_diary" width="300" height="220" class="alignnone size-medium wp-image-3892" /></p>
 				<p>見なれた日記作成画面だと思います。<br />
 				タイトル、本文を入力したら、次は公開権限の設定です。</p>
 				<p><img src="http://www.sfadvanced.jp/wp-content/uploads/2009/11/e6a8a9e99990.png" alt="権限" title="権限" width="288" height="184" class="alignnone size-full wp-image-3902" /></p>

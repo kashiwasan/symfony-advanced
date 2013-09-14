@@ -36,7 +36,7 @@ class memberActions extends sfActions
   {
     $params = $request->getParameter('member', array());
 
-    $this->form = new opMemberProfileSearchForm(array(), array('is_use_id' => true, 'is_check_public_flag' => false));
+    $this->form = new saMemberProfileSearchForm(array(), array('is_use_id' => true, 'is_check_public_flag' => false));
     $this->form->getWidgetSchema()->setLabel('name', 'Nickname');
     $this->form->bind($params);
 
@@ -88,17 +88,17 @@ class memberActions extends sfActions
   */
   public function executeInvite(sfWebRequest $request)
   {
-    $this->plugins = opInstalledPluginManager::getAdminInviteAuthPlugins();
+    $this->plugins = saInstalledPluginManager::getAdminInviteAuthPlugins();
     if (empty($this->plugins))
     {
       return sfView::ERROR;
     }
 
-    $options = array(
+    $sations = array(
       'authModes' => $this->plugins,
       'is_link' => false,
     );
-    $this->form = new AdminInviteForm(null, $options);
+    $this->form = new AdminInviteForm(null, $sations);
 
     if ($request->isMethod(sfWebRequest::POST))
     {

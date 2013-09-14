@@ -9,13 +9,13 @@
  */
 
 /**
- * opProfileImport
+ * saProfileImport
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opProfileImport
+class saProfileImport
 {
   public
     $member = null,
@@ -85,7 +85,7 @@ class opProfileImport
 
         $email = array_shift($email);
 
-        if (opToolkit::isMobileEmailAddress($email))
+        if (saToolkit::isMobileEmailAddress($email))
         {
           $this->member->setConfig('mobile_address', $email);
         }

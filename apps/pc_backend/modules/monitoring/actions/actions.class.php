@@ -127,7 +127,7 @@ class monitoringActions extends sfActions
   public function executeFileDownload(sfWebRequest $request)
   {
     $file = Doctrine::getTable('File')->find($request->getParameter('id'));
-    opToolkit::fileDownload(
+    saToolkit::fileDownload(
       $file->getOriginalFilename(),
       $file->getFileBin()->getBin()
     );

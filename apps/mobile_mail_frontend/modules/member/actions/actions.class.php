@@ -35,7 +35,7 @@ class memberActions extends sfActions
         return sfView::ERROR;
       }
 
-      $validator = new opValidatorImageFile();
+      $validator = new saValidatorImageFile();
       $validFile = $validator->clean($image);
 
       $file = new File();

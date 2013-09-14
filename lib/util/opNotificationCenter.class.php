@@ -9,16 +9,16 @@
  */
 
 /**
- * opNotificationCenter
+ * saNotificationCenter
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Kimura Youichi <kim.upsilon@gmail.com>
  * @author     Shouta Kashiwagi <kashiwagi@tejimaya.com>
  */
-class opNotificationCenter
+class saNotificationCenter
 {
-  static public function notify(Member $from, Member $to, $body, array $options = null)
+  static public function notify(Member $from, Member $to, $body, array $sations = null)
   {
     $notificationItem = array(
       'id' => microtime(),
@@ -26,9 +26,9 @@ class opNotificationCenter
       'member_id_from' => $from->getId(),
       'created_at' => time(),
       'unread' => true,
-      'category' => $options['category'] ? $options['category'] : 'other',
-      'url' => $options['url'] ? $options['url'] : null,
-      'icon_url' => $options['icon_url'] ? $options['icon_url'] : null,
+      'category' => $sations['category'] ? $sations['category'] : 'other',
+      'url' => $sations['url'] ? $sations['url'] : null,
+      'icon_url' => $sations['icon_url'] ? $sations['icon_url'] : null,
     );
 
     $notificationObject = Doctrine::getTable('MemberConfig')

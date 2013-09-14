@@ -1,6 +1,6 @@
 <?php
 
-class opTwigCoreExtension extends Twig_Extension_Core
+class saTwigCoreExtension extends Twig_Extension_Core
 {
   public function getFilters()
   {

@@ -10,9 +10,9 @@
  */
 class BaseForm extends sfFormSymfony
 {
-  public function __construct($defaults = array(), $options = array(), $CSRFSecret = null)
+  public function __construct($defaults = array(), $sations = array(), $CSRFSecret = null)
   {
-    parent::__construct($defaults, $options, $CSRFSecret);
+    parent::__construct($defaults, $sations, $CSRFSecret);
 
     if ('mobile_frontend' === sfConfig::get('sf_app'))
     {
@@ -34,15 +34,15 @@ class BaseForm extends sfFormSymfony
 
       if ($widget instanceof sfWidgetFormInputPassword)
       {
-        opToolkit::appendMobileInputModeAttributesForFormWidget($widget, 'alphabet');
+        saToolkit::appendMobileInputModeAttributesForFormWidget($widget, 'alphabet');
       }
       elseif ($validator instanceof sfValidatorEmail)
       {
-        opToolkit::appendMobileInputModeAttributesForFormWidget($widget, 'alphabet');
+        saToolkit::appendMobileInputModeAttributesForFormWidget($widget, 'alphabet');
       }
       elseif ($validator instanceof sfValidatorNumber)
       {
-        opToolkit::appendMobileInputModeAttributesForFormWidget($widget, 'numeric');
+        saToolkit::appendMobileInputModeAttributesForFormWidget($widget, 'numeric');
       }
     }
   }

@@ -33,7 +33,7 @@ The [sfadvanced:migrate|INFO] task lets SfAdvanced migrate and/or the plugins ne
 
 Call it with:
   1.  [./symfony sfadvanced:migrate|INFO]
-  2.  [./symfony sfadvanced:migrate --target=opSamplePlugin|INFO]
+  2.  [./symfony sfadvanced:migrate --target=saSamplePlugin|INFO]
   3.  [./symfony sfadvanced:migrate --target=SfAdvanced|INFO]
 
     1. In the first form, any targets aren't specified.
@@ -45,16 +45,16 @@ Call it with:
 EOF;
   }
 
-  protected function execute($arguments = array(), $options = array())
+  protected function execute($arguments = array(), $sations = array())
   {
-    new sfDatabaseManager($this->configuration);  // opening connection
+    new sfDatabaseManager($this->configuration);  // saening connection
 
     @$this->createCacheDirectory();
 
     $oldPluginList = sfFinder::type('dir')->in(sfConfig::get('sf_plugins_dir'));
-    if (!$options['no-update-plugin'])
+    if (!$sations['no-update-plugin'])
     {
-      $this->installPlugins($options['target']);
+      $this->installPlugins($sations['target']);
     }
     $newPluginList = sfFinder::type('dir')->name('op*Plugin')->maxdepth(1)->in(sfConfig::get('sf_plugins_dir'));
     foreach ($oldPluginList as $k => $v)
@@ -68,9 +68,9 @@ EOF;
     }
     $installedPlugins = array_map('basename', array_diff($newPluginList, $oldPluginList));
 
-    if (!$options['no-build-model'])
+    if (!$sations['no-build-model'])
     {
-      $this->buildModel($options);
+      $this->buildModel($sations);
     }
 
     foreach ($installedPlugins as $v)
@@ -84,9 +84,9 @@ EOF;
       Doctrine::createTablesFromModels($modelDir);
     }
 
-    if ($options['target'])
+    if ($sations['target'])
     {
-      $targets = array($options['target']);
+      $targets = array($sations['target']);
     }
     else
     {
@@ -144,7 +144,7 @@ EOF;
   {
     try
     {
-      $migration = new opMigration($this->dispatcher, $databaseManager, $target, null);
+      $migration = new saMigration($this->dispatcher, $databaseManager, $target, null);
       if (!$migration->hasMigrationScriptDirectory())
       {
         $this->logSection('migrate', sprintf('%s is not supporting migration.', $target));
@@ -195,7 +195,7 @@ EOF;
     }
   }
 
-  protected function buildModel($options)
+  protected function buildModel($sations)
   {
     $task = new sfDoctrineBuildTask($this->dispatcher, $this->formatter);
     $task->setCommandApplication($this->commandApplication);
@@ -205,8 +205,8 @@ EOF;
       'model'           => true,
       'forms'           => true,
       'filters'         => true,
-      'application'     => $options['application'],
-      'env'             => $options['env'],
+      'application'     => $sations['application'],
+      'env'             => $sations['env'],
     ));
 
     $task = new sfCacheClearTask($this->dispatcher, $this->formatter);
@@ -227,14 +227,14 @@ EOF;
     $task = new sfadvancedPermissionTask($this->dispatcher, $this->formatter);
     @$task->run();
 
-    $options = array();
+    $sations = array();
     if ($target)
     {
-      $options[] = '--target='.$target;
+      $sations[] = '--target='.$target;
     }
 
-    $task = new opPluginSyncTask($this->dispatcher, $this->formatter);
-    $task->run(array(), $options);
+    $task = new saPluginSyncTask($this->dispatcher, $this->formatter);
+    $task->run(array(), $sations);
   }
 
   protected function getEnabledSfAdvancedPlugin()

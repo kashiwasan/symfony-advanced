@@ -9,13 +9,13 @@
  */
 
 /**
- * opMemberComponents
+ * saMemberComponents
  *
  * @package    SfAdvanced
  * @subpackage action
  * @author     Shogo Kawahara <kawahara@tejimaya.net>
  */
-abstract class opMemberComponents extends sfComponents
+abstract class saMemberComponents extends sfComponents
 {
   public function executeActivityBox(sfWebRequest $request)
   {
@@ -28,7 +28,7 @@ abstract class opMemberComponents extends sfComponents
   public function executeAllMemberActivityBox(sfWebRequest $request)
   {
     $this->activities = Doctrine::getTable('ActivityData')->getAllMemberActivityList($this->gadget->getConfig('row'));
-    if ($this->gadget->getConfig('is_viewable_activity_form') && opConfig::get('is_allow_post_activity'))
+    if ($this->gadget->getConfig('is_viewable_activity_form') && saConfig::get('is_allow_post_activity'))
     {
       $this->form = new ActivityDataForm();
     }
@@ -38,6 +38,6 @@ abstract class opMemberComponents extends sfComponents
   {
     $id = $request->getParameter('id', $this->getUser()->getMemberId());
     $birthday = Doctrine::getTable('MemberProfile')->getViewableProfileByMemberIdAndProfileName($id, 'sa_preset_birthday');
-    $this->targetDay = $birthday ? opToolkit::extractTargetDay((string)$birthday) : false;
+    $this->targetDay = $birthday ? saToolkit::extractTargetDay((string)$birthday) : false;
   }
 }

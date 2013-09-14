@@ -1,7 +1,7 @@
 modules/*/config/view.yml:
-  class:    opViewConfigHandler
-  file:     %SF_LIB_DIR%/config/opViewConfigHandler.class.php
+  class:    saViewConfigHandler
+  file:     %SF_LIB_DIR%/config/saViewConfigHandler.class.php
 
 config/routing.yml:
-  class:    opRoutingConfigHandler
-  file:     %SF_LIB_DIR%/config/opRoutingConfigHandler.class.php
+  class:    saRoutingConfigHandler
+  file:     %SF_LIB_DIR%/config/saRoutingConfigHandler.class.php

@@ -9,13 +9,13 @@
  */
 
 /**
- * opAuthMailAddress actions.
+ * saAuthMailAddress actions.
  *
  * @package    SfAdvanced
  * @subpackage action
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opAuthMailAddressPluginAction extends opAuthAction
+class saAuthMailAddressPluginAction extends saAuthAction
 {
   public function executeHelpLoginError($request)
   {
@@ -23,7 +23,7 @@ class opAuthMailAddressPluginAction extends opAuthAction
 
   public function executePasswordRecovery($request)
   {
-    $this->form = new opAuthMailAddressPasswordRecoveryForm();
+    $this->form = new saAuthMailAddressPasswordRecoveryForm();
     if ($request->isMethod(sfWebRequest::POST))
     {
       $this->form->bind($request['password_recovery']);
@@ -43,7 +43,7 @@ class opAuthMailAddressPluginAction extends opAuthAction
     $this->member = Doctrine::getTable('Member')->find($request['id']);
     $this->forward404Unless($this->member && $this->member->getConfig('password_recovery_token') === $request['token']);
 
-    $this->form = new opAuthMailAddressPasswordChangeForm();
+    $this->form = new saAuthMailAddressPasswordChangeForm();
     $this->form->member = $this->member;
     if ($request->isMethod(sfWebRequest::POST))
     {

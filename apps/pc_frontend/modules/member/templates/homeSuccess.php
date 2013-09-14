@@ -59,7 +59,7 @@ function storeSort(event, ui)
   expires.setTime((new Date()).getTime() + (10 * 12 * 30 * 24 * 60 * 60 * 1000));
   var pos = ui.item.parent().attr("id");
 
-  opCookie.set("HomeGadget_" + pos + "_sort", result, expires, path);
+  saCookie.set("HomeGadget_" + pos + "_sort", result, expires, path);
 }
 
 function foldObj(obj, display)
@@ -83,7 +83,7 @@ function foldObj(obj, display)
         var id = child.parent().parent().attr("id");
         var expires = new Date();
         expires.setTime((new Date()).getTime() + (10 * 12 * 30 * 24 * 60 * 60 * 1000));
-        opCookie.set("HomeGadget_" + id + "_toggle", !child.is(":hidden"), expires, path);
+        saCookie.set("HomeGadget_" + id + "_toggle", !child.is(":hidden"), expires, path);
       }
     }
   });
@@ -96,7 +96,7 @@ $(".partsHeading").each(function(){
     foldObj(obj);
   });
   var id = obj.parent().parent().attr("id");
-  var display = opCookie.get("HomeGadget_"+id+"_toggle");
+  var display = saCookie.get("HomeGadget_"+id+"_toggle");
   if (display != null) {
     foldObj(obj, display);
   }
@@ -104,7 +104,7 @@ $(".partsHeading").each(function(){
 });
 
 $.each(["Top", "Left", "Center"], function(){
-  var sortInfo = opCookie.get("HomeGadget_" + this + "_sort");
+  var sortInfo = saCookie.get("HomeGadget_" + this + "_sort");
   if (sortInfo)
   {
     var obj = $("#"+this);

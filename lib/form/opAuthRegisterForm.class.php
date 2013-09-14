@@ -9,13 +9,13 @@
  */
 
 /**
- * opAuthRegisterForm represents a form to register.
+ * saAuthRegisterForm represents a form to register.
  *
  * @package    SfAdvanced
  * @subpackage form
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-abstract class opAuthRegisterForm extends BaseForm
+abstract class saAuthRegisterForm extends BaseForm
 {
   public
     $memberForm,
@@ -29,16 +29,16 @@ abstract class opAuthRegisterForm extends BaseForm
    * Constructor.
    *
    * @param array  $defaults    An array of field default values
-   * @param array  $options     An array of options
+   * @param array  $sations     An array of sations
    * @param string $CRFSSecret  A CSRF secret (false to disable CSRF protection, null to use the global CSRF secret)
    *
    * @see sfForm
    */
-  public function __construct($defaults = array(), $options = array(), $CSRFSecret = null)
+  public function __construct($defaults = array(), $sations = array(), $CSRFSecret = null)
   {
-    if (isset($options['member']) && $options['member'] instanceof Member)
+    if (isset($sations['member']) && $sations['member'] instanceof Member)
     {
-      $this->setMember($options['member']);
+      $this->setMember($sations['member']);
     }
     else
     {
@@ -50,7 +50,7 @@ abstract class opAuthRegisterForm extends BaseForm
     $this->profileForm->setRegisterWidgets();
     $this->configForm = new MemberConfigForm($this->getMember(), array(), false);
 
-    parent::__construct($defaults, $options, false);
+    parent::__construct($defaults, $sations, false);
 
     $this->setValidator('mobile_uid', new sfValidatorPass());
     $this->setValidator('mobile_cookie_uid', new sfValidatorPass());
@@ -64,7 +64,7 @@ abstract class opAuthRegisterForm extends BaseForm
   {
     $result = parent::renderFormTag($url, $attributes);
 
-    if (sfConfig::get('app_is_mobile') && opConfig::get('retrieve_uid'))
+    if (sfConfig::get('app_is_mobile') && saConfig::get('retrieve_uid'))
     {
       $pos = strpos($result, '>');
       $head = substr($result, 0, $pos);
@@ -128,7 +128,7 @@ abstract class opAuthRegisterForm extends BaseForm
 
   public function validateMobileUID($validator, $values, $arguments = array())
   {
-    if (!opConfig::get('retrieve_uid'))
+    if (!saConfig::get('retrieve_uid'))
     {
       return $values;
     }
@@ -137,7 +137,7 @@ abstract class opAuthRegisterForm extends BaseForm
     {
       $request = sfContext::getInstance()->getRequest();
       $uid = $request->getMobileUID(false);
-      if (!$uid && opConfig::get('retrieve_uid') >= 2)
+      if (!$uid && saConfig::get('retrieve_uid') >= 2)
       {
         throw new sfValidatorError($validator, 'A mobile UID is required. Please check settings of your mobile phone and retry.');
       }
@@ -194,7 +194,7 @@ abstract class opAuthRegisterForm extends BaseForm
 
       if (sfConfig::get('sa_is_mail_address_contain_hash'))
       {
-        $str = opToolkit::generatePasswordString(sfConfig::get('sa_mail_address_hash_length', 12), false);
+        $str = saToolkit::generatePasswordString(sfConfig::get('sa_mail_address_hash_length', 12), false);
         $this->getMember()->setConfig('mail_address_hash', strtolower($str));
       }
 

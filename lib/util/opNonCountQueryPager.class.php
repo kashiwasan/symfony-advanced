@@ -9,13 +9,13 @@
  */
 
 /**
- * opNonCountQueryPager
+ * saNonCountQueryPager
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-class opNonCountQueryPager extends sfDoctrinePager
+class saNonCountQueryPager extends sfDoctrinePager
 {
   protected $results = null;
 
@@ -23,7 +23,7 @@ class opNonCountQueryPager extends sfDoctrinePager
   {
     if (!$conn)
     {
-      $conn = opDoctrineQuery::getMasterConnectionDirect();
+      $conn = saDoctrineQuery::getMasterConnectionDirect();
     }
 
     $p = $this->getQuery();

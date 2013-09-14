@@ -9,13 +9,13 @@
  */
 
 /**
- * opErrorHttpException
+ * saErrorHttpException
  *
  * @package    SfAdvanced
  * @subpackage exception
  * @author     Kimura Youichi <kim.upsilon@gmail.com>
  */
-class opErrorHttpException extends sfError404Exception
+class saErrorHttpException extends sfError404Exception
 {
   protected
     $httpStatusCode = 404;

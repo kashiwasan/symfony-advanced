@@ -42,7 +42,7 @@ class SnsTerm extends BaseSnsTerm
   {
     if ('en' === $this->lang)
     {
-      $string = opInflector::pluralize($string);
+      $string = saInflector::pluralize($string);
     }
 
     return $string;
@@ -52,7 +52,7 @@ class SnsTerm extends BaseSnsTerm
   {
     if ('en' === $this->lang)
     {
-      $string = opInflector::getArticle($string).' '.$string;
+      $string = saInflector::getArticle($string).' '.$string;
     }
 
     return $string;

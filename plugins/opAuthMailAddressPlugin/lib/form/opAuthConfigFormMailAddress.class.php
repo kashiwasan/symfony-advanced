@@ -9,12 +9,12 @@
  */
 
 /**
- * opAuthConfigFormMailAddress represents a form to configuration.
+ * saAuthConfigFormMailAddress represents a form to configuration.
  *
  * @package    SfAdvanced
  * @subpackage form
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opAuthConfigFormMailAddress extends opAuthConfigForm
+class saAuthConfigFormMailAddress extends saAuthConfigForm
 {
 }

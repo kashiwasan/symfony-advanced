@@ -9,25 +9,25 @@
  */
 
 /**
- * opCaptchaForm
+ * saCaptchaForm
  *
  * @package    SfAdvanced
  * @subpackage form
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opCaptchaForm extends BaseForm
+class saCaptchaForm extends BaseForm
 {
   public function configure()
   {
-    $this->setWidget('captcha', new opWidgetFormCaptcha());
+    $this->setWidget('captcha', new saWidgetFormCaptcha());
     $this->setValidator('captcha', new sfValidatorPass());
 
     $formatter = new sfWidgetFormSchemaFormatterList($this->widgetSchema);
     $formatter->setRowFormat("<li>%field%%help%\n%hidden_fields%</li>\n");
     $formatter->setHelpFormat('<div class="help">%help%</div>');
 
-    $this->widgetSchema->addFormFormatter('opCaptchaFormFormatter', $formatter);
-    $this->widgetSchema->setFormFormatterName('opCaptchaFormFormatter');
+    $this->widgetSchema->addFormFormatter('saCaptchaFormFormatter', $formatter);
+    $this->widgetSchema->setFormFormatterName('saCaptchaFormFormatter');
 
     $this->validatorSchema->setPostValidator(new sfValidatorCallback(array(
       'callback' => array($this, 'validateCaptchaString'),

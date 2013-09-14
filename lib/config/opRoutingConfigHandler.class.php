@@ -9,24 +9,24 @@
  */
 
 /**
- * opRoutingConfigHandler
+ * saRoutingConfigHandler
  *
  * @package    SfAdvanced
  * @subpackage config
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opRoutingConfigHandler extends sfRoutingConfigHandler
+class saRoutingConfigHandler extends sfRoutingConfigHandler
 {
   protected function parse($configFiles)
   {
     $result = parent::parse($configFiles);
 
     $name = 'symfony_default_routes';
-    $options = array(
+    $sations = array(
       'name'  => $name,
     );
 
-    $result[$name] = array('opSymfonyDefaultRouteCollection', array($options));
+    $result[$name] = array('saSymfonyDefaultRouteCollection', array($sations));
 
    return $result;
   }

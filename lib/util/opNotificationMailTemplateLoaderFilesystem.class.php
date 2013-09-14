@@ -9,14 +9,14 @@
  */
 
 /**
- * opNotificationMailTemplateLoaderFilesystem
+ * saNotificationMailTemplateLoaderFilesystem
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
 
-class opNotificationMailTemplateLoaderFilesystem extends sfTemplateSwitchableLoaderFilesystemForSymfony1
+class saNotificationMailTemplateLoaderFilesystem extends sfTemplateSwitchableLoaderFilesystemForSymfony1
 {
   public function configure()
   {

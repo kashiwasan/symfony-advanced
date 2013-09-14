@@ -22,9 +22,9 @@ class OAuthConsumerInformationForm extends BaseOAuthConsumerInformationForm
     unset($this['created_at'], $this['updated_at'], $this['file_id'], $this['key_string'], $this['secret'], $this['member_id']);
 
     $this->setWidget('image', new sfWidgetFormInputFile());
-    $this->setValidator('image', new opValidatorImageFile(array('required' => false)));
+    $this->setValidator('image', new saValidatorImageFile(array('required' => false)));
 
-    $apis = opToolkit::retrieveAPIList();
+    $apis = saToolkit::retrieveAPIList();
     $this->setWidget('using_apis', new sfWidgetFormSelectMany(array('choices' => $apis), array('size' => 10)));
     $this->setValidator('using_apis', new sfValidatorChoice(array('multiple' => true, 'choices' => array_keys($apis))));
     $this->getWidgetSchema()->setHelp('using_apis', 'Select apis that your application needs.');

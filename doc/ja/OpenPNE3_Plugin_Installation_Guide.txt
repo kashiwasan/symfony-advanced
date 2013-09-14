@@ -7,12 +7,12 @@ SfAdvanced プラグインインストール手順
 
 SfAdvanced 3 のプラグインをインストールおよびアンインストールするための手順を説明するものです。
 
-以下ではインストール・アンインストールの対象となるプラグイン名の例として opExamplePlugin を使用します。
+以下ではインストール・アンインストールの対象となるプラグイン名の例として saExamplePlugin を使用します。
 
 インストール
 ============
 
-インストール方法には2つの方法があります。プラグインチャンネルサーバーへ登録されているプラグインのインストールは opPlugin:install によるインストールが推奨されます。
+インストール方法には2つの方法があります。プラグインチャンネルサーバーへ登録されているプラグインのインストールは saPlugin:install によるインストールが推奨されます。
 
 opPlugin:install によるインストール
 -----------------------------------
@@ -21,7 +21,7 @@ opPlugin:install によるインストール
 ++++++++++++++++++++++++++
 
 ::
-  $ ./symfony opPlugin:install opExamplePlugin
+  $ ./symfony saPlugin:install saExamplePlugin
 
 データベースへの変更を反映
 ++++++++++++++++++++++++++
@@ -29,7 +29,7 @@ opPlugin:install によるインストール
 Doctrine を利用している場合のみ
 
 ::
-  $ ./symfony sfadvanced:migrate --target=opExamplePlugin --no-update-plugin
+  $ ./symfony sfadvanced:migrate --target=saExamplePlugin --no-update-plugin
 
 手動インストール
 ----------------
@@ -47,7 +47,7 @@ Doctrine を利用している場合のみ
 以下の SQL を実行します。
 
 ::
-  INSERT INTO sns_config (name, value) VALUES ('opExamplePlugin_needs_data_load', '1');
+  INSERT INTO sns_config (name, value) VALUES ('saExamplePlugin_needs_data_load', '1');
 
 データベースへの変更を反映
 ++++++++++++++++++++++++++
@@ -55,7 +55,7 @@ Doctrine を利用している場合のみ
 Doctrine を利用している場合のみ
 
 ::
-  $ ./symfony sfadvanced:migrate --target=opExamplePlugin --no-update-plugin
+  $ ./symfony sfadvanced:migrate --target=saExamplePlugin --no-update-plugin
 
 アンインストール
 ================
@@ -63,13 +63,13 @@ Doctrine を利用している場合のみ
 opPlugin:uninstall によるアンインストール
 -----------------------------------------
 
-sfadvanced:install コマンドで自動的にインストールされたプラグインや opPlugin:install コマンドでインストールされたプラグインは、opPlugin:uninstall コマンドを利用してアンインストールすることができます。
+sfadvanced:install コマンドで自動的にインストールされたプラグインや saPlugin:install コマンドでインストールされたプラグインは、saPlugin:uninstall コマンドを利用してアンインストールすることができます。
 
 アンインストールコマンドの実行
 ++++++++++++++++++++++++++++++
 
 ::
-  $ ./symfony opPlugin:uninstall opExamplePlugin
+  $ ./symfony saPlugin:uninstall saExamplePlugin
 
 Doctrine の自動生成ファイルの再生成
 +++++++++++++++++++++++++++++++++++
@@ -99,7 +99,7 @@ opPlugin:uninstall が利用できない場合は、手動でのファイル削�
 ++++++++++++++++++++++++++++++
 
 ::
-  $ rm -r plugins/opExamplePlugin
+  $ rm -r plugins/saExamplePlugin
 
 Doctrine の自動生成ファイルを削除
 +++++++++++++++++++++++++++++++++
@@ -107,7 +107,7 @@ Doctrine の自動生成ファイルを削除
 Doctrine を利用している場合のみ
 
 ::
-  $ rm -r lib/{model,form,filter}/doctrine/opExamplePlugin
+  $ rm -r lib/{model,form,filter}/doctrine/saExamplePlugin
 
 Doctrine の自動生成ファイルの再生成
 +++++++++++++++++++++++++++++++++++

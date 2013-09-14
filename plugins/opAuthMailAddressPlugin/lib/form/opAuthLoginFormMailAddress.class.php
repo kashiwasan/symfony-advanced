@@ -9,13 +9,13 @@
  */
 
 /**
- * opAuthLoginFormMailAddress represents a form to login by one's E-mail address.
+ * saAuthLoginFormMailAddress represents a form to login by one's E-mail address.
  *
  * @package    SfAdvanced
  * @subpackage form
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opAuthLoginFormMailAddress extends opAuthLoginForm
+class saAuthLoginFormMailAddress extends saAuthLoginForm
 {
   public function configure()
   {
@@ -30,8 +30,8 @@ class opAuthLoginFormMailAddress extends opAuthLoginForm
     )));
 
     $this->mergePostValidator(new sfValidatorOr(array(
-      new opAuthValidatorMemberConfigAndPassword(array('config_name' => 'mobile_address', 'field_name' => 'mail_address')),
-      new opAuthValidatorMemberConfigAndPassword(array('config_name' => 'pc_address', 'field_name' => 'mail_address')),
+      new saAuthValidatorMemberConfigAndPassword(array('config_name' => 'mobile_address', 'field_name' => 'mail_address')),
+      new saAuthValidatorMemberConfigAndPassword(array('config_name' => 'pc_address', 'field_name' => 'mail_address')),
     )));
 
     parent::configure();

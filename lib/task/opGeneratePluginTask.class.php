@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class opGeneratePluginTask extends sfBaseTask
+class saGeneratePluginTask extends sfBaseTask
 {
   protected function configure()
   {
@@ -16,21 +16,21 @@ class opGeneratePluginTask extends sfBaseTask
       new sfCommandArgument('plugin', sfCommandArgument::REQUIRED, 'The SfAdvanced plugin name'),
     ));
       
-    $this->namespace        = 'opGenerate';
+    $this->namespace        = 'saGenerate';
     $this->name             = 'plugin';
     $this->briefDescription = 'Generates a new SfAdvanced plugin';
     $this->detailedDescription = <<<EOF
-The [opGenerate:plugin|INFO] task creates the basic directory structure
+The [saGenerate:plugin|INFO] task creates the basic directory structure
 for a new plugin in the SfAdvanced project:
 
-  [./symfony opGenerate:plugin opSamplePlugin|INFO]
+  [./symfony saGenerate:plugin saSamplePlugin|INFO]
 
 If a plugin with the same name already exists,
 it throws a [sfCommandException|COMMENT].
 EOF;
   }
 
-  protected function execute($arguments = array(), $options = array())
+  protected function execute($arguments = array(), $sations = array())
   {
     $plugin = $arguments['plugin'];
 
@@ -40,16 +40,16 @@ EOF;
       throw new sfCommandException(sprintf('The SfAdvanced plugin name "%s" is invalid.', $plugin));
     }
 
-    $opPluginDir = sfConfig::get('sf_plugins_dir').'/'.$plugin;
+    $saPluginDir = sfConfig::get('sf_plugins_dir').'/'.$plugin;
 
-    if (is_dir($opPluginDir))
+    if (is_dir($saPluginDir))
     {
-      throw new sfCommandException(sprintf('The SfAdvanced plugin "%s" already exists.', $opPluginDir));
+      throw new sfCommandException(sprintf('The SfAdvanced plugin "%s" already exists.', $saPluginDir));
     }
       
-    // create basic opPlugin structure
+    // create basic saPlugin structure
     $finder = sfFinder::type('any')->discard('.sf');
-    $this->getFilesystem()->mirror(dirname(__FILE__).'/skeleton/opPlugin', $opPluginDir, $finder);
+    $this->getFilesystem()->mirror(dirname(__FILE__).'/skeleton/saPlugin', $saPluginDir, $finder);
 
     $fixPerms = new sfadvancedPermissionTask($this->dispatcher, $this->formatter);
     $fixPerms->setCommandApplication($this->commandApplication);

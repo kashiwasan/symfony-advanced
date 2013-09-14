@@ -1,6 +1,6 @@
 data/config/plugin.yml:
-  class: opPluginConfigHandler
-  file:  %SF_LIB_DIR%/config/opPluginConfigHandler.class.php
+  class: saPluginConfigHandler
+  file:  %SF_LIB_DIR%/config/saPluginConfigHandler.class.php
 
 config/gadget_config.yml:
   class: sfSimpleYamlConfigHandler
@@ -27,7 +27,7 @@ config/monitoring.yml:
   class: sfSimpleYamlConfigHandler
 
 modules/*/config/security.yml:
-  class:    opSecurityConfigHandler
+  class:    saSecurityConfigHandler
 
 config/mobile_preset_color.yml:
   class: sfSimpleYamlConfigHandler

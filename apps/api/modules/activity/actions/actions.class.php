@@ -15,11 +15,11 @@
  * @subpackage action
  * @author     Kimura Youichi <kim.upsilon@gmail.com>
  */
-class activityActions extends opJsonApiActions
+class activityActions extends saJsonApiActions
 {
   public function executeSearch(sfWebRequest $request)
   {
-    $builder = opActivityQueryBuilder::create()
+    $builder = saActivityQueryBuilder::create()
       ->setViewerId($this->getUser()->getMemberId());
 
     if (isset($request['target']))
@@ -158,25 +158,25 @@ class activityActions extends opJsonApiActions
     $this->forward400If(mb_strlen($body) > 140, 'The body text is too long.');
 
     $memberId = $this->getUser()->getMemberId();
-    $options = array();
+    $sations = array();
 
     if (isset($request['public_flag']))
     {
-      $options['public_flag'] = $request['public_flag'];
+      $sations['public_flag'] = $request['public_flag'];
     }
 
     if (isset($request['in_reply_to_activity_id']))
     {
-      $options['in_reply_to_activity_id'] = $request['in_reply_to_activity_id'];
+      $sations['in_reply_to_activity_id'] = $request['in_reply_to_activity_id'];
     }
 
     if (isset($request['uri']))
     {
-      $options['uri'] = $request['uri'];
+      $sations['uri'] = $request['uri'];
     }
     elseif (isset($request['url']))
     {
-      $options['uri'] = $request['url'];
+      $sations['uri'] = $request['url'];
     }
 
     if (isset($request['target']) && 'community' === $request['target'])
@@ -186,18 +186,18 @@ class activityActions extends opJsonApiActions
         $this->forward400('target_id parameter not specified.');
       }
 
-      $options['foreign_table'] = 'community';
-      $options['foreign_id'] = $request['target_id'];
+      $sations['foreign_table'] = 'community';
+      $sations['foreign_id'] = $request['target_id'];
     }
 
-    $options['source'] = 'API';
+    $sations['source'] = 'API';
 
     $imageFiles = $request->getFiles('images');
     if (!empty($imageFiles))
     {
       foreach ((array)$imageFiles as $imageFile)
       {
-        $validator = new opValidatorImageFile(array('required' => false));
+        $validator = new saValidatorImageFile(array('required' => false));
         try
         {
           $obj = $validator->clean($imageFile);
@@ -214,11 +214,11 @@ class activityActions extends opJsonApiActions
         $file->setFromValidatedFile($obj);
         $file->setName('ac_'.$this->getUser()->getMemberId().'_'.$file->getName());
         $file->save();
-        $options['images'][]['file_id'] = $file->getId();
+        $sations['images'][]['file_id'] = $file->getId();
       }
     }
 
-    $this->activity = Doctrine::getTable('ActivityData')->updateActivity($memberId, $body, $options);
+    $this->activity = Doctrine::getTable('ActivityData')->updateActivity($memberId, $body, $sations);
 
     if ('1' === $request['forceHtml'])
     {
@@ -258,7 +258,7 @@ class activityActions extends opJsonApiActions
 
   public function executeMentions(sfWebRequest $request)
   {
-    $builder = opActivityQueryBuilder::create()
+    $builder = saActivityQueryBuilder::create()
       ->setViewerId($this->getUser()->getMemberId())
       ->includeMentions();
 

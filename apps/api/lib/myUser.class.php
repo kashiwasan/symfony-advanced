@@ -53,14 +53,14 @@ class myUser extends sfBasicSecurityUser
     $apiKey = $request['apiKey'];
     if (false === $apiKey)
     {
-      $exception = new opErrorHttpException('apiKey parameter not specified.');
+      $exception = new saErrorHttpException('apiKey parameter not specified.');
       throw $exception->setHttpStatusCode(401);
     }
 
     $member = $this->getMemberByApiKey($apiKey);
     if (is_null($member) || $member->isOnBlackList() || $member->getIsLoginRejected())
     {
-      $exception = new opErrorHttpException('Invalid API key.');
+      $exception = new saErrorHttpException('Invalid API key.');
       throw $exception->setHttpStatusCode(401);
     }
 

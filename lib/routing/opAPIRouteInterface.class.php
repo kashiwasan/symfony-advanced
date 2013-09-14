@@ -9,7 +9,7 @@
  */
 
 /**
- * opAPIRouteInterface is an interface for route class related with API
+ * saAPIRouteInterface is an interface for route class related with API
  *
  * This interface should be implemented by route classes that defines routing
  * rule for api frontend actions.
@@ -19,7 +19,7 @@
  * @subpackage routing
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-interface opAPIRouteInterface
+interface saAPIRouteInterface
 {
  /**
   * Gets an API name

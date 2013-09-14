@@ -7,7 +7,7 @@ $t = new lime_test(null, new lime_output_color());
 
 //------------------------------------------------------------
 
-class opDummyWebRequest extends sfSfAdvancedWebRequest
+class saDummyWebRequest extends sfSfAdvancedWebRequest
 {
   public function getMobileUID()
   {
@@ -15,7 +15,7 @@ class opDummyWebRequest extends sfSfAdvancedWebRequest
   }
 }
 
-class opAuthDummyRegisterForm extends opAuthRegisterForm
+class saAuthDummyRegisterForm extends saAuthRegisterForm
 {
 }
 
@@ -26,10 +26,10 @@ $context = sfContext::createInstance($configuration);
 
 $oldRequest = $context->getRequest();
 
-$request = new opDummyWebRequest($context->getEventDispatcher(), $oldRequest->getParameterHolder()->getAll(), $oldRequest->getAttributeHolder()->getAll(), $oldRequest->getOptions());
+$request = new saDummyWebRequest($context->getEventDispatcher(), $oldRequest->getParameterHolder()->getAll(), $oldRequest->getAttributeHolder()->getAll(), $oldRequest->getOptions());
 $context->set('request', $request);
 
-$form = new opAuthDummyRegisterForm();
+$form = new saAuthDummyRegisterForm();
 
 $params = array();
 if (isset($form['_csrf_token']))

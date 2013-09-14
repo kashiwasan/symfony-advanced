@@ -9,13 +9,13 @@
  */
 
 /**
- * opOAuthConsumerInformationAclBuilder
+ * saOAuthConsumerInformationAclBuilder
  *
  * @package    SfAdvanced
  * @subpackage acl
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opOAuthConsumerInformationAclBuilder extends opAclBuilder
+class saOAuthConsumerInformationAclBuilder extends saAclBuilder
 {
   static protected
     $resource = array();

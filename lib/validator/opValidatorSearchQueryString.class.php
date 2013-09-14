@@ -9,31 +9,31 @@
  */
 
 /**
- * opValidatorSearchQueryString
+ * saValidatorSearchQueryString
  *
  * @package    SfAdvanced
  * @subpackage validator
  * @author     Shogo Kawahara <kawahara@tejimaya.net>
  */
-class opValidatorSearchQueryString extends sfValidatorString
+class saValidatorSearchQueryString extends sfValidatorString
 {
  /**
   * Configures the current validator.
   *
-  * Available options:
+  * Available sations:
   * 
   *   * demiliter_pattern
   *
-  * @param array $options  An array of options
+  * @param array $sations  An array of sations
   * @param array $messages An array of messages
   *
   * @see sfValidatorString
   */
-  protected function configure($options = array(), $messages = array())
+  protected function configure($sations = array(), $messages = array())
   {
     $this->addOption('demiliter_pattern', '/[\s　]+/u');
 
-    parent::configure($options, $messages);
+    parent::configure($sations, $messages);
   }
 
   protected function doClean($value)

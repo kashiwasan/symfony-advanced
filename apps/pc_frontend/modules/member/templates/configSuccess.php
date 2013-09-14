@@ -14,19 +14,19 @@ op_include_parts('pageNav', 'pageNav', array('list' => $list, 'current' => $cate
 <?php
 $list = array();
 
-if (opConfig::get('enable_connection'))
+if (saConfig::get('enable_connection'))
 {
   $list[] = link_to(__('Connecting with External Application'), '@connection_list');
 }
 
-if (opConfig::get('enable_jsonapi'))
+if (saConfig::get('enable_jsonapi'))
 {
   $list[] = link_to(__('JSON API Configuration'), '@member_config_jsonapi');
 }
 
-if (opConfig::get('enable_openid'))
+if (saConfig::get('enable_openid'))
 {
-  $list[] = link_to(__('OpenID Configuration'), '@openid_list');
+  $list[] = link_to(__('OpenID Configuration'), '@saenid_list');
 }
 
 if ($list)

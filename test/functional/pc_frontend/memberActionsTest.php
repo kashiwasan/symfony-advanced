@@ -4,7 +4,7 @@ include(dirname(__FILE__).'/../../bootstrap/functional.php');
 
 $filePath = sfConfig::get('sf_web_dir').'/images/dummy.gif';
 
-$browser = new opTestFunctional(new opBrowser(), new lime_test(null, new lime_output_color()));
+$browser = new saTestFunctional(new saBrowser(), new lime_test(null, new lime_output_color()));
 $browser
   ->login('sns@example.com', 'password')
 

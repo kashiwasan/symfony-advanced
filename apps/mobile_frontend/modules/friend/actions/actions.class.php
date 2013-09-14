@@ -15,7 +15,7 @@
  * @subpackage friend
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class friendActions extends opFriendAction
+class friendActions extends saFriendAction
 {
   /**
    * Executes list action

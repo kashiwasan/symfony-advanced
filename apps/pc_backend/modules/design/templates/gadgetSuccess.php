@@ -13,7 +13,7 @@
 </ul>
 
 
-<?php use_helper('opJavascript') ?>
+<?php use_helper('saJavascript') ?>
 
 <div>
 <form id="gadgetForm" action="<?php echo url_for('design/gadget?type='.$type) ?>" method="post">

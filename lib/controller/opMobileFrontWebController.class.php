@@ -9,13 +9,13 @@
  */
 
 /**
- * opMobileFrontWebController
+ * saMobileFrontWebController
  *
  * @package    SfAdvanced
  * @subpackage controller
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opMobileFrontWebController extends opFrontWebController
+class saMobileFrontWebController extends saFrontWebController
 {
  /**
   * @see sfWebController

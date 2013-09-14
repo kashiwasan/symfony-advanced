@@ -9,13 +9,13 @@
  */
 
 /**
- * opMailRequest
+ * saMailRequest
  *
  * @package    SfAdvanced
  * @subpackage request
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opMailRequest extends opWebRequest
+class saMailRequest extends saWebRequest
 {
   static protected
     $mailMessage = null;

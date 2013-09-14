@@ -60,7 +60,7 @@ class snsActions extends sfActions
   */
   public function executeTerm(sfWebRequest $request)
   {
-    $this->form = new opSnsTermForm();
+    $this->form = new saSnsTermForm();
 
     if ($request->isMethod(sfWebRequest::POST))
     {
@@ -106,7 +106,7 @@ class snsActions extends sfActions
     {
       $request->checkCSRFProtection();
 
-      opToolkit::clearCache();
+      saToolkit::clearCache();
 
       $this->getUser()->setFlash('notice', 'Caches are now cleared.');
       $this->redirect('sns/cache');

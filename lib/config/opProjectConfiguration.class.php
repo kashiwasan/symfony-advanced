@@ -14,13 +14,13 @@ if (!defined('E_DEPRECATED'))
 }
 
 /**
- * opProjectConfiguration
+ * saProjectConfiguration
  *
  * @package    SfAdvanced
  * @subpackage config
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opProjectConfiguration extends sfProjectConfiguration
+class saProjectConfiguration extends sfProjectConfiguration
 {
   static public function listenToPreCommandEvent(sfEvent $event)
   {
@@ -29,8 +29,8 @@ class opProjectConfiguration extends sfProjectConfiguration
     {
       sfConfig::set('sf_task_name', get_class($subject));
     }
-    require_once dirname(__FILE__).'/../behavior/opActivateBehavior.class.php';
-    opActivateBehavior::disable();
+    require_once dirname(__FILE__).'/../behavior/saActivateBehavior.class.php';
+    saActivateBehavior::disable();
   }
 
   public function setup()
@@ -39,12 +39,12 @@ class opProjectConfiguration extends sfProjectConfiguration
     $this->enableAllPluginsExcept();
     $this->setIncludePath();
 
-    require_once dirname(__FILE__).'/../util/opToolkit.class.php';
+    require_once dirname(__FILE__).'/../util/saToolkit.class.php';
 
     $this->setSfAdvancedConfiguration();
 
     sfConfig::set('doctrine_model_builder_options', array(
-      'baseClassName' => 'opDoctrineRecord',
+      'baseClassName' => 'saDoctrineRecord',
     ));
 
     $this->dispatcher->connect('command.pre_command', array(__CLASS__, 'listenToPreCommandEvent'));
@@ -68,31 +68,31 @@ class opProjectConfiguration extends sfProjectConfiguration
     }
   }
 
-  protected function configureSessionStorage($name, $options = array())
+  protected function configureSessionStorage($name, $sations = array())
   {
     $sessionName = 'SfAdvanced_'.sfConfig::get('sf_app', 'default');
     $params = array('session_name' => $sessionName);
 
     if ('memcache' === $name)
     {
-      sfConfig::set('sf_factory_storage', 'opMemcacheSessionStorage');
-      sfConfig::set('sf_factory_storage_parameters', array_merge((array)$options, $params));
+      sfConfig::set('sf_factory_storage', 'saMemcacheSessionStorage');
+      sfConfig::set('sf_factory_storage_parameters', array_merge((array)$sations, $params));
     }
     elseif ('database' === $name)
     {
-      sfConfig::set('sf_factory_storage', 'opPDODatabaseSessionStorage');
+      sfConfig::set('sf_factory_storage', 'saPDODatabaseSessionStorage');
       sfConfig::set('sf_factory_storage_parameters', array_merge(array(
         'db_table'    => 'session',
         'database'    => 'doctrine',
         'db_id_col'   => 'id',
         'db_data_col' => 'session_data',
         'db_time_col' => 'time',
-      ), (array)$options, $params));
+      ), (array)$sations, $params));
     }
     elseif ('file' !== $name)
     {
       sfConfig::set('sf_factory_storage', $name);
-      sfConfig::set('sf_factory_storage_parameters', array_merge((array)$options, $params));
+      sfConfig::set('sf_factory_storage_parameters', array_merge((array)$sations, $params));
     }
   }
 
@@ -113,24 +113,24 @@ class opProjectConfiguration extends sfProjectConfiguration
 
     $manager->setAttribute(Doctrine::ATTR_AUTOLOAD_TABLE_CLASSES, true);
     $manager->setAttribute(Doctrine::ATTR_RECURSIVE_MERGE_FIXTURES, true);
-    $manager->setAttribute(Doctrine::ATTR_QUERY_CLASS, 'opDoctrineQuery');
+    $manager->setAttribute(Doctrine::ATTR_QUERY_CLASS, 'saDoctrineQuery');
 
     if (extension_loaded('apc'))
     {
-      $options = array();
+      $sations = array();
       if ($prefix = sfConfig::get('sa_doctrine_cache_key_prefix'))
       {
-        $options['prefix'] = $prefix;
+        $sations['prefix'] = $prefix;
       }
       else
       {
-        $options['prefix'] = md5(dirname(__FILE__));
+        $sations['prefix'] = md5(dirname(__FILE__));
       }
-      $cacheDriver = new Doctrine_Cache_Apc($options);
+      $cacheDriver = new Doctrine_Cache_Apc($sations);
       $manager->setAttribute(Doctrine::ATTR_QUERY_CACHE, $cacheDriver);
     }
 
-    $manager->registerConnectionDriver('mysql', 'opDoctrineConnectionMysql');
+    $manager->registerConnectionDriver('mysql', 'saDoctrineConnectionMysql');
     $manager->registerConnectionDriver('pgsql', 'Doctrine_Connection_Pgsql_ExtraFunctions');
     $manager->registerConnectionDriver('sqlite', 'Doctrine_Connection_Sqlite_ExtraFunctions');
 
@@ -139,10 +139,10 @@ class opProjectConfiguration extends sfProjectConfiguration
 
   protected function setSfAdvancedConfiguration()
   {
-    $opConfigCachePath = sfConfig::get('sf_cache_dir').DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'SfAdvanced.yml.php';
-    if (is_readable($opConfigCachePath))
+    $saConfigCachePath = sfConfig::get('sf_cache_dir').DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'SfAdvanced.yml.php';
+    if (is_readable($saConfigCachePath))
     {
-      $config = (array)include($opConfigCachePath);
+      $config = (array)include($saConfigCachePath);
     }
     else
     {
@@ -158,9 +158,9 @@ class opProjectConfiguration extends sfProjectConfiguration
         $config['base_url'] = preg_replace('/\/$/', '', $config['base_url']);
       }
 
-      opToolkit::writeCacheFile($opConfigCachePath, '<?php return '.var_export($config, true).';');
+      saToolkit::writeCacheFile($saConfigCachePath, '<?php return '.var_export($config, true).';');
     }
-    $this->configureSessionStorage($config['session_storage']['name'], (array)$config['session_storage']['options']);
+    $this->configureSessionStorage($config['session_storage']['name'], (array)$config['session_storage']['sations']);
     unset($config['session_storage']);
 
     foreach ($config as $key => $value)

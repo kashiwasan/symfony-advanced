@@ -9,13 +9,13 @@
  */
 
 /**
- * opNotificationCenter
+ * saNotificationCenter
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Shouta Kashiwagi <kashiwagi@tejimaya.com>
  */
-class opSmartphoneLayoutUtil
+class saSmartphoneLayoutUtil
 {
   protected static $parameters;
 

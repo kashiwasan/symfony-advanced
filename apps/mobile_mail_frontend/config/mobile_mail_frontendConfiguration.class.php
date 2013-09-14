@@ -8,9 +8,9 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-require_once dirname(__FILE__).'/../../../lib/config/opApplicationConfiguration.class.php';
+require_once dirname(__FILE__).'/../../../lib/config/saApplicationConfiguration.class.php';
 
-class mobile_mail_frontendConfiguration extends opApplicationConfiguration
+class mobile_mail_frontendConfiguration extends saApplicationConfiguration
 {
   public function configure()
   {

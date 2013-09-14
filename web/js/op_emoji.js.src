@@ -1,7 +1,7 @@
 (function($) {
 
-$.widget("sfadvanced.opEmoji", {
-  options: {
+$.widget("sfadvanced.saEmoji", {
+  sations: {
     useAu: false,
     useSb: false
   },
@@ -27,10 +27,10 @@ $.widget("sfadvanced.opEmoji", {
   _create: function()
   {
     this.element.before('<div id="' + this.element.attr('id') + '_epDocomo" style="display:none;"></div>');
-    if (this.options.useAu) {
+    if (this.sations.useAu) {
       this.element.before('<div id="' + this.element.attr('id') + '_epAu" style="display:none"></div>');
     }
-    if (this.options.useSb) {
+    if (this.sations.useSb) {
       this.element.before('<div id="' + this.element.attr('id') + '_epSb" style="display:none"></div>');
     }
   },

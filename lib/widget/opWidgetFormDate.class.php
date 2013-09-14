@@ -9,17 +9,17 @@
  */
 
 /**
- * opWidgetFormDate represents a date widget.
+ * saWidgetFormDate represents a date widget.
  *
  * @package    SfAdvanced
  * @subpackage widget
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opWidgetFormDate extends sfWidgetFormI18nDate
+class saWidgetFormDate extends sfWidgetFormI18nDate
 {
-  protected function configure($options = array(), $attributes = array())
+  protected function configure($sations = array(), $attributes = array())
   {
-    parent::configure($options, $attributes);
+    parent::configure($sations, $attributes);
     $this->setOption('can_be_empty', false);
   }
 
@@ -89,7 +89,7 @@ class opWidgetFormDate extends sfWidgetFormI18nDate
     $widget = new sfWidgetFormInput(array(), array_merge(array('class' => 'input_text'), $this->attributes, $attributes));
     if ('mobile_frontend' === sfConfig::get('sf_app'))
     {
-      opToolkit::appendMobileInputModeAttributesForFormWidget($widget, 'numeric');
+      saToolkit::appendMobileInputModeAttributesForFormWidget($widget, 'numeric');
     }
     $date['%input_year%'] = $widget->render($name.'[year]', $year);
 

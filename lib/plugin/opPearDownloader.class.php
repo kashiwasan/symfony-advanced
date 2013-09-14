@@ -9,13 +9,13 @@
  */
 
 /**
- * The opPluginDownloader class
+ * The saPluginDownloader class
  *
  * @package    SfAdvanced
  * @subpackage plugin
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-class opPluginDownloader extends sfPearDownloader
+class saPluginDownloader extends sfPearDownloader
 {
   protected static $cachedDependency = array();
 
@@ -28,7 +28,7 @@ class opPluginDownloader extends sfPearDownloader
       return $this->getCachedDependency($p['channel'], $p['package']);
     }
 
-    $obj = new opPluginDependency($c, $i, $p, $s);
+    $obj = new saPluginDependency($c, $i, $p, $s);
     self::$cachedDependency[$p['channel'].'-'.$p['package']] = $obj;
 
     return $obj;

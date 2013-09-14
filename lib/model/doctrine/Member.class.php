@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class Member extends BaseMember implements opAccessControlRecordInterface
+class Member extends BaseMember implements saAccessControlRecordInterface
 {
   public function getProfiles($viewableCheck = false, $myMemberId = null)
   {
@@ -66,7 +66,7 @@ class Member extends BaseMember implements opAccessControlRecordInterface
       return false;
     }
 
-    $age = opToolkit::calculateAge($birthday);
+    $age = saToolkit::calculateAge($birthday);
     $publicFlag = $this->getConfig('age_public_flag', ProfileTable::PUBLIC_FLAG_PRIVATE);
     if (!$viewableCheck || (ProfileTable::PUBLIC_FLAG_SNS == $publicFlag && $myMemberId))
     {
@@ -79,7 +79,7 @@ class Member extends BaseMember implements opAccessControlRecordInterface
       return $age;
     }
 
-    if (ProfileTable::PUBLIC_FLAG_WEB == $publicFlag && opConfig::get('is_allow_web_public_flag_age'))
+    if (ProfileTable::PUBLIC_FLAG_WEB == $publicFlag && saConfig::get('is_allow_web_public_flag_age'))
     {
       return $age;
     }
@@ -111,7 +111,7 @@ class Member extends BaseMember implements opAccessControlRecordInterface
 
   public function getNameAndCount($format = '%s (%d)')
   {
-    if (!opConfig::get('enable_friend_link'))
+    if (!saConfig::get('enable_friend_link'))
     {
       return $this->getName();
     }
@@ -350,7 +350,7 @@ class Member extends BaseMember implements opAccessControlRecordInterface
     {
       return 'blocked';
     }
-    elseif ($member instanceof opAnonymousMember)
+    elseif ($member instanceof saAnonymousMember)
     {
       return 'anonymous';
     }
@@ -388,7 +388,7 @@ class Member extends BaseMember implements opAccessControlRecordInterface
 
   public function generateApiKey()
   {
-    $apiKey = opToolkit::getRandom();
+    $apiKey = saToolkit::getRandom();
     $this->setConfig('api_key', $apiKey);
 
     return $apiKey;

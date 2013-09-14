@@ -9,13 +9,13 @@
  */
 
 /**
- * opAuthAction
+ * saAuthAction
  *
  * @package    SfAdvanced
  * @subpackage action
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opAuthAction extends sfActions
+class saAuthAction extends sfActions
 {
   public function executeRegisterEnd(sfWebRequest $request)
   {
@@ -23,7 +23,7 @@ class opAuthAction extends sfActions
 
     $member = $this->getUser()->getMember(true);
 
-    if (opConfig::get('retrieve_uid') == 3
+    if (saConfig::get('retrieve_uid') == 3
       && !sfConfig::get('app_is_mobile', false)
       && !$member->getConfig('mobile_uid')
     )
@@ -42,7 +42,7 @@ class opAuthAction extends sfActions
         'subject' => $i18n->__('Notify of Your Registering'),
         'url'     => $this->getController()->genUrl(array('sf_route' => 'homepage'), true),
       );
-      opMailSend::sendTemplateMailToMember('registerEnd', $member, $params);
+      saMailSend::sendTemplateMailToMember('registerEnd', $member, $params);
     }
 
     $this->redirect('@homepage');

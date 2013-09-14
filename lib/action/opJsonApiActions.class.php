@@ -9,13 +9,13 @@
  */
 
 /**
- * opJsonApiAction
+ * saJsonApiAction
  *
  * @package    SfAdvanced
  * @subpackage action
  * @author     Kimura Youichi <kim.upsilon@gmail.com>
  */
-class opJsonApiActions extends sfActions
+class saJsonApiActions extends sfActions
 {
   protected
     $member = null,
@@ -23,10 +23,10 @@ class opJsonApiActions extends sfActions
 
   public function execute($request)
   {
-    $this->forward404Unless(opConfig::get('enable_jsonapi'));
+    $this->forward404Unless(saConfig::get('enable_jsonapi'));
 
     $moduleName = strtolower($this->moduleName);
-    sfConfig::set('mod_'.$moduleName.'_view_class', 'opJsonApi');
+    sfConfig::set('mod_'.$moduleName.'_view_class', 'saJsonApi');
     $this->getResponse()->setContentType('application/json');
 
     $enableEscaping = true;
@@ -48,7 +48,7 @@ class opJsonApiActions extends sfActions
 
   public function forward400($message = null)
   {
-    $exception = new opErrorHttpException($message);
+    $exception = new saErrorHttpException($message);
     throw $exception->setHttpStatusCode(400);
   }
 
@@ -70,7 +70,7 @@ class opJsonApiActions extends sfActions
 
   public function forward401($message = null)
   {
-    $exception = new opErrorHttpException($message);
+    $exception = new saErrorHttpException($message);
     throw $exception->setHttpStatusCode(401);
   }
 
@@ -92,7 +92,7 @@ class opJsonApiActions extends sfActions
 
   public function forward403($message = null)
   {
-    $exception = new opErrorHttpException($message);
+    $exception = new saErrorHttpException($message);
     throw $exception->setHttpStatusCode(403);
   }
 

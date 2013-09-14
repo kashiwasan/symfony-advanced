@@ -9,13 +9,13 @@
  */
 
 /**
- * opMigrationBase provides way to migrate
+ * saMigrationBase provides way to migrate
  *
  * @package    SfAdvanced
  * @subpackage migration
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opMigrationBase extends Doctrine_Migration_Base
+class saMigrationBase extends Doctrine_Migration_Base
 {
   // for BC
   public function getProperty($name)

@@ -9,13 +9,13 @@
  */
 
 /**
- * opValidatorHash validates hashes (MD5, sha1).
+ * saValidatorHash validates hashes (MD5, sha1).
  *
  * @package    SfAdvanced
  * @subpackage validator
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opValidatorHash extends sfValidatorRegex
+class saValidatorHash extends sfValidatorRegex
 {
   protected $algorithms = array(
     'md5'  => array('length' => 32),
@@ -25,9 +25,9 @@ class opValidatorHash extends sfValidatorRegex
   /**
    * @see sfValidatorRegex
    */
-  protected function configure($options = array(), $messages = array())
+  protected function configure($sations = array(), $messages = array())
   {
-    parent::configure($options, $messages);
+    parent::configure($sations, $messages);
 
     $this->addOption('algorithm', 'md5');
 

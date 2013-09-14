@@ -9,23 +9,23 @@
  */
 
 /**
- * opAuthMailAddress actions.
+ * saAuthMailAddress actions.
  *
  * @package    SfAdvanced
- * @subpackage opAuthMailAddressPlugin
+ * @subpackage saAuthMailAddressPlugin
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opAuthMailAddressActions extends opAuthMailAddressPluginAction
+class saAuthMailAddressActions extends saAuthMailAddressPluginAction
 {
   public function executeRequestRegisterURL($request)
   {
-    $adapter = new opAuthAdapterMailAddress('MailAddress');
+    $adapter = new saAuthAdapterMailAddress('MailAddress');
     if ($adapter->getAuthConfig('invite_mode') < 2)
     {
       $this->forward404();
     }
 
-    $this->forward404Unless(opToolkit::isEnabledRegistration());
+    $this->forward404Unless(saToolkit::isEnabledRegistration());
 
     return sfView::INPUT;
   }
@@ -38,10 +38,10 @@ class opAuthMailAddressActions extends opAuthMailAddressPluginAction
     $memberConfig = Doctrine::getTable('MemberConfig')->retrieveByNameAndValue('register_token', $token);
     $this->forward404Unless($memberConfig, 'This URL is invalid.');
 
-    opActivateBehavior::disable();
+    saActivateBehavior::disable();
     $authMode = $memberConfig->getMember()->getConfig('register_auth_mode');
     $mobileAddressPre = $memberConfig->getMember()->getConfig('mobile_address_pre');
-    opActivateBehavior::enable();
+    saActivateBehavior::enable();
 
     if ('MobileUID' === $authMode)
     {

@@ -11,7 +11,7 @@
 class Profile extends BaseProfile
 {
  /**
-  * get options array
+  * get sations array
   *
   * @return array
   */
@@ -24,18 +24,18 @@ class Profile extends BaseProfile
 
     $result = array();
 
-    $options = $this->getProfileOption();
+    $sations = $this->getProfileOption();
 
-    foreach ($options as $option)
+    foreach ($sations as $sation)
     {
-      $result[$option->getId()] = $option->getValue();
+      $result[$sation->getId()] = $sation->getValue();
     }
 
     return $result;
   }
 
  /**
-  * get present options array
+  * get present sations array
   *
   * @return array
   */
@@ -112,7 +112,7 @@ class Profile extends BaseProfile
   */
   public function getPresetConfig()
   {
-    $list = opToolkit::getPresetProfileList();
+    $list = saToolkit::getPresetProfileList();
     if (!empty($list[$this->getRawPresetName()]))
     {
       return $list[$this->getRawPresetName()];
@@ -122,7 +122,7 @@ class Profile extends BaseProfile
   }
 
  /**
-  * get profile options
+  * get profile sations
   *
   * @return Doctrine_Collection
   */

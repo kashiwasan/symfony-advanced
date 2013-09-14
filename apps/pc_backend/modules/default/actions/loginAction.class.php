@@ -26,7 +26,7 @@ class loginAction extends sfAction
   {
     $this->getUser()->setAuthenticated(false);
 
-    $this->form = new opAdminLoginForm();
+    $this->form = new saAdminLoginForm();
 
     if ($request->isMethod('post'))
     {

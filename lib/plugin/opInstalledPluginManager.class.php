@@ -11,13 +11,13 @@
 error_reporting(error_reporting() & ~(E_STRICT | E_DEPRECATED));
 
 /**
- * opInstalledPluginManager allows you to manage installed SfAdvanced plugins.
+ * saInstalledPluginManager allows you to manage installed SfAdvanced plugins.
  *
  * @package    SfAdvanced
  * @subpackage plugin
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opInstalledPluginManager
+class saInstalledPluginManager
 {
   public function getInstalledApplicationPlugins()
   {
@@ -79,7 +79,7 @@ class opInstalledPluginManager
 
   public function getPluginInstance($plugin)
   {
-    return opPlugin::getInstance($plugin);
+    return saPlugin::getInstance($plugin);
   }
 
   static public function getAdminInviteAuthPlugins()
@@ -90,10 +90,10 @@ class opInstalledPluginManager
 
     foreach ($plugins as $pluginName)
     {
-      $endPoint = strlen($pluginName) - strlen('opAuth') - strlen('Plugin');
-      $authMode = substr($pluginName, strlen('opAuth'), $endPoint);
+      $endPoint = strlen($pluginName) - strlen('saAuth') - strlen('Plugin');
+      $authMode = substr($pluginName, strlen('saAuth'), $endPoint);
 
-      $adapterClass = opSecurityUser::getAuthAdapterClassName($authMode);
+      $adapterClass = saSecurityUser::getAuthAdapterClassName($authMode);
       $adapter = new $adapterClass($authMode);
       if (!$adapter->getAuthConfig('admin_invite'))
       {

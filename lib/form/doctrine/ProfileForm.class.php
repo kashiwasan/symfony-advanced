@@ -108,18 +108,18 @@ class ProfileForm extends BaseProfileForm
 
   static public function validateValue($validator, $values, $valueKey)
   {
-    $options = array('required' => false);
+    $sations = array('required' => false);
     $validator = null;
 
     switch ($values['form_type'])
     {
       case 'input':
       case 'textarea':
-        $validator = new sfValidatorInteger($options);
+        $validator = new sfValidatorInteger($sations);
         break;
       case 'date':
-        $options['date_format_range_error'] = 'Y-m-d';
-        $validator = new opValidatorDate($options);
+        $sations['date_format_range_error'] = 'Y-m-d';
+        $validator = new saValidatorDate($sations);
         break;
       default:
         break; // Do nothing.
@@ -131,7 +131,7 @@ class ProfileForm extends BaseProfileForm
       {
         $cleanValue = $validator->clean($values[$valueKey]);
 
-        if (!($validator instanceof opValidatorDate))
+        if (!($validator instanceof saValidatorDate))
         {
           $values[$valueKey] = $cleanValue;
         }

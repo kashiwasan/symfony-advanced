@@ -14,14 +14,14 @@
  * @subpackage response
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-class opWebResponse extends sfWebResponse
+class saWebResponse extends sfWebResponse
 {
   protected
     $smtStylesheets = array(),
     $smtJavascripts = array();
 
   /**
-   * Initializes this opWebResponse.
+   * Initializes this saWebResponse.
    *
    *  * charset:           The charset to use (utf-8 by default)
    *  * content_type:      The content type (text/html by default)
@@ -29,7 +29,7 @@ class opWebResponse extends sfWebResponse
    *  * http_protocol:     The HTTP protocol to use for the response (HTTP/1.0 by default)
    *
    * @param  sfEventDispatcher $dispatcher  An sfEventDispatcher instance
-   * @param  array             $options     An array of options
+   * @param  array             $sations     An array of sations
    *
    * @return bool true, if initialization completes successfully, otherwise false
    *
@@ -37,16 +37,16 @@ class opWebResponse extends sfWebResponse
    *
    * @see sfWebResponse->initialize()
    */
-  public function initialize(sfEventDispatcher $dispatcher, $options = array())
+  public function initialize(sfEventDispatcher $dispatcher, $sations = array())
   {
-    parent::initialize($dispatcher, $options);
+    parent::initialize($dispatcher, $sations);
 
     $this->smtJavascripts = array_combine($this->positions, array_fill(0, count($this->positions), array()));
     $this->smtStylesheets = array_combine($this->positions, array_fill(0, count($this->positions), array()));
   }
 
   /**
-   * Copies all properties from a given opWebResponse object to the current one.
+   * Copies all properties from a given saWebResponse object to the current one.
    *
    * @param sfWebResponse $response  An sfWebResponse instance
    *
@@ -56,7 +56,7 @@ class opWebResponse extends sfWebResponse
   {
     parent::copyProperties($response);
 
-    if ($response instanceof opWebResponse)
+    if ($response instanceof saWebResponse)
     {
       $this->smtStylesheets = $response->getSmtStylesheets(self::RAW);
       $this->smtJavascripts = $response->getSmtJavascripts(self::RAW);
@@ -64,7 +64,7 @@ class opWebResponse extends sfWebResponse
   }
 
   /**
-   * Merges all properties from a given opWebResponse object to the current one.
+   * Merges all properties from a given saWebResponse object to the current one.
    *
    * @param sfWebResponse $response  An sfWebResponse instance
    *
@@ -74,7 +74,7 @@ class opWebResponse extends sfWebResponse
   {
     parent::merge($response);
 
-    if ($response instanceof opWebResponse)
+    if ($response instanceof saWebResponse)
     {
       foreach ($this->getPositions() as $position)
       {
@@ -89,7 +89,7 @@ class opWebResponse extends sfWebResponse
    */
   public function serialize()
   {
-    return serialize(array($this->content, $this->statusCode, $this->statusText, $this->options, $this->headerOnly, $this->headers, $this->metas, $this->httpMetas, $this->stylesheets, $this->javascripts, $this->slots, $this->smtStylesheets, $this->smtJavascript));
+    return serialize(array($this->content, $this->statusCode, $this->statusText, $this->sations, $this->headerOnly, $this->headers, $this->metas, $this->httpMetas, $this->stylesheets, $this->javascripts, $this->slots, $this->smtStylesheets, $this->smtJavascript));
   }
 
   /**
@@ -97,7 +97,7 @@ class opWebResponse extends sfWebResponse
    */
   public function unserialize($serialized)
   {
-    list($this->content, $this->statusCode, $this->statusText, $this->options, $this->headerOnly, $this->headers, $this->metas, $this->httpMetas, $this->stylesheets, $this->javascripts, $this->slots, $this->smtStylesheets, $this->smtJavascript) = unserialize($serialized);
+    list($this->content, $this->statusCode, $this->statusText, $this->sations, $this->headerOnly, $this->headers, $this->metas, $this->httpMetas, $this->stylesheets, $this->javascripts, $this->slots, $this->smtStylesheets, $this->smtJavascript) = unserialize($serialized);
   }
 
   public function getTitle()
@@ -105,7 +105,7 @@ class opWebResponse extends sfWebResponse
     $result = parent::getTitle();
     if (!$result)
     {
-      $result = opConfig::get('sns_title') ? opConfig::get('sns_title') : opConfig::get('sns_name');
+      $result = saConfig::get('sns_title') ? saConfig::get('sns_title') : saConfig::get('sns_name');
     }
 
     return $result;
@@ -119,8 +119,8 @@ class opWebResponse extends sfWebResponse
       return false;
     }
 
-    $value = opToolkit::getRandom();
-    $this->setCookie(opWebRequest::MOBILE_UID_COOKIE_NAME, $value, strtotime('+20years'));
+    $value = saToolkit::getRandom();
+    $this->setCookie(saWebRequest::MOBILE_UID_COOKIE_NAME, $value, strtotime('+20years'));
 
     return $value;
   }
@@ -133,7 +133,7 @@ class opWebResponse extends sfWebResponse
       return false;
     }
 
-    $this->setCookie(opWebRequest::MOBILE_UID_COOKIE_NAME, '', time() - 3600);
+    $this->setCookie(saWebRequest::MOBILE_UID_COOKIE_NAME, '', time() - 3600);
   }
 
   /**
@@ -141,13 +141,13 @@ class opWebResponse extends sfWebResponse
    *
    * @param string $file      The stylesheet file
    * @param string $position  Position
-   * @param string $options   Stylesheet options
+   * @param string $sations   Stylesheet sations
    */
-  public function addSmtStylesheet($file, $position = '', $options = array())
+  public function addSmtStylesheet($file, $position = '', $sations = array())
   {
     $this->validatePosition($position);
 
-    $this->smtStylesheets[$position][$file] = $options;
+    $this->smtStylesheets[$position][$file] = $sations;
   }
 
   /**
@@ -168,13 +168,13 @@ class opWebResponse extends sfWebResponse
    *
    * @param string $file      The JavaScript file
    * @param string $position  Position
-   * @param string $options   Javascript options
+   * @param string $sations   Javascript sations
    */
-  public function addSmtJavascript($file, $position = '', $options = array())
+  public function addSmtJavascript($file, $position = '', $sations = array())
   {
     $this->validatePosition($position);
 
-    $this->smtJavascripts[$position][$file] = $options;
+    $this->smtJavascripts[$position][$file] = $sations;
   }
 
   /**
@@ -198,7 +198,7 @@ class opWebResponse extends sfWebResponse
    *
    * @param  string  $position The position
    *
-   * @return array   An associative array of stylesheet files as keys and options as values
+   * @return array   An associative array of stylesheet files as keys and sations as values
    */
   public function getSmtStylesheets($position = self::ALL)
   {
@@ -207,9 +207,9 @@ class opWebResponse extends sfWebResponse
       $stylesheets = array();
       foreach ($this->getPositions() as $position)
       {
-        foreach ($this->smtStylesheets[$position] as $file => $options)
+        foreach ($this->smtStylesheets[$position] as $file => $sations)
         {
-          $stylesheets[$file] = $options;
+          $stylesheets[$file] = $sations;
         }
       }
 
@@ -233,7 +233,7 @@ class opWebResponse extends sfWebResponse
    *
    * @param  string $position  The position
    *
-   * @return array An associative array of javascript files as keys and options as values
+   * @return array An associative array of javascript files as keys and sations as values
    */
   public function getSmtJavascripts($position = self::ALL)
   {
@@ -242,9 +242,9 @@ class opWebResponse extends sfWebResponse
       $javascripts = array();
       foreach ($this->getPositions() as $position)
       {
-        foreach ($this->smtJavascripts[$position] as $file => $options)
+        foreach ($this->smtJavascripts[$position] as $file => $sations)
         {
-          $javascripts[$file] = $options;
+          $javascripts[$file] = $sations;
         }
       }
 

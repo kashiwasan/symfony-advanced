@@ -42,7 +42,7 @@ class communityActions extends sfActions
     {
       $image = array_shift($images);
 
-      $validator = new opValidatorImageFile();
+      $validator = new saValidatorImageFile();
       $validFile = $validator->clean($image);
 
       $file = new File();

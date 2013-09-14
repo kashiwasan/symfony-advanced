@@ -74,7 +74,7 @@ $t->diag('ACL Test');
 $gadget1 = $table->findOneByName('searchBox');
 $gadget2 = $table->findOneByName('languageSelecterBox');
 $member1 = Doctrine::getTable('Member')->find(1);
-$anonymousMember = new opAnonymousMember();
+$anonymousMember = new saAnonymousMember();
 $t->cmp_ok($gadget1->isAllowed($member1, 'view'), '===', true, 'search box is allowed member 1');
 $t->cmp_ok($gadget1->isAllowed($anonymousMember, 'view'), '===', false,'search box is not allowed anonymous member');
 $t->cmp_ok($gadget2->isAllowed($member1, 'view'), '===', true, 'languageSelecterBox is allowed member 1');

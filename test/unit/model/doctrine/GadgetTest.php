@@ -42,6 +42,6 @@ $t->ok(!$gadget3->getConfig('xxxxxxxxxx'));
 //------------------------------------------------------------
 $t->diag('Gadet::generateRoleId()');
 $member1 = Doctrine::getTable('Member')->find(1);
-$anonymousMember = new opAnonymousMember();
+$anonymousMember = new saAnonymousMember();
 $t->is($gadget1->generateRoleId($member1), 'everyone');
 $t->is($gadget1->generateRoleId($anonymousMember), 'anonymous');

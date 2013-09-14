@@ -9,13 +9,13 @@
  */
 
 /**
- * opDoctrineConnectionMysql
+ * saDoctrineConnectionMysql
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-class opDoctrineConnectionMysql extends Doctrine_Connection_Mysql_ExtraFunctions
+class saDoctrineConnectionMysql extends Doctrine_Connection_Mysql_ExtraFunctions
 {
   protected $hashByQuery = array();
 
@@ -23,7 +23,7 @@ class opDoctrineConnectionMysql extends Doctrine_Connection_Mysql_ExtraFunctions
   {
     if ('formatter' === $name && !isset($this->properties[$name]))
     {
-      $this->properties[$name] = new opDoctrineModule_Formatter($this);
+      $this->properties[$name] = new saDoctrineModule_Formatter($this);
     }
 
     return parent::__get($name);

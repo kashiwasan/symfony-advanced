@@ -9,13 +9,13 @@
  */
 
 /**
- * opInteractiveTaskTestHandler provides a way to test interactive-task.
+ * saInteractiveTaskTestHandler provides a way to test interactive-task.
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-class opInteractiveTaskTestHandler
+class saInteractiveTaskTestHandler
 {
   public $cli, $t, $lastStatus, $resource = null;
 

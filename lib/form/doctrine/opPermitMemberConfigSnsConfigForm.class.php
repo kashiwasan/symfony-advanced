@@ -9,13 +9,13 @@
  */
 
 /**
- * opPermitMemberConfigSnsConfig form.
+ * saPermitMemberConfigSnsConfig form.
  *
  * @package    SfAdvanced
  * @subpackage form
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opPermitMemberConfigSnsConfigForm extends BaseForm
+class saPermitMemberConfigSnsConfigForm extends BaseForm
 {
   public function configure()
   {

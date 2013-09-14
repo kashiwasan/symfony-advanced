@@ -9,18 +9,18 @@
  */
 
 /**
- * opAuthAdapterMailAddress will handle credential for E-mail address.
+ * saAuthAdapterMailAddress will handle credential for E-mail address.
  *
  * @package    SfAdvanced
  * @subpackage user
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opAuthAdapterMailAddress extends opAuthAdapter
+class saAuthAdapterMailAddress extends saAuthAdapter
 {
-  protected $authModuleName = 'opAuthMailAddress';
+  protected $authModuleName = 'saAuthMailAddress';
 
  /**
-  * @see opAuthAdapter::activate()
+  * @see saAuthAdapter::activate()
   */
   public function activate()
   {
@@ -50,9 +50,9 @@ class opAuthAdapterMailAddress extends opAuthAdapter
    */
   public function isRegisterBegin($member_id = null)
   {
-    opActivateBehavior::disable();
+    saActivateBehavior::disable();
     $member = Doctrine::getTable('Member')->find((int)$member_id);
-    opActivateBehavior::enable();
+    saActivateBehavior::enable();
 
     if (!$member)
     {
@@ -82,9 +82,9 @@ class opAuthAdapterMailAddress extends opAuthAdapter
    */
   public function isRegisterFinish($member_id = null)
   {
-    opActivateBehavior::disable();
+    saActivateBehavior::disable();
     $data = Doctrine::getTable('Member')->find((int)$member_id);
-    opActivateBehavior::enable();
+    saActivateBehavior::enable();
 
     if (!$data || !$data->getName() || !$data->getProfiles())
     {

@@ -9,13 +9,13 @@
  */
 
 /**
- * opAdaptableUser will handle auth adapters
+ * saAdaptableUser will handle auth adapters
  *
  * @package    SfAdvanced
  * @subpackage user
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-abstract class opAdaptableUser extends opBaseSecurityUser
+abstract class saAdaptableUser extends saBaseSecurityUser
 {
   protected
     $authAdapters = array();
@@ -25,12 +25,12 @@ abstract class opAdaptableUser extends opBaseSecurityUser
    *
    * @see sfBasicSecurityUser
    */
-  public function initialize(sfEventDispatcher $dispatcher, sfStorage $storage, $options = array())
+  public function initialize(sfEventDispatcher $dispatcher, sfStorage $storage, $sations = array())
   {
-    parent::initialize($dispatcher, $storage, $options);
+    parent::initialize($dispatcher, $storage, $sations);
     if ($this->getMemberId() && $this->isTimedOut())
     {
-      $this->getAttributeHolder()->removeNamespace('opSecurityUser');
+      $this->getAttributeHolder()->removeNamespace('saSecurityUser');
     }
 
     $request = sfContext::getInstance()->getRequest();
@@ -50,8 +50,8 @@ abstract class opAdaptableUser extends opBaseSecurityUser
 
     foreach ($plugins as $pluginName)
     {
-      $endPoint = strlen($pluginName) - strlen('opAuth') - strlen('Plugin');
-      $authMode = substr($pluginName, strlen('opAuth'), $endPoint);
+      $endPoint = strlen($pluginName) - strlen('saAuth') - strlen('Plugin');
+      $authMode = substr($pluginName, strlen('saAuth'), $endPoint);
       $adapterClass = self::getAuthAdapterClassName($authMode);
       $adapters[$authMode] = new $adapterClass($authMode);
     }
@@ -122,18 +122,18 @@ abstract class opAdaptableUser extends opBaseSecurityUser
 
   public static function getAuthAdapterClassName($authMode)
   {
-    return 'opAuthAdapter'.ucfirst($authMode);
+    return 'saAuthAdapter'.ucfirst($authMode);
   }
 
   public function setCurrentAuthMode($authMode)
   {
-    $this->setAttribute('auth_mode', $authMode, 'opSecurityUser');
+    $this->setAttribute('auth_mode', $authMode, 'saSecurityUser');
     $this->createAuthAdapter($this->getCurrentAuthMode());
   }
 
   public function getCurrentAuthMode($allowGuess = true)
   {
-    $authMode = $this->getAttribute('auth_mode', null, 'opSecurityUser');
+    $authMode = $this->getAttribute('auth_mode', null, 'saSecurityUser');
 
     $authModes = $this->getAuthModes();
     if (!in_array($authMode, $authModes))

@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class MemberRelationship extends BaseMemberRelationship implements opAccessControlRecordInterface
+class MemberRelationship extends BaseMemberRelationship implements saAccessControlRecordInterface
 {
   private $toInstance;
 
@@ -24,7 +24,7 @@ class MemberRelationship extends BaseMemberRelationship implements opAccessContr
   {
     if ($this->isFriendPreFrom())
     {
-      opNotificationCenter::notify($this->getMemberRelatedByMemberIdFrom(), $this->getMember(), 'Do you accept friend request?', array('category' => 'link',));
+      saNotificationCenter::notify($this->getMemberRelatedByMemberIdFrom(), $this->getMember(), 'Do you accept friend request?', array('category' => 'link',));
     }
   }
 
@@ -117,7 +117,7 @@ class MemberRelationship extends BaseMemberRelationship implements opAccessContr
 
   public function generateRoleId(Member $member)
   {
-    if ($member instanceof opAnonymousMember)
+    if ($member instanceof saAnonymousMember)
     {
       return 'anonymous';
     }

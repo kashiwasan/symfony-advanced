@@ -9,19 +9,19 @@
  */
 
 /**
- * opWidgetFormSchemaFormatter
+ * saWidgetFormSchemaFormatter
  *
  * @package    SfAdvanced
  * @subpackage widget
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opWidgetFormSchemaFormatter extends sfWidgetFormSchemaFormatterTable
+class saWidgetFormSchemaFormatter extends sfWidgetFormSchemaFormatterTable
 {
   public function generateLabelName($name)
   {
     $originalCallable = null;
 
-    if (isset(self::$translationCallable[0]) && (self::$translationCallable[0] instanceof opI18N))
+    if (isset(self::$translationCallable[0]) && (self::$translationCallable[0] instanceof saI18N))
     {
       $originalCallable = clone self::$translationCallable[0];
 

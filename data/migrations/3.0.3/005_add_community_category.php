@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class addCommunityCategory extends opMigration
+class addCommunityCategory extends saMigration
 {
   public function up()
   {

@@ -21,7 +21,7 @@ class errorAction extends sfAction
  /**
   * Executes error action
   *
-  * @param opWebRequest $request A request object
+  * @param saWebRequest $request A request object
   */
   public function execute($request)
   {

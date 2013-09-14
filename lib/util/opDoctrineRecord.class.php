@@ -9,13 +9,13 @@
  */
 
 /**
- * opDoctrineRecord
+ * saDoctrineRecord
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-abstract class opDoctrineRecord extends sfDoctrineRecord implements Zend_Acl_Resource_Interface
+abstract class saDoctrineRecord extends sfDoctrineRecord implements Zend_Acl_Resource_Interface
 {
  /**
   * UNDEFINED_DATETIME
@@ -30,7 +30,7 @@ abstract class opDoctrineRecord extends sfDoctrineRecord implements Zend_Acl_Res
   * SfAdvanced will support many type of RDBMS. So we should select acceptable format of every RDBMSs.
   * As you can see, it is "0001-01-01 00:00:00".
   *
-  * I referred to hnw's entry: http://openlab.dino.co.jp/2007/11/10/170436147.html [ja]
+  * I referred to hnw's entry: http://saenlab.dino.co.jp/2007/11/10/170436147.html [ja]
   */
   const UNDEFINED_DATETIME = '0001-01-01 00:00:00';
 
@@ -41,7 +41,7 @@ abstract class opDoctrineRecord extends sfDoctrineRecord implements Zend_Acl_Res
 
   const MAX_NESTING_LEVEL = 50;
 
-  // TODO: Move it to good place (e.g. create new "opDoctrine" class? read like: opDoctrine::ATTR_4BYTES_UTF8_READY)
+  // TODO: Move it to good place (e.g. create new "saDoctrine" class? read like: saDoctrine::ATTR_4BYTES_UTF8_READY)
   const ATTR_4BYTES_UTF8_READY = 999;
 
   protected
@@ -60,13 +60,13 @@ abstract class opDoctrineRecord extends sfDoctrineRecord implements Zend_Acl_Res
 
     if (is_null($conn) && !$hasConnection)
     {
-      $conn = opDoctrineQuery::chooseConnection(true);
+      $conn = saDoctrineQuery::chooseConnection(true);
     }
 
     parent::save($conn);
   }
 
-  public function hasColumn($name, $type = null, $length = null, $options = array())
+  public function hasColumn($name, $type = null, $length = null, $sations = array())
   {
     // Temporary coping with the problem reported in http://trac.symfony-project.org/ticket/6873
     if ('string' === $type && is_null($length))
@@ -74,7 +74,7 @@ abstract class opDoctrineRecord extends sfDoctrineRecord implements Zend_Acl_Res
       $length = 2147483647;
     }
 
-    return parent::hasColumn($name, $type, $length, $options);
+    return parent::hasColumn($name, $type, $length, $sations);
   }
 
   protected function checkIsDatetimeField($fieldName)
@@ -133,7 +133,7 @@ abstract class opDoctrineRecord extends sfDoctrineRecord implements Zend_Acl_Res
 
   protected function _set($fieldName, $value, $load = true)
   {
-    // In setter, empty value must be handled as opDoctrineRecord::UNDEFINED_DATETIME
+    // In setter, empty value must be handled as saDoctrineRecord::UNDEFINED_DATETIME
     if ($this->checkIsDatetimeField($fieldName) && empty($value))
     {
       $value = self::UNDEFINED_DATETIME;
@@ -179,7 +179,7 @@ abstract class opDoctrineRecord extends sfDoctrineRecord implements Zend_Acl_Res
   {
     $value = parent::_get($fieldName, $load);
 
-    // In getter, opDoctrineRecord::UNDEFINED_DATETIME must be handled as null
+    // In getter, saDoctrineRecord::UNDEFINED_DATETIME must be handled as null
     if ($this->checkIsDatetimeField($fieldName) && in_array($value, array(self::UNDEFINED_DATETIME, self::UNDEFINED_DATETIME_BC), true))
     {
       $value = null;
@@ -227,14 +227,14 @@ abstract class opDoctrineRecord extends sfDoctrineRecord implements Zend_Acl_Res
 
   public function checkReadyForAcl()
   {
-    if (!($this instanceof opAccessControlRecordInterface))
+    if (!($this instanceof saAccessControlRecordInterface))
     {
-      throw new LogicException(sprintf('%s must implement the opAccessControlRecordInterface for access controll.', get_class($this)));
+      throw new LogicException(sprintf('%s must implement the saAccessControlRecordInterface for access controll.', get_class($this)));
     }
 
-    if (!($this->getTable() instanceof opAccessControlDoctrineTable))
+    if (!($this->getTable() instanceof saAccessControlDoctrineTable))
     {
-      throw new LogicException(sprintf('%s must be subclass of the opAccessControlDoctrineTable for access controll.', get_class($this->getTable())));
+      throw new LogicException(sprintf('%s must be subclass of the saAccessControlDoctrineTable for access controll.', get_class($this->getTable())));
     }
   }
 
@@ -244,10 +244,10 @@ abstract class opDoctrineRecord extends sfDoctrineRecord implements Zend_Acl_Res
 
     if (!($this->getTable()->getConnection()->getAttribute(Doctrine::ATTR_EXPORT) & Doctrine::EXPORT_CONSTRAINTS))
     {
-      $this->addListener(new opApplicationLevelCascadingListener());
+      $this->addListener(new saApplicationLevelCascadingListener());
     }
 
-    $this->addListener(new opDoctrineEventNotifier());
+    $this->addListener(new saDoctrineEventNotifier());
   }
 
   public function setTableName($tableName)

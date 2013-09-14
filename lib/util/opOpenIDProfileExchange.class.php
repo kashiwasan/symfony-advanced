@@ -9,13 +9,13 @@
  */
 
 /**
- * opOpenIDProfileExchange
+ * saOpenIDProfileExchange
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opOpenIDProfileExchange extends opProfileExchange
+class saOpenIDProfileExchange extends saProfileExchange
 {
-  protected $classNamePrefix = 'opOpenID';
+  protected $classNamePrefix = 'saOpenID';
 }

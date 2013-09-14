@@ -8,15 +8,15 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-require_once dirname(__FILE__).'/../../../lib/config/opApplicationConfiguration.class.php';
+require_once dirname(__FILE__).'/../../../lib/config/saApplicationConfiguration.class.php';
 
-class mobile_frontendConfiguration extends opApplicationConfiguration
+class mobile_frontendConfiguration extends saApplicationConfiguration
 {
   public function initialize()
   {
     parent::initialize();
 
-    if (!opMobileUserAgent::getInstance()->isCookie())
+    if (!saMobileUserAgent::getInstance()->isCookie())
     {
       ini_set('session.use_only_cookies', 0);
       ini_set('session.use_cookies', 0);

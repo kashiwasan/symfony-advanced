@@ -19,7 +19,7 @@ $info = Doctrine::getTable('OAuthConsumerInformation')->find(1055);
 $consumer = new OAuthConsumer($info->getKeyString(), $info->getSecret());
 $params = _oauth_get_request_token_params($consumer, 'oob');
 
-$browser = new opTestFunctional(new opBrowser());
+$browser = new saTestFunctional(new saBrowser());
 $browser
   ->login('html1@example.com', 'password')
   ->get('/oauth/request_token?'.$params)

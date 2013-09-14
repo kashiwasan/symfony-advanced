@@ -33,15 +33,15 @@ class SnsConfigForm extends BaseForm
         continue;
       }
 
-      $this->setWidget($configName, opFormItemGenerator::generateWidget($snsConfig[$configName]));
-      $this->setValidator($configName, opFormItemGenerator::generateValidator($snsConfig[$configName]));
+      $this->setWidget($configName, saFormItemGenerator::generateWidget($snsConfig[$configName]));
+      $this->setValidator($configName, saFormItemGenerator::generateValidator($snsConfig[$configName]));
       $this->widgetSchema->setLabel($configName, $snsConfig[$configName]['Caption']);
       if (isset($snsConfig[$configName]['Help']))
       {
         $this->widgetSchema->setHelp($configName, $snsConfig[$configName]['Help']);
       }
 
-      $value = opConfig::get($configName);
+      $value = saConfig::get($configName);
       if ($value instanceof sfOutputEscaperArrayDecorator)
       {
         $value = $value->getRawValue();

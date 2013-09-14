@@ -9,13 +9,13 @@
  */
 
 /**
- * opFrontWebController
+ * saFrontWebController
  *
  * @package    SfAdvanced
  * @subpackage controller
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-abstract class opFrontWebController extends sfFrontWebController
+abstract class saFrontWebController extends sfFrontWebController
 {
   public function redirect($url, $delay = 0, $statusCode = 302)
   {
@@ -26,7 +26,7 @@ abstract class opFrontWebController extends sfFrontWebController
       $result = sfView::ERROR;
     }
 
-    opExecutionFilter::notifyPostExecuteActionEvent($this, $this->dispatcher, $actionInstance, $result);
+    saExecutionFilter::notifyPostExecuteActionEvent($this, $this->dispatcher, $actionInstance, $result);
 
     parent::redirect($url, $delay, $statusCode);
   }

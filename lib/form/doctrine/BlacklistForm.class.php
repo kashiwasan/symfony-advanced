@@ -19,7 +19,7 @@ class BlacklistForm extends BaseBlacklistForm
 {
   public function configure()
   {
-    $this->setValidator('uid', new opValidatorHash());
+    $this->setValidator('uid', new saValidatorHash());
     unset($this['created_at'], $this['updated_at']);
   }
 }

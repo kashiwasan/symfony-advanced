@@ -9,13 +9,13 @@
  */
 
 /**
- * opDoctrineQuery
+ * saDoctrineQuery
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opDoctrineQuery extends Doctrine_Query
+class saDoctrineQuery extends Doctrine_Query
 {
   /**
    * constant for exact match

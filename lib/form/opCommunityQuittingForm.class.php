@@ -9,13 +9,13 @@
  */
 
 /**
- * opCommunityQuittingForm
+ * saCommunityQuittingForm
  *
  * @package    SfAdvanced
  * @subpackage form
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opCommunityQuittingForm extends opBaseForm
+class saCommunityQuittingForm extends saBaseForm
 {
   public function setup()
   {

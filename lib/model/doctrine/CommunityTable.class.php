@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class CommunityTable extends opAccessControlDoctrineTable
+class CommunityTable extends saAccessControlDoctrineTable
 {
   public function retrievesByMemberId($memberId, $limit = 5, $isRandom = false)
   {
@@ -90,7 +90,7 @@ class CommunityTable extends opAccessControlDoctrineTable
       $ids[] = $communityMember[0];
     }
 
-    $pager = new opNonCountQueryPager('Member', $size);
+    $pager = new saNonCountQueryPager('Member', $size);
 
     if (empty($ids))
     {

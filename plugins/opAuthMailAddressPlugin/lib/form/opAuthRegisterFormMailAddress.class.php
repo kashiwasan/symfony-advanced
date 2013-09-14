@@ -9,13 +9,13 @@
  */
 
 /**
- * opAuthRegisterFormMailAddress represents a form to register by E-mail Address.
+ * saAuthRegisterFormMailAddress represents a form to register by E-mail Address.
  *
  * @package    SfAdvanced
  * @subpackage form
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opAuthRegisterFormMailAddress extends opAuthRegisterForm
+class saAuthRegisterFormMailAddress extends saAuthRegisterForm
 {
   public function configure()
   {

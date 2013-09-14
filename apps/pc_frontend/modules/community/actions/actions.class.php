@@ -15,14 +15,14 @@
  * @subpackage community
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class communityActions extends opCommunityAction
+class communityActions extends saCommunityAction
 {
  /**
   * Executes home action
   *
-  * @param opWebRequest $request A request object
+  * @param saWebRequest $request A request object
   */
-  public function executeHome(opWebRequest $request)
+  public function executeHome(saWebRequest $request)
   {
     $this->forwardIf($request->isSmartphone(), 'community', 'smtHome');
 
@@ -32,9 +32,9 @@ class communityActions extends opCommunityAction
  /**
   * Executes smtHome action
   *
-  * @param opWebRequest $request A request object
+  * @param saWebRequest $request A request object
   */
-  public function executeSmtHome(opWebRequest $request)
+  public function executeSmtHome(saWebRequest $request)
   {
     $gadgets = Doctrine::getTable('Gadget')->retrieveGadgetsByTypesName('smartphoneCommunity');
     $this->contentsGadgets = $gadgets['smartphoneCommunityContents'];
@@ -42,7 +42,7 @@ class communityActions extends opCommunityAction
     $this->community = Doctrine::getTable('Community')->find($this->id);
     $this->forward404Unless($this->community);
 
-    opSmartphoneLayoutUtil::setLayoutParameters(array('community' => $this->community));
+    saSmartphoneLayoutUtil::setLayoutParameters(array('community' => $this->community));
 
     return sfView::SUCCESS;
   }
@@ -50,9 +50,9 @@ class communityActions extends opCommunityAction
  /**
   * Executes edit action
   *
-  * @param opWebRequest $request A request object
+  * @param saWebRequest $request A request object
   */
-  public function executeEdit(opWebRequest $request)
+  public function executeEdit(saWebRequest $request)
   {
     $this->forwardIf($request->isSmartphone(), 'community', 'smtEdit');
 
@@ -70,9 +70,9 @@ class communityActions extends opCommunityAction
  /**
   * Executes smtEdit action
   *
-  * @param opWebRequest $request A request object
+  * @param saWebRequest $request A request object
   */
-  public function executeSmtEdit(opWebRequest $request)
+  public function executeSmtEdit(saWebRequest $request)
   {
     $result = parent::executeEdit($request);
 
@@ -82,7 +82,7 @@ class communityActions extends opCommunityAction
     }
     else
     {
-      opSmartphoneLayoutUtil::setLayoutParameters(array('community' => $this->community));
+      saSmartphoneLayoutUtil::setLayoutParameters(array('community' => $this->community));
     }
 
     return $result;
@@ -91,7 +91,7 @@ class communityActions extends opCommunityAction
  /**
   * Executes memberList action
   *
-  * @param opWebRequest $request A request object
+  * @param saWebRequest $request A request object
   */
   public function executeMemberList($request)
   {
@@ -103,13 +103,13 @@ class communityActions extends opCommunityAction
  /**
   * Executes smtMemberList action
   *
-  * @param opWebRequest $request A request object
+  * @param saWebRequest $request A request object
   */
-  public function executeSmtMemberList(opWebRequest $request)
+  public function executeSmtMemberList(saWebRequest $request)
   {
     $result = parent::executeMemberList($request);
 
-    opSmartphoneLayoutUtil::setLayoutParameters(array('community' => $this->community));
+    saSmartphoneLayoutUtil::setLayoutParameters(array('community' => $this->community));
 
     return $result;
   }
@@ -117,9 +117,9 @@ class communityActions extends opCommunityAction
  /**
   * Executes joinlist action
   *
-  * @param opWebRequest $request A request object
+  * @param saWebRequest $request A request object
   */
-  public function executeJoinlist(opWebRequest $request)
+  public function executeJoinlist(saWebRequest $request)
   {
     $this->forwardIf($request->isSmartphone(), 'community', 'smtJoinlist');
 
@@ -136,9 +136,9 @@ class communityActions extends opCommunityAction
  /**
   * Executes smtJoinlist action
   *
-  * @param opWebRequest $request A request object
+  * @param saWebRequest $request A request object
   */
-  public function executeSmtJoinlist(opWebRequest $request)
+  public function executeSmtJoinlist(saWebRequest $request)
   {
     $result = parent::executeJoinlist($request);
 
@@ -151,7 +151,7 @@ class communityActions extends opCommunityAction
       $this->targetMember = $this->getUser()->getMember();
     }
 
-    opSmartphoneLayoutUtil::setLayoutParameters(array('member' => $this->member)); 
+    saSmartphoneLayoutUtil::setLayoutParameters(array('member' => $this->member)); 
 
     return $result;
   }
@@ -159,9 +159,9 @@ class communityActions extends opCommunityAction
  /**
   * Executes join action
   *
-  * @param opWebRequest $request A request object
+  * @param saWebRequest $request A request object
   */
-  public function executeJoin(opWebRequest $request)
+  public function executeJoin(saWebRequest $request)
   {
     $this->forwardIf($request->isSmartphone(), 'community', 'smtJoin');
 
@@ -171,13 +171,13 @@ class communityActions extends opCommunityAction
  /**
   * Executes smtJoin action
   *
-  * @param opWebRequest $request A request object
+  * @param saWebRequest $request A request object
   */
-  public function executeSmtJoin(opWebRequest $request)
+  public function executeSmtJoin(saWebRequest $request)
   {
     $result = parent::executeJoin($request);
 
-    opSmartphoneLayoutUtil::setLayoutParameters(array('community' => $this->community));
+    saSmartphoneLayoutUtil::setLayoutParameters(array('community' => $this->community));
 
     return $result;
   }
@@ -185,9 +185,9 @@ class communityActions extends opCommunityAction
  /**
   * Executes quit action
   *
-  * @param opWebRequest $request A request object
+  * @param saWebRequest $request A request object
   */
-  public function executeQuit(opWebRequest $request)
+  public function executeQuit(saWebRequest $request)
   {
     $this->forwardIf($request->isSmartphone(), 'community', 'smtQuit');
 
@@ -197,13 +197,13 @@ class communityActions extends opCommunityAction
  /**
   * Executes smtJoin action
   *
-  * @param opWebRequest $request A request object
+  * @param saWebRequest $request A request object
   */
-  public function executeSmtQuit(opWebRequest $request)
+  public function executeSmtQuit(saWebRequest $request)
   {
     $result = parent::executeQuit($request);
 
-    opSmartphoneLayoutUtil::setLayoutParameters(array('community' => $this->community));
+    saSmartphoneLayoutUtil::setLayoutParameters(array('community' => $this->community));
 
     return $result;
   }
@@ -211,9 +211,9 @@ class communityActions extends opCommunityAction
  /**
   * Executes search action
   *
-  * @param opWebRequest $request A request object
+  * @param saWebRequest $request A request object
   */
-  public function executeSearch(opWebRequest $request)
+  public function executeSearch(saWebRequest $request)
   {
     $this->forwardIf($request->isSmartphone(), 'community', 'smtSearch');
 
@@ -223,9 +223,9 @@ class communityActions extends opCommunityAction
  /**
   * Executes smtSearch action
   *
-  * @param opWebRequest $request A request object
+  * @param saWebRequest $request A request object
   */
-  public function executeSmtSearch(opWebRequest $request)
+  public function executeSmtSearch(saWebRequest $request)
   {
     return sfView::SUCCESS;
   }

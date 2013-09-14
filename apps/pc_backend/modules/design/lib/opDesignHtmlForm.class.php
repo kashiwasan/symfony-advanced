@@ -9,23 +9,23 @@
  */
 
 /**
- * opDesignHtmlForm
+ * saDesignHtmlForm
  *
  * @package    SfAdvanced
  * @subpackage form
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opDesignHtmlForm extends sfForm
+class saDesignHtmlForm extends sfForm
 {
   const DEFAULT_TYPE = 'footer_after';
 
   public function configure()
   {
-    $this->setWidget('html', new opWidgetFormRichTextarea(array(
+    $this->setWidget('html', new saWidgetFormRichTextarea(array(
       'config' => array('theme_advanced_buttons1' => 'fontsizeselect, bold, italic, undefined, forecolor, hr, link, image'),
     ), array('rows' => '20', 'cols' => '70')));
 
-    $this->setValidator('html', new opValidatorString(array('required' => false)));
+    $this->setValidator('html', new saValidatorString(array('required' => false)));
 
     $this->widgetSchema->setNameFormat('design_html[%s]');
   }

@@ -9,13 +9,13 @@
  */
 
 /**
- * opConfigConfigHandler
+ * saConfigConfigHandler
  *
  * @package    SfAdvanced
  * @subpackage config
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opConfigConfigHandler extends sfYamlConfigHandler
+class saConfigConfigHandler extends sfYamlConfigHandler
 {
   public function execute($configFiles)
   {

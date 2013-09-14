@@ -13,7 +13,7 @@ class ProfileOption extends BaseProfileOption
 
 }
 
-class opProfileOptionEmulator extends ProfileOption
+class saProfileOptionEmulator extends ProfileOption
 {
   public function setTableDefinition()
   {

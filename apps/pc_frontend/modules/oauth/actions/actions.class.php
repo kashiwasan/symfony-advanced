@@ -15,7 +15,7 @@
  * @subpackage action
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class oauthActions extends opOAuthTokenAction
+class oauthActions extends saOAuthTokenAction
 {
   protected function getTokenModelName()
   {

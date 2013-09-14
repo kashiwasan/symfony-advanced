@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class opPluginDeactivateTask extends sfBaseTask
+class saPluginDeactivateTask extends sfBaseTask
 {
   protected function configure()
   {
@@ -21,18 +21,18 @@ class opPluginDeactivateTask extends sfBaseTask
       new sfCommandOption('env', null, sfCommandOption::PARAMETER_REQUIRED, 'The environment', 'prod'),
     ));
 
-    $this->namespace        = 'opPlugin';
+    $this->namespace        = 'saPlugin';
     $this->name             = 'deactivate';
     $this->briefDescription = 'Deactivates the installed plugin.';
     $this->detailedDescription = <<<EOF
-The [opPlugin:deactivate|INFO] task deactivates the installed plugin.
+The [saPlugin:deactivate|INFO] task deactivates the installed plugin.
 Call it with:
 
-  [./symfony opPlugin:deactivate opSamplePlugin|INFO]
+  [./symfony saPlugin:deactivate saSamplePlugin|INFO]
 EOF;
   }
 
-  protected function execute($arguments = array(), $options = array())
+  protected function execute($arguments = array(), $sations = array())
   {
     $configuration = $this->createConfiguration('pc_frontend', 'cli');
     $name = $arguments['name'];
@@ -47,7 +47,7 @@ EOF;
       throw new sfException(sprintf('Plugin "%s" is already disactivated', $name));
     }
 
-    opPlugin::getInstance($name)->setIsActive(false);
+    saPlugin::getInstance($name)->setIsActive(false);
 
     $cc = new sfCacheClearTask($this->dispatcher, $this->formatter);
     $cc->run();

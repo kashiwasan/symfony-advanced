@@ -100,7 +100,7 @@ class adminActions extends sfActions
   */
   public function executeChangeLanguage(sfWebRequest $request)
   {
-    $this->form = new opLanguageSelecterForm();
+    $this->form = new saLanguageSelecterForm();
     if ($request->isMethod(sfWebRequest::POST))
     {
       $this->form->bind($request->getParameter('language'));

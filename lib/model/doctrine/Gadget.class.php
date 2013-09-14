@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class Gadget extends BaseGadget implements opAccessControlRecordInterface
+class Gadget extends BaseGadget implements saAccessControlRecordInterface
 {
   protected $list = null;
 
@@ -106,7 +106,7 @@ class Gadget extends BaseGadget implements opAccessControlRecordInterface
 
   public function generateRoleId(Member $member)
   {
-    if ($member instanceof opAnonymousMember)
+    if ($member instanceof saAnonymousMember)
     {
       return 'anonymous';
     }

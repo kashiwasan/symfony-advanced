@@ -9,13 +9,13 @@
  */
 
 /**
- * opAccessControlDoctrineTable
+ * saAccessControlDoctrineTable
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-abstract class opAccessControlDoctrineTable extends Doctrine_Table
+abstract class saAccessControlDoctrineTable extends Doctrine_Table
 {
   protected $acl = null;
 

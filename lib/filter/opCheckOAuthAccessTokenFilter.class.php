@@ -9,13 +9,13 @@
  */
 
 /**
- * opCheckOAuthAccessToken
+ * saCheckOAuthAccessToken
  *
  * @package    SfAdvanced
  * @subpackage filter
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opCheckOAuthAccessTokenFilter extends sfFilter
+class saCheckOAuthAccessTokenFilter extends sfFilter
 {
   public function execute($filterChain)
   {
@@ -50,7 +50,7 @@ class opCheckOAuthAccessTokenFilter extends sfFilter
     }
 
     $route = $this->context->getRequest()->getAttribute('sf_route');
-    if ($route instanceof opAPIRouteInterface)
+    if ($route instanceof saAPIRouteInterface)
     {
       $actionInstance = $this->context->getController()->getActionStack()->getLastEntry()->getActionInstance();
 
@@ -71,10 +71,10 @@ class opCheckOAuthAccessTokenFilter extends sfFilter
   protected function getServer()
   {
     $tokenType = $this->context->getRequest()->getParameter('token_type', 'member');
-    $dataStore = new opOAuthDataStore();
+    $dataStore = new saOAuthDataStore();
 
     $dataStore->setTokenModelName('OAuth'.ucfirst($tokenType).'Token');
-    $server = new opOAuthServer($dataStore);
+    $server = new saOAuthServer($dataStore);
 
     return $server;
   }

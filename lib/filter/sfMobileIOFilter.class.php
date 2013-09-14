@@ -41,7 +41,7 @@ class sfMobileIOFilter extends sfFilter
     $filterChain->execute();
 
     $this->convertEmptyElementsForHTML4();
-    if ($this->getContext()->getRequest()->getMobile()->isDoCoMo() && opConfig::get('font_size'))
+    if ($this->getContext()->getRequest()->getMobile()->isDoCoMo() && saConfig::get('font_size'))
     {
       $this->convertAddFont4Docomo();
     }

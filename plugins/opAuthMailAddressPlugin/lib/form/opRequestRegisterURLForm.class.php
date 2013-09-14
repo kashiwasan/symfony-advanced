@@ -11,11 +11,11 @@
 /**
  *
  *
- * @package    opAuthMailAddressPlugin
+ * @package    saAuthMailAddressPlugin
  * @subpackage form
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opRequestRegisterURLForm extends BaseForm
+class saRequestRegisterURLForm extends BaseForm
 {
   protected
     $doNotSend = false,
@@ -36,7 +36,7 @@ class opRequestRegisterURLForm extends BaseForm
 
     if (sfConfig::get('sa_is_use_captcha', false))
     {
-      $this->embedForm('captcha', new opCaptchaForm());
+      $this->embedForm('captcha', new saCaptchaForm());
     }
 
     $this->widgetSchema->setNameFormat('request_register_url[%s]');
@@ -44,7 +44,7 @@ class opRequestRegisterURLForm extends BaseForm
 
   public function validate($validator, $values, $arguments = array())
   {
-    if (opToolkit::isMobileEmailAddress($values['mail_address']))
+    if (saToolkit::isMobileEmailAddress($values['mail_address']))
     {
       $mailValidator = new sfValidatorMobileEmail();
       $values['mobile_address'] = $mailValidator->clean($values['mail_address']);
@@ -52,12 +52,12 @@ class opRequestRegisterURLForm extends BaseForm
     }
     else
     {
-      $mailValidator = new opValidatorPCEmail();
+      $mailValidator = new saValidatorPCEmail();
       $values['pc_address'] = $mailValidator->clean($values['mail_address']);
       $mode = 'pc';
     }
 
-    if (!opToolkit::isEnabledRegistration($mode))
+    if (!saToolkit::isEnabledRegistration($mode))
     {
       throw new sfValidatorError($validator, 'invalid');
     }
@@ -82,14 +82,14 @@ class opRequestRegisterURLForm extends BaseForm
     }
     elseif ($config = Doctrine::getTable('MemberConfig')->retrieveByNameAndValue($configName.'_pre', $configValue))
     {
-      $activation = opActivateBehavior::getEnabled();
-      opActivateBehavior::disable();
+      $activation = saActivateBehavior::getEnabled();
+      saActivateBehavior::disable();
 
       $this->member = $config->getMember();
 
       if ($activation)
       {
-        opActivateBehavior::enable();
+        saActivateBehavior::enable();
       }
     }
 
@@ -136,8 +136,8 @@ class opRequestRegisterURLForm extends BaseForm
     $params = array(
       'token'    => $token,
       'authMode' => 'MailAddress',
-      'subject' => opConfig::get('sns_name').'招待状',
+      'subject' => saConfig::get('sns_name').'招待状',
     );
-    opMailSend::sendTemplateMail('notifyRegisterURL', $address, opConfig::get('admin_mail_address'), $params);
+    saMailSend::sendTemplateMail('notifyRegisterURL', $address, saConfig::get('admin_mail_address'), $params);
   }
 }

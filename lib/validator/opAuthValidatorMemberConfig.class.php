@@ -9,37 +9,37 @@
  */
 
 /**
- * opAuthValidatorMemberConfig
+ * saAuthValidatorMemberConfig
  *
  * @package    SfAdvanced
  * @subpackage validator
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opAuthValidatorMemberConfig extends sfValidatorSchema
+class saAuthValidatorMemberConfig extends sfValidatorSchema
 {
   /**
    * Constructor.
    *
-   * @param array  $options   An array of options
+   * @param array  $sations   An array of sations
    * @param array  $messages  An array of error messages
    *
    * @see sfValidatorSchema
    */
-  public function __construct($options = array(), $messages = array())
+  public function __construct($sations = array(), $messages = array())
   {
-    parent::__construct(null, $options, $messages);
+    parent::__construct(null, $sations, $messages);
   }
 
   /**
    * Configures this validator.
    *
-   * Available options:
+   * Available sations:
    *
    *  * config_name: The configuration name of MemberConfig
    *
    * @see sfValidatorBase
    */
-  protected function configure($options = array(), $messages = array())
+  protected function configure($sations = array(), $messages = array())
   {
     $this->addOption('field_name');
     $this->addOption('allow_empty_value', true);
@@ -52,7 +52,7 @@ class opAuthValidatorMemberConfig extends sfValidatorSchema
    */
   protected function doClean($values)
   {
-    opActivateBehavior::disable();
+    saActivateBehavior::disable();
     $configName = $this->getOption('config_name');
     $fieldName = $this->getOption('field_name');
     if (!$fieldName)
@@ -62,7 +62,7 @@ class opAuthValidatorMemberConfig extends sfValidatorSchema
 
     if (!$this->getOption('allow_empty_value') && empty($values[$fieldName]))
     {
-      opActivateBehavior::enable();
+      saActivateBehavior::enable();
 
       return $values;
     }
@@ -73,7 +73,7 @@ class opAuthValidatorMemberConfig extends sfValidatorSchema
       $values['member'] = $memberConfig->getMember();
     }
 
-    opActivateBehavior::enable();
+    saActivateBehavior::enable();
     return $values;
   }
 }

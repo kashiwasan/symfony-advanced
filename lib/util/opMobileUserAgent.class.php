@@ -9,13 +9,13 @@
  */
 
 /**
- * opUserAgentMobile
+ * saUserAgentMobile
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Shogo Kawahara <kawahara@tejimaya.net>
  */
-class opMobileUserAgent
+class saMobileUserAgent
 {
   protected static
     $instance = null,

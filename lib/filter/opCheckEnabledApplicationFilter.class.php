@@ -9,13 +9,13 @@
  */
 
 /**
- * opCheckEnabledApplicationFilter
+ * saCheckEnabledApplicationFilter
  *
  * @package    SfAdvanced
  * @subpackage filter
  * @author     Kousuke Ebihara
  */
-class opCheckEnabledApplicationFilter extends sfFilter
+class saCheckEnabledApplicationFilter extends sfFilter
 {
   /**
    * Executes this filter.
@@ -27,7 +27,7 @@ class opCheckEnabledApplicationFilter extends sfFilter
       $current = $this->context->getRouting()->getCurrentRouteName();
       $configName = 'enable_'.$this->getParameter('app', 'pc');
 
-      if (!opConfig::get($configName))
+      if (!saConfig::get($configName))
       {
         if ($current !== 'error')
         {

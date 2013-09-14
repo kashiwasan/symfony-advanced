@@ -12,7 +12,7 @@
  * This class is for keeping backward compatibility.
  *
  * If you want to add new feature to this class, please add this to
- * the opFriendAction class, a parent class of this class.
+ * the saFriendAction class, a parent class of this class.
  * And of course using this class is deprecated. You should not begin to
  * use this class, and you have to replace the code that is using this class.
  * 
@@ -20,6 +20,6 @@
  * @subpackage action
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-abstract class sfSfAdvancedFriendAction extends opFriendAction
+abstract class sfSfAdvancedFriendAction extends saFriendAction
 {
 }

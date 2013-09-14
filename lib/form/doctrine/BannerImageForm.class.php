@@ -24,7 +24,7 @@ class BannerImageForm extends BaseBannerImageForm
     $this->setWidget('url', new sfWidgetFormInputText(array(), array('size' => 40)));
     $this->setWidget('name', new sfWidgetFormInputText());
     $this->setValidators(array(
-      'file' => new opValidatorImageFile(array('required' => $this->isNew())),
+      'file' => new saValidatorImageFile(array('required' => $this->isNew())),
       'url' => new sfValidatorPass(),
       'name' => new sfValidatorPass(),
     ));

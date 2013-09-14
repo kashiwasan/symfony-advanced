@@ -12,13 +12,13 @@
 error_reporting(error_reporting() & ~(E_STRICT | E_DEPRECATED));
 
 /**
- * opPluginManager allows you to manage SfAdvanced plugins.
+ * saPluginManager allows you to manage SfAdvanced plugins.
  *
  * @package    SfAdvanced
  * @subpackage plugin
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opPluginManager extends sfSymfonyPluginManager
+class saPluginManager extends sfSymfonyPluginManager
 {
   const SFADVANCED_PLUGIN_CHANNEL = 'plugins.sfadvanced.jp';
   const SFADVANCED_PLUGIN_LIST_BASE_URL = 'http://plugins.sfadvanced.jp/packages/';
@@ -35,8 +35,8 @@ class opPluginManager extends sfSymfonyPluginManager
         'plugin_dir'            => sfConfig::get('sf_plugins_dir'),
         'cache_dir'             => sfConfig::get('sf_cache_dir').'/.pear',
         'web_dir'               => sfConfig::get('sf_web_dir'),
-        'rest_base_class'       => 'opPearRest',
-        'downloader_base_class' => 'opPluginDownloader',
+        'rest_base_class'       => 'saPearRest',
+        'downloader_base_class' => 'saPluginDownloader',
       ));
 
       date_default_timezone_set($tz);

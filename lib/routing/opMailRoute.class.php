@@ -9,25 +9,25 @@
  */
 
 /**
- * opMailRoute
+ * saMailRoute
  *
  * @package    SfAdvanced
  * @subpackage routing
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opMailRoute extends sfRoute
+class saMailRoute extends sfRoute
 {
   protected
     $member = null,
     $nonAuth = false;
 
-  public function __construct($pattern, array $defaults = array(), array $requirements = array(), array $options = array())
+  public function __construct($pattern, array $defaults = array(), array $requirements = array(), array $sations = array())
   {
-    parent::__construct($pattern, $defaults, $requirements, $options);
+    parent::__construct($pattern, $defaults, $requirements, $sations);
 
-    if (isset($this->options['non_auth']))
+    if (isset($this->sations['non_auth']))
     {
-      $this->nonAuth = $this->options['non_auth'];
+      $this->nonAuth = $this->sations['non_auth'];
     }
   }
 

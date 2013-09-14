@@ -14,7 +14,7 @@ $uids = array(
     'softbank_fallback' => '200000000000000',
 );
 
-class mySfAdvancedWebRequest extends opWebRequest
+class mySfAdvancedWebRequest extends saWebRequest
 {
     public $isSecure = false;
 
@@ -34,7 +34,7 @@ class mySfAdvancedWebRequest extends opWebRequest
             }
         }
 
-        opMobileUserAgent::resetInstance();
+        saMobileUserAgent::resetInstance();
     }
 
   public function setTestDate($dateStr)

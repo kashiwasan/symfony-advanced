@@ -20,12 +20,12 @@ class sfValidatorMobileEmail extends sfValidatorEmail
   /**
    * @see sfValidatorRegex
    */
-  protected function configure($options = array(), $messages = array())
+  protected function configure($sations = array(), $messages = array())
   {
-    parent::configure($options, $messages);
+    parent::configure($sations, $messages);
 
     $filter = create_function('$value', 'return preg_quote($value, \'/\');');
-    $str = join('|', array_filter(opToolkit::getMobileMailAddressDomains(), $filter));
+    $str = join('|', array_filter(saToolkit::getMobileMailAddressDomains(), $filter));
 
     $this->setOption('pattern', '/^([^@\s]+)@('.$str.')$/i');
     $this->setOption('max_length', 320);

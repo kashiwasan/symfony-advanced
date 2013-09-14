@@ -9,13 +9,13 @@
  */
 
 /**
- * opMigrationDiff
+ * saMigrationDiff
  *
  * @package    SfAdvanced
  * @subpackage migration
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opMigrationDiff extends Doctrine_Migration_Diff
+class saMigrationDiff extends Doctrine_Migration_Diff
 {
   protected function _buildModelInformation(array $models)
   {

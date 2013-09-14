@@ -9,13 +9,13 @@
  */
 
 /**
- * opWidgetFormRichTextareaSfAdvancedExtension
+ * saWidgetFormRichTextareaSfAdvancedExtension
  *
  * @package    SfAdvanced
  * @subpackage widget
  * @author     Shogo Kawahara <kawahara@tejimaya.net>
  */
-abstract class opWidgetFormRichTextareaSfAdvancedExtension
+abstract class saWidgetFormRichTextareaSfAdvancedExtension
 {
   static public function getPlugins()
   {

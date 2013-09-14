@@ -17,9 +17,9 @@
  */
 class CommunityFormFilter extends BaseCommunityFormFilter
 {
-  public function __construct($defaults = array(), $options = array(), $CSRFSecret = null)
+  public function __construct($defaults = array(), $sations = array(), $CSRFSecret = null)
   {
-    return parent::__construct($defaults, $options, false);
+    return parent::__construct($defaults, $sations, false);
   }
 
   public function configure()
@@ -41,7 +41,7 @@ class CommunityFormFilter extends BaseCommunityFormFilter
     );
 
     $validators = array(
-      'name'                  => new opValidatorSearchQueryString(array('required' => false)),
+      'name'                  => new saValidatorSearchQueryString(array('required' => false)),
       'community_category_id' => new sfValidatorPass(),
     );
 

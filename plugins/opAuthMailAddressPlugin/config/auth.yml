@@ -8,7 +8,7 @@ enable_pc:
   Default: 1
 
 self_invite_action:
-  Default: "opAuthMailAddress/requestRegisterURL"
+  Default: "saAuthMailAddress/requestRegisterURL"
 
 help_login_error_action:
   Name: "self_invite_action"
@@ -17,7 +17,7 @@ help_login_error_action:
   ValueType: ""
   IsConfig:   false
   IsRequired: false
-  Default: "opAuthMailAddress/helpLoginError"
+  Default: "saAuthMailAddress/helpLoginError"
 
 auth_mode_caption:
   IsConfig: 0

@@ -45,9 +45,9 @@ class MemberConfigAccessBlockForm extends MemberConfigForm
       $widget = $this->widgetSchema[$k];
       $validator = $this->validatorSchema[$k];
 
-      if ($widget instanceof opWidgetFormInputIncreased)
+      if ($widget instanceof saWidgetFormInputIncreased)
       {
-        opToolkit::appendMobileInputModeAttributesForFormWidget($widget, 'numeric');
+        saToolkit::appendMobileInputModeAttributesForFormWidget($widget, 'numeric');
       }
     }
   }

@@ -1,4 +1,4 @@
-<?php if(opToolkit::isSecurePage()): ?>
+<?php if(saToolkit::isSecurePage()): ?>
 <!-- NCFORM TMPL -->
 <div class="ncform hide toggle1">
   <div class="row">
@@ -103,7 +103,7 @@
         <?php include_component('default', 'smtMenu') ?>
       </div>
       <a class="btn btn-navbar brand" data-toggle="collapse" data-target=".nav-collapse"><?php echo $sa_config['sns_name'] ?></a>
-      <?php if (opToolkit::isSecurePage()): ?>
+      <?php if (saToolkit::isSecurePage()): ?>
       <div id="notification_center" class="center">
         <?php echo sa_image_tag('NOTIFY_CENTER.png', array('height' => '32', 'class' => 'ncbutton')) ?>
       </div>

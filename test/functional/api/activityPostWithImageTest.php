@@ -5,8 +5,8 @@ include dirname(__FILE__).'/../../bootstrap/functional.php';
 include dirname(__FILE__).'/../../bootstrap/database.php';
 
 $numOfTests = 15;
-$tester = new opTestFunctional(
-  new opBrowser(),
+$tester = new saTestFunctional(
+  new saBrowser(),
   new lime_test($numOfTests, new lime_output_color())
 );
 
@@ -15,10 +15,10 @@ $t = $tester->test();
 Doctrine_Core::getTable('SnsConfig')->set('enable_jsonapi', true);
 $apiKeyMember1 = Doctrine_Core::getTable('Member')->find(1)->getApiKey();
 
-if (in_array('opTimelinePlugin', ProjectConfiguration::getActive()->getPlugins()))
+if (in_array('saTimelinePlugin', ProjectConfiguration::getActive()->getPlugins()))
 {
-  // opTimelinePlugin breaks standard JSON APIs (activity/*.json)
-  $tester->test()->fail('unable to run tests if opTimelinePlugin is installed');
+  // saTimelinePlugin breaks standard JSON APIs (activity/*.json)
+  $tester->test()->fail('unable to run tests if saTimelinePlugin is installed');
   return;
 }
 

@@ -3,7 +3,7 @@ function getCenterMuchScreen(element)
 {var width=$(element).width();var height=$(element).height();var screenWidth=$(window).width();var screenHeight=$(window).height();var screenTop=$(window).scrollTop();var left=(screenWidth/2)-(width/2);var top=(screenHeight/2+screenTop)-(height/2);if(top<10)
 {top=10;}
 return{"left":left+"px","top":top+"px"};}
-var opCookie={set:function(name,value,expires,path,domain,secure,httponly)
+var saCookie={set:function(name,value,expires,path,domain,secure,httponly)
 {var result='';if(value==undefined||(value instanceof String&&!value))
 {var expires=new Date();expires.setTime((new Date()).getTime()-(12*30*24*60*60*1000));result=name+'=deleted; expires='+expires.toUTCString();}
 else

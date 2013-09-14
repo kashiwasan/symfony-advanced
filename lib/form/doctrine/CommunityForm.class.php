@@ -25,7 +25,7 @@ class CommunityForm extends BaseCommunityForm
     unset($this->widgetSchema['id']);
 
     $this->widgetSchema->setLabel('name', '%community% Name');
-    $this->setValidator('name', new opValidatorString(array('max_length' => 64, 'trim' => true)));
+    $this->setValidator('name', new saValidatorString(array('max_length' => 64, 'trim' => true)));
 
     $isAllowMemberCommunity = 1 != sfContext::getInstance()->getUser()->getMemberId();
     $communityCategories = Doctrine::getTable('CommunityCategory')->getAllChildren($isAllowMemberCommunity);

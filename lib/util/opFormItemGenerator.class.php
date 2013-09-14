@@ -9,13 +9,13 @@
  */
 
 /**
- * opFormItemGenerator generates form items (widgets and validators)
+ * saFormItemGenerator generates form items (widgets and validators)
  *
  * @package    SfAdvanced
  * @subpackage form
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opFormItemGenerator
+class saFormItemGenerator
 {
   protected static $choicesType = array('checkbox', 'select', 'radio');
 
@@ -101,7 +101,7 @@ class opFormItemGenerator
         $obj = new sfWidgetFormTextarea($params);
         break;
       case 'rich_textarea':
-        $obj = new opWidgetFormRichTextarea($params);
+        $obj = new saWidgetFormRichTextarea($params);
         break;
       case 'password':
         $obj = new sfWidgetFormInputPassword($params);
@@ -114,14 +114,14 @@ class opFormItemGenerator
         {
           $params['can_be_empty'] = true;
         }
-        $obj = new opWidgetFormDate($params);
+        $obj = new saWidgetFormDate($params);
         break;
       case 'increased_input':
-        $obj = new opWidgetFormInputIncreased($params);
+        $obj = new saWidgetFormInputIncreased($params);
         break;
       case 'language_select':
         $languages = sfConfig::get('sa_supported_languages');
-        $choices = opToolkit::getCultureChoices($languages);
+        $choices = saToolkit::getCultureChoices($languages);
         $obj = new sfWidgetFormChoice(array('choices' => $choices));
         break;
       case 'country_select':
@@ -146,7 +146,7 @@ class opFormItemGenerator
             }
           }
         }
-        $list = opToolkit::arrayMapRecursive(array(sfContext::getInstance()->getI18N(), '__'), $list);
+        $list = saToolkit::arrayMapRecursive(array(sfContext::getInstance()->getI18N(), '__'), $list);
         $obj = new sfWidgetFormChoice(array('choices' => $list));
         break;
       case 'image_size':
@@ -168,7 +168,7 @@ class opFormItemGenerator
   public static function generateValidator($field, $choices = array())
   {
     $field = self::arrayKeyCamelize($field);
-    $option = array('required' => $field['IsRequired'], 'trim' => $field['IsTrim']);
+    $sation = array('required' => $field['IsRequired'], 'trim' => $field['IsTrim']);
 
     if (!$choices && !empty($field['Choices']))
     {
@@ -177,17 +177,17 @@ class opFormItemGenerator
 
     if ('checkbox' === $field['FormType'])
     {
-      $option['choices'] = $choices;
-      $option['multiple'] = true;
-      $obj = new sfValidatorChoice($option);
+      $sation['choices'] = $choices;
+      $sation['multiple'] = true;
+      $obj = new sfValidatorChoice($sation);
 
       return $obj;
     }
     if ('select' === $field['FormType'] || 'radio' === $field['FormType'])
     {
-      $option = array('choices' => $choices);
-      $option['required'] = $field['IsRequired'];
-      $obj = new sfValidatorChoice($option);
+      $sation = array('choices' => $choices);
+      $sation['required'] = $field['IsRequired'];
+      $obj = new sfValidatorChoice($sation);
 
       return $obj;
     }
@@ -196,15 +196,15 @@ class opFormItemGenerator
     {
       if (isset($field['ValueMin']) && is_numeric($field['ValueMin']))
       {
-        $option['min'] = $field['ValueMin'];
+        $sation['min'] = $field['ValueMin'];
       }
       if (isset($field['ValueMax']) && is_numeric($field['ValueMax']))
       {
-        $option['max'] = $field['ValueMax'];
-        if (isset($option['min']) && (int)$option['min'] > (int)$option['max'])
+        $sation['max'] = $field['ValueMax'];
+        if (isset($sation['min']) && (int)$sation['min'] > (int)$sation['max'])
         {
-          unset($option['min']);
-          unset($option['max']);
+          unset($sation['min']);
+          unset($sation['max']);
         }
       }
     }
@@ -212,15 +212,15 @@ class opFormItemGenerator
     {
       if (isset($field['ValueMin']) && false !== strtotime($field['ValueMin']))
       {
-        $option['min'] = $field['ValueMin'];
+        $sation['min'] = $field['ValueMin'];
       }
       if (isset($field['ValueMax']) && false !== strtotime($field['ValueMax']))
       {
-        $option['max'] = $field['ValueMax'];
-        if (isset($option['min']) && strtotime($option['min']) > strtotime($option['max']))
+        $sation['max'] = $field['ValueMax'];
+        if (isset($sation['min']) && strtotime($sation['min']) > strtotime($sation['max']))
         {
-          unset($option['min']);
-          unset($option['max']);
+          unset($sation['min']);
+          unset($sation['max']);
         }
       }
     }
@@ -228,24 +228,24 @@ class opFormItemGenerator
     {
       if (isset($field['ValueMin']))
       {
-        $option['min_length'] = $field['ValueMin'];
+        $sation['min_length'] = $field['ValueMin'];
       }
       if (isset($field['ValueMax']))
       {
-        $option['max_length'] = $field['ValueMax'];
+        $sation['max_length'] = $field['ValueMax'];
 
         if (1 > (int)$field['ValueMax'] || (isset($field['ValueMin']) && (int)$field['ValueMin'] > (int)$field['ValueMax']))
         {
-          unset($option['min_length']);
-          unset($option['max_length']);
+          unset($sation['min_length']);
+          unset($sation['max_length']);
         }
       }
     }
 
     if ('date' === $field['FormType'])
     {
-      $option['date_format_range_error'] = 'Y-m-d';
-      $obj = new opValidatorDate($option);
+      $sation['date_format_range_error'] = 'Y-m-d';
+      $obj = new saValidatorDate($sation);
 
       return $obj;
     }
@@ -253,35 +253,35 @@ class opFormItemGenerator
     switch ($field['ValueType'])
     {
       case 'email':
-        $obj = new sfValidatorEmail($option);
+        $obj = new sfValidatorEmail($sation);
         break;
       case 'pc_email':
-        $obj = new opValidatorPCEmail($option);
+        $obj = new saValidatorPCEmail($sation);
         break;
       case 'mobile_email':
-        $obj = new sfValidatorMobileEmail($option);
+        $obj = new sfValidatorMobileEmail($sation);
         break;
       case 'integer':
-        $obj = new sfValidatorInteger($option);
+        $obj = new sfValidatorInteger($sation);
         break;
       case 'regexp':
-        $option['pattern'] = $field['ValueRegexp'];
-        $obj = new sfValidatorRegex($option);
+        $sation['pattern'] = $field['ValueRegexp'];
+        $obj = new sfValidatorRegex($sation);
         break;
       case 'url':
-        $obj = new sfValidatorUrl($option);
+        $obj = new sfValidatorUrl($sation);
         break;
       case 'password':
-        $obj = new sfValidatorPassword($option);
+        $obj = new sfValidatorPassword($sation);
         break;
       case 'image_size':
-        $obj = new opValidatorImageSize($option);
+        $obj = new saValidatorImageSize($sation);
         break;
       case 'pass':
-        $obj = new sfValidatorPass($option);
+        $obj = new sfValidatorPass($sation);
         break;
       default:
-        $obj = new opValidatorString($option);
+        $obj = new saValidatorString($sation);
         break;
     }
 
@@ -332,7 +332,7 @@ class opFormItemGenerator
             }
           }
         }
-        $list = opToolkit::arrayMapRecursive(array(sfContext::getInstance()->getI18N(), '__'), $list);
+        $list = saToolkit::arrayMapRecursive(array(sfContext::getInstance()->getI18N(), '__'), $list);
         $params['choices'] = array('' => '')+ $list;
         $obj = new sfWidgetFormChoice($params);
         break;
@@ -342,7 +342,7 @@ class opFormItemGenerator
         $params['culture'] = sfContext::getInstance()->getUser()->getCulture();
         $params['month_format'] = 'number';
         $params['can_be_empty'] = true;
-        $obj = new opWidgetFormDate($params);
+        $obj = new saWidgetFormDate($params);
         break;
       // text and something else
       default:

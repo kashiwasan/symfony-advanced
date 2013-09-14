@@ -1,22 +1,22 @@
 rendering: ~
 
 cache_control:
-  class: opCacheControlFilter
+  class: saCacheControlFilter
 
 enable_app:
-  class: opCheckEnabledApplicationFilter
+  class: saCheckEnabledApplicationFilter
 
 xrds_header:
-  class: opAppendXRDSHeaderFilter
+  class: saAppendXRDSHeaderFilter
 
 security:  ~
 
 emoji:
-  class: opEmojiFilter
+  class: saEmojiFilter
 
 cache:     ~
 
 execution:
-  class: opExecutionFilter
+  class: saExecutionFilter
   param:
     type: execution

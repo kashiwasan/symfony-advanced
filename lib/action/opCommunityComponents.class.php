@@ -9,14 +9,14 @@
  */
 
 /**
- * opCommunityComponents
+ * saCommunityComponents
  *
  * @package    SfAdvanced
  * @subpackage action
  * @author     Shogo Kawahara <kawahara@tejimaya.net>
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-abstract class opCommunityComponents extends sfComponents
+abstract class saCommunityComponents extends sfComponents
 {
   public function executeCautionAboutCommunityMemberPre()
   {

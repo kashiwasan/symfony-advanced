@@ -16,7 +16,7 @@
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
 
-class opView extends sfPHPView
+class saView extends sfPHPView
 {
   public $customizeConditions = array(
     'category' => array(

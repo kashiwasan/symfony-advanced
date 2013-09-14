@@ -9,20 +9,20 @@
  */
 
 /**
- * opParameterHolder
+ * saParameterHolder
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Shogo Kawahara <kawahara@tejimaya.net>
  * @see        sfParameterHolder
  */
-class opParameterHolder extends sfParameterHolder
+class saParameterHolder extends sfParameterHolder
 {
   public function & get($name, $default = null, $isStripNullbyte = true)
   {
     if ($isStripNullbyte)
     {
-      $value = opToolkit::stripNullByteDeep(parent::get($name, $default));
+      $value = saToolkit::stripNullByteDeep(parent::get($name, $default));
     }
     else
     {
@@ -36,7 +36,7 @@ class opParameterHolder extends sfParameterHolder
   {
     if ($isStripNullbyte)
     {
-      $value = opToolkit::stripNullByteDeep(parent::getAll());
+      $value = saToolkit::stripNullByteDeep(parent::getAll());
     }
     else
     {

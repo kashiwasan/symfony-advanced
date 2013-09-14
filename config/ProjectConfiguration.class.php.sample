@@ -3,11 +3,11 @@
 require_once dirname(__FILE__).'/../lib/vendor/symfony/lib/autoload/sfCoreAutoload.class.php';
 sfCoreAutoload::register();
 
-require_once dirname(__FILE__).'/../lib/config/opProjectConfiguration.class.php';
+require_once dirname(__FILE__).'/../lib/config/saProjectConfiguration.class.php';
 
 define('SFADVANCED3_CONFIG_DIR', dirname(__FILE__));
 
-class ProjectConfiguration extends opProjectConfiguration
+class ProjectConfiguration extends saProjectConfiguration
 {
   public function setupProjectSfAdvanced()
   {

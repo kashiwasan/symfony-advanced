@@ -9,14 +9,14 @@
  */
 
 /**
- * opFriendAction
+ * saFriendAction
  *
  * @package    SfAdvanced
  * @subpackage action
  * @author     Kousuke Ebihara <ebihara@php.net>
  * @author     Shogo Kawahara <kawahara@tejimaya.net>
  */
-abstract class opFriendAction extends sfActions
+abstract class saFriendAction extends sfActions
 {
   public function preExecute()
   {
@@ -60,7 +60,7 @@ abstract class opFriendAction extends sfActions
   */
   public function executeLink($request)
   {
-    $this->redirectUnless(opConfig::get('enable_friend_link'), '@error');
+    $this->redirectUnless(saConfig::get('enable_friend_link'), '@error');
     $this->redirectIf($this->relation->isAccessBlocked(), '@error');
     $this->forward404If($this->relation->getMemberIdFrom() == $this->relation->getMemberIdTo());
 
@@ -173,7 +173,7 @@ abstract class opFriendAction extends sfActions
     }
 
     $page = $request->getParameter('page', 1);
-    if ($page == 1 && opConfig::get('is_allow_post_activity'))
+    if ($page == 1 && saConfig::get('is_allow_post_activity'))
     {
       $activityData = new ActivityData();
       $activityData->setBody($request->getParameter('body'));

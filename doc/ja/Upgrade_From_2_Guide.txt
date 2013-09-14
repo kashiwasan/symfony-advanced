@@ -74,7 +74,7 @@ SfAdvanced2 の config.php を config/config.SfAdvanced2.php としてコピー�
 
 以下のコマンドを実行し、プラグインをインストールします::
 
-  $ ./symfony opPlugin:sync
+  $ ./symfony saPlugin:sync
 
 各ディレクトリのパーミッションを適切なものに設定します::
 
@@ -152,5 +152,5 @@ SfAdvanced2 の config.php を config/config.SfAdvanced2.php としてコピー�
 
 * ナビメニューの設定はコンバートしません
 
-* SfAdvanced2 のナビメニューにないメニュー項目、 SfAdvanced にない機能のメニュー項目はナビメニューからクリックできないようになっています。対応するにはナビメニューの設定を調節し、 CSS に記述を加えるか、 SfAdvanced2 互換スキンを使わないように管理画面から opSkinClassicPlugin を無効にしてください
+* SfAdvanced2 のナビメニューにないメニュー項目、 SfAdvanced にない機能のメニュー項目はナビメニューからクリックできないようになっています。対応するにはナビメニューの設定を調節し、 CSS に記述を加えるか、 SfAdvanced2 互換スキンを使わないように管理画面から saSkinClassicPlugin を無効にしてください
 

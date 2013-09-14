@@ -9,19 +9,19 @@
  */
 
 /**
- * opSearchTextAnalyzer
+ * saSearchTextAnalyzer
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opSearchTextAnalyzer extends Doctrine_Search_Analyzer_Standard implements Doctrine_Search_Analyzer_Interface
+class saSearchTextAnalyzer extends Doctrine_Search_Analyzer_Standard implements Doctrine_Search_Analyzer_Interface
 {
   public function analyze($text)
   {
     $result = parent::analyze($text);
 
-    opApplicationConfiguration::registerZend();
+    saApplicationConfiguration::registerZend();
 
     Zend_Search_Lucene_Analysis_Analyzer::setDefault(new Zend_Search_Lucene_Analysis_Analyzer_Common_Utf8());
     $analyzer = Zend_Search_Lucene_Analysis_Analyzer::getDefault();

@@ -17,9 +17,9 @@
  */
 class MemberProfileForm extends BaseForm
 {
-  public function __construct($profileMember = array(), $options = array(), $CSRFSecret = null)
+  public function __construct($profileMember = array(), $sations = array(), $CSRFSecret = null)
   {
-    parent::__construct(array(), $options, $CSRFSecret);
+    parent::__construct(array(), $sations, $CSRFSecret);
 
     foreach ($profileMember as $profile)
     {
@@ -87,10 +87,10 @@ class MemberProfileForm extends BaseForm
         if ('date' === $profile->getFormType())
         {
           $_values = array_map('intval', explode('-', $value['value']));
-          $options = $profile->getProfileOption();
-          foreach ($options as $option)
+          $sations = $profile->getProfileOption();
+          foreach ($sations as $sation)
           {
-            $ids[] = $option->getId();
+            $ids[] = $sation->getId();
           }
           $memberProfile->setValue($value['value']);
         }
@@ -137,7 +137,7 @@ class MemberProfileForm extends BaseForm
 
   protected function setProfileWidgets($profiles)
   {
-    $presetList = opToolkit::getPresetProfileList();
+    $presetList = saToolkit::getPresetProfileList();
 
     foreach ($profiles as $profile)
     {
@@ -153,10 +153,10 @@ class MemberProfileForm extends BaseForm
       $profileWithI18n = $profile->toArray() + $profileI18n;
 
       $widgetOptions = array(
-        'widget' => opFormItemGenerator::generateWidget($profileWithI18n, $this->getFormOptionsValue($profile->getId())),
+        'widget' => saFormItemGenerator::generateWidget($profileWithI18n, $this->getFormOptionsValue($profile->getId())),
       );
       $validatorOptions = array(
-        'validator' => opFormItemGenerator::generateValidator($profileWithI18n, $this->getFormOptions($profile->getId())),
+        'validator' => saFormItemGenerator::generateValidator($profileWithI18n, $this->getFormOptions($profile->getId())),
       );
 
       if ($profile->getIsEditPublicFlag())
@@ -168,8 +168,8 @@ class MemberProfileForm extends BaseForm
         }
       }
 
-      $this->widgetSchema[$profile->getName()] = new opWidgetFormProfile($widgetOptions);
-      $this->validatorSchema[$profile->getName()] = new opValidatorProfile($validatorOptions);
+      $this->widgetSchema[$profile->getName()] = new saWidgetFormProfile($widgetOptions);
+      $this->validatorSchema[$profile->getName()] = new saValidatorProfile($validatorOptions);
 
       $this->widgetSchema[$profile->getName()]->profile = $profile;
       $this->validatorSchema[$profile->getName()]->profile = $profile;
@@ -189,11 +189,11 @@ class MemberProfileForm extends BaseForm
   private function getFormOptions($profileId)
   {
     $result = array();
-    $options = Doctrine::getTable('ProfileOption')->retrieveByProfileId($profileId);
+    $sations = Doctrine::getTable('ProfileOption')->retrieveByProfileId($profileId);
 
-    foreach ($options as $option)
+    foreach ($sations as $sation)
     {
-      $result[] = $option->getId();
+      $result[] = $sation->getId();
     }
 
     return $result;
@@ -202,11 +202,11 @@ class MemberProfileForm extends BaseForm
   private function getFormOptionsValue($profileId)
   {
     $result = array();
-    $options = Doctrine::getTable('ProfileOption')->retrieveByProfileId($profileId);
+    $sations = Doctrine::getTable('ProfileOption')->retrieveByProfileId($profileId);
 
-    foreach ($options as $option)
+    foreach ($sations as $sation)
     {
-      $result[$option->getId()] = $option->getValue();
+      $result[$sation->getId()] = $sation->getValue();
     }
 
     return $result;

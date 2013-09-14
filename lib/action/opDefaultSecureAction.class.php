@@ -16,7 +16,7 @@
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  * @author     Shinichi Urabe <urabe@tejimaya.com>
  */
-class opDefaultSecureAction extends sfAction
+class saDefaultSecureAction extends sfAction
 {
  /**
   * Executes secure action

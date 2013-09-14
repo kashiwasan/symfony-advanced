@@ -15,7 +15,7 @@
  * @subpackage widget
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class sfWidgetFormSchemaFormatterMobile extends opWidgetFormSchemaFormatter
+class sfWidgetFormSchemaFormatterMobile extends saWidgetFormSchemaFormatter
 {
   protected
     $rowFormat                 = '',
@@ -27,9 +27,9 @@ class sfWidgetFormSchemaFormatterMobile extends opWidgetFormSchemaFormatter
 
   public function __construct(sfWidgetFormSchema $widgetSchema)
   {
-    $this->rowFormat = '<font color="'.opColorConfig::get('core_color_19').'">%label%:</font><br>%field%%help%%hidden_fields%%error%<br><br>';
-    $this->errorListFormatInARow = '<font color="'.opColorConfig::get('core_color_22').'">'."\n".'%errors%</font>';
-    $this->helpFormat = '<br><font color="'.opColorConfig::get('core_color_19').'">%help%</font>';
+    $this->rowFormat = '<font color="'.saColorConfig::get('core_color_19').'">%label%:</font><br>%field%%help%%hidden_fields%%error%<br><br>';
+    $this->errorListFormatInARow = '<font color="'.saColorConfig::get('core_color_22').'">'."\n".'%errors%</font>';
+    $this->helpFormat = '<br><font color="'.saColorConfig::get('core_color_19').'">%help%</font>';
 
     $this->setWidgetSchema($widgetSchema);
   }

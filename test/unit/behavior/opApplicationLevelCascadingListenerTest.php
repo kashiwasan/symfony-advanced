@@ -15,7 +15,7 @@ $t = new lime_test(null, new lime_output_color());
 // ---------------
 // Defining Mocks
 // ---------------
-class TestParent extends opDoctrineRecord
+class TestParent extends saDoctrineRecord
 {
   public function setTableDefinition()
   {
@@ -33,7 +33,7 @@ class TestParent extends opDoctrineRecord
   }
 }
 
-class TestChildA extends opDoctrineRecord
+class TestChildA extends saDoctrineRecord
 {
   public function setTableDefinition()
   {
@@ -49,7 +49,7 @@ class TestChildA extends opDoctrineRecord
   }
 }
 
-class TestChildB extends opDoctrineRecord
+class TestChildB extends saDoctrineRecord
 {
   public function setTableDefinition()
   {
@@ -65,7 +65,7 @@ class TestChildB extends opDoctrineRecord
   }
 }
 
-class TestChildC extends opDoctrineRecord
+class TestChildC extends saDoctrineRecord
 {
   public function setTableDefinition()
   {
@@ -80,7 +80,7 @@ class TestChildC extends opDoctrineRecord
     $this->hasOne('TestParent', array('local' => 'test_parent_id', 'foreign' => 'id', 'onDelete' => 'cascade'));
   }
 }
-class TestChildD extends opDoctrineRecord
+class TestChildD extends saDoctrineRecord
 {
   public function setTableDefinition()
   {
@@ -137,7 +137,7 @@ function getConnection($isAppLevelCascading = false)
 // ---------------
 list ($conn, $adapter) = getConnection();
 
-$t->comment('Doctrine::ATTR_EXPORT has Doctrine::EXPORT_CONSTRAINTS, so opApplicationLevelCascadingListener is disabled.');
+$t->comment('Doctrine::ATTR_EXPORT has Doctrine::EXPORT_CONSTRAINTS, so saApplicationLevelCascadingListener is disabled.');
 $record = getRecord();
 initAdapter($adapter);
 $t->ok(!($record->getListener() instanceof Doctrine_Record_Listener_Chain), 'The record does not have any listener.');
@@ -160,7 +160,7 @@ Doctrine_Manager::getInstance()->closeConnection($conn);
 // ---------------
 list ($conn, $adapter) = getConnection(true);
 
-$t->comment('Doctrine::ATTR_EXPORT doesn\'t have Doctrine::EXPORT_CONSTRAINTS, so opApplicationLevelCascadingListener is enabled.');
+$t->comment('Doctrine::ATTR_EXPORT doesn\'t have Doctrine::EXPORT_CONSTRAINTS, so saApplicationLevelCascadingListener is enabled.');
 $record = getRecord();
 initAdapter($adapter);
 $t->ok($record->getListener() instanceof Doctrine_Record_Listener_Chain, 'The record has listener.');

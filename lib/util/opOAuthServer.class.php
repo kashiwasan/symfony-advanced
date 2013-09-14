@@ -11,13 +11,13 @@ require_once 'OAuth.php';
  */
 
 /**
- * opOAuthServer
+ * saOAuthServer
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opOAuthServer extends OAuthServer
+class saOAuthServer extends OAuthServer
 {
   public function __construct($data_store)
   {

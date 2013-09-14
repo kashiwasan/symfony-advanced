@@ -9,13 +9,13 @@
  */
 
 /**
- * opPresetProfileForm.
+ * saPresetProfileForm.
  *
  * @package    SfAdvanced
  * @subpackage form
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opPresetProfileForm extends ProfileForm
+class saPresetProfileForm extends ProfileForm
 {
   public function configure()
   {
@@ -57,7 +57,7 @@ class opPresetProfileForm extends ProfileForm
 
   protected function getPresetChoiceList()
   {
-    $list = opToolkit::getPresetProfileList();
+    $list = saToolkit::getPresetProfileList();
 
     $result = array();
 
@@ -100,7 +100,7 @@ class opPresetProfileForm extends ProfileForm
     if ($this->isNew())
     {
       $values = $this->getValues();
-      $presetList = opToolkit::getPresetProfileList();
+      $presetList = saToolkit::getPresetProfileList();
       $presetName = $values['preset'];
       $preset = $presetList[$presetName];
 

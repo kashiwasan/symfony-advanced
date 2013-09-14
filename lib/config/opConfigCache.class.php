@@ -9,13 +9,13 @@
  */
 
 /**
- * opConfigCache
+ * saConfigCache
  *
  * @package    SfAdvanced
  * @subpackage config
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opConfigCache extends sfConfigCache
+class saConfigCache extends sfConfigCache
 {
   /**
    * @see sfConfigCache

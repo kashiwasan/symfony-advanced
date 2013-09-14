@@ -9,13 +9,13 @@
  */
 
 /**
- * opSnsTermForm
+ * saSnsTermForm
  *
  * @package    SfAdvanced
  * @subpackage form
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opSnsTermForm extends sfForm
+class saSnsTermForm extends sfForm
 {
   protected static $availableApplications = array(
     'pc_frontend' => 'pc',
@@ -84,7 +84,7 @@ class opSnsTermForm extends sfForm
           throw new sfValidatorErrorSchema($validator, array($name => $error));
         }
 
-        $validator = new opValidatorString(array('trim' => true));
+        $validator = new saValidatorString(array('trim' => true));
         try
         {
           $values[$name][$application] = $validator->clean($value);

@@ -9,12 +9,12 @@
  */
 
 /**
- * opPcFrontWebController
+ * saPcFrontWebController
  *
  * @package    SfAdvanced
  * @subpackage controller
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opPcFrontWebController extends opFrontWebController
+class saPcFrontWebController extends saFrontWebController
 {
 }

@@ -9,7 +9,7 @@
  */
 
 /**
- * opUtilHelper provides basic utility helper functions.
+ * saUtilHelper provides basic utility helper functions.
  *
  * @package    SfAdvanced
  * @subpackage helper
@@ -23,12 +23,12 @@
  * @param string  $name
  * @param string  $internal_uri
  * @param integer $page_no
- * @param options $options
+ * @param sations $sations
  * @return string
  */
-function sa_link_to_for_pager($name, $internal_uri, $page_no, $options)
+function sa_link_to_for_pager($name, $internal_uri, $page_no, $sations)
 {
-  $html_options = _parse_attributes($options);
+  $html_options = _parse_attributes($sations);
 
   $html_options = _convert_options_to_javascript($html_options);
 
@@ -68,31 +68,31 @@ function sa_link_to_for_pager($name, $internal_uri, $page_no, $options)
  *
  * @param sfPager $pager
  * @param string  $internal_uri
- * @param array   $options
+ * @param array   $sations
  */
-function sa_include_pager_navigation($pager, $internal_uri, $options = array())
+function sa_include_pager_navigation($pager, $internal_uri, $sations = array())
 {
   $uri = url_for($internal_uri);
 
-  if (isset($options['use_current_query_string']) && $options['use_current_query_string'])
+  if (isset($sations['use_current_query_string']) && $sations['use_current_query_string'])
   {
-    $options['query_string'] = sfContext::getInstance()->getRequest()->getCurrentQueryString();
-    $pageFieldName = isset($options['page_field_name']) ? $options['page_field_name'] : 'page';
-    $options['query_string'] = preg_replace('/'.$pageFieldName.'=\d\&*/', '', $options['query_string']);
-    unset($options['page_field_name']);
-    unset($options['use_current_query_string']);
+    $sations['query_string'] = sfContext::getInstance()->getRequest()->getCurrentQueryString();
+    $pageFieldName = isset($sations['page_field_name']) ? $sations['page_field_name'] : 'page';
+    $sations['query_string'] = preg_replace('/'.$pageFieldName.'=\d\&*/', '', $sations['query_string']);
+    unset($sations['page_field_name']);
+    unset($sations['use_current_query_string']);
   }
 
-  if (isset($options['query_string']))
+  if (isset($sations['query_string']))
   {
-    $options['link_options']['query_string'] = $options['query_string'];
-    unset($options['query_string']);
+    $sations['link_options']['query_string'] = $sations['query_string'];
+    unset($sations['query_string']);
   }
 
   $params = array(
     'pager' => $pager,
     'internalUri' => $internal_uri,
-    'options' => new opPartsOptionHolder($options)
+    'sations' => new saPartsOptionHolder($sations)
   );
   $pager = sfOutputEscaper::unescape($pager);
   if ($pager instanceof sfReversibleDoctrinePager)
@@ -132,7 +132,7 @@ function pager_navigation($pager, $link_to, $is_total = true, $query_string = ''
   $params = array(
     'pager' => $pager,
     'link_to' => $link_to,
-    'options' => new opPartsOptionHolder(array(
+    'sations' => new saPartsOptionHolder(array(
       'is_total' => $is_total,
       'query_string' => $query_string
     )
@@ -703,22 +703,22 @@ function sa_within_page_link($marker = '▼')
 {
   static $n = 0;
 
-  $options = array();
+  $sations = array();
   if ($n)
   {
-    $options['name'] = sprintf('a%d', $n);
+    $sations['name'] = sprintf('a%d', $n);
   }
   if ($marker)
   {
-    $options['href'] = sprintf('#a%d', $n+1);
+    $sations['href'] = sprintf('#a%d', $n+1);
   }
 
   $n++;
 
-  return content_tag('a', $marker, $options);
+  return content_tag('a', $marker, $sations);
 }
 
-function sa_mail_to($route, $params = array(), $name = '', $options = array(), $default_value = array())
+function sa_mail_to($route, $params = array(), $name = '', $sations = array(), $default_value = array())
 {
   $configuration = sfContext::getInstance()->getConfiguration();
   $configPath = '/mobile_mail_frontend/config/routing.yml';
@@ -731,13 +731,13 @@ function sa_mail_to($route, $params = array(), $name = '', $options = array(), $
     $params['hash'] = $user->getMember()->getMailAddressHash();
   }
 
-  $routing = new opMailRouting(new sfEventDispatcher());
+  $routing = new saMailRouting(new sfEventDispatcher());
   $config = new sfRoutingConfigHandler();
   $routes = $config->evaluate($files);
 
   $routing->setRoutes(array_merge(sfContext::getInstance()->getRouting()->getRoutes(), $routes));
 
-  return mail_to($routing->generate($route, $params), $name, $options, $default_value);
+  return mail_to($routing->generate($route, $params), $name, $sations, $default_value);
 }
 
 function sa_banner($name)
@@ -793,7 +793,7 @@ function sa_have_privilege_by_uri($uri, $params = array(), $member_id = null)
   }
 
   $route = clone $routes[$uri];
-  if ($route instanceof opDynamicAclRoute)
+  if ($route instanceof saDynamicAclRoute)
   {
     $route->bind(sfContext::getInstance(), $params);
     try
@@ -804,8 +804,8 @@ function sa_have_privilege_by_uri($uri, $params = array(), $member_id = null)
     {
       // do nothing
     }
-    $options = $route->getOptions();
-    return sa_have_privilege($options['privilege'], $member_id, $route);
+    $sations = $route->getOptions();
+    return sa_have_privilege($sations['privilege'], $member_id, $route);
   }
 
   return true;
@@ -822,7 +822,7 @@ function sa_decoration($string, $is_strip = false, $is_use_stylesheet = null, $i
     }
   }
 
-  return opWidgetFormRichTextareaSfAdvanced::toHtml($string, $is_strip, $is_use_stylesheet, $is_html_tag_followup);
+  return saWidgetFormRichTextareaSfAdvanced::toHtml($string, $is_strip, $is_use_stylesheet, $is_html_tag_followup);
 }
 
 function sa_is_accessible_url($uri)
@@ -1015,11 +1015,11 @@ function sa_replace_sns_term($string)
  * Creates a <a> link tag for the member nickname
  *
  * @value  mixed   $value (string or Member object)
- * @param  string  $options
+ * @param  string  $sations
  * @param  string  $routeName
  * @return string
  */
-function sa_link_to_member($value, $options = array(), $routeName = '@obj_member_profile')
+function sa_link_to_member($value, $sations = array(), $routeName = '@obj_member_profile')
 {
   $member = null;
   if ($value instanceof sfOutputEscaper || $value instanceof Member)
@@ -1039,18 +1039,18 @@ function sa_link_to_member($value, $options = array(), $routeName = '@obj_member
     }
 
     $link_target = $member->name;
-    if (isset($options['link_target']))
+    if (isset($sations['link_target']))
     {
-      $link_target = $options['link_target'];
-      unset($options['link_target']);
+      $link_target = $sations['link_target'];
+      unset($sations['link_target']);
     }
 
-    return link_to($link_target, sprintf('%s?id=%d', $routeName, $member->id), $options);
+    return link_to($link_target, sprintf('%s?id=%d', $routeName, $member->id), $sations);
   }
 
   return sfOutputEscaper::escape(
     sfConfig::get('sf_escaping_method'),
-    opConfig::get('nickname_of_member_who_does_not_have_credentials', '-')
+    saConfig::get('nickname_of_member_who_does_not_have_credentials', '-')
   );
 }
 
@@ -1077,46 +1077,46 @@ function sa_get_gadget_type($type1, $type2)
  * Returns a image tag
  *
  * @param string  $source
- * @param array   $options
+ * @param array   $sations
  *
  * @return string An image tag.
  * @see image_tag_sf_image
  */
-function sa_image_tag_sf_image($source, $options = array())
+function sa_image_tag_sf_image($source, $sations = array())
 {
-  if (!isset($options['no_image']))
+  if (!isset($sations['no_image']))
   {
-    $options['no_image'] = sa_image_path('no_image.gif');
+    $sations['no_image'] = sa_image_path('no_image.gif');
   }
 
-  return image_tag_sf_image($source, $options);
+  return image_tag_sf_image($source, $sations);
 }
 
 /**
  * Returns a image tag
  *
  * @param string  $source
- * @param array   $options
+ * @param array   $sations
  *
  * @return string An image tag.
  * @see image_tag
  */
-function sa_image_tag($source, $options = array())
+function sa_image_tag($source, $sations = array())
 {
-  if (!isset($options['raw_name']))
+  if (!isset($sations['raw_name']))
   {
     $absolute = false;
-    if (isset($options['absolute']))
+    if (isset($sations['absolute']))
     {
-      unset($options['absolute']);
+      unset($sations['absolute']);
       $absolute = true;
     }
 
-    $options['raw_name'] = true;
+    $sations['raw_name'] = true;
     $source = sa_image_path($source, $absolute);
   }
 
-  return image_tag($source, $options);
+  return image_tag($source, $sations);
 }
 
 /**
@@ -1144,7 +1144,7 @@ function sa_image_path($source, $absolute = false)
       $plugins = sfContext::getInstance()->getConfiguration()->getPlugins();
       foreach ($plugins as $plugin)
       {
-        if (0 === strpos($plugin, 'opSkin'))
+        if (0 === strpos($plugin, 'saSkin'))
         {
           $skinPlugin = $plugin;
           break;

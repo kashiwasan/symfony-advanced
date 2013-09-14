@@ -9,17 +9,17 @@
  */
 
 /**
- * opWidgetFormInputColor represents a color widget.
+ * saWidgetFormInputColor represents a color widget.
  *
  * @package    SfAdvanced
  * @subpackage widget
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opWidgetFormInputColor extends sfWidgetFormInputText
+class saWidgetFormInputColor extends sfWidgetFormInputText
 {
-  protected function configure($options = array(), $attributes = array())
+  protected function configure($sations = array(), $attributes = array())
   {
-    parent::configure($options, $attributes);
+    parent::configure($sations, $attributes);
 
     $this->addOption('is_display_pre_color', false);
     $this->addOption('color_label', 'After Change');

@@ -9,13 +9,13 @@
  */
 
 /**
- * opOAuthConsumerAction
+ * saOAuthConsumerAction
  *
  * @package    SfAdvanced
  * @subpackage action
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-abstract class opOAuthConsumerAction extends sfActions
+abstract class saOAuthConsumerAction extends sfActions
 {
   protected function getForm($consumer = null)
   {

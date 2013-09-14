@@ -9,14 +9,14 @@
  */
 
 /**
- * opAuthMailAddress actions.
+ * saAuthMailAddress actions.
  *
  * @package    SfAdvanced
- * @subpackage opAuthMailAddressPlugin
+ * @subpackage saAuthMailAddressPlugin
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  * @author     Shogo Kawahara <kawahara@tejimaya.net>
  */
-class opAuthMailAddressActions extends sfActions
+class saAuthMailAddressActions extends sfActions
 {
  /**
   * Executes register
@@ -27,10 +27,10 @@ class opAuthMailAddressActions extends sfActions
   {
     if ($this->getRoute()->getMember())
     {
-      $this->forward('opAuthMailAddress', 'login');
+      $this->forward('saAuthMailAddress', 'login');
     }
 
-    $adapter = new opAuthAdapterMailAddress('MailAddress');
+    $adapter = new saAuthAdapterMailAddress('MailAddress');
     if ($adapter->getAuthConfig('invite_mode') < 2)
     {
       return sfView::NONE;
@@ -38,7 +38,7 @@ class opAuthMailAddressActions extends sfActions
 
     $message = $request->getMailMessage();
 
-    $this->form = new opRequestRegisterURLForm(null, array('authMode' => 'MailAddress'));
+    $this->form = new saRequestRegisterURLForm(null, array('authMode' => 'MailAddress'));
     $this->form->bind(array('mail_address' => $message->from));
     if ($this->form->isValid())
     {
@@ -57,7 +57,7 @@ class opAuthMailAddressActions extends sfActions
   {
     if (!$this->getRoute()->getMember())
     {
-      $this->forward('opAuthMailAddress', 'register');
+      $this->forward('saAuthMailAddress', 'register');
     }
   }
 }

@@ -1,13 +1,13 @@
 <?php
 
 /**
- * opProfileOptionEmulator form.
+ * saProfileOptionEmulator form.
  *
  * @package    form
- * @subpackage opProfileOptionEmulator
+ * @subpackage saProfileOptionEmulator
  * @version    SVN: $Id: sfDoctrineFormTemplate.php 6174 2007-11-27 06:22:40Z fabien $
  */
-class opProfileOptionEmulatorForm extends BaseopProfileOptionEmulatorForm
+class saProfileOptionEmulatorForm extends BaseopProfileOptionEmulatorForm
 {
   public function configure()
   {

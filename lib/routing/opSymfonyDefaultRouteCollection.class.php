@@ -9,17 +9,17 @@
  */
 
 /**
- * opSymfonyDefaultRouteCollection
+ * saSymfonyDefaultRouteCollection
  *
  * @package    SfAdvanced
  * @subpackage routing
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opSymfonyDefaultRouteCollection extends sfRouteCollection
+class saSymfonyDefaultRouteCollection extends sfRouteCollection
 {
-  public function __construct(array $options)
+  public function __construct(array $sations)
   {
-    parent::__construct($options);
+    parent::__construct($sations);
 
     $this->routes['default_symfony'] = new sfRoute(
       '/symfony/:action/*',
@@ -31,7 +31,7 @@ class opSymfonyDefaultRouteCollection extends sfRouteCollection
       array('action' => 'index')
     );
 
-    $this->routes['default'] = new opDeprecatedRoute(
+    $this->routes['default'] = new saDeprecatedRoute(
       '/:module/:action/*'
     );
   }

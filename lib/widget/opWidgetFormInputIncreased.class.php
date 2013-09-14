@@ -9,19 +9,19 @@
  */
 
 /**
- * opWidgetFormInputIncreased represents a date widget.
+ * saWidgetFormInputIncreased represents a date widget.
  *
  * @package    SfAdvanced
  * @subpackage widget
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opWidgetFormInputIncreased extends sfWidgetForm
+class saWidgetFormInputIncreased extends sfWidgetForm
 {
-  public function __construct($options = array(), $attributes = array())
+  public function __construct($sations = array(), $attributes = array())
   {
     $this->addOption('type', 'text');
 
-    parent::__construct($options, $attributes);
+    parent::__construct($sations, $attributes);
   }
 
   /**

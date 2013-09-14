@@ -582,15 +582,15 @@ div.pagerRelativeMulti div.pager {
   text-align: right;
 }
 
-div.operation {
+div.saeration {
   padding: 4px;
 }
 
-div.operation ul.moreInfo {
+div.saeration ul.moreInfo {
   text-align: center;
 }
 
-div.operation ul.moreInfo li {
+div.saeration ul.moreInfo li {
   display: inline;
   background-position: 0 50%;
 }
@@ -712,7 +712,7 @@ div.operation ul.moreInfo li {
   padding: 10px 1em;
 }
 
-.box .operation {
+.box .saeration {
   padding: 10px 0;
 }
 
@@ -967,16 +967,16 @@ div.operation ul.moreInfo li {
   width: 90px;
 }
 
-.searchResultList tr.operation th {
+.searchResultList tr.saeration th {
   padding-top: 0;
   padding-bottom: 0;
 }
 
-.searchResultList tr.operation td {
+.searchResultList tr.saeration td {
   padding: 0;
 }
 
-.searchResultList tr.operation span.text {
+.searchResultList tr.saeration span.text {
   float: left;
   display: block;
   width: 180px;
@@ -984,7 +984,7 @@ div.operation ul.moreInfo li {
   border-right: 1px solid #CCCCCC;
 }
 
-.searchResultList tr.operation span.moreInfo {
+.searchResultList tr.saeration span.moreInfo {
   zoom: 1;
   display: block;
   margin-left: 121px;
@@ -992,13 +992,13 @@ div.operation ul.moreInfo li {
   text-align: center;
 }
 
-.searchResultList div.operation {
+.searchResultList div.saeration {
   text-align: center;
 }
 
-.searchResultList tr.operation span.moreInfo img,
-.searchResultList div.operation form,
-.searchResultList div.operation fieldset {
+.searchResultList tr.saeration span.moreInfo img,
+.searchResultList div.saeration form,
+.searchResultList div.saeration fieldset {
   display: inline;
   vertical-align: top;
 }
@@ -1060,15 +1060,15 @@ div.operation ul.moreInfo li {
   width: auto;
 }
 
-.manageList colgroup.operation col {
+.manageList colgroup.saeration col {
   width: 86px;
 }
 
-* html .manageList colgroup.operation col {
+* html .manageList colgroup.saeration col {
   width: 76px;
 }
 
-*:first-child+html .manageList colgroup.operation col {
+*:first-child+html .manageList colgroup.saeration col {
   width: 76px;
 }
 
@@ -1208,7 +1208,7 @@ div.operation ul.moreInfo li {
   text-align: right;
 }
 
-.commentList div.operation {
+.commentList div.saeration {
   padding: 8px 0;
 }
 
@@ -1288,14 +1288,14 @@ ol.activities li.activity .info {
 
 
 /*==============================================================================
- * toolbar of opWidgetFormRichTextareaSfAdvanced
+ * toolbar of saWidgetFormRichTextareaSfAdvanced
  *----------------------------------------------------------------------------*/
 div.parts table.mceToolbar {
   width: auto;
 }
 
 /*==============================================================================
- * Decoration by opWidgetFormRichTextareaSfAdvanced
+ * Decoration by saWidgetFormRichTextareaSfAdvanced
  *----------------------------------------------------------------------------*/
 span.sa_b {
 	text-decoration: inherit;

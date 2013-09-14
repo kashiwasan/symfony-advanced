@@ -9,13 +9,13 @@
  */
 
 /**
- * opChangeCommunityAdminRequestForm
+ * saChangeCommunityAdminRequestForm
  *
  * @package    SfAdvanced
  * @subpackage form
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opCommunityJoiningForm extends opBaseForm
+class saCommunityJoiningForm extends saBaseForm
 {
   public function setup()
   {

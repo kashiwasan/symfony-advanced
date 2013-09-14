@@ -9,13 +9,13 @@
  */
 
 /**
- * opDeprecatedRoute
+ * saDeprecatedRoute
  *
  * @package    SfAdvanced
  * @subpackage routing
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opDeprecatedRoute extends sfRoute
+class saDeprecatedRoute extends sfRoute
 {
   public function matchesUrl($url, $context = array())
   {

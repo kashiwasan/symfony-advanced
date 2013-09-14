@@ -76,7 +76,7 @@ echo javascript_tag(sprintf($googlemaps_script, $mapType)); ?>
 <?php include_stylesheets() ?>
 <?php include_javascripts() ?>
 </head>
-<body onload="load()" onunload="GUnload()" id="page_googlemaps_index" class="<?php echo opToolkit::isSecurePage() ? 'secure_page' : 'insecure_page' ?>">
+<body onload="load()" onunload="GUnload()" id="page_googlemaps_index" class="<?php echo saToolkit::isSecurePage() ? 'secure_page' : 'insecure_page' ?>">
 <div id="map" style="width: 300px; height: 320px"></div>
 </body>
 </html>

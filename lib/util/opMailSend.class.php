@@ -9,13 +9,13 @@
  */
 
 /**
- * opMailSend
+ * saMailSend
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-class opMailSend
+class saMailSend
 {
   public $subject = '';
   public $body = '';
@@ -25,7 +25,7 @@ class opMailSend
   {
     if (!self::$initialized)
     {
-      opApplicationConfiguration::registerZend();
+      saApplicationConfiguration::registerZend();
 
       if ($host = sfConfig::get('sa_mail_smtp_host'))
       {
@@ -38,7 +38,7 @@ class opMailSend
         Zend_Mail::setDefaultTransport($tr);
       }
 
-      opApplicationConfiguration::unregisterZend();
+      saApplicationConfiguration::unregisterZend();
 
       self::$initialized = true;
     }
@@ -58,7 +58,7 @@ class opMailSend
   public function setGlobalTemplate($template, $params = array())
   {
     $template = '_'.$template;
-    $view = new opGlobalPartialView(sfContext::getInstance(), 'superGlobal', $template, '');
+    $view = new saGlobalPartialView(sfContext::getInstance(), 'superGlobal', $template, '');
     $view->getAttributeHolder()->setEscaping(false);
     $view->setPartialVars($params);
     $body = $view->render();
@@ -84,11 +84,11 @@ class opMailSend
 
     $view->getAttributeHolder()->setEscaping(false);
     $view->setPartialVars($params);
-    $view->setAttribute('renderer_config', array('twig' => 'opTemplateRendererTwig'));
+    $view->setAttribute('renderer_config', array('twig' => 'saTemplateRendererTwig'));
     $view->setAttribute('rule_config', array('notify_mail' => array(
       array('loader' => 'sfTemplateSwitchableLoaderDoctrine', 'renderer' => 'twig', 'model' => 'NotificationMail'),
-      array('loader' => 'opNotificationMailTemplateLoaderConfigSample', 'renderer' => 'twig'),
-      array('loader' => 'opNotificationMailTemplateLoaderFilesystem', 'renderer' => 'php'),
+      array('loader' => 'saNotificationMailTemplateLoaderConfigSample', 'renderer' => 'twig'),
+      array('loader' => 'saNotificationMailTemplateLoaderFilesystem', 'renderer' => 'php'),
     )));
     $view->execute();
 
@@ -116,7 +116,7 @@ class opMailSend
 
     if (empty($params['target']))
     {
-      $target = opToolkit::isMobileEmailAddress($to) ? 'mobile' : 'pc';
+      $target = saToolkit::isMobileEmailAddress($to) ? 'mobile' : 'pc';
     }
     else
     {
@@ -146,7 +146,7 @@ class opMailSend
     {
       $subject = $notificationMail->getTitle();
       $templateStorage = new sfTemplateStorageString($subject);
-      $renderer = new opTemplateRendererTwig();
+      $renderer = new saTemplateRendererTwig();
       $params['sf_type'] = null;
       $parameterHolder = new sfViewParameterHolder($context->getEventDispatcher(), $params);
       $subject = $renderer->evaluate($templateStorage, $parameterHolder->toArray());
@@ -156,20 +156,20 @@ class opMailSend
     return self::execute($subject, $to, $from, $body.$signature);
   }
 
-  public static function sendTemplateMailToMember($template, Member $member, $params = array(), $options = array(), $context = null)
+  public static function sendTemplateMailToMember($template, Member $member, $params = array(), $sations = array(), $context = null)
   {
     $mailConfigs = Doctrine::getTable('NotificationMail')->getConfigs();
 
-    $options = array_merge(array(
-      'from'           => opConfig::get('admin_mail_address'),
+    $sations = array_merge(array(
+      'from'           => saConfig::get('admin_mail_address'),
       'is_send_pc'     => true,
       'is_send_mobile' => true,
       'pc_params'      => array(),
       'mobile_params'  => array()
-    ), $options);
+    ), $sations);
 
     // to pc
-    if ($options['is_send_pc'] && ($address = $member->getConfig('pc_address')) &&
+    if ($sations['is_send_pc'] && ($address = $member->getConfig('pc_address')) &&
       (
         !isset($mailConfigs['pc'][$template]['member_configurable']) ||
         !$mailConfigs['pc'][$template]['member_configurable'] ||
@@ -177,12 +177,12 @@ class opMailSend
       )
     )
     {
-      opMailSend::sendTemplateMail($template, $address, $options['from'],
-        array_merge($params, $options['pc_params']), $context);
+      saMailSend::sendTemplateMail($template, $address, $sations['from'],
+        array_merge($params, $sations['pc_params']), $context);
     }
 
     // to mobile
-    if ($options['is_send_mobile'] && ($address = $member->getConfig('mobile_address')) &&
+    if ($sations['is_send_mobile'] && ($address = $member->getConfig('mobile_address')) &&
       (
         !isset($mailConfigs['mobile'][$template]['member_configurable']) ||
         !$mailConfigs['mobile'][$template]['member_configurable'] ||
@@ -190,8 +190,8 @@ class opMailSend
       )
     )
     {
-      opMailSend::sendTemplateMail($template, $address, $options['from'],
-        array_merge($params, $options['mobile_params']), $context);
+      saMailSend::sendTemplateMail($template, $address, $sations['from'],
+        array_merge($params, $sations['mobile_params']), $context);
     }
   }
 
@@ -204,7 +204,7 @@ class opMailSend
 
     self::initialize();
 
-    opApplicationConfiguration::registerZend();
+    saApplicationConfiguration::registerZend();
 
     $subject = mb_convert_kana($subject, 'KV');
 
@@ -222,7 +222,7 @@ class opMailSend
 
     $result = $mailer->send();
 
-    opApplicationConfiguration::unregisterZend();
+    saApplicationConfiguration::unregisterZend();
 
     return $result;
   }

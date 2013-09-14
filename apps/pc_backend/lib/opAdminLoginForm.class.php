@@ -9,13 +9,13 @@
  */
 
 /**
- * opAdminLoginForm
+ * saAdminLoginForm
  *
  * @package    SfAdvanced
  * @subpackage form
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opAdminLoginForm extends sfForm
+class saAdminLoginForm extends sfForm
 {
   public function configure()
   {
@@ -39,7 +39,7 @@ class opAdminLoginForm extends sfForm
     ));
 
     $this->validatorSchema->setPostValidator(new sfValidatorCallback(array(
-      'callback' => array('opAdminLoginForm', 'validate'),
+      'callback' => array('saAdminLoginForm', 'validate'),
     )));
   }
 

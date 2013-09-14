@@ -9,13 +9,13 @@
  */
 
 /**
- * opJsonApiView
+ * saJsonApiView
  *
  * @package    SfAdvanced
  * @subpackage view
  * @author     Kimura Youichi <kim.upsilon@gmail.com>
  */
-class opJsonApiView extends sfPHPView
+class saJsonApiView extends sfPHPView
 {
   public function configure()
   {

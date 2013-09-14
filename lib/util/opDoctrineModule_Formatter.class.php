@@ -9,13 +9,13 @@
  */
 
 /**
- * opDoctrineFormatter
+ * saDoctrineFormatter
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-class opDoctrineModule_Formatter extends Doctrine_Formatter
+class saDoctrineModule_Formatter extends Doctrine_Formatter
 {
   public function getForeignKeyName($fkey)
   {

@@ -9,13 +9,13 @@
  */
 
 /**
- * opMemberAclBuilder
+ * saMemberAclBuilder
  *
  * @package    SfAdvanced
  * @subpackage acl
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opMemberAclBuilder extends opAclBuilder
+class saMemberAclBuilder extends saAclBuilder
 {
   static protected
     $resource = array();

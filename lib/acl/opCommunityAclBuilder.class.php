@@ -9,13 +9,13 @@
  */
 
 /**
- * opCommunityTopicAclBuilder
+ * saCommunityTopicAclBuilder
  *
  * @package    SfAdvanced
  * @subpackage acl
  * @author     Eitarow Fukamachi <fukamachi@tejimaya.net>
  */
-class opCommunityAclBuilder extends opAclBuilder
+class saCommunityAclBuilder extends saAclBuilder
 {
   static protected
     $resource = array();
@@ -53,7 +53,7 @@ class opCommunityAclBuilder extends opAclBuilder
     {
       $acl->allow('guest', null, 'view');
     }
-    else if ('open' === $resource->getConfig('public_flag'))
+    else if ('saen' === $resource->getConfig('public_flag'))
     {
       $acl->allow('alien', null, 'view');
     }

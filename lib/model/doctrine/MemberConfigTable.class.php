@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class MemberConfigTable extends opAccessControlDoctrineTable
+class MemberConfigTable extends saAccessControlDoctrineTable
 {
   public $results;
 

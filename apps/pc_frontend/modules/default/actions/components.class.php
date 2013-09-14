@@ -13,7 +13,7 @@ class defaultComponents extends sfComponents
   public function executeGlobalNav()
   {
     $type = 'insecure_global';
-    if (opToolkit::isSecurePage()) {
+    if (saToolkit::isSecurePage()) {
       $type = 'secure_global';
     }
     $this->navs = Doctrine::getTable('Navigation')->retrieveByType($type);
@@ -21,7 +21,7 @@ class defaultComponents extends sfComponents
 
   public function executeLocalNav()
   {
-    if (!opToolkit::isSecurePage()) {
+    if (!saToolkit::isSecurePage()) {
       return sfView::NONE;
     }
 
@@ -41,7 +41,7 @@ class defaultComponents extends sfComponents
 
   public function executeSmtMenu()
   {
-    $type = opToolkit::isSecurePage() ? 'smartphone_default' : 'smartphone_insecure';
+    $type = saToolkit::isSecurePage() ? 'smartphone_default' : 'smartphone_insecure';
 
     $this->navs = Doctrine::getTable('Navigation')->retrieveByType($type);
   }
@@ -94,7 +94,7 @@ class defaultComponents extends sfComponents
 
   public function executeLanguageSelecterBox()
   {
-    $this->form = new opLanguageSelecterForm();
+    $this->form = new saLanguageSelecterForm();
   }
 
   public function executeLoginFormBox()
@@ -115,7 +115,7 @@ class defaultComponents extends sfComponents
   {
     try
     {
-      $fetcher = new opRssFetcher('UTF-8');
+      $fetcher = new saRssFetcher('UTF-8');
       $this->result = @$fetcher->fetch($this->gadget->getConfig('url'), true);
       if ($this->result)
       {

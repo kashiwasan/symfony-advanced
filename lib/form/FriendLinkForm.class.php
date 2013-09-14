@@ -16,7 +16,7 @@
  * @author     Shogo Kawahara <kawahara@tejimaya.net>
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class FriendLinkForm extends opBaseForm
+class FriendLinkForm extends saBaseForm
 {
   public function configure()
   {

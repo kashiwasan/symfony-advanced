@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class opPluginInstallTask extends sfPluginInstallTask
+class saPluginInstallTask extends sfPluginInstallTask
 {
   protected $pluginManager = null;
 
@@ -28,14 +28,14 @@ class opPluginInstallTask extends sfPluginInstallTask
       new sfCommandOption('env', null, sfCommandOption::PARAMETER_REQUIRED, 'The environment', 'prod'),
     ));
 
-    $this->namespace        = 'opPlugin';
+    $this->namespace        = 'saPlugin';
     $this->name             = 'install';
     $this->briefDescription = 'Installs the SfAdvanced plugin';
     $this->detailedDescription = <<<EOF
 The [plugin:install|INFO] task installs the SfAdvanced plugin:
 Call it with:
 
-  [./symfony opPlugin:install opSamplePlugin|INFO]
+  [./symfony saPlugin:install saSamplePlugin|INFO]
 EOF;
   }
 
@@ -72,16 +72,16 @@ EOF;
     return false;
   }
 
-  protected function execute($arguments = array(), $options = array())
+  protected function execute($arguments = array(), $sations = array())
   {
     // Remove E_STRICT and E_DEPRECATED from error_reporting
     error_reporting(error_reporting() & ~(E_STRICT | E_DEPRECATED));
 
-    if (empty($options['channel']))
+    if (empty($sations['channel']))
     {
-      $options['channel'] = opPluginManager::getDefaultPluginChannelServerName();
+      $sations['channel'] = saPluginManager::getDefaultPluginChannelServerName();
     }
-    $manager = $this->getPluginManager($options['channel']);
+    $manager = $this->getPluginManager($sations['channel']);
 
     if (sfConfig::get('sa_http_proxy'))
     {
@@ -89,7 +89,7 @@ EOF;
       $config->set('http_proxy', sfConfig::get('sa_http_proxy'), 'user', 'pear.php.net');
     }
 
-    if ($this->isSelfInstalledPlugins($arguments['name'], $options['channel']))
+    if ($this->isSelfInstalledPlugins($arguments['name'], $sations['channel']))
     {
       $str = "\"%s\" is already installed manually, so it will not be reinstalled.\n"
            . "If you want to manage it automatically, delete it manually and retry this command.";
@@ -100,7 +100,7 @@ EOF;
     try
     {
       $isExists = $this->isPluginExists($arguments['name']);
-      parent::execute($arguments, $options);
+      parent::execute($arguments, $sations);
 
       if (count(sfFinder::type('file')->name('databases.yml')->in(sfConfig::get('sf_config_dir'))) && !$isExists)
       {
@@ -116,7 +116,7 @@ EOF;
       $this->logBlock($e->getMessage(), 'ERROR');
 
       $registry = $this->getPluginManager()->getEnvironment()->getRegistry();
-      $dependency = opPluginDownloader::getCachedDependency($options['channel'], $arguments['name']);
+      $dependency = saPluginDownloader::getCachedDependency($sations['channel'], $arguments['name']);
       if ($dependency && $dependency->hasFailedDependency())
       {
         $message = array(
@@ -171,7 +171,7 @@ EOF;
   {
     if (is_null($this->pluginManager))
     {
-      $this->pluginManager = new opPluginManager($this->dispatcher, null, $channel);
+      $this->pluginManager = new saPluginManager($this->dispatcher, null, $channel);
     }
 
     return $this->pluginManager;
@@ -186,7 +186,7 @@ EOF;
 
     if (is_null($channel))
     {
-      $channel = opPluginManager::getDefaultPluginChannelServerName();
+      $channel = saPluginManager::getDefaultPluginChannelServerName();
     }
 
     $registry = $this->getPluginManager()->getEnvironment()->getRegistry();

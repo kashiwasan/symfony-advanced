@@ -9,13 +9,13 @@
  */
 
 /**
- * opOpenIDSregProfileExport
+ * saOpenIDSregProfileExport
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opOpenIDSregProfileExport extends opProfileExport
+class saOpenIDSregProfileExport extends saProfileExport
 {
   public $tableToSfAdvanced = array(
     'nickname' => 'name',

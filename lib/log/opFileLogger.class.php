@@ -9,23 +9,23 @@
  */
 
 /**
- * opFileLogger
+ * saFileLogger
  *
  * @package    SfAdvanced
  * @subpackage log
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opFileLogger extends sfFileLogger
+class saFileLogger extends sfFileLogger
 {
   protected $file;
 
-  public function initialize(sfEventDispatcher $dispatcher, $options = array())
+  public function initialize(sfEventDispatcher $dispatcher, $sations = array())
   {
-    if (isset($options['file']))
+    if (isset($sations['file']))
     {
-      $this->file = $options['file'];
+      $this->file = $sations['file'];
     }
-    return parent::initialize($dispatcher, $options);
+    return parent::initialize($dispatcher, $sations);
   }
 
   /**

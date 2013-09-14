@@ -15,6 +15,6 @@
  * @subpackage action
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class connectionActions extends opOAuthConsumerAction
+class connectionActions extends saOAuthConsumerAction
 {
 }

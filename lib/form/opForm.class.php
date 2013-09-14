@@ -9,13 +9,13 @@
  */
 
 /**
- * opBaseForm
+ * saBaseForm
  *
  * @package    SfAdvanced
  * @subpackage form
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opBaseForm extends sfFormSymfony
+class saBaseForm extends sfFormSymfony
 {
   /**
    * Binds the form with input values.

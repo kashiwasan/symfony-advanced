@@ -9,13 +9,13 @@
  */
 
 /**
- * opColorConfig
+ * saColorConfig
  *
  * @package    SfAdvanced
  * @subpackage config
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opColorConfig extends opConfig
+class saColorConfig extends saConfig
 {
   protected static $defaultColors = array(
       'core_color_1'  => '#FFFFFF',
@@ -54,7 +54,7 @@ class opColorConfig extends opConfig
       $app = sfConfig::get('sf_app');
     }
     $configName = 'sa_'.$app.'_color_config_'.$name;
-    $result = sfConfig::get($configName, opConfig::get($app.'_'.$name, self::$defaultColors[$name]));
+    $result = sfConfig::get($configName, saConfig::get($app.'_'.$name, self::$defaultColors[$name]));
 
     sfContext::getInstance()->getConfiguration()->loadHelpers('Escaping');
     return sfOutputEscaper::escape(sfConfig::get('sf_escaping_method'), $result);

@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class opPluginDefineTask extends sfBaseTask
+class saPluginDefineTask extends sfBaseTask
 {
   protected $pluginManager = null;
 
@@ -27,25 +27,25 @@ class opPluginDefineTask extends sfBaseTask
       new sfCommandOption('channel', 'c', sfCommandOption::PARAMETER_REQUIRED, 'The PEAR channel name', null),
     ));
 
-    $this->namespace        = 'opPlugin';
+    $this->namespace        = 'saPlugin';
     $this->name             = 'define';
     $this->briefDescription = 'Creates the plugin definition file "package.xml"';
     $this->detailedDescription = <<<EOF
-The [opPlugin:define|INFO] task creates the plugin definition file "package.xml".
+The [saPlugin:define|INFO] task creates the plugin definition file "package.xml".
 Call it with:
 
-  [./symfony opPlugin:define opSamplePlugin|INFO]
+  [./symfony saPlugin:define saSamplePlugin|INFO]
 EOF;
   }
 
-  protected function execute($arguments = array(), $options = array())
+  protected function execute($arguments = array(), $sations = array())
   {
     // Remove E_STRICT and E_DEPRECATED from error_reporting
     error_reporting(error_reporting() & ~(E_STRICT | E_DEPRECATED));
 
-    if (empty($options['channel']))
+    if (empty($sations['channel']))
     {
-      $options['channel'] = opPluginManager::getDefaultPluginChannelServerName();
+      $sations['channel'] = saPluginManager::getDefaultPluginChannelServerName();
     }
 
     require_once 'PEAR/PackageFileManager2.php';
@@ -53,12 +53,12 @@ EOF;
     $pluginName = $arguments['name'];
     $pluginDirectory = sfConfig::get('sf_plugins_dir').'/'.$pluginName.'/';
 
-    $info = $this->getPluginManager($options['channel'])->getPluginInfo($pluginName);
+    $info = $this->getPluginManager($sations['channel'])->getPluginInfo($pluginName);
     if (!$info)
     {
       $info = array(
         'n' => $pluginName,
-        'c' => $options['channel'],
+        'c' => $sations['channel'],
         'l' => 'Apache',
         's' => $pluginName,
         'd' => $pluginName,
@@ -88,7 +88,7 @@ EOF;
     }
 
     $packageXml->setPackage($pluginName);
-    $packageXml->setChannel($options['channel']);
+    $packageXml->setChannel($sations['channel']);
     $packageXml->setReleaseVersion($arguments['version']);
     $packageXml->setReleaseStability($arguments['stability']);
     $packageXml->setApiVersion($arguments['version']);
@@ -177,7 +177,7 @@ EOF;
   {
     if (is_null($this->pluginManager))
     {
-      $this->pluginManager = new opPluginManager($this->dispatcher, null, $channel);
+      $this->pluginManager = new saPluginManager($this->dispatcher, null, $channel);
     }
 
     return $this->pluginManager;

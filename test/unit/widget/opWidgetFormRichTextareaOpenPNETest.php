@@ -9,7 +9,7 @@ use_helper('Tag');
 $t = new lime_test(27, new lime_output_color());
 
 //------------------------------------------------------------
-$t->diag('opWidgetFormRichTextareaSfAdvanced::toHtml() non strip');
+$t->diag('saWidgetFormRichTextareaSfAdvanced::toHtml() non strip');
 
 $patterns = array(
   array(
@@ -60,10 +60,10 @@ $patterns = array(
 );
 foreach ($patterns as $pattern)
 {
-  $t->is(opWidgetFormRichTextareaSfAdvanced::toHtml($pattern[0], false, true, true), $pattern[1], $pattern[2]);
+  $t->is(saWidgetFormRichTextareaSfAdvanced::toHtml($pattern[0], false, true, true), $pattern[1], $pattern[2]);
 }
 //------------------------------------------------------------
-$t->diag('opWidgetFormRichTextareaSfAdvanced::toHtml() strip');
+$t->diag('saWidgetFormRichTextareaSfAdvanced::toHtml() strip');
 
 $patterns2 = array(
   array(
@@ -114,10 +114,10 @@ $patterns2 = array(
 );
 foreach ($patterns2 as $pattern2)
 {
-  $t->is(opWidgetFormRichTextareaSfAdvanced::toHtml($pattern2[0], true, true, true), $pattern2[1], $pattern2[2]);
+  $t->is(saWidgetFormRichTextareaSfAdvanced::toHtml($pattern2[0], true, true, true), $pattern2[1], $pattern2[2]);
 }
 //------------------------------------------------------------
-$t->diag('opWidgetFormRichTextareaSfAdvanced::toHtml() followup');
+$t->diag('saWidgetFormRichTextareaSfAdvanced::toHtml() followup');
 
 $patterns3 = array(
   array(
@@ -158,7 +158,7 @@ $patterns3 = array(
   array(
     '&lt;op:i&gt;&lt;op:&lt;op:i&gt;&lt;op:i&gt;&lt;op:i&gt;&lt;op:333333&gt;',
     '<span class="sa_i">&lt;op:<span class="sa_i"><span class="sa_i"><span class="sa_i"><span class="sa_333333"></span></span></span></span></span>',
-    'Check 5 open tags what have not close tag.',
+    'Check 5 saen tags what have not close tag.',
   ),
   array(
     '&lt;op:font color="expression(alert(0))"&gt;Attack!',
@@ -168,5 +168,5 @@ $patterns3 = array(
 );
 foreach ($patterns3 as $pattern3)
 {
-  $t->is(opWidgetFormRichTextareaSfAdvanced::toHtml($pattern3[0], false, true, true), $pattern3[1], $pattern3[2]);
+  $t->is(saWidgetFormRichTextareaSfAdvanced::toHtml($pattern3[0], false, true, true), $pattern3[1], $pattern3[2]);
 }

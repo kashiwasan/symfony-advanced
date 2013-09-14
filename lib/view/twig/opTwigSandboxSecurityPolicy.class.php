@@ -1,6 +1,6 @@
 <?php
 
-class opTwigSandboxSecurityPolicy extends Twig_Sandbox_SecurityPolicy
+class saTwigSandboxSecurityPolicy extends Twig_Sandbox_SecurityPolicy
 {
   public function __construct(array $allowedTags = array(), array $allowedFilters = array(), array $allowedMethods = array(), array $allowedProperties = array())
   {

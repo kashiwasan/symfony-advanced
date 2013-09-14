@@ -10,15 +10,15 @@
 
 require_once(dirname(__FILE__).'/../config/ProjectConfiguration.class.php');
 
-// load opMobileUserAgent before initializing application
+// load saMobileUserAgent before initializing application
 $old_error_level = error_reporting();
 
 error_reporting($old_error_level & ~(E_STRICT | E_DEPRECATED));
 
 set_include_path(dirname(__FILE__).'/../lib/vendor/PEAR/'.PATH_SEPARATOR.get_include_path());
-require_once(dirname(__FILE__).'/../lib/util/opMobileUserAgent.class.php');
+require_once(dirname(__FILE__).'/../lib/util/saMobileUserAgent.class.php');
 
-$is_mobile = !opMobileUserAgent::getInstance()->getMobile()->isNonMobile();
+$is_mobile = !saMobileUserAgent::getInstance()->getMobile()->isNonMobile();
 
 error_reporting($old_error_level);
 

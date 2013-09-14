@@ -9,13 +9,13 @@
  */
 
 /**
- * opExecutionFilter
+ * saExecutionFilter
  *
  * @package    SfAdvanced
  * @subpackage filter
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-class opExecutionFilter extends sfExecutionFilter
+class saExecutionFilter extends sfExecutionFilter
 {
   protected $retrivingMobileUIDActions = array('member/register', 'member/registerInput', 'member/registerEnd', 'member/configUID', 'member/registerMobileToRegisterEnd');
   protected $mobileUIDAuthModeName = 'MobileUID';
@@ -154,14 +154,14 @@ class opExecutionFilter extends sfExecutionFilter
 
     if (sfConfig::has('sa_is_use_captcha'))
     {
-      sfConfig::set('sa_is_use_captcha', opConfig::get('is_use_captcha'));
+      sfConfig::set('sa_is_use_captcha', saConfig::get('is_use_captcha'));
     }
 
     try
     {
       $result = parent::handleAction($filterChain, $actionInstance);
     }
-    catch (opRuntimeException $e)
+    catch (saRuntimeException $e)
     {
       $this->forwardToErrorAction();
     }

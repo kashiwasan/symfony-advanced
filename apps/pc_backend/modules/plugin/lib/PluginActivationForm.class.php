@@ -131,7 +131,7 @@ class PluginActivationForm extends sfForm
       }
     }
 
-    opToolkit::clearCache();
+    saToolkit::clearCache();
 
     return true;
   }

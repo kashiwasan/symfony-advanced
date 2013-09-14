@@ -9,13 +9,13 @@
  */
 
 /**
- * opNotificationMailTemplateLoaderConfigSample
+ * saNotificationMailTemplateLoaderConfigSample
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Shogo Kawahara <kawahara@bucyou.net>
  */
-class opNotificationMailTemplateLoaderConfigSample extends sfTemplateAbstractSwitchableLoader
+class saNotificationMailTemplateLoaderConfigSample extends sfTemplateAbstractSwitchableLoader
 {
   public function doLoad($template, $renderer = 'twig')
   {

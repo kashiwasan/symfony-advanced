@@ -9,13 +9,13 @@
  */
 
 /**
- * opAuthMailAddressPasswordRecoveryForm
+ * saAuthMailAddressPasswordRecoveryForm
  *
  * @package    SfAdvanced
  * @subpackage form
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opAuthMailAddressPasswordRecoveryForm extends BaseForm
+class saAuthMailAddressPasswordRecoveryForm extends BaseForm
 {
   protected $member = null;
 
@@ -33,7 +33,7 @@ class opAuthMailAddressPasswordRecoveryForm extends BaseForm
     $this->setValidators(array(
       'mail_address' => new sfValidatorEmail(),
       'secret_question' => new sfValidatorChoice(array('choices' => array_keys($choices))),
-      'secret_answer' => new opValidatorString(),
+      'secret_answer' => new saValidatorString(),
     ));
 
     $this->widgetSchema->setLabels(array(
@@ -52,7 +52,7 @@ class opAuthMailAddressPasswordRecoveryForm extends BaseForm
 
   public function checkSecretQuestion($validator, $values, $arguments = array())
   {
-    $configName = (opToolkit::isMobileEmailAddress($values['mail_address'])) ? 'mobile_address' : 'pc_address';
+    $configName = (saToolkit::isMobileEmailAddress($values['mail_address'])) ? 'mobile_address' : 'pc_address';
     $memberConfig = Doctrine::getTable('MemberConfig')->findOneByNameAndValue($configName, $values['mail_address']);
     if (!$memberConfig)
     {
@@ -91,14 +91,14 @@ class opAuthMailAddressPasswordRecoveryForm extends BaseForm
 
   public function sendMail()
   {
-    $token = md5(opToolkit::generatePasswordString());
+    $token = md5(saToolkit::generatePasswordString());
     $this->member->setConfig('password_recovery_token', $token);
     $params = array(
       'token' => $token,
       'id' => $this->member->id,
-      'subject' => '【'.opConfig::get('sns_name').'】パスワード再設定用URL発行のお知らせ',
+      'subject' => '【'.saConfig::get('sns_name').'】パスワード再設定用URL発行のお知らせ',
     );
 
-    sfSfAdvancedMailSend::sendTemplateMail('passwordRecovery', $this->member->getEMailAddress(), opConfig::get('admin_mail_address'), $params);
+    sfSfAdvancedMailSend::sendTemplateMail('passwordRecovery', $this->member->getEMailAddress(), saConfig::get('admin_mail_address'), $params);
   }
 }

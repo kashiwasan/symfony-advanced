@@ -9,13 +9,13 @@
  */
 
 /**
- * opMailRouting
+ * saMailRouting
  *
  * @package    SfAdvanced
  * @subpackage routing
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opMailRouting extends sfPatternRouting
+class saMailRouting extends sfPatternRouting
 {
   protected function fixGeneratedUrl($url, $absolute = false)
   {

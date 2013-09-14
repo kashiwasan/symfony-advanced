@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class opPluginReleaseTask extends sfBaseTask
+class saPluginReleaseTask extends sfBaseTask
 {
   protected function configure()
   {
@@ -23,25 +23,25 @@ class opPluginReleaseTask extends sfBaseTask
       new sfCommandOption('channel', 'c', sfCommandOption::PARAMETER_REQUIRED, 'The PEAR channel name', null),
     ));
 
-    $this->namespace        = 'opPlugin';
+    $this->namespace        = 'saPlugin';
     $this->name             = 'release';
     $this->briefDescription = 'Creates the plugin definition file and archive the SfAdvanced plugin.';
     $this->detailedDescription = <<<EOF
-The [opPlugin:release|INFO] task creates the plugin definition file, and archive the SfAdvanced plugin.
+The [saPlugin:release|INFO] task creates the plugin definition file, and archive the SfAdvanced plugin.
 Call it with:
 
-  [./symfony opPlugin:release opSamplePlugin|INFO]
+  [./symfony saPlugin:release saSamplePlugin|INFO]
 EOF;
   }
 
-  protected function execute($arguments = array(), $options = array())
+  protected function execute($arguments = array(), $sations = array())
   {
     $name = $arguments['name'];
     $dir = $arguments['dir'];
 
-    if (empty($options['channel']))
+    if (empty($sations['channel']))
     {
-      $options['channel'] = opPluginManager::getDefaultPluginChannelServerName();
+      $sations['channel'] = saPluginManager::getDefaultPluginChannelServerName();
     }
 
     while (
@@ -72,16 +72,16 @@ EOF;
 
     if ($this->askConfirmation('Is it OK to start this task? (y/n)'))
     {
-      $this->doRelease($name, $version, $stability, $note, $dir, $options['channel']);
+      $this->doRelease($name, $version, $stability, $note, $dir, $sations['channel']);
       $this->clearCache();
     }
   }
 
   protected function doRelease($name, $version, $stability, $note, $dir, $channel)
   {
-    $defineTask = new opPluginDefineTask($this->dispatcher, $this->formatter);
+    $defineTask = new saPluginDefineTask($this->dispatcher, $this->formatter);
     $defineTask->run(array('name' => $name, 'version' => $version, 'stability' => $stability, 'note' => '"'.$note.'"'), array('channel' => $channel));
-    $archiveTask = new opPluginArchiveTask($this->dispatcher, $this->formatter);
+    $archiveTask = new saPluginArchiveTask($this->dispatcher, $this->formatter);
     $archiveTask->run(array('name' => $name, 'dir' => $dir));
   }
 

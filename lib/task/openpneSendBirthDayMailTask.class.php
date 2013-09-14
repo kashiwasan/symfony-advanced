@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class sfadvancedSendBirthDayMailTask extends opBaseSendMailTask
+class sfadvancedSendBirthDayMailTask extends saBaseSendMailTask
 {
   protected function configure()
   {
@@ -24,11 +24,11 @@ Call it with:
 EOF;
   }
 
-  protected function execute($arguments = array(), $options = array())
+  protected function execute($arguments = array(), $sations = array())
   {
-    parent::execute($arguments, $options);
+    parent::execute($arguments, $sations);
 
-    opApplicationConfiguration::unregisterZend();
+    saApplicationConfiguration::unregisterZend();
     $birthday = Doctrine::getTable('Profile')->retrieveByName('sa_preset_birthday');
     if (!$birthday)
     {
@@ -39,7 +39,7 @@ EOF;
       ->where('profile_id = ?', $birthday->id)
       ->andWhere('DATE_FORMAT(value_datetime, ?) = ?', array('%m-%d', date('m-d', strtotime('+ 1 week'))))
       ->execute();
-    opApplicationConfiguration::registerZend();
+    saApplicationConfiguration::registerZend();
 
     $context = sfContext::createInstance($this->createConfiguration('pc_frontend', 'prod'));
     $i18n = $context->getI18N();
@@ -55,7 +55,7 @@ EOF;
           'subject'     => $i18n->__('There is your %my_friend% that its birthday is coming soon'),
         );
 
-        opMailSend::sendTemplateMailToMember('birthday', $member, $params, array(), $context);
+        saMailSend::sendTemplateMailToMember('birthday', $member, $params, array(), $context);
       }
     }
   }

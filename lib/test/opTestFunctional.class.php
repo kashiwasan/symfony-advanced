@@ -12,7 +12,7 @@
  * @subpackage test
  * @author     Rimpei Ogawa <ogawa@tejimaya.com>
  */
-class opTestFunctional extends sfTestFunctional
+class saTestFunctional extends sfTestFunctional
 {
   protected
     $mobileUserAgent = 'KDDI-CA39 UP.Browser/6.2.0.13.1.5 (FUI) MMP/2.0';
@@ -20,7 +20,7 @@ class opTestFunctional extends sfTestFunctional
   public function __construct(sfBrowserBase $browser, lime_test $lime = null, $testers = array())
   {
     $testers = array_merge(array(
-      'html_escape' => 'opTesterHtmlEscape',
+      'html_escape' => 'saTesterHtmlEscape',
     ), $testers);
 
     parent::__construct($browser, $lime, $testers);
@@ -34,7 +34,7 @@ class opTestFunctional extends sfTestFunctional
     }
 
     $_SERVER['HTTP_USER_AGENT'] = $this->mobileUserAgent;
-    opMobileUserAgent::resetInstance();
+    saMobileUserAgent::resetInstance();
   }
 
   public function login($mailAddress, $password)

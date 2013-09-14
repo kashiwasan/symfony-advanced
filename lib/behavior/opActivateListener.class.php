@@ -8,11 +8,11 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class opActivateListener extends Doctrine_Record_Listener
+class saActivateListener extends Doctrine_Record_Listener
 {
   public function preDqlSelect(Doctrine_Event $event)
   {
-    if (!opActivateBehavior::getEnabled())
+    if (!saActivateBehavior::getEnabled())
     {
       return null;
     }

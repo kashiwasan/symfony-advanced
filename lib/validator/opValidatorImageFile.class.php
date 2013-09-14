@@ -9,20 +9,20 @@
  */
 
 /**
- * opValidatorImageFile validates a date
+ * saValidatorImageFile validates a date
  *
  * @package    SfAdvanced
  * @subpackage validator
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opValidatorImageFile extends sfValidatorFile
+class saValidatorImageFile extends sfValidatorFile
 {
-  protected function configure($options = array(), $messages = array())
+  protected function configure($sations = array(), $messages = array())
   {
-    parent::configure($options, $messages);
+    parent::configure($sations, $messages);
     $this->setOption('mime_types', 'web_images');
 
-    $maxFilesize = opConfig::get('image_max_filesize');
+    $maxFilesize = saConfig::get('image_max_filesize');
     switch (strtoupper(substr($maxFilesize, -1)))
     {
       case 'K' :
@@ -47,7 +47,7 @@ class opValidatorImageFile extends sfValidatorFile
       if ($e->getCode() == 'max_size')
       {
         $arguments = $e->getArguments(true);
-        throw new sfValidatorError($this, 'max_size', array('max_size' => opConfig::get('image_max_filesize'), 'size' => $arguments['size']));
+        throw new sfValidatorError($this, 'max_size', array('max_size' => saConfig::get('image_max_filesize'), 'size' => $arguments['size']));
       }
       throw $e;
     }

@@ -15,7 +15,7 @@
  * @subpackage member
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-class memberActions extends opMemberAction
+class memberActions extends saMemberAction
 {
   public function executeHome($request)
   {
@@ -35,9 +35,9 @@ class memberActions extends opMemberAction
 
   public function executeLogin($request)
   {
-    if (opConfig::get('external_mobile_login_url') && $request->isMethod(sfWebRequest::GET))
+    if (saConfig::get('external_mobile_login_url') && $request->isMethod(sfWebRequest::GET))
     {
-      $this->redirect(opConfig::get('external_mobile_login_url'));
+      $this->redirect(saConfig::get('external_mobile_login_url'));
     }
 
     $gadgets = Doctrine::getTable('Gadget')->retrieveGadgetsByTypesName('mobileLogin');
@@ -68,11 +68,11 @@ class memberActions extends opMemberAction
 
   public function executeConfigUID($request)
   {
-    $option = array('member' => $this->getUser()->getMember());
-    $this->passwordForm = new opPasswordForm(array(), $option);
+    $sation = array('member' => $this->getUser()->getMember());
+    $this->passwordForm = new saPasswordForm(array(), $sation);
     $mobileUid = Doctrine::getTable('MemberConfig')->retrieveByNameAndMemberId('mobile_uid', $this->getUser()->getMemberId());
     $this->isSetMobileUid = $mobileUid && $mobileUid->getValue();
-    $this->isDeletableUid = ((int)opConfig::get('retrieve_uid') < 2) && $this->isSetMobileUid;
+    $this->isDeletableUid = ((int)saConfig::get('retrieve_uid') < 2) && $this->isSetMobileUid;
 
     if ($request->isMethod('post'))
     {
@@ -122,9 +122,9 @@ class memberActions extends opMemberAction
 
     $this->forward404Unless($memberConfig && $token === $memberConfig->getValue());
 
-    opActivateBehavior::disable();
-    $this->form = new opPasswordForm(null, array('member' => $memberConfig->getMember()));
-    opActivateBehavior::enable();
+    saActivateBehavior::disable();
+    $this->form = new saPasswordForm(null, array('member' => $memberConfig->getMember()));
+    saActivateBehavior::enable();
 
     if ($request->isMethod(sfWebRequest::POST))
     {
@@ -180,7 +180,7 @@ class memberActions extends opMemberAction
     $sid = $this->getUser()->decryptSid($request['sid'], $request['ts']);
 
     $uri = isset($request['next_uri']) ? $request['next_uri'] : '';
-    $validator = new opValidatorNextUri();
+    $validator = new saValidatorNextUri();
 
     try
     {

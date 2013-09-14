@@ -10,7 +10,7 @@ sfContext::createInstance($configuration);
 $numOfTest = 42;
 
 $t = new lime_test($numOfTest, new lime_output_color());
-$browser = new opBrowser();
+$browser = new saBrowser();
 
 /************************
  * Test apiKey Response (5)

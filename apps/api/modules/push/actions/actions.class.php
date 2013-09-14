@@ -15,12 +15,12 @@
  * @subpackage action
  * @author     Kimura Youichi <kim.upsilon@gmail.com>
  */
-class pushActions extends opJsonApiActions
+class pushActions extends saJsonApiActions
 {
   public function executeSearch(sfWebRequest $request)
   {
     $member = $this->getUser()->getMember();
-    $this->notifications = opNotificationCenter::getNotifications($member);
+    $this->notifications = saNotificationCenter::getNotifications($member);
 
     $this->setTemplate('array');
   }
@@ -28,7 +28,7 @@ class pushActions extends opJsonApiActions
   public function executeCount(sfWebRequest $request)
   {
     $member = $this->getUser()->getMember();
-    $notifications = opNotificationCenter::getNotifications($member);
+    $notifications = saNotificationCenter::getNotifications($member);
 
     $this->count = array(
       'link'    => 0,
@@ -62,7 +62,7 @@ class pushActions extends opJsonApiActions
 
     $member = $this->getUser()->getMember();
 
-    $ret = opNotificationCenter::setRead($member, $request['id']);
+    $ret = saNotificationCenter::setRead($member, $request['id']);
 
     if ($ret)
     {

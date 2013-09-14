@@ -11,7 +11,7 @@ sfContext::createInstance($configuration);
 opToolkit::clearCache();
 include_once dirname(__FILE__) . '/../model/doctrine/fixtures/TestActivityTemplateConfigHandler.php';
 include_once sfConfig::get('sf_lib_dir').'/vendor/symfony/lib/helper/HelperHelper.php';
-use_helper('I18N', 'Tag', 'Url', 'opUtil', 'opActivity');
+use_helper('I18N', 'Tag', 'Url', 'saUtil', 'saActivity');
 
 $t = new lime_test(8, new lime_output_color());
 

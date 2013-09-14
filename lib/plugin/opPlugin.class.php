@@ -12,13 +12,13 @@
 error_reporting(error_reporting() & ~(E_STRICT | E_DEPRECATED));
 
 /**
- * opPlugin allows you to touch SfAdvanced plugin.
+ * saPlugin allows you to touch SfAdvanced plugin.
  *
  * @package    SfAdvanced
  * @subpackage plugin
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opPlugin
+class saPlugin
 {
   private static $instances = array();
 
@@ -32,7 +32,7 @@ class opPlugin
   {
     $this->name = $pluginName;
 
-    $config = opPluginManager::getPluginActivationList();
+    $config = saPluginManager::getPluginActivationList();
     if (isset($config[$pluginName]))
     {
       $this->isActive = $config[$pluginName];
@@ -46,8 +46,8 @@ class opPlugin
     }
     else
     {
-      $manager = new opPluginManager($dispatcher);
-      $package = $manager->getEnvironment()->getRegistry()->getPackage($pluginName, opPluginManager::getDefaultPluginChannelServerName());
+      $manager = new saPluginManager($dispatcher);
+      $package = $manager->getEnvironment()->getRegistry()->getPackage($pluginName, saPluginManager::getDefaultPluginChannelServerName());
       if ($package)
       {
         $this->version = $package->getVersion();
@@ -65,7 +65,7 @@ class opPlugin
 
     if (empty(self::$instances[$pluginName]))
     {
-      self::$instances[$pluginName] = new opPlugin($pluginName, $dispatcher);
+      self::$instances[$pluginName] = new saPlugin($pluginName, $dispatcher);
     }
 
     return self::$instances[$pluginName];
@@ -113,7 +113,7 @@ class opPlugin
     }
     $content = file_get_contents($xmlPath);
 
-    return opToolkit::loadXmlString($content, array(
+    return saToolkit::loadXmlString($content, array(
       'return' => 'SimpleXMLElement',
     ));
   }
@@ -131,12 +131,12 @@ class opPlugin
 
   public function isAuthPlugin()
   {
-    return (0 === strpos($this->name, 'opAuth'));
+    return (0 === strpos($this->name, 'saAuth'));
   }
 
   public function isSkinPlugin()
   {
-    return (0 === strpos($this->name, 'opSkin'));
+    return (0 === strpos($this->name, 'saSkin'));
   }
 
   public function isApplicationPlugin()

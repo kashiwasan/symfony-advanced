@@ -7,7 +7,7 @@
  * @subpackage form
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opMailNotificationForm extends sfForm
+class saMailNotificationForm extends sfForm
 {
   public function configure()
   {

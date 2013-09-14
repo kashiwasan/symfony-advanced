@@ -9,13 +9,13 @@
  */
 
 /**
- * opConfirmationAction
+ * saConfirmationAction
  *
  * @package    SfAdvanced
  * @subpackage confirmation
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opConfirmationAction extends sfActions
+class saConfirmationAction extends sfActions
 {
   public function preExecute()
   {

@@ -9,13 +9,13 @@
  */
 
 /**
- * opOAuthTokenAction
+ * saOAuthTokenAction
  *
  * @package    SfAdvanced
  * @subpackage action
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-abstract class opOAuthTokenAction extends sfActions
+abstract class saOAuthTokenAction extends sfActions
 {
   protected $dataStore = null;
 
@@ -96,7 +96,7 @@ abstract class opOAuthTokenAction extends sfActions
   {
     if (is_null($this->dataStore))
     {
-      $this->dataStore = new opOAuthDataStore();
+      $this->dataStore = new saOAuthDataStore();
     }
 
     return $this->dataStore;
@@ -129,7 +129,7 @@ abstract class opOAuthTokenAction extends sfActions
     $this->setRecordTemplate();
     $this->setQueryTemplate();
 
-    $server = new opOAuthServer($this->getDataStore());
+    $server = new saOAuthServer($this->getDataStore());
 
     return $server;
   }

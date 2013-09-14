@@ -15,11 +15,11 @@
  * @subpackage action
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class connectionActions extends opOAuthConsumerAction
+class connectionActions extends saOAuthConsumerAction
 {
   public function preExecute()
   {
-    $this->forward404Unless(opConfig::get('enable_connection'));
+    $this->forward404Unless(saConfig::get('enable_connection'));
   }
 
   public function executeList(sfWebRequest $request)

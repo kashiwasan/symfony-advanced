@@ -9,13 +9,13 @@
  */
 
 /**
- * opOpenIDSregProfileImport
+ * saOpenIDSregProfileImport
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opOpenIDSregProfileImport extends opProfileImport
+class saOpenIDSregProfileImport extends saProfileImport
 {
   public $tableToSfAdvanced = array(
     'nickname' => 'name',
@@ -101,7 +101,7 @@ class opOpenIDSregProfileImport extends opProfileImport
           return null;
         }
 
-        if (opToolkit::isMobileEmailAddress($email))
+        if (saToolkit::isMobileEmailAddress($email))
         {
           $this->member->setConfig('mobile_address', $email);
         }

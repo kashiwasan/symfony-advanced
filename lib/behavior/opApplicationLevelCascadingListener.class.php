@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class opApplicationLevelCascadingListener extends Doctrine_Record_Listener
+class saApplicationLevelCascadingListener extends Doctrine_Record_Listener
 {
   public function preDelete(Doctrine_Event $event)
   {

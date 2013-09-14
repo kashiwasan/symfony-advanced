@@ -525,7 +525,7 @@ CommunityConfig:
   community_1_register_policy:
     Community: community_1
     name: "register_policy"
-    value: "open"
+    value: "saen"
   community_1_is_default:
     Community: community_1
     name: "is_default"
@@ -545,7 +545,7 @@ CommunityConfig:
   community_3_public_flag:
     Community: community_3
     name: "public_flag"
-    value: "open"
+    value: "saen"
 
 CommunityMember:
   community_1_first_member:
@@ -896,11 +896,11 @@ NotificationMail:
 
 SkinConfig:
   skin_config1:
-    plugin: "opSkinDummyPlugin"
+    plugin: "saSkinDummyPlugin"
     name: "color_1"
     value: "#ffffff"
   skin_config2:
-    plugin: "opSkinDummyPlugin"
+    plugin: "saSkinDummyPlugin"
     name: "color_2"
     value: ""
 

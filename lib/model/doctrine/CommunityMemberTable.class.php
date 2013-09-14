@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class CommunityMemberTable extends opAccessControlDoctrineTable
+class CommunityMemberTable extends saAccessControlDoctrineTable
 {
   public function retrieveByMemberIdAndCommunityId($memberId, $communityId)
   {
@@ -69,7 +69,7 @@ class CommunityMemberTable extends opAccessControlDoctrineTable
     return $this->isPosition($memberId, $communityId, 'sub_admin');
   }
 
-  public function join($memberId, $communityId, $isRegisterPolicy = 'open')
+  public function join($memberId, $communityId, $isRegisterPolicy = 'saen')
   {
     if ($this->isPreMember($memberId, $communityId))
     {
@@ -416,7 +416,7 @@ class CommunityMemberTable extends opAccessControlDoctrineTable
       $communityMember->setIsPre(false);
       $communityMember->save();
 
-      opCommunityAction::sendJoinMail($communityMember->getMember()->id, $communityMember->getCommunity()->id);
+      saCommunityAction::sendJoinMail($communityMember->getMember()->id, $communityMember->getCommunity()->id);
 
       $event->setReturnValue($i18n->__('You have just accepted joining to %1%', array('%1%' => $communityMember->getCommunity()->getName())));
     }

@@ -57,9 +57,9 @@ class advancedActions extends sfActions
   public function executeRichTextarea(sfWebRequest $request)
   {
     $this->sortForm = new BaseForm();
-    $this->configForm = new opRichTextareaSfAdvancedConfigForm();
-    $this->buttonConfigForm = new opRichTextareaSfAdvancedButtonConfigForm();
-    $this->buttonConfig = opWidgetFormRichTextareaSfAdvanced::getAllButtons();
+    $this->configForm = new saRichTextareaSfAdvancedConfigForm();
+    $this->buttonConfigForm = new saRichTextareaSfAdvancedButtonConfigForm();
+    $this->buttonConfig = saWidgetFormRichTextareaSfAdvanced::getAllButtons();
     if ($request->isMethod(sfWebRequest::POST))
     {
       $this->configForm->bind($request->getParameter('config'));

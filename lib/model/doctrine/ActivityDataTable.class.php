@@ -32,76 +32,76 @@ class ActivityDataTable extends Doctrine_Table
   protected
     $templateConfig = null;
 
-  public function updateActivityByTemplate($memberId, $templateName, $params = array(), $options = array())
+  public function updateActivityByTemplate($memberId, $templateName, $params = array(), $sations = array())
   {
     return $this->updateActivity($memberId, '', array_merge(array(
       'template' => $templateName,
       'template_param' => $params
-    ), $options));
+    ), $sations));
   }
 
-  public function updateActivity($memberId, $body, $options = array())
+  public function updateActivity($memberId, $body, $sations = array())
   {
     $object = new ActivityData();
     $object->setMemberId($memberId);
     $object->setBody($body);
 
-    if (isset($options['template']))
+    if (isset($sations['template']))
     {
-      $object->setTemplate($options['template']);
-      if (isset($options['template_param']) && is_array($options['template_param']))
+      $object->setTemplate($sations['template']);
+      if (isset($sations['template_param']) && is_array($sations['template_param']))
       {
-        $object->setTemplateParam($options['template_param']);
+        $object->setTemplateParam($sations['template_param']);
       }
     }
 
-    if (isset($options['public_flag']))
+    if (isset($sations['public_flag']))
     {
       $publicFlagKeys = array_keys($this->getPublicFlags(false));
-      if (!in_array($options['public_flag'], $publicFlagKeys))
+      if (!in_array($sations['public_flag'], $publicFlagKeys))
       {
         throw new LogicException('Invalid public flag');
       }
-      $object->setPublicFlag($options['public_flag']);
+      $object->setPublicFlag($sations['public_flag']);
     }
 
-    if (isset($options['in_reply_to_activity_id']))
+    if (isset($sations['in_reply_to_activity_id']))
     {
-      $object->setInReplyToActivityId($options['in_reply_to_activity_id']);
+      $object->setInReplyToActivityId($sations['in_reply_to_activity_id']);
     }
 
-    if (isset($options['is_pc']) && !$options['is_pc'])
+    if (isset($sations['is_pc']) && !$sations['is_pc'])
     {
       $object->setIsPc(false);
     }
-    if (isset($options['is_mobile']) && !$options['is_mobile'])
+    if (isset($sations['is_mobile']) && !$sations['is_mobile'])
     {
       $object->setIsMobile(false);
     }
 
-    if (isset($options['uri']))
+    if (isset($sations['uri']))
     {
-      $object->setUri($options['uri']);
+      $object->setUri($sations['uri']);
     }
 
-    if (isset($options['source']))
+    if (isset($sations['source']))
     {
-      $object->setSource($options['source']);
-      if (isset($options['source_uri']))
+      $object->setSource($sations['source']);
+      if (isset($sations['source_uri']))
       {
-        $object->setSourceUri($options['source_uri']);
+        $object->setSourceUri($sations['source_uri']);
       }
     }
 
     $activityImages = array();
-    if (isset($options['images']))
+    if (isset($sations['images']))
     {
-      if (!is_array($options['images']))
+      if (!is_array($sations['images']))
       {
-        $options['images'] = array($options['images']);
+        $sations['images'] = array($sations['images']);
       }
 
-      foreach ($options['images'] as $image)
+      foreach ($sations['images'] as $image)
       {
         $activityImage = new ActivityImage();
         if (isset($image['file_id']))
@@ -127,10 +127,10 @@ class ActivityDataTable extends Doctrine_Table
       }
     }
 
-    if (isset($options['foreign_table']) && isset($options['foreign_id']))
+    if (isset($sations['foreign_table']) && isset($sations['foreign_id']))
     {
-      $object->setForeignTable($options['foreign_table']);
-      $object->setForeignId($options['foreign_id']);
+      $object->setForeignTable($sations['foreign_table']);
+      $object->setForeignId($sations['foreign_id']);
     }
 
     $object->save();
@@ -431,6 +431,6 @@ class ActivityDataTable extends Doctrine_Table
       }
     }
 
-    return opConfig::get('nickname_of_member_who_does_not_have_credentials');
+    return saConfig::get('nickname_of_member_who_does_not_have_credentials');
   }
 }

@@ -5,7 +5,7 @@
 <p><?php echo __('The shared information may save in this site permanently.') ?></p>
 <p><?php echo __('Please uncheck these informations that you don\'t want to share with the site.') ?></p>
 
-<?php $presetList =  opToolkit::getPresetProfileList() ?>
+<?php $presetList =  saToolkit::getPresetProfileList() ?>
 
 <ul class="profileList" style="margin: 0.5em 1.5em;">
 <?php foreach ($requestedProfiles as $k => $v) : ?>

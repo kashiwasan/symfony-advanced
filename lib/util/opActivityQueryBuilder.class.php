@@ -9,13 +9,13 @@
  */
 
 /**
- * opActivityQueryBuilder
+ * saActivityQueryBuilder
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Kimura Youichi <kim.upsilon@gmail.com>
  */
-class opActivityQueryBuilder
+class saActivityQueryBuilder
 {
   protected
     $table,

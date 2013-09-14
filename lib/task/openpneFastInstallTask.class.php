@@ -44,15 +44,15 @@ Call it with:
 EOF;
   }
 
-  protected function execute($arguments = array(), $options = array())
+  protected function execute($arguments = array(), $sations = array())
   {
-    $dbms = $options['dbms'];
-    $username = $options['dbuser'];
-    $password = $options['dbpassword'];
-    $hostname = $options['dbhost'];
-    $dbname = $options['dbname'];
-    $port = $options['dbport'];
-    $sock = $options['dbsock'];
+    $dbms = $sations['dbms'];
+    $username = $sations['dbuser'];
+    $password = $sations['dbpassword'];
+    $hostname = $sations['dbhost'];
+    $dbname = $sations['dbname'];
+    $port = $sations['dbport'];
+    $sock = $sations['dbsock'];
     
     if (empty($dbms))
     {
@@ -87,8 +87,8 @@ EOF;
       $dbname = realpath(dirname($dbname)).DIRECTORY_SEPARATOR.basename($dbname);
     }
     
-    unset($options['dbms'], $options['dbuser'], $options['dbpassword'], $options['dbname'], $options['dbhost'], $options['dbport'], $options['dbsock']);
-    $this->doInstall($dbms, $username, $password, $hostname, $port, $dbname, $sock, $options);
+    unset($sations['dbms'], $sations['dbuser'], $sations['dbpassword'], $sations['dbname'], $sations['dbhost'], $sations['dbport'], $sations['dbsock']);
+    $this->doInstall($dbms, $username, $password, $hostname, $port, $dbname, $sock, $sations);
 
     if ('sqlite' === $dbms)
     {
@@ -103,20 +103,20 @@ EOF;
     $this->logSection('installer', 'installation is completed!');
   }
 
-  protected function doInstall($dbms, $username, $password, $hostname, $port, $dbname, $sock, $options)
+  protected function doInstall($dbms, $username, $password, $hostname, $port, $dbname, $sock, $sations)
   {
-    if ($options['internet'])
+    if ($sations['internet'])
     {
       $this->installPlugins();
     }
     else
     {
-      new opPluginManager($this->dispatcher, null, null);
+      new saPluginManager($this->dispatcher, null, null);
     }
     @$this->fixPerms();
     @$this->clearCache();
-    $this->configureDatabase($dbms, $username, $password, $hostname, $port, $dbname, $sock, $options);
-    $this->buildDb($options);
+    $this->configureDatabase($dbms, $username, $password, $hostname, $port, $dbname, $sock, $sations);
+    $this->buildDb($sations);
   }
 
   protected function createDSN($dbms, $hostname, $port, $dbname, $sock)
@@ -157,7 +157,7 @@ EOF;
     return $result;
   }
 
-  protected function configureDatabase($dbms, $username, $password, $hostname, $port, $dbname, $sock, $options)
+  protected function configureDatabase($dbms, $username, $password, $hostname, $port, $dbname, $sock, $sations)
   {
     $dsn = $this->createDSN($dbms, $hostname, $port, $dbname, $sock);
 
@@ -170,9 +170,9 @@ EOF;
     }
 
     $env = 'all';
-    if ('prod' !== $options['env'])
+    if ('prod' !== $sations['env'])
     {
-      $env = $options['env'];
+      $env = $sations['env'];
     }
 
     $config[$env]['doctrine'] = array(
@@ -207,7 +207,7 @@ EOF;
     $publishAssets->run();
   }
 
-  protected function buildDb($options)
+  protected function buildDb($sations)
   {
     $tmpdir = sfConfig::get('sf_data_dir').'/fixtures_tmp';
     $this->getFilesystem()->mkdirs($tmpdir);
@@ -240,8 +240,8 @@ EOF;
       'filters'         => true,
       'sql'             => true,
       'and-load'        => $tmpdir,
-      'application'     => $options['application'],
-      'env'             => $options['env'],
+      'application'     => $sations['application'],
+      'env'             => $sations['env'],
     ));
 
     $this->getFilesystem()->remove(sfFinder::type('file')->in(array($tmpdir)));
@@ -250,7 +250,7 @@ EOF;
 
   protected function installPlugins()
   {
-    $task = new opPluginSyncTask($this->dispatcher, $this->formatter);
+    $task = new saPluginSyncTask($this->dispatcher, $this->formatter);
     $task->run();
   }
 

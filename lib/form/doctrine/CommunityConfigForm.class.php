@@ -24,9 +24,9 @@ class CommunityConfigForm extends BaseForm
     $isNew = false,
     $isAutoGenerate = true;
 
-  public function __construct($defaults = array(), $options = array(), $CSRFSecret = null)
+  public function __construct($defaults = array(), $sations = array(), $CSRFSecret = null)
   {
-    return parent::__construct($defaults, $options, false);
+    return parent::__construct($defaults, $sations, false);
   }
 
   public function configure()
@@ -88,14 +88,14 @@ class CommunityConfigForm extends BaseForm
   public function setConfigWidget($name)
   {
     $config = $this->configSettings[$name];
-    $this->widgetSchema[$name] = opFormItemGenerator::generateWidget($config);
+    $this->widgetSchema[$name] = saFormItemGenerator::generateWidget($config);
     $this->widgetSchema->setLabel($name, $config['Caption']);
     $communityConfig = Doctrine::getTable('CommunityConfig')->retrieveByNameAndCommunityId($name, $this->community->getId());
     if ($communityConfig)
     {
       $this->setDefault($name, $communityConfig->getValue());
     }
-    $this->validatorSchema[$name] = opFormItemGenerator::generateValidator($config);
+    $this->validatorSchema[$name] = saFormItemGenerator::generateValidator($config);
   }
 
   public function setConfigSettings($category = '')

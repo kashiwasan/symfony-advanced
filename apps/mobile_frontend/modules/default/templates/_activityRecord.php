@@ -1,4 +1,4 @@
-<?php use_helper('opActivity') ?>
+<?php use_helper('saActivity') ?>
 
 <?php echo sa_link_to_member($activity->getMember()) ?>
 &nbsp;<?php echo sa_activity_body_filter($activity) ?>

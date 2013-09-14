@@ -9,13 +9,13 @@
  */
 
 /**
- * opProfileExport
+ * saProfileExport
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opProfileExport
+class saProfileExport
 {
   public
     $member = null,
@@ -49,11 +49,11 @@ class opProfileExport
     return 'get'.sfInflector::camelize($key);
   }
 
-  protected function getMemberImageURI($options = array())
+  protected function getMemberImageURI($sations = array())
   {
-    sfContext::getInstance()->getConfiguration()->loadHelpers(array('Url', 'opUtil', 'sfImage', 'Asset', 'Tag'));
+    sfContext::getInstance()->getConfiguration()->loadHelpers(array('Url', 'saUtil', 'sfImage', 'Asset', 'Tag'));
 
-    return sf_image_path($this->member->getImageFileName(), $options, true);
+    return sf_image_path($this->member->getImageFileName(), $sations, true);
   }
 
   public function __call($name, $arguments)

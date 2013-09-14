@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class initialize extends opMigration
+class initialize extends saMigration
 {
   public function up()
   {

@@ -9,18 +9,18 @@
  */
 
 /**
- * opFriendComponents
+ * saFriendComponents
  *
  * @package    SfAdvanced
  * @subpackage action
  * @author     Shogo Kawahara <kawahara@tejimaya.net>
  */
-abstract class opFriendComponents extends sfComponents
+abstract class saFriendComponents extends sfComponents
 {
   public function executeActivityBox()
   {
     $this->activities = Doctrine::getTable('ActivityData')->getFriendActivityList(null, $this->gadget->getConfig('row'));
-    if (opConfig::get('is_allow_post_activity'))
+    if (saConfig::get('is_allow_post_activity'))
     {
       $this->form = new ActivityDataForm();
     }

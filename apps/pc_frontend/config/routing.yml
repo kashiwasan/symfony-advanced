@@ -5,8 +5,8 @@ homepage:
 
 obj_member_profile:
   url:     /member/:id
-  class:   opDynamicAclRoute
-  options: { model: Member, type: object, privilege: view }
+  class:   saDynamicAclRoute
+  sations: { model: Member, type: object, privilege: view }
   param:   { module: member, action: profile }
   requirements:
     id:        \d+
@@ -19,7 +19,7 @@ member_profile_mine:
 obj_friend_unlink:
   url:     /friend/unlink/:id
   class:   sfDoctrineRoute
-  options: { model: Member, type: object }
+  sations: { model: Member, type: object }
   param:   { module: friend, action: unlink }
   requirements:
     id: \d+
@@ -138,7 +138,7 @@ community_quit:
   url: /community/quit
   param: { module: community, action: quit }
 
-# openid rules
+# saenid rules
 openid_idpxrds:
   url: /OpenID/idpXrds
   param: { module: OpenID, action: idpXrds }
@@ -162,8 +162,8 @@ oauth_access_token:
 
 # connection rules
 connection:
-  class: opStandardRouteCollection
-  options: { model: OAuthConsumerInformation, actions: [show, new, create, edit, update, deleteConfirm, delete], is_acl: true }
+  class: saStandardRouteCollection
+  sations: { model: OAuthConsumerInformation, actions: [show, new, create, edit, update, deleteConfirm, delete], is_acl: true }
 
 connection_list:
   url:     /connection
@@ -171,15 +171,15 @@ connection_list:
 
 connection_revoke_token_confirm:
   url:     /connection/revoke/:id
-  class:   opDynamicAclRoute
-  options: { model: OAuthConsumerInformation, type: object, privilege: use }
+  class:   saDynamicAclRoute
+  sations: { model: OAuthConsumerInformation, type: object, privilege: use }
   param:   { module: connection, action: revokeTokenConfirm }
   requirements: { id: \d+, sf_method: get }
 
 connection_revoke_token:
   url:     /connection/revoke/:id
-  class:   opDynamicAclRoute
-  options: { model: OAuthConsumerInformation, type: object, privilege: use }
+  class:   saDynamicAclRoute
+  sations: { model: OAuthConsumerInformation, type: object, privilege: use }
   param:   { module: connection, action: revokeToken }
   requirements: { id: \d+, sf_method: post }
 
@@ -202,8 +202,8 @@ customizing_css:
 # for BC
 member_profile:
   url:   /member/:id
-  class:   opDynamicAclRoute
-  options: { model: Member, type: object, privilege: view }
+  class:   saDynamicAclRoute
+  sations: { model: Member, type: object, privilege: view }
   param:   { module: member, action: profile }
   requirements:
     id:        \d+
@@ -211,8 +211,8 @@ member_profile:
 
 member_profile_raw:
   url:     /member/profile/id/:id/*
-  class:   opDynamicAclRoute
-  options: { model: Member, type: object, privilege: view }
+  class:   saDynamicAclRoute
+  sations: { model: Member, type: object, privilege: view }
   param:   { module: member, action: profile }
   requirements:
     id:        \d+

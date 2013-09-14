@@ -9,13 +9,13 @@
  */
 
 /**
- * opWidgetFormRichTextarea 
+ * saWidgetFormRichTextarea 
  *
  * @package    SfAdvanced
  * @subpackage widget
  * @author     Shogo Kawahara <kawahara@ejimaya.net>
  */
-class opWidgetFormRichTextarea extends sfWidgetFormTextarea
+class saWidgetFormRichTextarea extends sfWidgetFormTextarea
 {
   static protected $isFirstRender = true;
 
@@ -31,9 +31,9 @@ class opWidgetFormRichTextarea extends sfWidgetFormTextarea
     'convert_urls' => 0,
   );
 
-  public function __construct($options = array(), $attributes = array())
+  public function __construct($sations = array(), $attributes = array())
   {
-    parent::__construct($options, $attributes);
+    parent::__construct($sations, $attributes);
 
     $this->tinyMCEConfigs = array_merge($this->tinyMCEConfigs, $this->getOption('config'));
 
@@ -44,14 +44,14 @@ class opWidgetFormRichTextarea extends sfWidgetFormTextarea
     }
   }
 
-  protected function configure($options = array(), $attributes = array())
+  protected function configure($sations = array(), $attributes = array())
   {
     $this->addOption('config', array());
     $this->addOption('is_toggle', true);
     $this->addOption('is_textmode', true);
     $this->addOption('textarea_template', '%s');
 
-    parent::configure($options, $attributes);
+    parent::configure($sations, $attributes);
   }
 
   protected function getId($name, $attributes)

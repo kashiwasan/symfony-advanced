@@ -6,6 +6,6 @@ security:  ~
 cache:     ~
 
 execution:
-  class: opExecutionFilter
+  class: saExecutionFilter
   param:
     type: execution

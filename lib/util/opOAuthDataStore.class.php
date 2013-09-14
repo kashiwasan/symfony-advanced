@@ -11,13 +11,13 @@ require_once 'OAuth.php';
  */
 
 /**
- * opOAuthDataStore
+ * saOAuthDataStore
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opOAuthDataStore extends OAuthDataStore
+class saOAuthDataStore extends OAuthDataStore
 {
   protected
     $tokenModelName = null,
@@ -56,9 +56,9 @@ class opOAuthDataStore extends OAuthDataStore
     $information = Doctrine::getTable('OAuthConsumerInformation')->findByKeyString($consumer->key);
     if ($information)
     {
-      $key = opToolkit::generatePasswordString(16, false);
-      $secret = opToolkit::generatePasswordString(32, false);
-      $verifier = opToolkit::generatePasswordString(8, false);
+      $key = saToolkit::generatePasswordString(16, false);
+      $secret = saToolkit::generatePasswordString(32, false);
+      $verifier = saToolkit::generatePasswordString(8, false);
 
       $tokenRecord = $this->recordTemplate;
       $tokenRecord->setKeyString($key);
@@ -78,8 +78,8 @@ class opOAuthDataStore extends OAuthDataStore
     $information = Doctrine::getTable('OAuthConsumerInformation')->findByKeyString($consumer->key);
     if ($information)
     {
-      $key = opToolkit::generatePasswordString(16, false);
-      $secret = opToolkit::generatePasswordString(32, false);
+      $key = saToolkit::generatePasswordString(16, false);
+      $secret = saToolkit::generatePasswordString(32, false);
 
       $tokenRecord = $this->queryTemplate
         ->andWhere('oauth_consumer_id = ?', $information->id)

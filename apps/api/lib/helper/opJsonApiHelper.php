@@ -9,7 +9,7 @@
  */
 
 /**
- * opJsonApiHelper
+ * saJsonApiHelper
  *
  * @package    SfAdvanced
  * @subpackage helper
@@ -93,7 +93,7 @@ function sa_api_activity($activity)
   );
 }
 
-function sa_activity_linkification($body, $options = array())
+function sa_activity_linkification($body, $sations = array())
 {
   $body = sa_auto_link_text($body);
 

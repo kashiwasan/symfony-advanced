@@ -9,13 +9,13 @@
  */
 
 /**
- * opAuthMailAddressPasswordRecoveryForm
+ * saAuthMailAddressPasswordRecoveryForm
  *
  * @package    SfAdvanced
  * @subpackage form
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opAuthMailAddressPasswordChangeForm extends BaseForm
+class saAuthMailAddressPasswordChangeForm extends BaseForm
 {
   public $member = null;
 
@@ -27,8 +27,8 @@ class opAuthMailAddressPasswordChangeForm extends BaseForm
     ));
 
     $this->setValidators(array(
-      'password' => new opValidatorString(),
-      'password_confirm' => new opValidatorString(),
+      'password' => new saValidatorString(),
+      'password_confirm' => new saValidatorString(),
     ));
 
     $this->widgetSchema->setLabel('password_confirm', 'Password (Confirm)');

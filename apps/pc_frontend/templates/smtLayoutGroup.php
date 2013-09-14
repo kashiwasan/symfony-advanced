@@ -1,5 +1,5 @@
 <?php use_helper('Javascript') ?>
-<?php use_helper('opAsset') ?>
+<?php use_helper('saAsset') ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
@@ -11,7 +11,7 @@
 <?php sa_smt_use_stylesheet('smt_main') ?>
 <?php sa_smt_include_stylesheets() ?>
 <meta name="viewport" content="width=320px,user-scalable=no" />
-<?php if (opConfig::get('enable_jsonapi') && opToolkit::isSecurePage()): ?>
+<?php if (saConfig::get('enable_jsonapi') && saToolkit::isSecurePage()): ?>
 <?php
 $jsonData = array(
   'apiKey' => $sf_user->getMemberApiKey(),
@@ -32,7 +32,7 @@ var sfadvanced = '.json_encode($jsonData).';
 <?php sa_smt_use_javascript('smt_menu') ?>
 <?php sa_smt_include_javascripts() ?>
 </head>
-<body id="<?php printf('page_%s_%s', $this->getModuleName(), $this->getActionName()) ?>" class="<?php echo opToolkit::isSecurePage() ? 'secure_page' : 'insecure_page' ?>">
+<body id="<?php printf('page_%s_%s', $this->getModuleName(), $this->getActionName()) ?>" class="<?php echo saToolkit::isSecurePage() ? 'secure_page' : 'insecure_page' ?>">
 <?php if (isset($sa_layout['community'])): ?>
 <?php include_partial('global/tosaka', array('community' => $sa_layout['community'])) ?>
 <?php else: ?>

@@ -9,13 +9,13 @@
  */
 
 /**
- * opAuthLoginForm represents a form to login.
+ * saAuthLoginForm represents a form to login.
  *
  * @package    SfAdvanced
  * @subpackage form
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-abstract class opAuthLoginForm extends BaseForm
+abstract class saAuthLoginForm extends BaseForm
 {
   protected
     $adapter = null;
@@ -25,20 +25,20 @@ abstract class opAuthLoginForm extends BaseForm
   /**
    * Constructor.
    *
-   * @param opAuthAdapter $adapter    An opAuthAdapter object
+   * @param saAuthAdapter $adapter    An saAuthAdapter object
    * @param array         $defaults   An array of field default values
-   * @param array         $options    An array of options
+   * @param array         $sations    An array of sations
    *
    * @see sfForm
    */
-  public function __construct(opAuthAdapter $adapter, $defaults = array(), $options = array())
+  public function __construct(saAuthAdapter $adapter, $defaults = array(), $sations = array())
   {
     $this->adapter = $adapter;
 
-    parent::__construct($defaults, $options, false);
+    parent::__construct($defaults, $sations, false);
 
-    $this->setWidget('next_uri', new opWidgetFormInputHiddenNextUri());
-    $this->setValidator('next_uri', new opValidatorNextUri());
+    $this->setWidget('next_uri', new saWidgetFormInputHiddenNextUri());
+    $this->setValidator('next_uri', new saValidatorNextUri());
 
     if ($this->getOption('is_use_remember_me', true) && !sfConfig::get('app_is_mobile'))
     {

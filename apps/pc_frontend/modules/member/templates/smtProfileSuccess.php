@@ -7,7 +7,7 @@
 <?php $content = ob_get_clean() ?>
 <?php sa_include_parts('descriptionBox', 'informationAboutThisIsYourProfilePage', array('body' => $content)) ?>
 <?php else: ?>
-<?php if (!$relation->isFriend() && opConfig::get('enable_friend_link') && $relation->isAllowed($sf_user->getRawValue()->getMember(), 'friend_link')): ?>
+<?php if (!$relation->isFriend() && saConfig::get('enable_friend_link') && $relation->isAllowed($sf_user->getRawValue()->getMember(), 'friend_link')): ?>
 <?php ob_start() ?>
 <script type="text/javascript">
 $(function(){

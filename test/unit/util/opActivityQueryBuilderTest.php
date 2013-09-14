@@ -6,28 +6,28 @@ sfContext::createInstance($configuration);
 $t = new lime_test(15, new lime_output_color());
 
 //==============================================================================
-$t->diag('opActivityQueryBuilder::create()');
+$t->diag('saActivityQueryBuilder::create()');
 
-$builder = opActivityQueryBuilder::create();
-$t->cmp_ok($builder, 'instanceof', 'opActivityQueryBuilder', '::create() returns opActivityQueryBuilder instance.');
+$builder = saActivityQueryBuilder::create();
+$t->cmp_ok($builder, 'instanceof', 'saActivityQueryBuilder', '::create() returns saActivityQueryBuilder instance.');
 
-$builder2 = opActivityQueryBuilder::create();
-$t->cmp_ok($builder2, '!==', $builder, 'opActivityQueryBuilder is NOT singleton.');
+$builder2 = saActivityQueryBuilder::create();
+$t->cmp_ok($builder2, '!==', $builder, 'saActivityQueryBuilder is NOT singleton.');
 
 
 //==============================================================================
-$t->diag('opActivityQueryBuilder::buildQuery()');
+$t->diag('saActivityQueryBuilder::buildQuery()');
 
-$query = opActivityQueryBuilder::create()->buildQuery();
+$query = saActivityQueryBuilder::create()->buildQuery();
 $t->cmp_ok($query, 'instanceof', 'Doctrine_Query', '->buildQuery() returns Doctrine_Query instance.');
 
 $query->free();
 
 
 //==============================================================================
-$t->diag('opActivityQueryBuilder::includeSelf()');
+$t->diag('saActivityQueryBuilder::includeSelf()');
 
-$builder = opActivityQueryBuilder::create()
+$builder = saActivityQueryBuilder::create()
   ->setViewerId(1)
   ->includeSelf();
 
@@ -40,7 +40,7 @@ $result->free(true);
 $query->free();
 
 //------------------------------------------------------------
-$builder = opActivityQueryBuilder::create()
+$builder = saActivityQueryBuilder::create()
   ->setViewerId(2)
   ->includeSelf();
 
@@ -54,9 +54,9 @@ $query->free();
 
 
 //==============================================================================
-$t->diag('opActivityQueryBuilder::includeFriends()');
+$t->diag('saActivityQueryBuilder::includeFriends()');
 
-$builder = opActivityQueryBuilder::create()
+$builder = saActivityQueryBuilder::create()
   ->setViewerId(1)
   ->includeFriends();
 
@@ -69,7 +69,7 @@ $result->free(true);
 $query->free();
 
 //------------------------------------------------------------
-$builder = opActivityQueryBuilder::create()
+$builder = saActivityQueryBuilder::create()
   ->setViewerId(2)
   ->includeFriends();
 
@@ -83,9 +83,9 @@ $query->free();
 
 
 //==============================================================================
-$t->diag('opActivityQueryBuilder::includeSns()');
+$t->diag('saActivityQueryBuilder::includeSns()');
 
-$builder = opActivityQueryBuilder::create()
+$builder = saActivityQueryBuilder::create()
   ->includeSns();
 
 $query = $builder->buildQuery();
@@ -98,9 +98,9 @@ $query->free();
 
 
 //==============================================================================
-$t->diag('opActivityQueryBuilder::includeMember()');
+$t->diag('saActivityQueryBuilder::includeMember()');
 
-$builder = opActivityQueryBuilder::create()
+$builder = saActivityQueryBuilder::create()
   ->setViewerId(1)
   ->includeMember(1);
 
@@ -113,7 +113,7 @@ $result->free(true);
 $query->free();
 
 //------------------------------------------------------------
-$builder = opActivityQueryBuilder::create()
+$builder = saActivityQueryBuilder::create()
   ->setViewerId(2)
   ->includeMember(1);
 
@@ -126,7 +126,7 @@ $result->free(true);
 $query->free();
 
 //------------------------------------------------------------
-$builder = opActivityQueryBuilder::create()
+$builder = saActivityQueryBuilder::create()
   ->setViewerId(3)
   ->includeMember(1);
 
@@ -140,9 +140,9 @@ $query->free();
 
 
 //==============================================================================
-$t->diag('opActivityQueryBuilder multiple conditions');
+$t->diag('saActivityQueryBuilder multiple conditions');
 
-$builder = opActivityQueryBuilder::create()
+$builder = saActivityQueryBuilder::create()
   ->setViewerId(1)
   ->includeSelf()
   ->includeFriends();
@@ -156,7 +156,7 @@ $result->free(true);
 $query->free();
 
 //------------------------------------------------------------
-$builder = opActivityQueryBuilder::create()
+$builder = saActivityQueryBuilder::create()
   ->setViewerId(2)
   ->includeSelf()
   ->includeFriends();
@@ -170,7 +170,7 @@ $result->free(true);
 $query->free();
 
 //------------------------------------------------------------
-$builder = opActivityQueryBuilder::create()
+$builder = saActivityQueryBuilder::create()
   ->setViewerId(1)
   ->includeSelf()
   ->includeFriends()
@@ -185,7 +185,7 @@ $result->free(true);
 $query->free();
 
 //------------------------------------------------------------
-$builder = opActivityQueryBuilder::create()
+$builder = saActivityQueryBuilder::create()
   ->setViewerId(2)
   ->includeSelf()
   ->includeFriends()

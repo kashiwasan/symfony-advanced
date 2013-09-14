@@ -9,13 +9,13 @@
  */
 
 /**
- * opConfig is a wrapper class to handle SnsConfig
+ * saConfig is a wrapper class to handle SnsConfig
  *
  * @package    SfAdvanced
  * @subpackage config
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opConfig extends sfConfig implements ArrayAccess
+class saConfig extends sfConfig implements ArrayAccess
 {
   protected static function getConfigurationSetting()
   {

@@ -9,13 +9,13 @@
  */
 
 /**
- * opGlobalPartialView
+ * saGlobalPartialView
  *
  * @package    SfAdvanced
  * @subpackage view
  * @author     ShogoKawahara <kawahara@tejimaya.net>
  */
-class opGlobalPartialView extends sfPartialView
+class saGlobalPartialView extends sfPartialView
 {
  /**
   * Configure template for this view

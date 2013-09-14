@@ -9,13 +9,13 @@
  */
 
 /**
- * opValidatorDate validates a date
+ * saValidatorDate validates a date
  *
  * @package    SfAdvanced
  * @subpackage validator
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opValidatorDate extends sfValidatorDate
+class saValidatorDate extends sfValidatorDate
 {
   /**
    * @see sfValidatorBase

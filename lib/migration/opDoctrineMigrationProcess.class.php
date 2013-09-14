@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class opDoctrineMigrationProcess extends Doctrine_Migration_Process
+class saDoctrineMigrationProcess extends Doctrine_Migration_Process
 {
   protected $connection = null;
 

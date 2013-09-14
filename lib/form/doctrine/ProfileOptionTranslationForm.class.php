@@ -12,6 +12,6 @@ class ProfileOptionTranslationForm extends BaseProfileOptionTranslationForm
   public function configure()
   {
     $this->setWidget('value', new sfWidgetFormInputText());
-    $this->setValidator('value', new opValidatorString(array('trim' => true, 'required' => true)));
+    $this->setValidator('value', new saValidatorString(array('trim' => true, 'required' => true)));
   }
 }

@@ -9,30 +9,30 @@
  */
 
 /**
- * opWidgetFormProfile is widget to edit member's profiles.
+ * saWidgetFormProfile is widget to edit member's profiles.
  *
  * @package    SfAdvanced
  * @subpackage widget
  * @author     Shogo Kawahara <kawahara@tejimaya.net>
  */
-class opWidgetFormProfile extends sfWidgetForm
+class saWidgetFormProfile extends sfWidgetForm
 {
   /**
    * Constructor.
    * 
-   * @param array $options     An array of options
+   * @param array $sations     An array of sations
    * @param array $attributes  An array of default HTML attributes
    *
    * @see sfWidgetForm
    */
-  public function __construct($options = array(), $attributes = array())
+  public function __construct($sations = array(), $attributes = array())
   {
     $this->addRequiredOption('widget');
     $this->addOption('is_edit_public_flag', false);
     $this->addOption('public_flag_default', 1);
     $this->addOption('template', '%input%<br>%public_flag%');
 
-    parent::__construct($options, $attributes);
+    parent::__construct($sations, $attributes);
 
     $this->setLabel($this->getOption('widget')->getLabel());
   }

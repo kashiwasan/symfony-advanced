@@ -1,10 +1,10 @@
 member_add_image:
   url: m
-  class: opMailRoute
+  class: saMailRoute
   param: { module: member, action: image }
 
 community_add_image:
   url: c.:id
-  class: opMailRoute
+  class: saMailRoute
   param: { module: community, action: image }
   required: { id: \d+ }

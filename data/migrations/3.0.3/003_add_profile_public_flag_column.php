@@ -15,7 +15,7 @@
  * @package SfAdvanced 
  * @author  Shogo Kawahara <kawahara@tejimaya.net>
  */
-class addProfilePublicFlagColumn extends opMigration
+class addProfilePublicFlagColumn extends saMigration
 {
   public function up()
   {

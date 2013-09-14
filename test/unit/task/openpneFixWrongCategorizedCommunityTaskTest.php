@@ -7,7 +7,7 @@ include_once dirname(__FILE__).'/../../bootstrap/database.php';
 
 $t = new lime_test();
 
-class opInteractiveTaskTestHandlerFixCommunityCategories extends opInteractiveTaskTestHandler
+class saInteractiveTaskTestHandlerFixCommunityCategories extends saInteractiveTaskTestHandler
 {
   protected $fixture;
 
@@ -35,7 +35,7 @@ class opInteractiveTaskTestHandlerFixCommunityCategories extends opInteractiveTa
 
   public function importTestData()
   {
-    $path = dirname(__FILE__).'/../../fixtures/'.$this->fixture.'/op2_test_data.sql';
+    $path = dirname(__FILE__).'/../../fixtures/'.$this->fixture.'/sa2_test_data.sql';
     if (!is_file($path))
     {
       throw new LogicException('Specified sql file is unreadable.');
@@ -46,7 +46,7 @@ class opInteractiveTaskTestHandlerFixCommunityCategories extends opInteractiveTa
     $result = ob_get_clean();
     $queries = explode("\n", $result);
 
-    $conn = opDoctrineQuery::getMasterConnectionDirect();
+    $conn = saDoctrineQuery::getMasterConnectionDirect();
 
     $q = '';
     foreach ($queries as $query)
@@ -74,7 +74,7 @@ class opInteractiveTaskTestHandlerFixCommunityCategories extends opInteractiveTa
       'c_commu_category_parent', 'c_commu_category', 'c_commu',
     );
 
-    $conn = opDoctrineQuery::getMasterConnectionDirect();
+    $conn = saDoctrineQuery::getMasterConnectionDirect();
 
     foreach ($tables as $table)
     {
@@ -86,7 +86,7 @@ class opInteractiveTaskTestHandlerFixCommunityCategories extends opInteractiveTa
 
   public function getCommunityIdByItsName($name)
   {
-    $conn = opDoctrineQuery::getMasterConnectionDirect();
+    $conn = saDoctrineQuery::getMasterConnectionDirect();
     $result = $conn->fetchOne('SELECT id FROM community WHERE name = ?', array($name));
 
     return $result;
@@ -94,7 +94,7 @@ class opInteractiveTaskTestHandlerFixCommunityCategories extends opInteractiveTa
 
   public function getCommunityCategoryByCommunityId($id)
   {
-    $conn = opDoctrineQuery::getMasterConnectionDirect();
+    $conn = saDoctrineQuery::getMasterConnectionDirect();
     $result = $conn->fetchOne('SELECT community_category_id FROM community WHERE id = ?', array($id));
 
     return $result;
@@ -129,7 +129,7 @@ new sfDatabaseManager($configuration);
 
 $matches = array();
 
-$handler = new opInteractiveTaskTestHandlerFixCommunityCategories($t, $fixture);
+$handler = new saInteractiveTaskTestHandlerFixCommunityCategories($t, $fixture);
 $handler
   ->beginTask()
   ->input('n')

@@ -15,6 +15,6 @@
  * @subpackage action
  * @author     Shogo Kawahara <kawahara@tejimaya.net>
  */
-class memberComponents extends opMemberComponents
+class memberComponents extends saMemberComponents
 {
 }

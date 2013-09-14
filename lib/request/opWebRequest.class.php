@@ -9,13 +9,13 @@
  */
 
 /**
- * opWebRequest class manages web requests.
+ * saWebRequest class manages web requests.
  *
  * @package    SfAdvanced
  * @subpackage request
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-class opWebRequest extends sfWebRequest
+class saWebRequest extends sfWebRequest
 {
   const SB_GW_COOKIE_NAME = 'is_sb_gw';
   const SB_GW_BASE_URL = 'https://secure.softbank.ne.jp/';
@@ -33,12 +33,12 @@ class opWebRequest extends sfWebRequest
  /**
   * @see sfWebRequest
   */
-  public function initialize(sfEventDispatcher $dispatcher, $parameters = array(), $attributes = array(), $options = array())
+  public function initialize(sfEventDispatcher $dispatcher, $parameters = array(), $attributes = array(), $sations = array())
   {
-    parent::initialize($dispatcher, $parameters, $attributes, $options);
+    parent::initialize($dispatcher, $parameters, $attributes, $sations);
 
-    $this->parameterHolder = new opParameterHolder();
-    $this->attributeHolder = new opParameterHolder();
+    $this->parameterHolder = new saParameterHolder();
+    $this->attributeHolder = new saParameterHolder();
 
     $this->parameterHolder->add($parameters);
     $this->attributeHolder->add($attributes);
@@ -98,12 +98,12 @@ class opWebRequest extends sfWebRequest
 
   public function getMobile()
   {
-    return opMobileUserAgent::getInstance()->getMobile();
+    return saMobileUserAgent::getInstance()->getMobile();
   }
 
   public function isMobile()
   {
-    if (opConfig::get('is_check_mobile_ip') && !$this->isMobileIPAddress())
+    if (saConfig::get('is_check_mobile_ip') && !$this->isMobileIPAddress())
     {
       return false;
     }
@@ -158,7 +158,7 @@ class opWebRequest extends sfWebRequest
     $uid = $this->hashMobileUid($this->getMobile()->getUID());
     if (!$uid && $allowFallback)
     {
-      // result of opWebRequest::getMobileFallbackUID() is already hashed
+      // result of saWebRequest::getMobileFallbackUID() is already hashed
       $uids = $this->getMobileFallbackUID();
 
       // to keep backward compatible of this method with SfAdvanced 3.4 and before,
@@ -257,7 +257,7 @@ class opWebRequest extends sfWebRequest
 
   public function isCookie()
   {
-    return opMobileUserAgent::getInstance()->isCookie();
+    return saMobileUserAgent::getInstance()->isCookie();
   }
 
   public function getCurrentQueryString()
@@ -274,7 +274,7 @@ class opWebRequest extends sfWebRequest
   {
     if ($isStripNullbyte)
     {
-      return opToolkit::stripNullByteDeep(parent::getGetParameters());
+      return saToolkit::stripNullByteDeep(parent::getGetParameters());
     }
     else
     {
@@ -286,7 +286,7 @@ class opWebRequest extends sfWebRequest
   {
     if ($isStripNullbyte)
     {
-      return opToolkit::stripNullByteDeep(parent::getPostParameters());
+      return saToolkit::stripNullByteDeep(parent::getPostParameters());
     }
     else
     {
@@ -298,7 +298,7 @@ class opWebRequest extends sfWebRequest
   {
     if ($isStripNullbyte)
     {
-      return opToolkit::stripNullByteDeep(parent::getGetParameter($name, $default));
+      return saToolkit::stripNullByteDeep(parent::getGetParameter($name, $default));
     }
     else
     {
@@ -310,7 +310,7 @@ class opWebRequest extends sfWebRequest
   {
     if ($isStripNullbyte)
     {
-      return opToolkit::stripNullByteDeep(parent::getPostParameter($name, $default));
+      return saToolkit::stripNullByteDeep(parent::getPostParameter($name, $default));
     }
     else
     {
@@ -322,7 +322,7 @@ class opWebRequest extends sfWebRequest
   {
     if ($isStripNullbyte)
     {
-      return opToolkit::stripNullByteDeep(parent::getUrlParameter($name, $default));
+      return saToolkit::stripNullByteDeep(parent::getUrlParameter($name, $default));
     }
     else
     {

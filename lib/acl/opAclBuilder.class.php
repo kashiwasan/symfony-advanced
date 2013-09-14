@@ -9,13 +9,13 @@
  */
 
 /**
- * opAclBuilder builds instances of the Zend_Acl by the specified conditions
+ * saAclBuilder builds instances of the Zend_Acl by the specified conditions
  *
  * @package    SfAdvanced
  * @subpackage acl
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-abstract class opAclBuilder
+abstract class saAclBuilder
 {
   abstract static public function buildResource($resource, $targetMembers);
 }

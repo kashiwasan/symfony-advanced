@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class opGenerateModuleTask extends sfBaseTask
+class saGenerateModuleTask extends sfBaseTask
 {
   protected function configure()
   {
@@ -18,14 +18,14 @@ class opGenerateModuleTask extends sfBaseTask
       new sfCommandArgument('module', sfCommandArgument::REQUIRED, 'The module name'),
     ));
 
-    $this->namespace = 'opGenerate';
+    $this->namespace = 'saGenerate';
     $this->name = 'module';
     $this->briefDescription = 'Generates a new module for SfAdvanced plugin';
     $this->detailedDescription = <<<EOF
-The [opGenerate:module|INFO] task creates the basic directory structure
+The [saGenerate:module|INFO] task creates the basic directory structure
 for a new module in an existing SfAdvanced plugin application:
 
-  [./symfony opGenerate:module opSamplePlugin pc_frontend sample|INFO]
+  [./symfony saGenerate:module saSamplePlugin pc_frontend sample|INFO]
 
 The task can also change the author name found in the [actions.class.php|COMMENT]
 if you have configured it in [config/properties.ini|COMMENT] or
@@ -43,7 +43,7 @@ it throws a [sfCommandException|COMMENT].
 EOF;
   }
 
-  protected function execute($arguments = array(), $options = array())
+  protected function execute($arguments = array(), $sations = array())
   {
     $plugin = $arguments['plugin'];
     $app    = $arguments['application'];

@@ -21,7 +21,7 @@ class MemberImageForm extends BaseForm
   {
     $this->member = $this->getOption('member');
     $this->setWidget('file', new sfWidgetFormInputFile());
-    $this->setValidator('file', new opValidatorImageFile());
+    $this->setValidator('file', new saValidatorImageFile());
     $this->widgetSchema->setNameFormat('member_image[%s]');
   }
 
@@ -40,7 +40,7 @@ class MemberImageForm extends BaseForm
     $count = $this->member->getMemberImage()->count();
     if ($count >= 3)
     {
-      throw new opRuntimeException('Cannot add an image any more.');
+      throw new saRuntimeException('Cannot add an image any more.');
     }
 
     $file = new File();

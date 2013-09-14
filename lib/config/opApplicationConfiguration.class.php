@@ -9,13 +9,13 @@
  */
 
 /**
- * opApplicationConfiguration represents a configuration for SfAdvanced application.
+ * saApplicationConfiguration represents a configuration for SfAdvanced application.
  *
  * @package    SfAdvanced
  * @subpackage config
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-abstract class opApplicationConfiguration extends sfApplicationConfiguration
+abstract class saApplicationConfiguration extends sfApplicationConfiguration
 {
   static protected $zendLoaded = false;
 
@@ -45,7 +45,7 @@ abstract class opApplicationConfiguration extends sfApplicationConfiguration
 
   public function setup()
   {
-    require_once dirname(__FILE__).'/../config/opSecurityConfigHandler.class.php';
+    require_once dirname(__FILE__).'/../config/saSecurityConfigHandler.class.php';
 
     $DS = DIRECTORY_SEPARATOR;
     $SfAdvanced2Path = sfConfig::get('sf_lib_dir').$DS.'vendor'.$DS;  // ##PROJECT_LIB_DIR##/vendor/
@@ -61,8 +61,8 @@ abstract class opApplicationConfiguration extends sfApplicationConfiguration
         include($file);
       }
 
-      require_once dirname(__FILE__).'/../plugin/opPluginManager.class.php';
-      $pluginActivations = opPluginManager::getPluginActivationList();
+      require_once dirname(__FILE__).'/../plugin/saPluginManager.class.php';
+      $pluginActivations = saPluginManager::getPluginActivationList();
       $pluginActivations = array_merge(array_fill_keys($this->getPlugins(), true), $pluginActivations);
       foreach ($pluginActivations as $key => $value)
       {
@@ -88,7 +88,7 @@ abstract class opApplicationConfiguration extends sfApplicationConfiguration
 
     foreach ($pluginList as $pluginName => $activation)
     {
-      if (0 === strpos($pluginName, 'opSkin'))
+      if (0 === strpos($pluginName, 'saSkin'))
       {
         $skinPlugins[$pluginName] = $activation;
       }
@@ -97,7 +97,7 @@ abstract class opApplicationConfiguration extends sfApplicationConfiguration
     if (1 !== count(array_keys($skinPlugins, true)))
     {
       $skinPlugins = array_fill_keys(array_keys($skinPlugins), false);
-      $skinPlugins['opSkinBasicPlugin'] = true;
+      $skinPlugins['saSkinBasicPlugin'] = true;
     }
 
     return array_merge($pluginList, $skinPlugins);
@@ -136,7 +136,7 @@ abstract class opApplicationConfiguration extends sfApplicationConfiguration
 
     foreach ($list as $value)
     {
-      if (!strncmp($value, 'opAuth', 6))
+      if (!strncmp($value, 'saAuth', 6))
       {
         $result[] = $value;
       }
@@ -191,8 +191,8 @@ abstract class opApplicationConfiguration extends sfApplicationConfiguration
   {
     if (is_null($this->configCache))
     {
-      require_once sfConfig::get('sf_lib_dir').'/config/opConfigCache.class.php';
-      $this->configCache = new opConfigCache($this);
+      require_once sfConfig::get('sf_lib_dir').'/config/saConfigCache.class.php';
+      $this->configCache = new saConfigCache($this);
     }
 
     return $this->configCache;
@@ -208,10 +208,10 @@ abstract class opApplicationConfiguration extends sfApplicationConfiguration
    */
   public function filterTemplateParameters(sfEvent $event, $parameters)
   {
-    $parameters['sa_config']  = new opConfig();
-    sfOutputEscaper::markClassAsSafe('opConfig');
+    $parameters['sa_config']  = new saConfig();
+    sfOutputEscaper::markClassAsSafe('saConfig');
 
-    $parameters['sa_color']  = new opColorConfig();
+    $parameters['sa_color']  = new saColorConfig();
 
     $table = Doctrine::getTable('SnsTerm');
     $application = sfConfig::get('sf_app');
@@ -454,7 +454,7 @@ abstract class opApplicationConfiguration extends sfApplicationConfiguration
 
     $_prop[$cacheHead][$cacheKey] = $this->globPlugins($pattern, false, $isControllerPath);
 
-    opToolkit::writeCacheFile($cacheFile, "<?php\nreturn ".var_export($_prop[$cacheHead], true).';');
+    saToolkit::writeCacheFile($cacheFile, "<?php\nreturn ".var_export($_prop[$cacheHead], true).';');
 
     return $_prop[$cacheHead][$cacheKey];
   }
@@ -482,13 +482,13 @@ abstract class opApplicationConfiguration extends sfApplicationConfiguration
 
   protected function setConfigHandlers()
   {
-    $this->getConfigCache()->registerConfigHandler('config/sns_config.yml', 'opConfigConfigHandler', array('prefix' => 'sfadvanced_sns_'));
+    $this->getConfigCache()->registerConfigHandler('config/sns_config.yml', 'saConfigConfigHandler', array('prefix' => 'sfadvanced_sns_'));
     include($this->getConfigCache()->checkConfig('config/sns_config.yml'));
 
-    $this->getConfigCache()->registerConfigHandler('config/member_config.yml', 'opConfigConfigHandler', array('prefix' => 'sfadvanced_member_'));
+    $this->getConfigCache()->registerConfigHandler('config/member_config.yml', 'saConfigConfigHandler', array('prefix' => 'sfadvanced_member_'));
     include($this->getConfigCache()->checkConfig('config/member_config.yml'));
 
-    $this->getConfigCache()->registerConfigHandler('config/community_config.yml', 'opConfigConfigHandler', array('prefix' => 'sfadvanced_community_'));
+    $this->getConfigCache()->registerConfigHandler('config/community_config.yml', 'saConfigConfigHandler', array('prefix' => 'sfadvanced_community_'));
     include($this->getConfigCache()->checkConfig('config/community_config.yml'));
   }
 
@@ -526,8 +526,8 @@ abstract class opApplicationConfiguration extends sfApplicationConfiguration
   static public function registerJanRainOpenID()
   {
     $DS = DIRECTORY_SEPARATOR;
-    $openidPath = sfConfig::get('sf_lib_dir').$DS.'vendor'.$DS.'php-openid'.$DS;  // ##PROJECT_LIB_DIR##/vendor/php-openid/
-    set_include_path($openidPath.PATH_SEPARATOR.get_include_path());
+    $saenidPath = sfConfig::get('sf_lib_dir').$DS.'vendor'.$DS.'php-saenid'.$DS;  // ##PROJECT_LIB_DIR##/vendor/php-saenid/
+    set_include_path($saenidPath.PATH_SEPARATOR.get_include_path());
 
     require_once 'Auth/OpenID/Consumer.php';
     require_once 'Auth/OpenID/FileStore.php';
@@ -576,7 +576,7 @@ abstract class opApplicationConfiguration extends sfApplicationConfiguration
     $context = sfContext::getInstance();
     $configuration = $context->getConfiguration();
 
-    $config = new opRoutingConfigHandler();
+    $config = new saRoutingConfigHandler();
     $currentApp = sfConfig::get('sf_app');
 
     sfConfig::set('sf_app', $application);
@@ -585,8 +585,8 @@ abstract class opApplicationConfiguration extends sfApplicationConfiguration
     $settings = sfDefineEnvironmentConfigHandler::getConfiguration($configuration->getConfigPaths('config/settings.yml'));
     $isNoScriptName = !empty($settings['.settings']['no_script_name']);
 
-    $options = $context->getRouting()->getOptions();
-    if ($options['context']['is_secure'])
+    $sations = $context->getRouting()->getOptions();
+    if ($sations['context']['is_secure'])
     {
       $sslBaseUrls = sfConfig::get('sa_ssl_base_url');
       $url = $sslBaseUrls[$application];
@@ -603,25 +603,25 @@ abstract class opApplicationConfiguration extends sfApplicationConfiguration
       $parts = parse_url($url);
 
       $parts['path'] = isset($parts['path']) ? $parts['path'] : '';
-      $options['context']['prefix'] =
+      $sations['context']['prefix'] =
         $this->getAppScriptName($application, sfConfig::get('sf_environment'), $parts['path'], $isNoScriptName);
 
       if (isset($parts['host']))
       {
-        $options['context']['host'] = $parts['host'];
+        $sations['context']['host'] = $parts['host'];
         if (isset($parts['port']))
         {
-          $options['context']['host'] .= ':'.$parts['port'];
+          $sations['context']['host'] .= ':'.$parts['port'];
         }
       }
     }
     else
     {
-      $path = preg_replace('#/[^/]+\.php$#', '', $options['context']['prefix']);
-      $options['context']['prefix'] = $this->getAppScriptName($application, sfConfig::get('sf_environment'), $path, $isNoScriptName);
+      $path = preg_replace('#/[^/]+\.php$#', '', $sations['context']['prefix']);
+      $sations['context']['prefix'] = $this->getAppScriptName($application, sfConfig::get('sf_environment'), $path, $isNoScriptName);
     }
 
-    $routing = new sfPatternRouting($context->getEventDispatcher(), null, $options);
+    $routing = new sfPatternRouting($context->getEventDispatcher(), null, $sations);
     $routing->setRoutes($config->evaluate($configuration->getConfigPaths('config/routing.yml')));
     $context->getEventDispatcher()->notify(new sfEvent($routing, 'routing.load_configuration'));
 

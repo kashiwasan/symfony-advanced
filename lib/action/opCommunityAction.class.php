@@ -9,17 +9,17 @@
  */
 
 /**
- * opCommunityAction
+ * saCommunityAction
  *
  * @package    SfAdvanced
  * @subpackage action
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-abstract class opCommunityAction extends sfActions
+abstract class saCommunityAction extends sfActions
 {
   static protected function getAcl($community, $member = null)
   {
-    return opCommunityAclBuilder::buildResource($community, array($member));
+    return saCommunityAclBuilder::buildResource($community, array($member));
   }
 
   public function preExecute()
@@ -41,7 +41,7 @@ abstract class opCommunityAction extends sfActions
   {
     if ($this->getUser()->getMember())
     {
-      opToolkit::setIsSecure($this);
+      saToolkit::setIsSecure($this);
     }
   }
 
@@ -136,7 +136,7 @@ abstract class opCommunityAction extends sfActions
       $this->size = 20;
     }
 
-    $this->pager = new opNonCountQueryPager('Community', $this->size);
+    $this->pager = new saNonCountQueryPager('Community', $this->size);
     $q = $this->filters->getQuery()->orderBy('id desc');
     $this->pager->setQuery($q);
     $this->pager->setPage($request->getParameter('page', 1));
@@ -241,7 +241,7 @@ abstract class opCommunityAction extends sfActions
       return sfView::ERROR;
     }
 
-    $this->form = new opCommunityJoiningForm();
+    $this->form = new saCommunityJoiningForm();
     if ($request->hasParameter('community_join'))
     {
       $this->form->bind($request->getParameter('community_join'));
@@ -275,7 +275,7 @@ abstract class opCommunityAction extends sfActions
     }
 
     $this->community = Doctrine::getTable('Community')->find($this->id);
-    $this->form = new opCommunityQuittingForm();
+    $this->form = new saCommunityQuittingForm();
     if ($request->isMethod(sfWebRequest::POST))
     {
       $this->form->bind($request->getParameter('community_quit'));
@@ -324,7 +324,7 @@ abstract class opCommunityAction extends sfActions
     $this->forward404If($this->communityMember->getIsPre());
     $this->forward404If($this->communityMember->hasPosition(array('admin', 'admin_confirm')));
 
-    $this->form = new opChangeCommunityAdminRequestForm();
+    $this->form = new saChangeCommunityAdminRequestForm();
     if ($request->hasParameter('admin_request'))
     {
       $this->form->bind($request->getParameter('admin_request'));
@@ -356,7 +356,7 @@ abstract class opCommunityAction extends sfActions
     $this->forward404If($this->communityMember->getIsPre());
     $this->forward404If($this->communityMember->hasPosition(array('admin', 'admin_confirm', 'sub_admin', 'sub_admin_confirm')));
 
-    $this->form = new opChangeCommunityAdminRequestForm();
+    $this->form = new saChangeCommunityAdminRequestForm();
     if ($request->hasParameter('admin_request'))
     {
       $this->form->bind($request->getParameter('admin_request'));
@@ -446,12 +446,12 @@ abstract class opCommunityAction extends sfActions
       $isSendPc     = $community->getConfig('is_send_pc_joinCommunity_mail');
       $isSendMobile = $community->getConfig('is_send_mobile_joinCommunity_mail');
 
-      $options = array(
+      $sations = array(
         'is_send_pc'     => (bool)(null === $isSendPc ? 1 : $isSendPc),
         'is_send_mobile' => (bool)(null === $isSendMobile ? 1 : $isSendMobile)
       );
 
-      opMailSend::sendTemplateMailToMember('joinCommunity', $community->getAdminMember(), $params, $options);
+      saMailSend::sendTemplateMailToMember('joinCommunity', $community->getAdminMember(), $params, $sations);
     }
   }
 }

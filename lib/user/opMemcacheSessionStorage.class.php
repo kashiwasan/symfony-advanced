@@ -9,40 +9,40 @@
  */
 
 /**
- * opMemcacheSessionStorage
+ * saMemcacheSessionStorage
  *
  * @package    SfAdvanced
  * @subpackage user
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opMemcacheSessionStorage extends sfSessionStorage
+class saMemcacheSessionStorage extends sfSessionStorage
 {
   protected $memcache = null;
 
   /**
-   * Available options:
+   * Available sations:
    *
    * - host:       The default host (default to localhost)
    * - port:       The port for the default server (default to 11211)
    * - persistent: true if the connection must be persistent, false otherwise (true by default)
    *
-   * @param  array $options  An associative array of options
+   * @param  array $sations  An associative array of sations
    *
    * @see sfSessionStorage
    * @see sfMemcacheCache
    */
-  public function initialize($options = array())
+  public function initialize($sations = array())
   {
     $isAutoStart = true;
-    if (isset($options['auto_start']))
+    if (isset($sations['auto_start']))
     {
-      $isAutoStart = $options['auto_start'];
+      $isAutoStart = $sations['auto_start'];
     }
     // disable auto_start
-    $options['auto_start'] = false;
+    $sations['auto_start'] = false;
 
     // initialize the parent
-    parent::initialize($options);
+    parent::initialize($sations);
 
     if (!class_exists('Memcache'))
     {
@@ -84,14 +84,14 @@ class opMemcacheSessionStorage extends sfSessionStorage
    * @param  string $path  (ignored)
    * @param  string $name  (ignored)
    *
-   * @return boolean true, if the session was opened, otherwise an exception is thrown
+   * @return boolean true, if the session was saened, otherwise an exception is thrown
    */
   public function sessionOpen($path = null, $name = null)
   {
-    $method = !empty($this->options['persistent']) ? 'pconnect' : 'connect';
-    $host = empty($this->options['host']) ? 'localhost' : $this->options['host'];
-    $port = empty($this->options['port']) ? 11211 : (int)$this->options['port'];
-    $timeout = empty($this->options['timeout']) ? 11211 : (int)$this->options['timeout'];
+    $method = !empty($this->sations['persistent']) ? 'pconnect' : 'connect';
+    $host = empty($this->sations['host']) ? 'localhost' : $this->sations['host'];
+    $port = empty($this->sations['port']) ? 11211 : (int)$this->sations['port'];
+    $timeout = empty($this->sations['timeout']) ? 11211 : (int)$this->sations['timeout'];
 
     if (!$this->memcache->$method($host, $port, $timeout))
     {

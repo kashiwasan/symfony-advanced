@@ -26,10 +26,10 @@ test:
 
 all:
   request:
-    class: opMailRequest
+    class: saMailRequest
 
   routing:
-    class: opMailRouting
+    class: saMailRouting
 
 #all:
 #  controller:

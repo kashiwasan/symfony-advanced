@@ -15,7 +15,7 @@
  * @subpackage default
  * @author     Shinichi Urabe <urabe@tejimaya.com>
  */
-class opDefaultMailErrorAction extends sfAction
+class saDefaultMailErrorAction extends sfAction
 {
  /**
   * Executes mailError action

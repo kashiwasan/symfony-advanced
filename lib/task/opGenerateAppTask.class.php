@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class opGenerateAppTask extends sfBaseTask
+class saGenerateAppTask extends sfBaseTask
 {
   protected function configure()
   {
@@ -17,21 +17,21 @@ class opGenerateAppTask extends sfBaseTask
       new sfCommandArgument('application', sfCommandArgument::REQUIRED, 'The application name'),
     ));
 
-    $this->namespace = 'opGenerate';
+    $this->namespace = 'saGenerate';
     $this->name = 'app';
     $this->briefDescription = 'Generates a new application for SfAdvanced plugin';
     $this->detailedDescription = <<<EOF
-The [opGenerate:app|INFO] task creates the basic directory structure
+The [saGenerate:app|INFO] task creates the basic directory structure
 for a new application in an existing SfAdvanced plugin:
 
-  [./symfony opGenerate:app opSamplePlugin pc_frontend|INFO]
+  [./symfony saGenerate:app saSamplePlugin pc_frontend|INFO]
 
 If an application with the same name already exists in the plugin,
 it throws a [sfCommandException|COMMENT].
 EOF;
   }
 
-  protected function execute($arguments = array(), $options = array())
+  protected function execute($arguments = array(), $sations = array())
   {
     $plugin = $arguments['plugin'];
     $app = $arguments['application'];

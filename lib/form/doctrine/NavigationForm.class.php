@@ -17,7 +17,7 @@ class NavigationForm extends BaseNavigationForm
       'type' => new sfWidgetFormInputHidden(),
     ));
 
-    $this->setValidator('uri', new opValidatorString(array('required' => true, 'trim' => true)));
+    $this->setValidator('uri', new saValidatorString(array('required' => true, 'trim' => true)));
 
     $this->widgetSchema->setNameFormat('nav[%s]');
     $this->embedI18n(sfConfig::get('sa_supported_languages'));

@@ -9,13 +9,13 @@
  */
 
 /**
- * opDoctrineEvent
+ * saDoctrineEvent
  *
  * @package    SfAdvanced
  * @subpackage event
  * @author     Shouta Kashiwagi <kashwiagi@sfadvanced.jp>
  */
-class opDoctrineEvent extends sfEvent
+class saDoctrineEvent extends sfEvent
 {
   protected $doctrineEvent;
 

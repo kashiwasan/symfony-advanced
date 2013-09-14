@@ -9,13 +9,13 @@
  */
 
 /**
- * opAuthConfigForm represents a form to login.
+ * saAuthConfigForm represents a form to login.
  *
  * @package    SfAdvanced
  * @subpackage form
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-abstract class opAuthConfigForm extends BaseForm
+abstract class saAuthConfigForm extends BaseForm
 {
   protected
     $adapter = null;
@@ -23,14 +23,14 @@ abstract class opAuthConfigForm extends BaseForm
   /**
    * Constructor.
    *
-   * @param opAuthAdapter $adapter    An opAuthAdapter object
+   * @param saAuthAdapter $adapter    An saAuthAdapter object
    * @param array         $defaults   An array of field default values
-   * @param array         $options    An array of options
+   * @param array         $sations    An array of sations
    * @param string        $CRFSSecret A CSRF secret (false to disable CSRF protection, null to use the global CSRF secret)
    *
    * @see sfForm
    */
-  public function __construct(opAuthAdapter $adapter, $defaults = array(), $options = array(), $CSRFSecret = null)
+  public function __construct(saAuthAdapter $adapter, $defaults = array(), $sations = array(), $CSRFSecret = null)
   {
     $this->adapter = $adapter;
 
@@ -54,7 +54,7 @@ abstract class opAuthConfigForm extends BaseForm
       }
     }
 
-    parent::__construct($defaults, $options, $CSRFSecret);
+    parent::__construct($defaults, $sations, $CSRFSecret);
   }
 
   public function setup()
@@ -66,9 +66,9 @@ abstract class opAuthConfigForm extends BaseForm
         continue;
       }
 
-      $obj = opFormItemGenerator::generateWidget($value);
+      $obj = saFormItemGenerator::generateWidget($value);
       $this->setWidget($key, $obj);
-      $this->setValidator($key, opFormItemGenerator::generateValidator($value));
+      $this->setValidator($key, saFormItemGenerator::generateValidator($value));
     }
 
     $this->widgetSchema->setNameFormat('auth'.$this->adapter->getAuthModeName().'[%s]');

@@ -44,7 +44,7 @@ all:
             xdebug_logging:  true
             web_debug_class: sfWebDebug
         sf_file_debug:
-          class: opFileLogger
+          class: saFileLogger
           param:
             level: debug
             file: %SF_LOG_DIR%/%SF_APP%_%SF_ENVIRONMENT%.log

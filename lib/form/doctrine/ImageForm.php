@@ -28,7 +28,7 @@ class ImageForm extends BaseFileForm
       'imageName' => sfContext::getInstance()->getI18N()->__('画像ファイル名'),
     ));
     $this->setValidators(array(
-      'file'      => new opValidatorImageFile(),
+      'file'      => new saValidatorImageFile(),
       'imageName' => new sfValidatorRegex(array('pattern' => '/^[\w\-]+$/')),
     ));
 

@@ -16,7 +16,7 @@ class mailActions extends sfActions
 
   public function executeConfig(sfWebRequest $request)
   {
-    $this->form = new opMailNotificationForm();
+    $this->form = new saMailNotificationForm();
 
     if ($this->request->isMethod(sfWebRequest::POST))
     {

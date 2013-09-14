@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class addMobieLoginGadget extends opMigration
+class addMobieLoginGadget extends saMigration
 {
   public function up()
   {

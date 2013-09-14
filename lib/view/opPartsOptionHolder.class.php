@@ -9,14 +9,14 @@
  */
 
 /**
- * opPartsOptionHolder stores variables for view parts
+ * saPartsOptionHolder stores variables for view parts
  *
  * @package    SfAdvanced
  * @subpackage view
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
 
-class opPartsOptionHolder extends sfParameterHolder implements ArrayAccess, IteratorAggregate
+class saPartsOptionHolder extends sfParameterHolder implements ArrayAccess, IteratorAggregate
 {
   protected $required = array();
 

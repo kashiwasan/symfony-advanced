@@ -35,7 +35,7 @@ class pluginActions extends sfActions
   {
     $this->type = $request->getParameter('type', 'application');
 
-    $pluginManager = new opInstalledPluginManager();
+    $pluginManager = new saInstalledPluginManager();
 
     if ('skin' === $this->type)
     {

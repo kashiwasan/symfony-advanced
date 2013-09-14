@@ -1,6 +1,6 @@
 <h1><?php echo link_to($sa_config['sns_name'], '@homepage') ?></h1>
 
-<?php if(opToolkit::isSecurePage()): ?>
+<?php if(saToolkit::isSecurePage()): ?>
 <div id="notificationCenter">
   <?php echo sa_image_tag('NOTIFY_CENTER.png', array('height' => '32', 'class' => 'ncbutton')) ?>
   <div id="notificationCenterDetail">
@@ -58,7 +58,7 @@
 <div id="globalNav">
 <?php
 $globalNavOptions = array(
-  'type'      => opToolkit::isSecurePage() ? 'secure_global' : 'insecure_global',
+  'type'      => saToolkit::isSecurePage() ? 'secure_global' : 'insecure_global',
   'culture'   => sfContext::getInstance()->getUser()->getCulture(),
 );
 include_component('default', 'globalNav', $globalNavOptions);

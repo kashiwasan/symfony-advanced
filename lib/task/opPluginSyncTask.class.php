@@ -8,11 +8,11 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class opPluginSyncTask extends sfBaseTask
+class saPluginSyncTask extends sfBaseTask
 {
   protected function configure()
   {
-    $this->namespace        = 'opPlugin';
+    $this->namespace        = 'saPlugin';
     $this->name             = 'sync';
 
     $this->addOptions(array(
@@ -23,14 +23,14 @@ class opPluginSyncTask extends sfBaseTask
 
     $this->briefDescription = 'Synchronize bandled plugins';
     $this->detailedDescription = <<<EOF
-The [opPlugin:sync|INFO] task synchronizes all bandled plugins.
+The [saPlugin:sync|INFO] task synchronizes all bandled plugins.
 Call it with:
 
-  [php symfony opPlugin:sync|INFO]
+  [php symfony saPlugin:sync|INFO]
 EOF;
   }
 
-  protected function execute($arguments = array(), $options = array())
+  protected function execute($arguments = array(), $sations = array())
   {
     require sfConfig::get('sf_data_dir').'/version.php';
     
@@ -39,7 +39,7 @@ EOF;
     $pluginList = $this->getPluginList();
     foreach ($pluginList as $name => $info)
     {
-      if ($options['target'] && $name !== $options['target'])
+      if ($sations['target'] && $name !== $sations['target'])
       {
         continue;
       }
@@ -54,19 +54,19 @@ EOF;
         continue;
       }
 
-      $option = array();
+      $sation = array();
       if (isset($info['version']))
       {
-        $option[] = '--release='.$info['version'];
+        $sation[] = '--release='.$info['version'];
       }
       if (isset($info['channel']))
       {
-        $option[] = '--channel='.$info['channel'];
+        $sation[] = '--channel='.$info['channel'];
       }
       try
       {
-        $task = new opPluginInstallTask($this->dispatcher, $this->formatter);
-        $task->run(array('name' => $name), $option);
+        $task = new saPluginInstallTask($this->dispatcher, $this->formatter);
+        $task->run(array('name' => $name), $sation);
       }
       catch (sfCommandException $e)
       {
@@ -109,7 +109,7 @@ EOF;
 
     try
     {
-      $client = new Zend_Http_Client(opPluginManager::getPluginListBaseUrl().SFADVANCED_VERSION.'.yml', $config);
+      $client = new Zend_Http_Client(saPluginManager::getPluginListBaseUrl().SFADVANCED_VERSION.'.yml', $config);
       $response = $client->request();
 
       if ($response->isSuccessful())

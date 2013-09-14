@@ -9,13 +9,13 @@
  */
 
 /**
- * opAPISecurityFilter
+ * saAPISecurityFilter
  *
  * @package    SfAdvanced
  * @subpackage filter
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opAPISecurityFilter extends sfBasicSecurityFilter
+class saAPISecurityFilter extends sfBasicSecurityFilter
 {
   public function execute($filterChain)
   {

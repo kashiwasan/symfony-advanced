@@ -9,13 +9,13 @@
  */
 
 /**
- * opFixWrongCategorizedCommunityTask
+ * saFixWrongCategorizedCommunityTask
  *
  * @package    SfAdvanced
  * @subpackage task
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-class opFixWrongCategorizedCommunityTask extends sfDoctrineBaseTask
+class saFixWrongCategorizedCommunityTask extends sfDoctrineBaseTask
 {
   protected $dbManager;
 
@@ -37,9 +37,9 @@ Call it with:
 EOF;
   }
 
-  protected function execute($arguments = array(), $options = array())
+  protected function execute($arguments = array(), $sations = array())
   {
-    $this->openDatabaseConnection();
+    $this->saenDatabaseConnection();
 
     if (!$this->askToBegin())
     {
@@ -145,7 +145,7 @@ EOF;
     return $this->askConfirmation($messages);
   }
 
-  protected function openDatabaseConnection()
+  protected function saenDatabaseConnection()
   {
     $this->dbManager = new sfDatabaseManager($this->configuration);
   }
@@ -157,7 +157,7 @@ EOF;
 
   protected function detectLackedCommunityIdsByCategoryId($oldCategoryId, $oldMaxId)
   {
-    $conn = opDoctrineQuery::getMasterConnectionDirect();
+    $conn = saDoctrineQuery::getMasterConnectionDirect();
 
     return $conn->fetchColumn('SELECT c_commu_id FROM c_commu WHERE c_commu_category_id = ? AND c_commu_id NOT IN (SELECT id FROM community WHERE id <= ?) AND c_commu_id IN (SELECT community_id FROM community_member WHERE community_id = c_commu_id)', array($oldCategoryId, $oldMaxId));
   }
@@ -169,7 +169,7 @@ EOF;
       return null;
     }
 
-    $conn = opDoctrineQuery::getMasterConnectionDirect();
+    $conn = saDoctrineQuery::getMasterConnectionDirect();
     $idListString = implode(',', $idList);
 
     $conn->exec($this->generateSQLToSalvageLackedCommunity($idListString));
@@ -178,7 +178,7 @@ EOF;
 
   protected function generateSQLToSalvageLackedCommunity($idListString)
   {
-    // sorry for this duplicated code (original is in "opUpgradeFrom2ImportCommunityCategoryStrategy")
+    // sorry for this duplicated code (original is in "saUpgradeFrom2ImportCommunityCategoryStrategy")
     $file = '(SELECT id FROM file WHERE name = image_filename LIMIT 1)';
     $sql = 'INSERT IGNORE INTO community (id, name, file_id, community_category_id, created_at, updated_at) (SELECT c_commu_id, name, '.$file.', NULL, r_datetime, u_datetime FROM c_commu WHERE c_commu_id IN ('.$idListString.'))';
 
@@ -187,7 +187,7 @@ EOF;
 
   protected function moveCommunities($oldCategoryId, $newCategoryId)
   {
-    $conn = opDoctrineQuery::getMasterConnectionDirect();
+    $conn = saDoctrineQuery::getMasterConnectionDirect();
     $result = $conn->exec($this->createMoveCommunityQuery($oldCategoryId, $newCategoryId));
 
     return $result;
@@ -198,7 +198,7 @@ EOF;
     $parentTable = array();
     $categoryTable = array();
 
-    $conn = opDoctrineQuery::getMasterConnectionDirect();
+    $conn = saDoctrineQuery::getMasterConnectionDirect();
 
     $oldParents = $conn->fetchAll('SELECT * FROM c_commu_category_parent');
     foreach ($oldParents as $oldParent)
@@ -220,7 +220,7 @@ EOF;
 
   protected function hasSfAdvanced2CommunityTable()
   {
-    $conn = opDoctrineQuery::getMasterConnectionDirect();
+    $conn = saDoctrineQuery::getMasterConnectionDirect();
 
     $tables = array(
       'c_commu_category_parent', 'c_commu_category', 'c_commu',
@@ -239,14 +239,14 @@ EOF;
 
   protected function changeCollectionForConvert()
   {
-    $conn = opDoctrineQuery::getMasterConnectionDirect();
+    $conn = saDoctrineQuery::getMasterConnectionDirect();
     $conn->execute('ALTER TABLE c_commu CHANGE image_filename image_filename text CHARACTER SET utf8 COLLATE utf8_unicode_ci');
     $conn->execute('ALTER TABLE c_commu CHANGE name name text CHARACTER SET utf8 COLLATE utf8_unicode_ci');
   }
 
   protected function detectTargetRecords()
   {
-    $conn = opDoctrineQuery::getMasterConnectionDirect();
+    $conn = saDoctrineQuery::getMasterConnectionDirect();
 
     $min = $conn->fetchOne('SELECT MIN(c_commu_id) FROM c_commu');
     $max = $conn->fetchOne('SELECT MAX(c_commu_id) FROM c_commu');

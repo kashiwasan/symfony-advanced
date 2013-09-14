@@ -9,19 +9,19 @@
  */
 
 /**
- * opPDODatabaseSessionStorage
+ * saPDODatabaseSessionStorage
  *
  * @package    SfAdvanced
  * @subpackage user
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opPDODatabaseSessionStorage extends sfPDOSessionStorage
+class saPDODatabaseSessionStorage extends sfPDOSessionStorage
 {
   public function sessionOpen($path = null, $name = null)
   {
-    if (is_string($this->options['database']))
+    if (is_string($this->sations['database']))
     {
-      $this->options['database'] = sfContext::getInstance()->getDatabaseManager()->getDatabase($this->options['database']);
+      $this->sations['database'] = sfContext::getInstance()->getDatabaseManager()->getDatabase($this->sations['database']);
     }
 
     return parent::sessionOpen($path, $name);

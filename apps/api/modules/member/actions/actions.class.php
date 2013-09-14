@@ -15,7 +15,7 @@
  * @subpackage action
  * @author     Kimura Youichi <kim.upsilon@gmail.com>
  */
-class memberActions extends opJsonApiActions
+class memberActions extends saJsonApiActions
 {
   public function executeCommunity(sfWebRequest $request)
   {

@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class sfadvancedSendDailyNewsTask extends opBaseSendMailTask
+class sfadvancedSendDailyNewsTask extends saBaseSendMailTask
 {
   protected function configure()
   {
@@ -30,21 +30,21 @@ EOF;
     );
   }
 
-  protected function execute($arguments = array(), $options = array())
+  protected function execute($arguments = array(), $sations = array())
   {
-    parent::execute($arguments, $options);
+    parent::execute($arguments, $sations);
 
     $expectedOptions = array('pc_frontend', 'mobile_frontend');
 
-    if (isset($options['app']))
+    if (isset($sations['app']))
     {
-      if (in_array($options['app'], $expectedOptions))
+      if (in_array($sations['app'], $expectedOptions))
       {
-        $this->sendDailyNews($options['app']);
+        $this->sendDailyNews($sations['app']);
       }
       else
       {
-        throw new Exception('invalid option');
+        throw new Exception('invalid sation');
       }
     }
     else
@@ -70,7 +70,7 @@ EOF;
     foreach ($targetMembers as $member)
     {
       $address = $member->getEmailAddress();
-      if ($isAppMobile !== opToolkit::isMobileEmailAddress($address))
+      if ($isAppMobile !== saToolkit::isMobileEmailAddress($address))
       {
         continue;
       }
@@ -109,7 +109,7 @@ EOF;
         'today'   => time(),
       );
 
-      opMailSend::sendTemplateMail('dailyNews', $address, opConfig::get('admin_mail_address'), $params, $context);
+      saMailSend::sendTemplateMail('dailyNews', $address, saConfig::get('admin_mail_address'), $params, $context);
     }
   }
 
@@ -121,7 +121,7 @@ EOF;
       $day = 7;
     }
 
-    return in_array($day, opConfig::get('daily_news_day'));
+    return in_array($day, saConfig::get('daily_news_day'));
   }
 
   private function findPhpBinary()

@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class MemberRelationshipTable extends opAccessControlDoctrineTable
+class MemberRelationshipTable extends saAccessControlDoctrineTable
 {
   public function retrieveByFromAndTo($memberIdFrom, $memberIdTo)
   {
@@ -84,7 +84,7 @@ class MemberRelationshipTable extends opAccessControlDoctrineTable
     $q = Doctrine::getTable('Member')->createQuery()
       ->whereIn('id', $friendMemberIds);
 
-    $pager = new opNonCountQueryPager('Member', $size);
+    $pager = new saNonCountQueryPager('Member', $size);
     $pager->setQuery($q);
     $pager->setPage($page);
     $pager->init();
@@ -197,7 +197,7 @@ class MemberRelationshipTable extends opAccessControlDoctrineTable
         'member'  => $event['member'],
       );
 
-      opMailSend::sendTemplateMailToMember('friendLinkComplete', $toMember, $params);
+      saMailSend::sendTemplateMailToMember('friendLinkComplete', $toMember, $params);
     }
     else
     {

@@ -9,13 +9,13 @@
  */
 
 /**
- * opPassword form.
+ * saPassword form.
  *
  * @package    SfAdvanced
  * @subpackage form
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-class opPasswordForm extends BaseForm
+class saPasswordForm extends BaseForm
 {
   public function configure()
   {
@@ -35,7 +35,7 @@ class opPasswordForm extends BaseForm
 
   public function isValidPassword($validator, $value)
   {
-    $member = $this->options['member'];
+    $member = $this->sations['member'];
     if (md5($value) !== Doctrine::getTable('MemberConfig')->retrieveByNameAndMemberId('password', $member->getId())->getValue())
     {
       throw new sfValidatorError(new sfValidatorPass(), 'invalid', array('value' => $value));

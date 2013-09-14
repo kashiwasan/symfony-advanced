@@ -9,39 +9,39 @@
  */
 
 /**
- * opAuthValidatorMemberConfigAndPassword
+ * saAuthValidatorMemberConfigAndPassword
  *
  * @package    SfAdvanced
  * @subpackage validator
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opAuthValidatorMemberConfigAndPassword extends opAuthValidatorMemberConfig
+class saAuthValidatorMemberConfigAndPassword extends saAuthValidatorMemberConfig
 {
   /**
-   * @see opAuthValidatorMemberConfig
+   * @see saAuthValidatorMemberConfig
    */
-  protected function configure($options = array(), $messages = array())
+  protected function configure($sations = array(), $messages = array())
   {
-    parent::configure($options, $messages);
+    parent::configure($sations, $messages);
     $this->setMessage('invalid', 'ID or password is not a valid.');
   }
 
   /**
-   * @see opAuthValidatorMemberConfig
+   * @see saAuthValidatorMemberConfig
    */
   protected function doClean($values)
   {
-    opActivateBehavior::disable();
+    saActivateBehavior::disable();
     $values = parent::doClean($values);
 
     if (empty($values['member']) || !($values['member'] instanceof Member))
     {
       throw new sfValidatorError($this, 'invalid');
-      opActivateBehavior::enable();
+      saActivateBehavior::enable();
     }
 
     $valid_password = Doctrine::getTable('MemberConfig')->retrieveByNameAndMemberId('password', $values['member']->getId())->getValue();
-    opActivateBehavior::enable();
+    saActivateBehavior::enable();
     if (md5($values['password']) !== $valid_password)
     {
       throw new sfValidatorError($this, 'invalid');

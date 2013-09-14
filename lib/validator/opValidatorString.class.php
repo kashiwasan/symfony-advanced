@@ -9,18 +9,18 @@
  */
 
 /**
- * opValidatorString validates a string.
+ * saValidatorString validates a string.
  * It support to trim double byte spaces.
  * 
  * @package    SfAdvanced
  * @subpackage validator
  * @author     Shogo Kawahara <kawahara@tejimaya.net>
  */
-class opValidatorString extends sfValidatorString
+class saValidatorString extends sfValidatorString
 {
-  protected function configure($options = array(), $messages = array())
+  protected function configure($sations = array(), $messages = array())
   {
-    parent::configure($options, $messages);
+    parent::configure($sations, $messages);
 
     $this->addOption('ltrim', false);
     $this->addOption('rtrim', false);
@@ -32,16 +32,16 @@ class opValidatorString extends sfValidatorString
 
     if (is_string($clean))
     {
-      if ($this->options['trim'])
+      if ($this->sations['trim'])
       {
         $clean = preg_replace('/^[\s　]+/u', '', $clean);
         $clean = preg_replace('/[\s　]+$/u', '', $clean);
       }
-      if ($this->options['ltrim'])
+      if ($this->sations['ltrim'])
       {
         $clean = preg_replace('/^[\s　]+/u', '', $clean);
       }
-      if ($this->options['rtrim'])
+      if ($this->sations['rtrim'])
       {
         $clean = preg_replace('/[\s　]+$/u', '', $clean);
       }
@@ -49,7 +49,7 @@ class opValidatorString extends sfValidatorString
 
     if ($this->isEmpty($clean))
     {
-      if ($this->options['required'])
+      if ($this->sations['required'])
       {
         throw new sfValidatorError($this, 'required');
       }

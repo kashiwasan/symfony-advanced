@@ -35,7 +35,7 @@ Call it with:
 EOF;
   }
 
-  protected function execute($arguments = array(), $options = array())
+  protected function execute($arguments = array(), $sations = array())
   {
     $this->log($this->formatter->format('Core versions:', 'COMMENT'));
 
@@ -46,7 +46,7 @@ EOF;
 
     foreach ($this->configuration->getAllSfAdvancedPlugins() as $name)
     {
-      $version = opPlugin::getInstance($name, $this->dispatcher)->getVersion();
+      $version = saPlugin::getInstance($name, $this->dispatcher)->getVersion();
       if (!$version)
       {
         $version = 'unknown';

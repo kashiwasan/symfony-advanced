@@ -19,9 +19,9 @@ class MemberConfigMailForm extends MemberConfigForm
 {
   protected $category = 'mail';
 
-  public function __construct(Member $member = null, $options = array(), $CSRFSecret = null)
+  public function __construct(Member $member = null, $sations = array(), $CSRFSecret = null)
   {
-    parent::__construct($member, $options, $CSRFSecret);
+    parent::__construct($member, $sations, $CSRFSecret);
   }
 
   public function configure()
@@ -60,7 +60,7 @@ class MemberConfigMailForm extends MemberConfigForm
             $name = 'daily_news';
             $i18n = sfContext::getInstance()->getI18N();
             $choice = new sfChoiceFormat();
-            $count = count(opConfig::get('daily_news_day'));
+            $count = count(saConfig::get('daily_news_day'));
             $translated = $choice->format($i18n->__('[1]Send once a week (%2%)|[2]Send twice a week (%2%)|(2,+Inf]Send %1% times a week (%2%)', array(
               '%1%' => $count,
               '%2%' => implode(',', $this->generateDayList()))
@@ -85,7 +85,7 @@ class MemberConfigMailForm extends MemberConfigForm
     $sun = array_shift($dayNames);
     $dayNames[] = $sun;
 
-    $day = opConfig::get('daily_news_day');
+    $day = saConfig::get('daily_news_day');
     $config = sfConfig::get('sfadvanced_sns_config');
     $i18n = sfContext::getInstance()->getI18N();
 

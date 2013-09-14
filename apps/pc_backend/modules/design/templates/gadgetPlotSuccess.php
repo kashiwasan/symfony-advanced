@@ -1,5 +1,5 @@
 <?php include_partial('plotHeader') ?>
-<?php use_helper('opUtil') ?>
+<?php use_helper('saUtil') ?>
 
 <div id="plotBody" class="<?php echo $layoutPattern ?>">
 <div id="container">

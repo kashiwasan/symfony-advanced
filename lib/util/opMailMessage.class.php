@@ -9,20 +9,20 @@
  */
 
 /**
- * opMailMessage
+ * saMailMessage
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opMailMessage extends Zend_Mail_Message
+class saMailMessage extends Zend_Mail_Message
 {
   protected $firstTextPos = 0;
 
   public function getContent()
   {
     // If this message is multi-part-mail,
-    // opMailMessage retrives first text/plain part as a content
+    // saMailMessage retrives first text/plain part as a content
     if ($this->isMultiPart())
     {
       if ($this->firstTextPos)

@@ -19,7 +19,7 @@ class ReissuePasswordForm extends MemberConfigPasswordForm
     $params = array(
       'mailAddress' => $emailAddress,
       'newPassword' => $this->plainPassword,
-      'isMobile' => opToolkit::isMobileEmailAddress($emailAddress)
+      'isMobile' => saToolkit::isMobileEmailAddress($emailAddress)
     );
     $this->sendConfirmMail($emailAddress, $params);
   }
@@ -32,7 +32,7 @@ class ReissuePasswordForm extends MemberConfigPasswordForm
 
   public function sendConfirmMail($to, $params = array())
   {
-    $params['subject'] = opConfig::get('sns_name').' '.sfContext::getInstance()->getI18N()->__('New password has been issued');
-    opMailSend::sendTemplateMail('reissuedPassword', $to, opConfig::get('admin_mail_address'), $params);
+    $params['subject'] = saConfig::get('sns_name').' '.sfContext::getInstance()->getI18N()->__('New password has been issued');
+    saMailSend::sendTemplateMail('reissuedPassword', $to, saConfig::get('admin_mail_address'), $params);
   }
 }

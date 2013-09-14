@@ -39,6 +39,6 @@ class CommunityCategoryForm extends BaseCommunityCategoryForm
 
     $this->widgetSchema->getFormFormatter()->setTranslationCatalogue('form_community');
 
-    $this->setValidator('name', new opValidatorString(array('max_length' => 64, 'trim' => true)));
+    $this->setValidator('name', new saValidatorString(array('max_length' => 64, 'trim' => true)));
   }
 }

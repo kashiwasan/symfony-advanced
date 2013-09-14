@@ -5,4 +5,4 @@
 
 <?php echo __('* Participate in %1%', array('%1%' => $snsName)) ?>
 
-<?php echo app_url_for('pc_frontend', sprintf('opAuthMailAddress/register?token=%s&authMode=%s', $token, $authMode), true) ?>
+<?php echo app_url_for('pc_frontend', sprintf('saAuthMailAddress/register?token=%s&authMode=%s', $token, $authMode), true) ?>

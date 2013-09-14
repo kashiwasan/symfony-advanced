@@ -30,17 +30,17 @@ Call it with:
 EOF;
   }
 
-  protected function execute($arguments = array(), $options = array())
+  protected function execute($arguments = array(), $sations = array())
   {
     sfConfig::set('sf_test', true);
 
-    opApplicationConfiguration::registerZend();
+    saApplicationConfiguration::registerZend();
 
     $stdin = file_get_contents('php://stdin');
-    $message = new opMailMessage(array('raw' => $stdin));
-    opMailRequest::setMailMessage($message);
+    $message = new saMailMessage(array('raw' => $stdin));
+    saMailRequest::setMailMessage($message);
 
-    opApplicationConfiguration::unregisterZend();
+    saApplicationConfiguration::unregisterZend();
 
     $configuration = ProjectConfiguration::getApplicationConfiguration('mobile_mail_frontend', 'prod', false);
     $context = sfContext::createInstance($configuration);
@@ -55,7 +55,7 @@ EOF;
       $subject = $context->getResponse()->getTitle();
       $to = $message->from;
       $from = $message->to;
-      opMailSend::execute($subject, $to, $from, $retval);
+      saMailSend::execute($subject, $to, $from, $retval);
     }
   }
 }

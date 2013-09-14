@@ -9,13 +9,13 @@
  */
 
 /**
- * opMobileColorConfigForm
+ * saMobileColorConfigForm
  *
  * @package    SfAdvanced
  * @subpackage form
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opMobileColorConfigForm extends sfForm
+class saMobileColorConfigForm extends sfForm
 {
   protected $colorList = array(
     'core_color_1'  => 'Page Background',
@@ -51,10 +51,10 @@ class opMobileColorConfigForm extends sfForm
   {
     foreach ($this->colorList as $k => $v)
     {
-      $this->setWidget($k, new opWidgetFormInputColor(array('is_display_pre_color' => true)));
-      $this->setValidator($k, new opValidatorColor());
+      $this->setWidget($k, new saWidgetFormInputColor(array('is_display_pre_color' => true)));
+      $this->setValidator($k, new saValidatorColor());
       $this->widgetSchema->setLabel($k, $v);
-      $this->widgetSchema->setDefault($k, opColorConfig::get($k, null, 'mobile_frontend'));
+      $this->widgetSchema->setDefault($k, saColorConfig::get($k, null, 'mobile_frontend'));
     }
 
     $this->widgetSchema->setNameFormat('color[%s]');
@@ -64,7 +64,7 @@ class opMobileColorConfigForm extends sfForm
   {
     foreach ($this->getValues() as $k => $v)
     {
-      opColorConfig::set($k, $v, 'mobile_frontend');
+      saColorConfig::set($k, $v, 'mobile_frontend');
     }
   }
 }

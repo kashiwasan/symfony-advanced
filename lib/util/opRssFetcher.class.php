@@ -11,14 +11,14 @@ require_once 'simplepie.inc';
  * This class is for fetching RSS / Atom feed
  *
  * This is ported from SfAdvanced_RSS in SfAdvanced2Path.
- * The opRssFetcher delegates some behaviors to SimplePie
+ * The saRssFetcher delegates some behaviors to SimplePie
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Rimpei Ogawa <ogawa@tejimaya.com>
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opRssFetcher
+class saRssFetcher
 {
   public $charset;
 

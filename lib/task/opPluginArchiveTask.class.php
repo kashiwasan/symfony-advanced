@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class opPluginArchiveTask extends sfBaseTask
+class saPluginArchiveTask extends sfBaseTask
 {
   protected function configure()
   {
@@ -22,18 +22,18 @@ class opPluginArchiveTask extends sfBaseTask
       new sfCommandOption('env', null, sfCommandOption::PARAMETER_REQUIRED, 'The environment', 'dev'),
     ));
 
-    $this->namespace        = 'opPlugin';
+    $this->namespace        = 'saPlugin';
     $this->name             = 'archive';
     $this->briefDescription = 'Creates the SfAdvanced plugin archive.';
     $this->detailedDescription = <<<EOF
-The [opPlugin:archive|INFO] task creates the SfAdvanced plugin archive.
+The [saPlugin:archive|INFO] task creates the SfAdvanced plugin archive.
 Call it with:
 
-  [./symfony opPlugin:archive opSamplePlugin ~/Documents/myPlugins|INFO]
+  [./symfony saPlugin:archive saSamplePlugin ~/Documents/myPlugins|INFO]
 EOF;
   }
 
-  protected function execute($arguments = array(), $options = array())
+  protected function execute($arguments = array(), $sations = array())
   {
     // Remove E_STRICT and E_DEPRECATED from error_reporting
     error_reporting(error_reporting() & ~(E_STRICT | E_DEPRECATED));
@@ -48,7 +48,7 @@ EOF;
     }
 
     $content = file_get_contents($packagePath.'/package.xml');
-    $infoXml = opToolkit::loadXmlString($content, array(
+    $infoXml = saToolkit::loadXmlString($content, array(
       'return' => 'SimpleXMLElement',
     ));
 

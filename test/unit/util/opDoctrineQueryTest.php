@@ -2,7 +2,7 @@
 
 include_once dirname(__FILE__).'/../../bootstrap/unit.php';
 
-class myQuery extends opDoctrineQuery
+class myQuery extends saDoctrineQuery
 {
   public static $lastQueryCacheHash = '';
 

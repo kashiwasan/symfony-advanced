@@ -9,13 +9,13 @@
  */
 
 /**
- * opAnonymousMember is the dummy model class for representing pre-login member.
+ * saAnonymousMember is the dummy model class for representing pre-login member.
  *
  * @package    SfAdvanced
  * @subpackage user
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opAnonymousMember extends Member
+class saAnonymousMember extends Member
 {
   public function getId()
   {

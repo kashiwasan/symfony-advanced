@@ -15,14 +15,14 @@
  * @subpackage member
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class memberActions extends opMemberAction
+class memberActions extends saMemberAction
 {
  /**
   * Executes home action
   *
-  * @param opWebRequest $request A request object
+  * @param saWebRequest $request A request object
   */
-  public function executeHome(opWebRequest $request)
+  public function executeHome(saWebRequest $request)
   {
     $this->forwardIf($request->isSmartphone(), 'member', 'smtHome');
 
@@ -52,9 +52,9 @@ class memberActions extends opMemberAction
  /**
   * Execute smtHome action
   *
-  * @param opWebRequest $request A request object
+  * @param saWebRequest $request A request object
   */
-  public function executeSmtHome(opWebRequest $request)
+  public function executeSmtHome(saWebRequest $request)
   {
     $this->gadgetConfig = sfConfig::get('sa_smartphone_gadget_list');
 
@@ -67,13 +67,13 @@ class memberActions extends opMemberAction
  /**
   * Executes login action
   *
-  * @param opWevRequest $request A request object
+  * @param saWevRequest $request A request object
   */
-  public function executeLogin(opWebRequest $request)
+  public function executeLogin(saWebRequest $request)
   {
-    if (opConfig::get('external_pc_login_url') && $request->isMethod(sfWebRequest::GET))
+    if (saConfig::get('external_pc_login_url') && $request->isMethod(sfWebRequest::GET))
     {
-      $this->redirect(opConfig::get('external_pc_login_url'));
+      $this->redirect(saConfig::get('external_pc_login_url'));
     }
 
     if ($request->isSmartphone())
@@ -110,9 +110,9 @@ class memberActions extends opMemberAction
  /**
   * Executes profile action
   *
-  * @param opWebRequest $request A request object
+  * @param saWebRequest $request A request object
   */
-  public function executeProfile(opWebRequest $request)
+  public function executeProfile(saWebRequest $request)
   {
     $this->forwardIf($request->isSmartphone(), 'member', 'smtProfile');
 
@@ -144,16 +144,16 @@ class memberActions extends opMemberAction
  /**
   * Executes smtProfile action
   *
-  * @param opWebRequest $request A request object
+  * @param saWebRequest $request A request object
   */
-  public function executeSmtProfile(opWebRequest $request)
+  public function executeSmtProfile(saWebRequest $request)
   {
     $gadgets = Doctrine::getTable('Gadget')->retrieveGadgetsByTypesName('smartphoneProfile');
     $this->contentsGadgets = $gadgets['smartphoneProfileContents'];
 
     $result = parent::executeProfile($request);
 
-    opSmartphoneLayoutUtil::setLayoutParameters(array('member' => $this->member));
+    saSmartphoneLayoutUtil::setLayoutParameters(array('member' => $this->member));
 
     return $result;
   }
@@ -161,14 +161,14 @@ class memberActions extends opMemberAction
  /**
   * Executes configImage action
   *
-  * @param opWebRequest $request A request object
+  * @param saWebRequest $request A request object
   */
-  public function executeConfigImage(opWebRequest $request)
+  public function executeConfigImage(saWebRequest $request)
   {
     $this->forwardIf($request->isSmartphone(), 'member', 'smtConfigImage');
 
-    $options = array('member' => $this->getUser()->getMember());
-    $this->form = new MemberImageForm(array(), $options);
+    $sations = array('member' => $this->getUser()->getMember());
+    $this->form = new MemberImageForm(array(), $sations);
 
     if ($request->isMethod(sfWebRequest::POST))
     {
@@ -185,7 +185,7 @@ class memberActions extends opMemberAction
           }
         }
       }
-      catch (opRuntimeException $e)
+      catch (saRuntimeException $e)
       {
         $this->getUser()->setFlash('error', $e->getMessage());
       }
@@ -198,13 +198,13 @@ class memberActions extends opMemberAction
  /**
   * Executes smtCofigImage action
   *
-  * @param opWebRequest $request A request object
+  * @param saWebRequest $request A request object
   */
 
-  public function executeSmtConfigImage(opWebRequest $request)
+  public function executeSmtConfigImage(saWebRequest $request)
   {
-    $options = array('member' => $this->getUser()->getMember());
-    $this->form = new MemberImageForm(array(), $options);
+    $sations = array('member' => $this->getUser()->getMember());
+    $this->form = new MemberImageForm(array(), $sations);
 
     if ($request->isMethod(sfWebRequest::POST))
     {
@@ -221,7 +221,7 @@ class memberActions extends opMemberAction
           }
         }
       }
-      catch (opRuntimeException $e)
+      catch (saRuntimeException $e)
       {
         $this->getUser()->setFlash('error', $e->getMessage());
       }
@@ -236,9 +236,9 @@ class memberActions extends opMemberAction
   *
   * @param sfRequest $request A request object
   */
-  public function executeConfigJsonApi(opWebRequest $request)
+  public function executeConfigJsonApi(saWebRequest $request)
   {
-    $this->forward404Unless(opConfig::get('enable_jsonapi'));
+    $this->forward404Unless(saConfig::get('enable_jsonapi'));
 
     $member = $this->getUser()->getMember();
 
@@ -256,13 +256,13 @@ class memberActions extends opMemberAction
  /**
   * Executes registerMobileToRegisterEnd action
   *
-  * @param opWebRequest $request A request object
+  * @param saWebRequest $request A request object
   */
-  public function executeRegisterMobileToRegisterEnd(opWebRequest $request)
+  public function executeRegisterMobileToRegisterEnd(saWebRequest $request)
   {
-    opActivateBehavior::disable();
+    saActivateBehavior::disable();
     $this->form = new registerMobileForm($this->getUser()->getMember());
-    opActivateBehavior::enable();
+    saActivateBehavior::enable();
     if ($request->isMethod(sfWebRequest::POST))
     {
       $this->form->bind($request->getParameter('member_config'));
@@ -276,20 +276,20 @@ class memberActions extends opMemberAction
     return sfView::SUCCESS;
   }
 
-  public function executeRegisterMobileToRegisterEndFinish(opWebRequest $request)
+  public function executeRegisterMobileToRegisterEndFinish(saWebRequest $request)
   {
   }
 
   /**
    * Executes changeLanguage action
    *
-   * @param opWebRequest $request a request object
+   * @param saWebRequest $request a request object
    */
-  public function executeChangeLanguage(opWebRequest $request)
+  public function executeChangeLanguage(saWebRequest $request)
   {
     if ($request->isMethod(sfWebRequest::POST))
     {
-      $form = new opLanguageSelecterForm();
+      $form = new saLanguageSelecterForm();
       if ($form->bindAndSetCulture($request->getParameter('language')))
       {
         $this->redirect($form->getValue('next_uri'));
@@ -302,9 +302,9 @@ class memberActions extends opMemberAction
  /**
   * Executes editConfig action
   *
-  * @param opWebRequest $request a request object
+  * @param saWebRequest $request a request object
   */
-  public function executeConfig(opWebRequest $request)
+  public function executeConfig(saWebRequest $request)
   {
     $this->forwardIf($request->isSmartphone(), 'member', 'smtConfig');
 
@@ -314,9 +314,9 @@ class memberActions extends opMemberAction
  /**
   * Executes editSmtConfig action
   *
-  * @param opWebRequest $request a request object
+  * @param saWebRequest $request a request object
   */
-  public function executeSmtConfig(opWebRequest $request)
+  public function executeSmtConfig(saWebRequest $request)
   {
     return parent::executeConfig($request);
   }
@@ -324,9 +324,9 @@ class memberActions extends opMemberAction
  /**
   * Executes search action
   *
-  * @param opWebRequest $request a request object
+  * @param saWebRequest $request a request object
   */
-  public function executeSearch(opWebRequest $request)
+  public function executeSearch(saWebRequest $request)
   {
     $this->forwardIf($request->isSmartphone(), 'member', 'smtSearch');
 
@@ -336,9 +336,9 @@ class memberActions extends opMemberAction
  /**
   * Executes smtSearch action
   *
-  * @param opWebRequest $request a request object
+  * @param saWebRequest $request a request object
   */
-  public function executeSmtSearch(opWebRequest $request)
+  public function executeSmtSearch(saWebRequest $request)
   {
     return sfView::SUCCESS;
   }
@@ -346,9 +346,9 @@ class memberActions extends opMemberAction
  /**
   * Executes invite action
   *
-  * @param opWebRequest $request a request object
+  * @param saWebRequest $request a request object
   */
-  public function executeInvite(opWebRequest $request)
+  public function executeInvite(saWebRequest $request)
   {
     $this->forwardIf($request->isSmartphone(), 'member', 'smtInvite');
 
@@ -359,9 +359,9 @@ class memberActions extends opMemberAction
  /**
   * Executes editSmtConfig action
   *
-  * @param opWebRequest $request a request object
+  * @param saWebRequest $request a request object
   */
-  public function executeSmtInvite(opWebRequest $request)
+  public function executeSmtInvite(saWebRequest $request)
   {
     return parent::executeInvite($request);
   }
@@ -370,9 +370,9 @@ class memberActions extends opMemberAction
  /**
   * Executes editProfile action
   *
-  * @param opWebRequest $request a request object
+  * @param saWebRequest $request a request object
   */
-  public function executeEditProfile(opWebRequest $request)
+  public function executeEditProfile(saWebRequest $request)
   {
     $this->forwardIf($request->isSmartphone(), 'member', 'smtEditProfile');
 
@@ -382,9 +382,9 @@ class memberActions extends opMemberAction
  /**
   * Executes smtEditProfile action
   *
-  * @param opWebRequest $request a request object
+  * @param saWebRequest $request a request object
   */
-  public function executeSmtEditProfile(opWebRequest $request)
+  public function executeSmtEditProfile(saWebRequest $request)
   {
     return parent::executeEditProfile($request);
   }

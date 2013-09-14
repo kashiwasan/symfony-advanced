@@ -2,8 +2,8 @@ lib/form/doctrine/op*Plugin
 web/cache/*
 log/*
 plugins/op*
-!plugins/opAuthMailAddressPlugin
-!plugins/opSkinBasicPlugin
+!plugins/saAuthMailAddressPlugin
+!plugins/saSkinBasicPlugin
 plugins/.*
 lib/filter/doctrine/*
 cache/*

@@ -26,18 +26,18 @@ class profileActions extends sfActions
   public function executeList($request)
   {
     $this->profiles = Doctrine::getTable('Profile')->retrievesAll();
-    $this->option_form = array();
+    $this->sation_form = array();
 
     foreach ($this->profiles as $value)
     {
-      $this->option_form[$value->getId()] = array();
-      foreach ($value->getProfileOption() as $option)
+      $this->sation_form[$value->getId()] = array();
+      foreach ($value->getProfileOption() as $sation)
       {
-        $this->option_form[$value->getId()][$option->getId()] = new ProfileOptionForm(Doctrine::getTable('ProfileOption')->find($option->getId()));
+        $this->sation_form[$value->getId()][$sation->getId()] = new ProfileOptionForm(Doctrine::getTable('ProfileOption')->find($sation->getId()));
       }
       $newProfileOption = new ProfileOption();
       $newProfileOption->setProfileId($value->getId());
-      $this->option_form[$value->getId()][0] = new ProfileOptionForm($newProfileOption);
+      $this->sation_form[$value->getId()][0] = new ProfileOptionForm($newProfileOption);
     }
 
     if ($request->isMethod('post'))
@@ -45,9 +45,9 @@ class profileActions extends sfActions
       $parameter = $request->getParameter('profile_option');
       $profileId = $parameter['profile_id'];
       $profileOptionId = $parameter['id'] ? $parameter['id'] : 0;
-      if (isset($this->option_form[$profileId][$profileOptionId]))
+      if (isset($this->sation_form[$profileId][$profileOptionId]))
       {
-        $this->option_form[$profileId][$profileOptionId]->bind($parameter);
+        $this->sation_form[$profileId][$profileOptionId]->bind($parameter);
       }
     }
 
@@ -63,7 +63,7 @@ class profileActions extends sfActions
   {
     $this->profile = Doctrine::getTable('Profile')->find($request->getParameter('id'));
     $this->form = new ProfileForm($this->profile);
-    $this->presetForm = new opPresetProfileForm($this->profile);
+    $this->presetForm = new saPresetProfileForm($this->profile);
     $this->isPreset = false;
 
     if ($request->isMethod('post'))

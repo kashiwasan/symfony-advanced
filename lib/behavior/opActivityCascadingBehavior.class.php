@@ -8,11 +8,11 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class opActivityCascadingBehavior extends Doctrine_Template
+class saActivityCascadingBehavior extends Doctrine_Template
 {
   public function setTableDefinition()
   {
-    $this->addListener(new opActivityCascadingListener());
+    $this->addListener(new saActivityCascadingListener());
   }
 }
 

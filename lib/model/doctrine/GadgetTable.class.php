@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class GadgetTable extends opAccessControlDoctrineTable
+class GadgetTable extends saAccessControlDoctrineTable
 {
   protected
     $results,
@@ -52,7 +52,7 @@ class GadgetTable extends opAccessControlDoctrineTable
       $filename .= '.yml';
 
       $configCache = sfContext::getInstance()->getConfiguration()->getConfigCache();
-      $configCache->registerConfigHandler($filename, 'opGadgetConfigHandler');
+      $configCache->registerConfigHandler($filename, 'saGadgetConfigHandler');
       $this->configs['gadget'][$typesName] = include($configCache->checkConfig($filename));
     }
     return $this->configs['gadget'][$typesName];

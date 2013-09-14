@@ -9,13 +9,13 @@
  */
 
 /**
- * opWidgetFormSelectFormatterMobile
+ * saWidgetFormSelectFormatterMobile
  *
  * @package    SfAdvanced
  * @subpackage widget
  * @author     Shogo Kawahara <kawahara@tejimaya.net>
  */
-class opWidgetFormSelectFormatterMobile 
+class saWidgetFormSelectFormatterMobile 
 {
   public static function formatter($widget, $inputs)
   {

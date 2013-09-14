@@ -25,13 +25,13 @@ class ActivityDataForm extends BaseActivityDataForm
     {
       $this->setWidget('body', new sfWidgetFormTextarea());
     }
-    $this->setValidator('body', new opValidatorString(array('max_length' => 140, 'required' => true, 'trim' => true)));
+    $this->setValidator('body', new saValidatorString(array('max_length' => 140, 'required' => true, 'trim' => true)));
 
     $choices = $this->getObject()->getTable()->getPublicFlags();
     $this->setWidget('public_flag', new sfWidgetFormChoice(array('choices' => $choices)));
     $this->setValidator('public_flag', new sfValidatorChoice(array('choices' => array_keys($choices))));
 
-    $this->setWidget('next_uri', new opWidgetFormInputHiddenNextUri());
-    $this->setValidator('next_uri', new opValidatorNextUri());
+    $this->setWidget('next_uri', new saWidgetFormInputHiddenNextUri());
+    $this->setValidator('next_uri', new saValidatorNextUri());
   }
 }

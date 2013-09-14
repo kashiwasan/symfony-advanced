@@ -9,13 +9,13 @@
  */
 
 /**
- * opRichTextareaSfAdvancedConfigForm
+ * saRichTextareaSfAdvancedConfigForm
  *
  * @package    SfAdvanced
  * @subpackage form 
  * @author     Shogo Kawahara <kawahara@tejimaya.net>
  */
-class opRichTextareaSfAdvancedConfigForm extends sfForm
+class saRichTextareaSfAdvancedConfigForm extends sfForm
 {
   static protected $defaultModeChoice = array(
     'text'    => 'Text Mode',

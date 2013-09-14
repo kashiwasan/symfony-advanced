@@ -35,15 +35,15 @@ Call it with:
 EOF;
   }
 
-  protected function execute($arguments = array(), $options = array())
+  protected function execute($arguments = array(), $sations = array())
   {
     $this->logSection('fix-session-db', 'Begin to fix session table structure');
 
-    $this->openDatabaseConnection();
+    $this->saenDatabaseConnection();
 
     $this->logSection('fix-session-db', 'Now changing definition of your session table structure');
 
-    $conn = opDoctrineQuery::getMasterConnectionDirect();
+    $conn = saDoctrineQuery::getMasterConnectionDirect();
     $conn->export->alterTable('session', array(
       'change' => array(
         'id' => array(
@@ -62,7 +62,7 @@ EOF;
     $this->logSection('fix-session-db', 'Finish to fix session table structure');
   }
 
-  protected function openDatabaseConnection()
+  protected function saenDatabaseConnection()
   {
     new sfDatabaseManager($this->configuration);
   }

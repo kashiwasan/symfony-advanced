@@ -9,13 +9,13 @@
  */
 
 /**
- * opValidatorHex validates hex.
+ * saValidatorHex validates hex.
  *
  * @package    SfAdvanced
  * @subpackage validator
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opValidatorHex extends opValidatorString
+class saValidatorHex extends saValidatorString
 {
   protected function doClean($value)
   {

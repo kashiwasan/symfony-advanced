@@ -9,17 +9,17 @@
  */
 
 /**
- * opValidatorNextUri validates a next_uri.
+ * saValidatorNextUri validates a next_uri.
  *
  * @package    SfAdvanced
  * @subpackage validator
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opValidatorNextUri extends sfValidatorString
+class saValidatorNextUri extends sfValidatorString
 {
-  protected function configure($options = array(), $messages = array())
+  protected function configure($sations = array(), $messages = array())
   {
-    parent::configure($options, $messages);
+    parent::configure($sations, $messages);
     $this->setOption('required', false);
     $this->setOption('trim', true);
     $this->setOption('empty_value', '@homepage');

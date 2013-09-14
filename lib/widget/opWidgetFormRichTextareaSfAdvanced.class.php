@@ -9,13 +9,13 @@
  */
 
 /**
- * opWidgetFormRichTextareaSfAdvanced
+ * saWidgetFormRichTextareaSfAdvanced
  *
  * @package    SfAdvanced
  * @subpackage widget
  * @author     Shogo Kawahara <kawahara@ejimaya.net>
  */
-class opWidgetFormRichTextareaSfAdvanced extends opWidgetFormRichTextarea
+class saWidgetFormRichTextareaSfAdvanced extends saWidgetFormRichTextarea
 {
   static protected $isFirstRenderSfAdvanced  = true;
   static protected $isConfiguredTinyMCE   = false;
@@ -36,15 +36,15 @@ class opWidgetFormRichTextareaSfAdvanced extends opWidgetFormRichTextarea
   static protected $useButtons = null;
 
   static protected $buttonOnclickActions = array(
-    'sa_emoji_docomo' => '$("#%id%").opEmoji("togglePallet", "epDocomo");',
+    'sa_emoji_docomo' => '$("#%id%").saEmoji("togglePallet", "epDocomo");',
     'sa_large' => 'sa_mce_insert_tagname("%id%", "op:font", \' size="5"\');',
     'sa_small' => 'sa_mce_insert_tagname("%id%", "op:font", \' size="1"\');',
     'sa_color' => 'sa_mce_show_color_table("%id%", "op:font");'
   );
 
   static protected $convertCallbackList = array(
-    'op:color' => array(__CLASS__, 'opColorToHtml'),
-    'op:font'  => array(__CLASS__, 'opFontToHtml')
+    'op:color' => array(__CLASS__, 'saColorToHtml'),
+    'op:font'  => array(__CLASS__, 'saFontToHtml')
   );
 
   static protected $htmlConvertList = array(
@@ -157,12 +157,12 @@ class opWidgetFormRichTextareaSfAdvanced extends opWidgetFormRichTextarea
     return self::$useButtons;
   }
 
-  public function __construct($options = array(), $attributes = array())
+  public function __construct($sations = array(), $attributes = array())
   {
     sfProjectConfiguration::getActive()->loadHelpers('Asset');
-    parent::__construct($options, $attributes);
+    parent::__construct($sations, $attributes);
 
-    if (!isset($options['is_textmode']))
+    if (!isset($sations['is_textmode']))
     {
       if (Doctrine::getTable('SnsConfig')->get('richtextarea_default_mode', 'text') === 'preview')
       {
@@ -365,13 +365,13 @@ class opWidgetFormRichTextareaSfAdvanced extends opWidgetFormRichTextarea
       return call_user_func(self::$convertCallbackList[$tagname], $isEndtag, $tagname, $attributes, true);
     }
 
-    $options = array();
-    $options['class'] = strtr($tagname, ':', '_');
+    $sations = array();
+    $sations['class'] = strtr($tagname, ':', '_');
     if ($isEndtag) {
       return '</span>';
     }
 
-    return tag('span', $options, true);
+    return tag('span', $sations, true);
   }
 
   static public function toHtmlNoStylesheet($matches)
@@ -384,7 +384,7 @@ class opWidgetFormRichTextareaSfAdvanced extends opWidgetFormRichTextarea
       return call_user_func(self::$convertCallbackList[$tagname], $isEndtag, $tagname, $attributes, false);
     }
 
-    $options = array();
+    $sations = array();
     if (!array_key_exists($tagname, self::$htmlConvertList)) {
       return '';
     }
@@ -398,15 +398,15 @@ class opWidgetFormRichTextareaSfAdvanced extends opWidgetFormRichTextarea
 
     if (isset($htmlTagInfo[1]) && is_array($htmlTagInfo[1]))
     {
-      $options = array_merge($options, $htmlTagInfo[1]);
+      $sations = array_merge($sations, $htmlTagInfo[1]);
     }
 
-    return tag($htmlTagName, $options, true);
+    return tag($htmlTagName, $sations, true);
   }
 
-  static public function opColorToHtml($isEndtag, $tagname, $attributes, $isUseStylesheet)
+  static public function saColorToHtml($isEndtag, $tagname, $attributes, $isUseStylesheet)
   {
-    $options = array();
+    $sations = array();
     $code = isset($attributes['code']) ? $attributes['code'] : '';
     if (!($code && preg_match('/^#[0-9a-fA-F]{6}$/', $code)))
     {
@@ -418,12 +418,12 @@ class opWidgetFormRichTextareaSfAdvanced extends opWidgetFormRichTextarea
       if ($isEndtag) {
         return '</span>';
       }
-      $options['class'] = strtr($tagname, ':', '_');
+      $sations['class'] = strtr($tagname, ':', '_');
       if ($code) {
-        $options['style'] = 'color:'.$code;
+        $sations['style'] = 'color:'.$code;
       }
 
-      return tag('span', $options, true);
+      return tag('span', $sations, true);
     }
     else
     {
@@ -432,16 +432,16 @@ class opWidgetFormRichTextareaSfAdvanced extends opWidgetFormRichTextarea
         return '</font>';
       }
       if ($code) {
-        $options['color'] = $code;
+        $sations['color'] = $code;
       }
 
-      return tag('font', $options, true);
+      return tag('font', $sations, true);
     }
   }
 
-  static public function opFontToHtml($isEndtag, $tagname, $attributes, $isUseStylesheet)
+  static public function saFontToHtml($isEndtag, $tagname, $attributes, $isUseStylesheet)
   {
-    $options = array();
+    $sations = array();
 
     $color = isset($attributes['color']) ? $attributes['color'] : '';
     if (!($color && preg_match('/^#[0-9a-fA-F]{6}$/', $color)))
@@ -454,10 +454,10 @@ class opWidgetFormRichTextareaSfAdvanced extends opWidgetFormRichTextarea
       if ($isEndtag) {
         return '</span>';
       }
-      $options['class'] = 'sa_font';
-      $options['style'] = '';
+      $sations['class'] = 'sa_font';
+      $sations['style'] = '';
       if ($color) {
-        $options['style'] .= 'color:'.$color.';';
+        $sations['style'] .= 'color:'.$color.';';
       }
       $size = isset($attributes['size']) ? (int)$attributes['size'] : 0;
       $fontSizeMap = array(
@@ -470,10 +470,10 @@ class opWidgetFormRichTextareaSfAdvanced extends opWidgetFormRichTextarea
         7 => 'xx-large'
       );
       if (isset($fontSizeMap[$size])) {
-        $options['style'] .= 'font-size:'.$fontSizeMap[$size];
+        $sations['style'] .= 'font-size:'.$fontSizeMap[$size];
       }
 
-      return tag('span', $options, true);
+      return tag('span', $sations, true);
     }
     else
     {
@@ -482,15 +482,15 @@ class opWidgetFormRichTextareaSfAdvanced extends opWidgetFormRichTextarea
         return '</font>';
       }
       if ($color) {
-        $options['color'] = $color;
+        $sations['color'] = $color;
       }
       $size = isset($attributes['size']) ? (int)$attributes['size'] : 0;
       if ($size >= 1 && $size <= 7)
       {
-        $options['size'] = $attributes['size'];
+        $sations['size'] = $attributes['size'];
       }
 
-      return tag('font', $options, true);
+      return tag('font', $sations, true);
     }
   }
 }

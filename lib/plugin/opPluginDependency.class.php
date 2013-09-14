@@ -9,13 +9,13 @@
  */
 
 /**
- * The opPluginDependency class
+ * The saPluginDependency class
  *
  * @package    SfAdvanced
  * @subpackage plugin
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-class opPluginDependency extends PEAR_Dependency2
+class saPluginDependency extends PEAR_Dependency2
 {
   public $failedDependency = array(
     'php' => array(),

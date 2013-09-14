@@ -9,12 +9,12 @@
  */
 
 /**
- * opPrivilegeException
+ * saPrivilegeException
  *
  * @package    SfAdvanced
  * @subpackage exception
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opPrivilegeException extends Exception
+class saPrivilegeException extends Exception
 {
 }

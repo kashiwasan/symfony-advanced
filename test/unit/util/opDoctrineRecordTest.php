@@ -12,7 +12,7 @@ $t = new lime_test(null, new lime_output_color());
 
 // --
 
-class MyRecord extends opDoctrineRecord
+class MyRecord extends saDoctrineRecord
 {
   public function __construct()
   {

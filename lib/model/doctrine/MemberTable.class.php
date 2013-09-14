@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class MemberTable extends opAccessControlDoctrineTable
+class MemberTable extends saAccessControlDoctrineTable
 {
   public function createPre()
   {
@@ -51,8 +51,8 @@ class MemberTable extends opAccessControlDoctrineTable
   {
     static $queryCacheHash;
 
-    $e = opActivateBehavior::getEnabled();
-    opActivateBehavior::disable();
+    $e = saActivateBehavior::getEnabled();
+    saActivateBehavior::disable();
 
     $q = $this->createQuery()
       ->select('id')
@@ -71,7 +71,7 @@ class MemberTable extends opAccessControlDoctrineTable
 
     if ($e)
     {
-      opActivateBehavior::enable();
+      saActivateBehavior::enable();
     }
 
     $memberIds = array();
@@ -85,8 +85,8 @@ class MemberTable extends opAccessControlDoctrineTable
 
   public function retrivesByInviteMemberId($memberId)
   {
-    $e = opActivateBehavior::getEnabled();
-    opActivateBehavior::disable();
+    $e = saActivateBehavior::getEnabled();
+    saActivateBehavior::disable();
 
     $members = $this->createQuery()
       ->where('invite_member_id = ?', $memberId)
@@ -95,7 +95,7 @@ class MemberTable extends opAccessControlDoctrineTable
 
     if ($e)
     {
-      opActivateBehavior::enable();
+      saActivateBehavior::enable();
     }
 
     return $members;
@@ -116,9 +116,9 @@ class MemberTable extends opAccessControlDoctrineTable
       ->allow('self', $resource, 'edit')
       ->deny('blocked');
 
-    if (opConfig::get('is_allow_config_public_flag_profile_page'))
+    if (saConfig::get('is_allow_config_public_flag_profile_page'))
     {
-      $config = opConfig::get('is_allow_config_public_flag_profile_page');
+      $config = saConfig::get('is_allow_config_public_flag_profile_page');
     }
     elseif ($resource)
     {

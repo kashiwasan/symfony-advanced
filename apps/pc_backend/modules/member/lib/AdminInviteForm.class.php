@@ -35,7 +35,7 @@ class AdminInviteForm extends InviteForm
   {
     $values = $values + array('pc' => array(), 'mobile' => array(), 'invalid' => array());
 
-    $inputList = explode("\n", opToolkit::unifyEOLCharacter($values['mail_address']));
+    $inputList = explode("\n", saToolkit::unifyEOLCharacter($values['mail_address']));
     $inputList = array_unique(array_map('trim', $inputList));
     foreach ($inputList as $value)
     {

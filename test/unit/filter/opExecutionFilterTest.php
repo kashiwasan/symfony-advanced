@@ -14,7 +14,7 @@ require_once dirname(__FILE__).'/../../../config/ProjectConfiguration.class.php'
 
 $t = new lime_test();
 
-class myFilter extends opExecutionFilter
+class myFilter extends saExecutionFilter
 {
   public function isFirstCall()
   {
@@ -23,9 +23,9 @@ class myFilter extends opExecutionFilter
 
   public function callNeedToRetrieveMobileUID($module, $action, $retrieveUIDMode = 1, $parameters = array())
   {
-    opConfig::set('retrieve_uid', $retrieveUIDMode);
+    saConfig::set('retrieve_uid', $retrieveUIDMode);
 
-    return $this->needToRetrieveMobileUID($module, $action, new opWebRequest(new sfEventDispatcher(), $parameters), sfConfig::get('sa_ssl_selectable_actions'));
+    return $this->needToRetrieveMobileUID($module, $action, new saWebRequest(new sfEventDispatcher(), $parameters), sfConfig::get('sa_ssl_selectable_actions'));
   }
 
   public function createActionInstance($module, $action)
@@ -61,7 +61,7 @@ class myFilter extends opExecutionFilter
   }
 }
 
-class myRequest extends opWebRequest
+class myRequest extends saWebRequest
 {
     public static $isSecure = false;
 

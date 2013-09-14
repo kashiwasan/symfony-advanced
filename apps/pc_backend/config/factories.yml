@@ -29,7 +29,7 @@ all:
 #    class: sfFrontWebController
 #
   request:
-    class: opWebRequest
+    class: saWebRequest
     param:
       formats:
         txt:  text/plain
@@ -72,7 +72,7 @@ all:
             xdebug_logging:  true
             web_debug_class: sfWebDebug
         sf_file_debug:
-          class: opFileLogger
+          class: saFileLogger
           param:
             level: debug
             file: %SF_LOG_DIR%/%SF_APP%_%SF_ENVIRONMENT%.log
@@ -86,7 +86,7 @@ all:
 #      prefix:                    %SF_APP_DIR%
 #
   i18n:
-    class: opI18N
+    class: saI18N
     param:
       source:               SfAdvanced
       debug:                false

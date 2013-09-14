@@ -16,7 +16,7 @@
  * @author     Shogo Kawahara <kawahara@tejimaya.net>
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opChangeCommunityAdminRequestForm extends opBaseForm
+class saChangeCommunityAdminRequestForm extends saBaseForm
 {
   public function setup()
   {

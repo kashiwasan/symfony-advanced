@@ -9,13 +9,13 @@
  */
 
 /**
- * opPearRest interacts with a PEAR channel for SfAdvanced plugin
+ * saPearRest interacts with a PEAR channel for SfAdvanced plugin
  *
  * @package    SfAdvanced
  * @subpackage plugin
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opPearRest extends sfPearRest
+class saPearRest extends sfPearRest
 {
   public function retrieveData($url, $accept = false, $forcestring = false, $channel = false)
   {
@@ -27,7 +27,7 @@ class opPearRest extends sfPearRest
   public function retrieveXml($url)
   {
     $content = $this->downloadHttp($url);
-    $result = @opToolkit::loadXmlString($content, array(
+    $result = @saToolkit::loadXmlString($content, array(
       'return' => 'SimpleXMLElement',
     ));
 

@@ -1,4 +1,4 @@
-<? // short open tag
+<? // short saen tag
 
 # shell script style comment
 //C++ style comment doesn't start with space
@@ -51,7 +51,7 @@ class non_prefixed_and_non_camel_case_class {
 
 }
 
-interface opThisInterfaceIsNotSuffixed
+interface saThisInterfaceIsNotSuffixed
 {
 }
 
@@ -88,7 +88,7 @@ $stringConcatenationWithWrongIndentations = 'This'
                                   .'under'
                                     .'the'
                                       .'='
-                                        .'operator'
+                                        .'saerator'
                                           .'Do'
                                             .'you'
                                               .'understand'
@@ -188,7 +188,7 @@ $shouldPutTheValueFirst = ($foo == 1);
 /**
  * This is not a doc block format
  */
-class opThisIsNotAValidClass
+class saThisIsNotAValidClass
 {
 }
 
@@ -197,7 +197,7 @@ class opThisIsNotAValidClass
  * @package SfAdvanced
  * @author  Your name here
  */
-class opThisIsNotAValidClass
+class saThisIsNotAValidClass
 {
 }
 
@@ -208,7 +208,7 @@ class opThisIsNotAValidClass
  * @subpackage ##SUBPACKAGE##
  * @author     ##NAME## <##EMAIL##>
  */
-class opThisIsNotAValidClass
+class saThisIsNotAValidClass
 {
 }
 
@@ -217,7 +217,7 @@ class opThisIsNotAValidClass
  *
  * @package SfAdvanced
  */
-class opThisIsNotAValidClass
+class saThisIsNotAValidClass
 {
 }
 
@@ -226,7 +226,7 @@ class opThisIsNotAValidClass
  *
  * @author Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opThisIsNotAValidClass
+class saThisIsNotAValidClass
 {
 }
 
@@ -236,17 +236,17 @@ class opThisIsNotAValidClass
  * @package SfAdvanced
  * @author  Kousuke Ebihara <ebiahra@tejimaya.com>
  */
-class opThisIsAValidClass
+class saThisIsAValidClass
 {
 }
 
 /**
  * Good class too.
  *
- * @package opExamplePlugin
+ * @package saExamplePlugin
  * @author  Kousuke Ebihara <ebiahra@tejimaya.com>
  */
-class opThisIsAValidClass
+class saThisIsAValidClass
 {
 }
 

@@ -20,7 +20,7 @@
 </div></form>
 <?php use_javascript('sa_activity'); ?>
 <script type="text/javascript">
-new opActivity("<?php echo $id ?>", "<?php echo url_for('member/updateActivity') ?>");
+new saActivity("<?php echo $id ?>", "<?php echo url_for('member/updateActivity') ?>");
 </script>
 <?php endif; ?>
 <div class="box_list">

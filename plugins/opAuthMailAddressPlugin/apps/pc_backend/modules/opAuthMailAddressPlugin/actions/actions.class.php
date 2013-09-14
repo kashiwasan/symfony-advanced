@@ -9,13 +9,13 @@
  */
 
 /**
- * opAuthMailAddressPlugin actions.
+ * saAuthMailAddressPlugin actions.
  *
  * @package    SfAdvanced
- * @subpackage opAuthMailAddressPlugin
+ * @subpackage saAuthMailAddressPlugin
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opAuthMailAddressPluginActions extends sfActions
+class saAuthMailAddressPluginActions extends sfActions
 {
  /**
   * Executes index action
@@ -24,7 +24,7 @@ class opAuthMailAddressPluginActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
-    $adapter = new opAuthAdapterMailAddress('MailAddress');
+    $adapter = new saAuthAdapterMailAddress('MailAddress');
     $this->form = $adapter->getAuthConfigForm();
     if ($request->isMethod(sfWebRequest::POST))
     {
@@ -32,7 +32,7 @@ class opAuthMailAddressPluginActions extends sfActions
       if ($this->form->isValid())
       {
         $this->form->save();
-        $this->redirect('opAuthMailAddressPlugin/index');
+        $this->redirect('saAuthMailAddressPlugin/index');
       }
     }
   }

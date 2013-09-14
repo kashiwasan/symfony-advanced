@@ -9,7 +9,7 @@
  */
 
 /**
- * opActivity provides helper function for Activity
+ * saActivity provides helper function for Activity
  *
  * @package    SfAdvanced
  * @subpackage helper

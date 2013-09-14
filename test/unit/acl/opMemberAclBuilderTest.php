@@ -9,9 +9,9 @@ $member1 = Doctrine::getTable('Member')->find(1);
 $member2 = Doctrine::getTable('Member')->find(2);
 $member3 = Doctrine::getTable('Member')->find(3);
 $member5 = Doctrine::getTable('Member')->find(5);
-$anonymous = new opAnonymousMember();
+$anonymous = new saAnonymousMember();
 
-$acl = opMemberAclBuilder::buildResource($member1, array($member1, $member2, $member3, $member5, $anonymous));
+$acl = saMemberAclBuilder::buildResource($member1, array($member1, $member2, $member3, $member5, $anonymous));
 
 $t->ok($acl->isAllowed($member1, null, 'view'), 'The "self" role can view this member');
 $t->ok($acl->isAllowed($member2, null, 'view'), 'The "friend" role can view this member');

@@ -9,13 +9,13 @@
  */
 
 /**
- * opPluginConfigHandler
+ * saPluginConfigHandler
  *
  * @package    SfAdvanced
  * @subpackage config
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-class opPluginConfigHandler extends sfYamlConfigHandler
+class saPluginConfigHandler extends sfYamlConfigHandler
 {
   public function execute($configFiles)
   {

@@ -9,13 +9,13 @@
  */
 
 /**
- * opCacheControlFilter
+ * saCacheControlFilter
  *
  * @package    SfAdvanced
  * @subpackage filter
  * @author     Kousuke Ebihara
  */
-class opCacheControlFilter extends sfFilter
+class saCacheControlFilter extends sfFilter
 {
  /**
   * Executes this filter.

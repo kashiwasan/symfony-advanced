@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class opPluginActivateTask extends sfBaseTask
+class saPluginActivateTask extends sfBaseTask
 {
   protected function configure()
   {
@@ -21,18 +21,18 @@ class opPluginActivateTask extends sfBaseTask
       new sfCommandOption('env', null, sfCommandOption::PARAMETER_REQUIRED, 'The environment', 'prod'),
     ));
 
-    $this->namespace        = 'opPlugin';
+    $this->namespace        = 'saPlugin';
     $this->name             = 'activate';
     $this->briefDescription = 'Activates the installed plugin.';
     $this->detailedDescription = <<<EOF
-The [opPlugin:activate|INFO] task activates the installed plugin.
+The [saPlugin:activate|INFO] task activates the installed plugin.
 Call it with:
 
-  [./symfony opPlugin:activate opSamplePlugin|INFO]
+  [./symfony saPlugin:activate saSamplePlugin|INFO]
 EOF;
   }
 
-  protected function execute($arguments = array(), $options = array())
+  protected function execute($arguments = array(), $sations = array())
   {
     $configuration = $this->createConfiguration('pc_frontend', 'cli');
     $name = $arguments['name'];
@@ -47,7 +47,7 @@ EOF;
       throw new sfException(sprintf('Plugin "%s" is already activated', $name));
     }
 
-    opPlugin::getInstance($name)->setIsActive(true);
+    saPlugin::getInstance($name)->setIsActive(true);
 
     $cc = new sfCacheClearTask($this->dispatcher, $this->formatter);
     $cc->run();

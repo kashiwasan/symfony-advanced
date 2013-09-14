@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-abstract class opBaseSendMailTask extends sfDoctrineBaseTask
+abstract class saBaseSendMailTask extends sfDoctrineBaseTask
 {
   protected function configure()
   {
@@ -26,17 +26,17 @@ abstract class opBaseSendMailTask extends sfDoctrineBaseTask
     $_SERVER['SCRIPT_NAME'] = '/index.php';
   }
 
-  protected function execute($arguments = array(), $options = array())
+  protected function execute($arguments = array(), $sations = array())
   {
-    $this->openDatabaseConnection();
+    $this->saenDatabaseConnection();
 
-    // opMailSend requires Zend
-    opApplicationConfiguration::registerZend();
+    // saMailSend requires Zend
+    saApplicationConfiguration::registerZend();
 
-    opDoctrineRecord::setDefaultCulture(sfConfig::get('default_culture', 'ja_JP'));
+    saDoctrineRecord::setDefaultCulture(sfConfig::get('default_culture', 'ja_JP'));
   }
 
-  protected function openDatabaseConnection()
+  protected function saenDatabaseConnection()
   {
     new sfDatabaseManager($this->configuration);
   }
@@ -44,7 +44,7 @@ abstract class opBaseSendMailTask extends sfDoctrineBaseTask
   protected function getContextByEmailAddress($address)
   {
     $application = 'pc_frontend';
-    if (opToolkit::isMobileEmailAddress($address))
+    if (saToolkit::isMobileEmailAddress($address))
     {
       $application = 'mobile_frontend';
     }

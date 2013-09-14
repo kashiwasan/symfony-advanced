@@ -1,7 +1,7 @@
 <?php 
 include(dirname(__FILE__).'/../../bootstrap/functional.php');
 
-$user = new opTestFunctional(new opBrowser(), new lime_test(null));
+$user = new saTestFunctional(new saBrowser(), new lime_test(null));
 $user
 ->info('1. Testing alien')
 ->info('public_flag: public')
@@ -14,7 +14,7 @@ $user
   ->with('response')->begin()
     ->isStatusCode(404)
   ->end()
-->info('public_flag: open')
+->info('public_flag: saen')
 ->get('/community/3')
   ->info('1-2. Alien can access the community home')
   ->with('request')->begin()
@@ -25,9 +25,9 @@ $user
 ;
 
 opCommunityAclBuilder::clearCache();
-if (class_exists('opCommunityTopicAclBuilder'))
+if (class_exists('saCommunityTopicAclBuilder'))
 {
-  opCommunityTopicAclBuilder::clearCache();
+  saCommunityTopicAclBuilder::clearCache();
 }
 $user->login('sns4@example.com', 'password');
 $user
@@ -40,7 +40,7 @@ $user
     ->isParameter('action', 'home')
   ->end()
   ->with('response')->isStatusCode(200)
-->info('public_flag: open')
+->info('public_flag: saen')
 ->get('/community/3')
   ->info('2-2. Community Member can access the community home')
   ->with('request')->begin()
@@ -51,9 +51,9 @@ $user
 ;
 
 opCommunityAclBuilder::clearCache();
-if (class_exists('opCommunityTopicAclBuilder'))
+if (class_exists('saCommunityTopicAclBuilder'))
 {
-  opCommunityTopicAclBuilder::clearCache();
+  saCommunityTopicAclBuilder::clearCache();
 }
 $user->login('sns5@example.com', 'password');
 $user
@@ -66,7 +66,7 @@ $user
     ->isParameter('action', 'home')
   ->end()
   ->with('response')->isStatusCode(200)
-->info('public_flag: open')
+->info('public_flag: saen')
 ->get('/community/3')
   ->info('3-2. SNS Member can access the community home')
   ->with('request')->begin()

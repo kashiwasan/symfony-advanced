@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class communityComponents extends opCommunityComponents
+class communityComponents extends saCommunityComponents
 {
   public function executeJoinListBox($request)
   {

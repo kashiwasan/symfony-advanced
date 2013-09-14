@@ -9,13 +9,13 @@
  */
 
 /**
- * opMemberAction
+ * saMemberAction
  *
  * @package    SfAdvanced
  * @subpackage action
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-abstract class opMemberAction extends sfActions
+abstract class saMemberAction extends sfActions
 {
   public function preExecute()
   {
@@ -40,7 +40,7 @@ abstract class opMemberAction extends sfActions
 
   protected function handleSfAdvanced2FormatUrl()
   {
-    $path = sfConfig::get('sf_app_config_dir').'/op2urls.php';
+    $path = sfConfig::get('sf_app_config_dir').'/sa2urls.php';
     if (!is_file($path))
     {
       return null;
@@ -169,16 +169,16 @@ abstract class opMemberAction extends sfActions
 
   public function executeRegisterInput($request)
   {
-    $this->forward404Unless(opToolkit::isEnabledRegistration((sfConfig::get('app_is_mobile') ? 'mobile' : 'pc')));
+    $this->forward404Unless(saToolkit::isEnabledRegistration((sfConfig::get('app_is_mobile') ? 'mobile' : 'pc')));
 
     $this->token = $request['token'];
     $member = $this->getUser()->setRegisterToken($this->token);
 
     $this->forward404Unless($member && $this->getUser()->isRegisterBegin());
 
-    opActivateBehavior::disable();
+    saActivateBehavior::disable();
     $this->form = $this->getUser()->getAuthAdapter()->getAuthRegisterForm();
-    opActivateBehavior::enable();
+    saActivateBehavior::enable();
 
     if ($request->isMethod('post'))
     {
@@ -207,7 +207,7 @@ abstract class opMemberAction extends sfActions
       $params = array_merge($params, array('name' => $request->getParameter('search_query', '')));
     }
 
-    $this->filters = new opMemberProfileSearchForm();
+    $this->filters = new saMemberProfileSearchForm();
     $this->filters->bind($params);
 
     if (!isset($this->size))
@@ -215,7 +215,7 @@ abstract class opMemberAction extends sfActions
       $this->size = 20;
     }
 
-    $this->pager = new opNonCountQueryPager('Member', $this->size);
+    $this->pager = new saNonCountQueryPager('Member', $this->size);
     $q = $this->filters->getQuery()->orderBy('id desc');
     $this->pager->setQuery($q);
     $this->pager->setPage($request->getParameter('page', 1));
@@ -287,8 +287,8 @@ abstract class opMemberAction extends sfActions
     $this->forward404Unless($memberConfig);
     $this->forward404Unless($request->getParameter('token') === $memberConfig->getValue());
 
-    $option = array('member' => $memberConfig->getMember());
-    $this->form = new opPasswordForm(array(), $option);
+    $sation = array('member' => $memberConfig->getMember());
+    $this->form = new saPasswordForm(array(), $sation);
 
     if ($request->isMethod('post'))
     {
@@ -352,7 +352,7 @@ abstract class opMemberAction extends sfActions
   {
     if (
       !$this->getUser()->getAuthAdapter()->getAuthConfig('invite_mode')
-      || !opToolkit::isEnabledRegistration()
+      || !saToolkit::isEnabledRegistration()
     )
     {
       return sfView::ERROR;
@@ -398,7 +398,7 @@ abstract class opMemberAction extends sfActions
       return sfView::ERROR;
     }
 
-    $this->form = new opPasswordForm(array(), array('member' => $this->getUser()->getMember()));
+    $this->form = new saPasswordForm(array(), array('member' => $this->getUser()->getMember()));
     if ($request->isMethod('post'))
     {
       $this->form->bind($request->getParameter('password'));
@@ -456,14 +456,14 @@ abstract class opMemberAction extends sfActions
     );
 
     // to admin
-    $mail = new opMailSend();
-    $mail->setSubject(opConfig::get('sns_name') . '退会者情報');
+    $mail = new saMailSend();
+    $mail->setSubject(saConfig::get('sns_name') . '退会者情報');
     $mail->setGlobalTemplate('deleteAccountMail', $param);
-    $mail->send(opConfig::get('admin_mail_address'), opConfig::get('admin_mail_address'));
+    $mail->send(saConfig::get('admin_mail_address'), saConfig::get('admin_mail_address'));
 
     // to member
     $param['subject'] = sfContext::getInstance()->getI18N()->__('Leaving from this site is finished');
-    opMailSend::sendTemplateMailToMember('leave', $member, $param);
+    saMailSend::sendTemplateMailToMember('leave', $member, $param);
   }
 
   protected function filterConfigCategory()
@@ -480,7 +480,7 @@ abstract class opMemberAction extends sfActions
 
     if (isset($categories['language']))
     {
-      if (!opConfig::get('enable_language'))
+      if (!saConfig::get('enable_language'))
       {
         unset($categories['language']);
       }
@@ -493,7 +493,7 @@ abstract class opMemberAction extends sfActions
       if (isset($categoryAttributes[$key]['depending_sns_config']))
       {
         $snsConfig = $categoryAttributes[$key]['depending_sns_config'];
-        if (!opConfig::get($snsConfig))
+        if (!saConfig::get($snsConfig))
         {
           unset($categories[$key]);
           continue;
@@ -569,7 +569,7 @@ abstract class opMemberAction extends sfActions
   {
     if ($request->isMethod(sfWebRequest::POST))
     {
-      $this->forward404Unless(opConfig::get('is_allow_post_activity'));
+      $this->forward404Unless(saConfig::get('is_allow_post_activity'));
       $newObject = new ActivityData();
       $newObject->setMemberId($this->getUser()->getMemberId());
       $this->form = new ActivityDataForm($newObject);
@@ -617,7 +617,7 @@ abstract class opMemberAction extends sfActions
     }
 
     $page = $request->getParameter('page', 1);
-    if ($page == 1 && opConfig::get('is_allow_post_activity'))
+    if ($page == 1 && saConfig::get('is_allow_post_activity'))
     {
       $activityData = new ActivityData();
       $activityData->setBody($request->getParameter('body'));

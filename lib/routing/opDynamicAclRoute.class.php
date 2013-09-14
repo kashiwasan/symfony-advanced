@@ -9,13 +9,13 @@
  */
 
 /**
- * opDynamicAclRoute
+ * saDynamicAclRoute
  *
  * @package    SfAdvanced
  * @subpackage routing
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opDynamicAclRoute extends sfDoctrineRoute
+class saDynamicAclRoute extends sfDoctrineRoute
 {
   protected
     $acl = null;
@@ -34,14 +34,14 @@ class opDynamicAclRoute extends sfDoctrineRoute
       $role = 'alien';
     }
 
-    if ($result instanceof opAccessControlRecordInterface)
+    if ($result instanceof saAccessControlRecordInterface)
     {
-      if (!$result->isAllowed($this->getCurrentMember(), $this->options['privilege']))
+      if (!$result->isAllowed($this->getCurrentMember(), $this->sations['privilege']))
       {
         $this->handleRestriction();
       }
     }
-    elseif (!$this->acl->isAllowed($this->getCurrentMemberId(), null, $this->options['privilege']))
+    elseif (!$this->acl->isAllowed($this->getCurrentMemberId(), null, $this->sations['privilege']))
     {
       $this->handleRestriction();
     }
@@ -51,7 +51,7 @@ class opDynamicAclRoute extends sfDoctrineRoute
 
   protected function handleRestriction()
   {
-    if ($this->getCurrentMember() instanceof opAnonymousMember)
+    if ($this->getCurrentMember() instanceof saAnonymousMember)
     {
       sfContext::getInstance()->getController()->forward('member', 'login');
 
@@ -71,7 +71,7 @@ class opDynamicAclRoute extends sfDoctrineRoute
       return $result;
     }
 
-    if (!$result instanceof opAccessControlRecordInterface)
+    if (!$result instanceof saAccessControlRecordInterface)
     {
       $this->acl = call_user_func($this->getAclBuilderName().'::buildResource', $result, $this->getTargetMemberList());
     }
@@ -81,19 +81,19 @@ class opDynamicAclRoute extends sfDoctrineRoute
 
   protected function getAclBuilderName()
   {
-    return 'op'.$this->options['model'].'AclBuilder';
+    return 'op'.$this->sations['model'].'AclBuilder';
   }
 
   protected function getCurrentMember()
   {
     $user = sfContext::getInstance()->getUser();
 
-    if (!is_null($user) && $user instanceof opSecurityUser)
+    if (!is_null($user) && $user instanceof saSecurityUser)
     {
       return $user->getMember();
     }
 
-    return new opAnonymousMember();
+    return new saAnonymousMember();
   }
 
   protected function getCurrentMemberId()
@@ -101,7 +101,7 @@ class opDynamicAclRoute extends sfDoctrineRoute
     $result = 0;
     $user = sfContext::getInstance()->getUser();
 
-    if (!is_null($user) && $user instanceof opSecurityUser)
+    if (!is_null($user) && $user instanceof saSecurityUser)
     {
       $result = $user->getMemberId();
     }
@@ -114,7 +114,7 @@ class opDynamicAclRoute extends sfDoctrineRoute
     $result = array();
     $user = sfContext::getInstance()->getUser();
 
-    if (!is_null($user) && $user instanceof opSecurityUser)
+    if (!is_null($user) && $user instanceof saSecurityUser)
     {
       $result[] = $user->getMember();
     }

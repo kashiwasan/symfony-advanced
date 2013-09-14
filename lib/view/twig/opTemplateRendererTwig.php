@@ -1,15 +1,15 @@
 <?php
 
-class opTemplateRendererTwig extends sfTemplateRendererTwig
+class saTemplateRendererTwig extends sfTemplateRendererTwig
 {
   public function __construct(Twig_Loader $loader = null, Twig_Environment $environment = null)
   {
     parent::__construct($loader, $environment);
-    $this->environment->addExtension(new opTwigCoreExtension());
+    $this->environment->addExtension(new saTwigCoreExtension());
 
     if (sfConfig::get('sa_is_restrict_mail_template', true))
     {
-      $policy = new opTwigSandboxSecurityPolicy();
+      $policy = new saTwigSandboxSecurityPolicy();
       $this->environment->addExtension(new Twig_Extension_Sandbox($policy, true));
     }
 
@@ -51,7 +51,7 @@ class opTemplateRendererTwig extends sfTemplateRendererTwig
       }
 
       // for BC
-      $member['getRawValue'] = new opTwigDummyMemberProfile($member['id']);
+      $member['getRawValue'] = new saTwigDummyMemberProfile($member['id']);
 
       $member['config'] = array();
       foreach ($current->getMemberConfig() as $v)
@@ -96,7 +96,7 @@ class opTemplateRendererTwig extends sfTemplateRendererTwig
 
   protected function filterIgoredParametersCallback($current)
   {
-    $allowedClasses = array('opConfig', 'opColorConfig', 'SnsTermTable', 'Gadget');
+    $allowedClasses = array('saConfig', 'saColorConfig', 'SnsTermTable', 'Gadget');
 
     if (is_scalar($current) || is_array($current) || in_array(get_class($current), $allowedClasses) || empty($current))
     {
@@ -107,7 +107,7 @@ class opTemplateRendererTwig extends sfTemplateRendererTwig
   }
 }
 
-class opTwigDummyMemberProfile
+class saTwigDummyMemberProfile
 {
   protected $id;
 

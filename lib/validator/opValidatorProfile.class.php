@@ -9,24 +9,24 @@
  */
 
 /**
- * opValidatorProfile
+ * saValidatorProfile
  *
  * @package    SfAdvanced
  * @subpackage validator
  * @author     Shogo Kawahara <kawahara@tejimaya.net>
  */
-class opValidatorProfile extends sfValidatorBase
+class saValidatorProfile extends sfValidatorBase
 {
   /**
    * Configures the current validator.
    *
    * @see sfValidatorBase
    */
-  protected function configure($options = array(), $messages = array())
+  protected function configure($sations = array(), $messages = array())
   {
     $this->addRequiredOption('validator');
     $this->addOption('is_edit_public_flag', false);
-    $this->setOption('required', $options['validator']->getOption('required'));
+    $this->setOption('required', $sations['validator']->getOption('required'));
   }
 
   /**

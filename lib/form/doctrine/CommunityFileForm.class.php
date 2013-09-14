@@ -21,16 +21,16 @@ class CommunityFileForm extends BaseForm
   protected
     $community;
 
-  public function __construct($defaults = array(), $options = array(), $CSRFSecret = null)
+  public function __construct($defaults = array(), $sations = array(), $CSRFSecret = null)
   {
-    return parent::__construct($defaults, $options, false);
+    return parent::__construct($defaults, $sations, false);
   }
 
   public function configure()
   {
     $this->setCommunity($this->getOption('community'));
 
-    $options = array(
+    $sations = array(
       'file_src'     => '',
       'is_image'     => true,
       'with_delete'  => true,
@@ -40,17 +40,17 @@ class CommunityFileForm extends BaseForm
     if (!$this->community->isNew() && $this->community->getFileId())
     {
       sfContext::getInstance()->getConfiguration()->loadHelpers('Partial');
-      $options['edit_mode'] = true;
-      $options['template'] = get_partial('default/formEditImage', array('image' => $this->community));
+      $sations['edit_mode'] = true;
+      $sations['template'] = get_partial('default/formEditImage', array('image' => $this->community));
       $this->setValidator('file_delete', new sfValidatorBoolean(array('required' => false)));
     }
     else
     {
-      $options['edit_mode'] = false;
+      $sations['edit_mode'] = false;
     }
 
-    $this->setWidget('file', new sfWidgetFormInputFileEditable($options, array('size' => 40)));
-    $this->setValidator('file', new opValidatorImageFile(array('required' => false)));
+    $this->setWidget('file', new sfWidgetFormInputFileEditable($sations, array('size' => 40)));
+    $this->setValidator('file', new saValidatorImageFile(array('required' => false)));
 
     $this->widgetSchema->setLabel('file', 'Photo');
 

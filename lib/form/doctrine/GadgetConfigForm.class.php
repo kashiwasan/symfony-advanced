@@ -19,13 +19,13 @@ class GadgetConfigForm extends BaseForm
 {
   protected $gadget;
 
-  public function __construct(Gadget $gadget, $options = array(), $CSRFSecret = null)
+  public function __construct(Gadget $gadget, $sations = array(), $CSRFSecret = null)
   {
     $this->gadget = $gadget;
 
-    parent::__construct(array(), $options, $CSRFSecret);
+    parent::__construct(array(), $sations, $CSRFSecret);
 
-    $config = Doctrine::getTable('Gadget')->getGadgetConfigListByType($options['type']);
+    $config = Doctrine::getTable('Gadget')->getGadgetConfigListByType($sations['type']);
     if (empty($config[$gadget->getName()]['config']))
     {
       throw new RuntimeException('The gadget has not registered or it doesn\'t have any configuration items.');
@@ -34,8 +34,8 @@ class GadgetConfigForm extends BaseForm
     $gadgetConfig = $config[$gadget->getName()]['config'];
     foreach ($gadgetConfig as $key => $value)
     {
-      $this->setWidget($key, opFormItemGenerator::generateWidget($value));
-      $this->setValidator($key, opFormItemGenerator::generateValidator($value));
+      $this->setWidget($key, saFormItemGenerator::generateWidget($value));
+      $this->setValidator($key, saFormItemGenerator::generateValidator($value));
 
       $config = Doctrine::getTable('GadgetConfig')->retrieveByGadgetIdAndName($gadget->getId(), $key);
       if ($config)

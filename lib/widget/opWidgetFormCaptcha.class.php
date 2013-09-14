@@ -9,13 +9,13 @@
  */
 
 /**
- * opWidgetFormCaptcha represents a date widget.
+ * saWidgetFormCaptcha represents a date widget.
  *
  * @package    SfAdvanced
  * @subpackage widget
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opWidgetFormCaptcha extends sfWidgetFormInput
+class saWidgetFormCaptcha extends sfWidgetFormInput
 {
   public function render($name, $value = null, $attributes = array(), $errors = array())
   {

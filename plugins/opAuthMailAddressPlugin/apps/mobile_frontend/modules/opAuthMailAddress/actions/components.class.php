@@ -8,14 +8,14 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class opAuthMailAddressComponents extends sfComponents
+class saAuthMailAddressComponents extends sfComponents
 {
   public function executeRegisterBox($request)
   {
     $token = $request->getParameter('token');
     $memberConfig = Doctrine::getTable('MemberConfig')->retrieveByNameAndValue('register_token', $token);
-    opActivateBehavior::disable();
+    saActivateBehavior::disable();
     $this->mobileAddressPre = $memberConfig->getMember()->getConfig('mobile_address_pre');
-    opActivateBehavior::enable();
+    saActivateBehavior::enable();
   }
 }

@@ -16,7 +16,7 @@
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  * @author     Eitarow Fukamachi <fukamachi@tejimaya.net>
  */
-class communityActions extends opCommunityAction
+class communityActions extends saCommunityAction
 {
   /**
    * Executes home action

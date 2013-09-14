@@ -9,7 +9,7 @@
  */
 
 /**
- * opEmojiFilter converts Emoji symbols in the response text
+ * saEmojiFilter converts Emoji symbols in the response text
  *
  * Emoji is the picture characters or emoticons used in Japan.
  *
@@ -17,7 +17,7 @@
  * @subpackage filter
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opEmojiFilter extends sfFilter
+class saEmojiFilter extends sfFilter
 {
  /**
   * Executes this filter.
@@ -34,7 +34,7 @@ class opEmojiFilter extends sfFilter
 
     if (!$request->isMobile())
     {
-      list($list, $content) = opToolkit::replacePatternsToMarker($content);
+      list($list, $content) = saToolkit::replacePatternsToMarker($content);
     }
 
     $content = SfAdvanced_KtaiEmoji::convertEmoji($content);

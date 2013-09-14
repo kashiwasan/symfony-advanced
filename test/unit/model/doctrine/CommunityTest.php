@@ -61,15 +61,15 @@ function checkPrivilegeBelong($object, $memberId)
     $object->checkPrivilegeBelong($memberId);
     return true;
   }
-  catch (opPrivilegeException $e)
+  catch (saPrivilegeException $e)
   {
     return false;
   }
 }
 $t->ok(checkPrivilegeBelong($community1, 1), 'checkPrivilegeBelong() is pass');
 $t->ok(checkPrivilegeBelong($community2, 2), 'checkPrivilegeBelong() is pass');
-$t->ok(!checkPrivilegeBelong($community1, 3), 'checkPrivilegeBelong() throw the opPrivilegeException');
-$t->ok(!checkPrivilegeBelong($community2, 1), 'checkPrivilegeBelong() throw the opPrivilegeException');
+$t->ok(!checkPrivilegeBelong($community1, 3), 'checkPrivilegeBelong() throw the saPrivilegeException');
+$t->ok(!checkPrivilegeBelong($community2, 1), 'checkPrivilegeBelong() throw the saPrivilegeException');
 
 //------------------------------------------------------------
 $t->diag('Community::isPrivilegeBelong()');
@@ -94,7 +94,7 @@ $t->is($community1->getNameAndCount('[%s] - %d'), '[CommunityA] - 2', 'getNameAn
 
 //------------------------------------------------------------
 $t->diag('Community::getRegisterPolicy()');
-$t->is($community1->getRegisterPolicy(), 'Everyone can join', 'getRegisterPolicy() returns "Everyone can join" for opened community');
+$t->is($community1->getRegisterPolicy(), 'Everyone can join', 'getRegisterPolicy() returns "Everyone can join" for saened community');
 $t->is($community2->getRegisterPolicy(), '%Community%\'s admin authorization needed', 'getRegisterPolicy() returns "Community\'s admin authorization needed" for closed community');
 
 //------------------------------------------------------------

@@ -15,6 +15,6 @@
  * @subpackage confirmation
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class confirmationActions extends opConfirmationAction
+class confirmationActions extends saConfirmationAction
 {
 }

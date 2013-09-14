@@ -14,8 +14,8 @@ class OAuthConsumerInformation extends BaseOAuthConsumerInformation
   {
     if (!$this->exists())
     {
-      $this->key_string = opToolkit::generatePasswordString(16, false);
-      $this->secret = opToolkit::generatePasswordString(32);
+      $this->key_string = saToolkit::generatePasswordString(16, false);
+      $this->secret = saToolkit::generatePasswordString(32);
     }
   }
 
@@ -23,7 +23,7 @@ class OAuthConsumerInformation extends BaseOAuthConsumerInformation
   {
     $apiList = array();
 
-    foreach (opToolkit::retrieveAPIList() as $key => $value)
+    foreach (saToolkit::retrieveAPIList() as $key => $value)
     {
       if (in_array($key, $this->getUsingApis()))
       {

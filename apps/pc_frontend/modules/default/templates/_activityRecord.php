@@ -1,4 +1,4 @@
-<?php use_helper('opActivity') ?>
+<?php use_helper('saActivity') ?>
 
 <li class="activity">
 <div class="box_memberImage">
@@ -33,22 +33,22 @@
 </span>
 </p>
 <?php
-$operationItems = array();
+$saerationItems = array();
 if (!isset($isOperation) || $isOperation)
 {
   if ($activity->getMemberId() == $sf_user->getMemberId())
   {
-    $operationItems[] = array(
+    $saerationItems[] = array(
       'class' => 'delete',
       'body'  => link_to(__('Delete'), 'member/deleteActivity?id='.$activity->getId(), array('title' => __('Delete this %activity% of %time%', array('%time%' => $time)))),
     );
   }
 }
 ?>
-<?php if (0 < count($operationItems)): ?>
-<ul class="operation">
+<?php if (0 < count($saerationItems)): ?>
+<ul class="saeration">
 <?php
-foreach ($operationItems as $item)
+foreach ($saerationItems as $item)
 {
   if (is_array($item) && isset($item['body']))
   {

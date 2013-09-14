@@ -9,7 +9,7 @@
  */
 
 /**
- * opJavascriptHelper.
+ * saJavascriptHelper.
  *
  * @package    SfAdvanced
  * @subpackage helper

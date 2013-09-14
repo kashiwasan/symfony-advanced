@@ -8,12 +8,12 @@
  * file and the notice file that were distributed with this source code.
  */
 
-class opCustomCssForm extends sfForm
+class saCustomCssForm extends sfForm
 {
   public function configure()
   {
     $this->setWidget('css', new sfWidgetFormTextarea(array(), array('rows' => '20', 'cols' => '70')));
-    $this->setValidator('css', new opValidatorString(array('required' => false)));
+    $this->setValidator('css', new saValidatorString(array('required' => false)));
 
     $this->setDefault('css', Doctrine::getTable('SnsConfig')->get('customizing_css'));
 

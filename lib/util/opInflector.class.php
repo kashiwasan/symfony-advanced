@@ -9,13 +9,13 @@
  */
 
 /**
- * The opInflector transforms words from singular to plural, and more.
+ * The saInflector transforms words from singular to plural, and more.
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opInflector extends sfInflector
+class saInflector extends sfInflector
 {
   /**
    * From CakePHP 1.2.5
@@ -85,7 +85,7 @@ class opInflector extends sfInflector
        'numen' => 'numina',
        'occiput' => 'occiputs',
        'octopus' => 'octopuses',
-       'opus' => 'opuses',
+       'saus' => 'sauses',
        'ox' => 'oxen',
        'penis' => 'penises',
        'person' => 'people',

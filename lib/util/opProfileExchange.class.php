@@ -9,13 +9,13 @@
  */
 
 /**
- * opProfileExchange
+ * saProfileExchange
  *
  * @package    SfAdvanced
  * @subpackage util
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opProfileExchange
+class saProfileExchange
 {
   protected
     $classNamePrefix = 'op',

@@ -8,7 +8,7 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class friendComponents extends opFriendComponents
+class friendComponents extends saFriendComponents
 {
   public function executeFriendListBox($request)
   {

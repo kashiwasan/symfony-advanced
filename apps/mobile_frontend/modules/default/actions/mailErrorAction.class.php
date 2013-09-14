@@ -15,6 +15,6 @@
  * @subpackage default
  * @author     Shinichi Urabe <urabe@tejimaya.com>
  */
-class mailErrorAction extends opDefaultMailErrorAction
+class mailErrorAction extends saDefaultMailErrorAction
 {
 }

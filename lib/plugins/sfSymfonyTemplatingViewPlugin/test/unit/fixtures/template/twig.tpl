@@ -32,14 +32,14 @@ Shogo Kawahara (川原翔吾) is a part-time software developer at Tejimaya.inc 
 
 He met SfAdvanced in So-net SNS. So-net SNS is a hosting SfAdvanced service that is run by So-net (one of the ISP in Japan). Since then, he challenges to customize SfAdvanced.
 
-He is a lead developer of opOpenSocialPlugin that provides some features for OpenSocial and it is one of the main SfAdvanced plugin.
+He is a lead developer of saOpenSocialPlugin that provides some features for OpenSocial and it is one of the main SfAdvanced plugin.
 
 Currently, he is developing SfAdvanced platform and plugins. He have a dream of developing many many many exciting SfAdvanced plugins.
 
 About SfAdvanced
 ==============
 
-SfAdvanced is an open source SNS Engine (social networking platform). It is a famous product in Japanese.
+SfAdvanced is an saen source SNS Engine (social networking platform). It is a famous product in Japanese.
 
 SfAdvanced is born on 2005, and it used of over thirty-thousand websites now.
 

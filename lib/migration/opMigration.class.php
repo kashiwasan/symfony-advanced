@@ -9,13 +9,13 @@
  */
 
 /**
- * opMigration provides way to migrate
+ * saMigration provides way to migrate
  *
  * @package    SfAdvanced
  * @subpackage migration
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class opMigration extends Doctrine_Migration
+class saMigration extends Doctrine_Migration
 {
   protected
     $migrationBase = null,
@@ -32,7 +32,7 @@ class opMigration extends Doctrine_Migration
   */
   public function __construct($dispatcher, $dbManager, $targetName = '', $connectionName = '')
   {
-    $this->migrationBase = new opMigrationBase();
+    $this->migrationBase = new saMigrationBase();
 
     $this->dispatcher = $dispatcher;
     $this->dbManager = $dbManager;
@@ -73,7 +73,7 @@ class opMigration extends Doctrine_Migration
     $this->connection = $doctrine->getDoctrineConnection();
     $this->connection->getManager()->setAttribute(Doctrine::ATTR_IDXNAME_FORMAT, '%s');
     $this->connection->getManager()->setAttribute(Doctrine::ATTR_QUOTE_IDENTIFIER, true);
-    $this->doctrineProcess = new opDoctrineMigrationProcess($this->connection);
+    $this->doctrineProcess = new saDoctrineMigrationProcess($this->connection);
   }
 
  /**
@@ -96,7 +96,7 @@ class opMigration extends Doctrine_Migration
     if ($name && $name !== 'SfAdvanced')
     {
       $this->targetName = $name;
-      $this->pluginInstance = opPlugin::getInstance($this->targetName, $this->dispatcher);
+      $this->pluginInstance = saPlugin::getInstance($this->targetName, $this->dispatcher);
     }
     else
     {
@@ -261,7 +261,7 @@ class opMigration extends Doctrine_Migration
 
   public function getSourceVersion()
   {
-    if ($this->pluginInstance instanceof opPlugin)
+    if ($this->pluginInstance instanceof saPlugin)
     {
       return $this->pluginInstance->getVersion();
     }
@@ -364,11 +364,11 @@ class CompareMigrateDirectoryVersionFilterIterator extends FilterIterator
   public function accept()
   {
     $version = basename(dirname($this->current()));
-    $operand = '<=';
+    $saerand = '<=';
     if ($this->direction === 'down')
     {
-      $operand = '<';
+      $saerand = '<';
     }
-    return version_compare($version, $this->limitVersion, $operand);
+    return version_compare($version, $this->limitVersion, $saerand);
   }
 }

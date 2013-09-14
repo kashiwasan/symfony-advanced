@@ -15,7 +15,7 @@
  * @subpackage friend
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class friendActions extends opFriendAction
+class friendActions extends saFriendAction
 {
   public function preExecute()
   {
@@ -27,7 +27,7 @@ class friendActions extends opFriendAction
     }
   }
 
-  public function executeList(opWebRequest $request)
+  public function executeList(saWebRequest $request)
   {
     $this->forwardIf($request->isSmartphone(), 'friend', 'smtList');
 
@@ -36,26 +36,26 @@ class friendActions extends opFriendAction
     return parent::executeList($request);
   }
 
-  public function executeSmtList(opWebRequest $request)
+  public function executeSmtList(saWebRequest $request)
   {
     $this->member = Doctrine::getTable('Member')->find($this->id);
-    opSmartphoneLayoutUtil::setLayoutParameters(array('member' => $this->member));
+    saSmartphoneLayoutUtil::setLayoutParameters(array('member' => $this->member));
 
     return sfView::SUCCESS;
   }
 
-  public function executeLink(opWebRequest $request)
+  public function executeLink(saWebRequest $request)
   {
     $this->forwardIf($request->isSmartphone(), 'friend', 'smtLink');
 
     return parent::executeLink($request);
   }
 
-  public function executeSmtLink(opWebRequest $request)
+  public function executeSmtLink(saWebRequest $request)
   {
     $result = parent::executeLink($request);
 
-    opSmartphoneLayoutUtil::setLayoutParameters(array('member' => $this->member));
+    saSmartphoneLayoutUtil::setLayoutParameters(array('member' => $this->member));
 
     return $result;
   }

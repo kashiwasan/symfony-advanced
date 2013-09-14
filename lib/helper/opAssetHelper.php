@@ -11,7 +11,7 @@ require_once sfConfig::get('sf_symfony_lib_dir').'/helper/AssetHelper.php';
  */
 
 /**
- * opAssetHelper provides helper function for Assets like css or javascript
+ * saAssetHelper provides helper function for Assets like css or javascript
  * this helpler refered to symfony's AssetHelper
  *
  * @package    SfAdvanced
@@ -37,9 +37,9 @@ function sa_smt_get_javascripts()
   sfConfig::set('symfony.asset.javascripts_included', true);
 
   $html = '';
-  foreach ($response->getSmtJavascripts() as $file => $options)
+  foreach ($response->getSmtJavascripts() as $file => $sations)
   {
-    $html .= javascript_include_tag($file, $options);
+    $html .= javascript_include_tag($file, $sations);
   }
 
   return $html;
@@ -73,9 +73,9 @@ function sa_smt_get_stylesheets()
   sfConfig::set('symfony.asset.stylesheets_included', true);
 
   $html = '';
-  foreach ($response->getSmtStylesheets() as $file => $options)
+  foreach ($response->getSmtStylesheets() as $file => $sations)
   {
-    $html .= stylesheet_tag($file, $options);
+    $html .= stylesheet_tag($file, $sations);
   }
 
   return $html;
@@ -96,19 +96,19 @@ function sa_smt_include_stylesheets()
 /**
  * Adds a stylesheet for smartphone pages to the response object.
  *
- * @see opWebResponse->addSmtStylesheet()
+ * @see saWebResponse->addSmtStylesheet()
  */
-function sa_smt_use_stylesheet($css, $position = '', $options = array())
+function sa_smt_use_stylesheet($css, $position = '', $sations = array())
 {
-  sfContext::getInstance()->getResponse()->addSmtStylesheet($css, $position, $options);
+  sfContext::getInstance()->getResponse()->addSmtStylesheet($css, $position, $sations);
 }
 
 /**
  * Adds a javascript for smartphone pages to the response object.
  *
- * @see opWebResponse->addSmtJavascript()
+ * @see saWebResponse->addSmtJavascript()
  */
-function sa_smt_use_javascript($js, $position = '', $options = array())
+function sa_smt_use_javascript($js, $position = '', $sations = array())
 {
-  sfContext::getInstance()->getResponse()->addSmtJavascript($js, $position, $options);
+  sfContext::getInstance()->getResponse()->addSmtJavascript($js, $position, $sations);
 }

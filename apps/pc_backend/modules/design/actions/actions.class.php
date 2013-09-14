@@ -34,7 +34,7 @@ class designActions extends sfActions
   */
   public function executeLayout(sfWebRequest $request)
   {
-    $option = array();
+    $sation = array();
 
     $this->configs = array();
     $gadgetConfigs = Doctrine::getTable('Gadget')->getConfig();
@@ -50,9 +50,9 @@ class designActions extends sfActions
     $this->forward404Unless(isset($this->configs[$type]));
     $this->subtitle = $this->configs[$type]['name'];
 
-    $option['layout_name'] = $type;
+    $sation['layout_name'] = $type;
 
-    $this->form = new PickHomeLayoutForm(array(), $option);
+    $this->form = new PickHomeLayoutForm(array(), $sation);
 
     if ($request->isMethod(sfRequest::POST))
     {
@@ -275,7 +275,7 @@ class designActions extends sfActions
 
   public function executeCustomCss(sfWebRequest $request)
   {
-    $this->form = new opCustomCssForm();
+    $this->form = new saCustomCssForm();
     if ($request->isMethod(sfWebRequest::POST))
     {
       $this->form->bind($request->getParameter('css'));
@@ -296,8 +296,8 @@ class designActions extends sfActions
   */
   public function executeHtml(sfWebRequest $request)
   {
-    $this->type = $request->getParameter('type', opDesignHtmlForm::DEFAULT_TYPE);
-    $this->forward404Unless(in_array($this->type, opDesignHtmlForm::allowedTypeList()));
+    $this->type = $request->getParameter('type', saDesignHtmlForm::DEFAULT_TYPE);
+    $this->forward404Unless(in_array($this->type, saDesignHtmlForm::allowedTypeList()));
 
     $this->typeCaptions = array(
       'footer_before'    => 'Insecure Page Footer',
@@ -315,7 +315,7 @@ class designActions extends sfActions
     $snsConfigSettings = sfConfig::get('sfadvanced_sns_config');
     $default = isset($snsConfigSettings[$this->type]['Default']) ? $snsConfigSettings[$this->type]['Default'] : null;
 
-    $this->form = new opDesignHtmlForm(array('html' => Doctrine::getTable('SnsConfig')->get($this->type, $default)), array('type' => $this->type));
+    $this->form = new saDesignHtmlForm(array('html' => Doctrine::getTable('SnsConfig')->get($this->type, $default)), array('type' => $this->type));
     if ($request->isMethod(sfRequest::POST))
     {
       $this->form->bind($request->getParameter('design_html'));
@@ -332,7 +332,7 @@ class designActions extends sfActions
   {
     $this->presetList = (array)include(sfContext::getInstance()->getConfigCache()->checkConfig('config/mobile_preset_color.yml'));
 
-    $this->form = new opMobileColorConfigForm();
+    $this->form = new saMobileColorConfigForm();
     if ($request->isMethod(sfRequest::POST))
     {
       $this->form->bind($request->getParameter('color'));
