@@ -18,13 +18,13 @@
 
 
 /**
- * op_activity_body_filter
+ * sa_activity_body_filter
  *
  * @param Activity $activity
  * @param boolean  $is_auto_link
  * @return string
  */
-function op_activity_body_filter($activity, $is_auto_link = true)
+function sa_activity_body_filter($activity, $is_auto_link = true)
 {
   $body = $activity->getBody();
   if ($activity->getTemplate())
@@ -41,11 +41,11 @@ function op_activity_body_filter($activity, $is_auto_link = true)
       $params[$key] = $value;
     }
     $body = __($config[$activity->getTemplate()], $params);
-    $event = sfContext::getInstance()->getEventDispatcher()->filter(new sfEvent(null, 'op_activity.template.filter_body'), $body);
+    $event = sfContext::getInstance()->getEventDispatcher()->filter(new sfEvent(null, 'sa_activity.template.filter_body'), $body);
     $body = $event->getReturnValue();
   }
 
-  $event = sfContext::getInstance()->getEventDispatcher()->filter(new sfEvent(null, 'op_activity.filter_body'), $body);
+  $event = sfContext::getInstance()->getEventDispatcher()->filter(new sfEvent(null, 'sa_activity.filter_body'), $body);
   $body = $event->getReturnValue();
 
   if (false === strpos($body, '<a') && $activity->getUri())
@@ -57,10 +57,10 @@ function op_activity_body_filter($activity, $is_auto_link = true)
   {
     if ('mobile_frontend' === sfConfig::get('sf_app'))
     {
-      return op_auto_link_text_for_mobile($body);
+      return sa_auto_link_text_for_mobile($body);
     }
 
-    return op_auto_link_text($body);
+    return sa_auto_link_text($body);
   }
 
   return $body;

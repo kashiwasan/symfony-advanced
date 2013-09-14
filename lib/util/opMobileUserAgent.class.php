@@ -60,7 +60,7 @@ class opMobileUserAgent
   {
     $mobile = $this->getMobile();
 
-    $isUseMobileCookie = sfConfig::get('op_is_use_mobile_cookie', true);
+    $isUseMobileCookie = sfConfig::get('sa_is_use_mobile_cookie', true);
     if (!$isUseMobileCookie)
     {
       return false;

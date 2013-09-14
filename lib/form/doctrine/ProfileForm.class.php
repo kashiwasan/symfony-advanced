@@ -59,7 +59,7 @@ class ProfileForm extends BaseProfileForm
 
     $this->mergePostValidator(new sfValidatorCallback(
       array('callback' => array('ProfileForm', 'validateName')),
-      array('invalid' => 'Can not use "op_preset_" as a prefix.')
+      array('invalid' => 'Can not use "sa_preset_" as a prefix.')
     ));
     $this->mergePostValidator(new sfValidatorCallback(array('callback' => array('ProfileForm', 'validateValueMin'))));
     $this->mergePostValidator(new sfValidatorCallback(array('callback' => array('ProfileForm', 'validateValueMax'))));
@@ -97,7 +97,7 @@ class ProfileForm extends BaseProfileForm
       'is_disp_search' => '1',
     ));
 
-    $this->embedI18n(sfConfig::get('op_supported_languages'));
+    $this->embedI18n(sfConfig::get('sa_supported_languages'));
 
     $this->widgetSchema->setHelps(array(
       'name' => 'Identification name can contain only underscore or alphanumeric characters. (must have at least one alphabet.)',
@@ -161,7 +161,7 @@ class ProfileForm extends BaseProfileForm
 
   static public function validateName($validator, $values)
   {
-    if (0 === strpos($values['name'], 'op_preset_'))
+    if (0 === strpos($values['name'], 'sa_preset_'))
     {
       throw new sfValidatorErrorSchema($validator, array('name' => new sfValidatorError($validator, 'invalid')));
     }

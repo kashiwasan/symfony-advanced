@@ -64,7 +64,7 @@ class activityActions extends opJsonApiActions
       $query->andWhereLike('body', $request['keyword']);
     }
 
-    $globalAPILimit = sfConfig::get('op_json_api_limit', 20);
+    $globalAPILimit = sfConfig::get('sa_json_api_limit', 20);
     if (isset($request['count']) && (int)$request['count'] < $globalAPILimit)
     {
       $query->limit($request['count']);

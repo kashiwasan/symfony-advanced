@@ -6,7 +6,7 @@
 <td>
 <?php if (isset($options['images'][$i])) : ?>
 <?php $image = $options['images'][$i] ?>
-<?php echo op_image_tag_sf_image($image->getFile(), array('size' => '180x180')) ?><br />
+<?php echo sa_image_tag_sf_image($image->getFile(), array('size' => '180x180')) ?><br />
 <?php if (isset($options['form'])) : ?>
 [
 <?php echo link_to(__('Delete'), 'member/deleteImage?member_image_id='.$image->getId().$csrfToken) ?> |
@@ -18,7 +18,7 @@
 ]
 <?php endif; ?>
 <?php else: ?>
-<?php echo op_image_tag('no_image.gif', array('size' => '180x180', 'alt' => '')) ?>
+<?php echo sa_image_tag('no_image.gif', array('size' => '180x180', 'alt' => '')) ?>
 <?php endif; ?>
 </td>
 <?php endfor; ?>
@@ -35,7 +35,7 @@
 </form>
 <ul>
 <li><?php echo __('You can upload 3 photos.') ?></li>
-<li><?php echo __('Please make it to GIF･JPEG･PNG within %max_size% bytes.', array('%max_size%' =>  $op_config['image_max_filesize'])) ?></li>
+<li><?php echo __('Please make it to GIF･JPEG･PNG within %max_size% bytes.', array('%max_size%' =>  $sa_config['image_max_filesize'])) ?></li>
 <li><?php echo __('Photograph that hits violation of copyright and portrait right and violence and obscene photograph and other members are seen and revolted a press ban. Please publish by the self-responsibility.') ?></li>
 </ul>
 </div>

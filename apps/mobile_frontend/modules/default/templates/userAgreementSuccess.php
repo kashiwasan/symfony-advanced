@@ -1,1 +1,1 @@
-<?php echo nl2br($op_config['user_agreement']) ?>
+<?php echo nl2br($sa_config['user_agreement']) ?>

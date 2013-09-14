@@ -21,15 +21,15 @@ class opOpenIDAxProfileExport extends opProfileExport
     'http://schema.openid.net/namePerson/friendly'     => 'name',
     'http://schema.openid.net/contact/email'           => 'email',
     'http://schema.openid.net/namePerson'              => 'name',
-    'http://schema.openid.net/birthDate'               => 'op_preset_birthday',
-    'http://schema.openid.net/birthDate/birthYear'     => 'op_preset_birthday',
-    'http://schema.openid.net/birthDate/birthMonth'    => 'op_preset_birthday',
-    'http://schema.openid.net/birthDate/birthday'      => 'op_preset_birthday',
-    'http://schema.openid.net/person/gender'           => 'op_preset_sex',
-    'http://schema.openid.net/contact/postalCode/home' => 'op_preset_postal_code',
-    'http://schema.openid.net/contact/phone/default'   => 'op_preset_telephone_number',
-    'http://schema.openid.net/contact/country/home'    => 'op_preset_country',
-    'http://schema.openid.net/media/biography'         => 'op_preset_self_introduction',
+    'http://schema.openid.net/birthDate'               => 'sa_preset_birthday',
+    'http://schema.openid.net/birthDate/birthYear'     => 'sa_preset_birthday',
+    'http://schema.openid.net/birthDate/birthMonth'    => 'sa_preset_birthday',
+    'http://schema.openid.net/birthDate/birthday'      => 'sa_preset_birthday',
+    'http://schema.openid.net/person/gender'           => 'sa_preset_sex',
+    'http://schema.openid.net/contact/postalCode/home' => 'sa_preset_postal_code',
+    'http://schema.openid.net/contact/phone/default'   => 'sa_preset_telephone_number',
+    'http://schema.openid.net/contact/country/home'    => 'sa_preset_country',
+    'http://schema.openid.net/media/biography'         => 'sa_preset_self_introduction',
     'http://schema.openid.net/pref/language'           => 'language',
     'http://schema.openid.net/pref/timezone'           => 'time_zone',
     'http://schema.openid.net/media/image/default'     => 'image',
@@ -70,7 +70,7 @@ class opOpenIDAxProfileExport extends opProfileExport
 
   public function getPersonGender()
   {
-    $sex = (string)$this->member->getProfile('op_preset_sex');
+    $sex = (string)$this->member->getProfile('sa_preset_sex');
     if (!$sex)
     {
       return '';
@@ -88,7 +88,7 @@ class opOpenIDAxProfileExport extends opProfileExport
 
   public function getBirthDateBirthYear()
   {
-    $birth = (string)$this->member->getProfile('op_preset_birthday');
+    $birth = (string)$this->member->getProfile('sa_preset_birthday');
     if (!$birth)
     {
       return '';
@@ -101,7 +101,7 @@ class opOpenIDAxProfileExport extends opProfileExport
 
   public function getBirthDateBirthMonth()
   {
-    $birth = (string)$this->member->getProfile('op_preset_birthday');
+    $birth = (string)$this->member->getProfile('sa_preset_birthday');
     if (!$birth)
     {
       return '';
@@ -114,7 +114,7 @@ class opOpenIDAxProfileExport extends opProfileExport
 
   public function getBirthDateBirthday()
   {
-    $birth = (string)$this->member->getProfile('op_preset_birthday');
+    $birth = (string)$this->member->getProfile('sa_preset_birthday');
     if (!$birth)
     {
       return '';

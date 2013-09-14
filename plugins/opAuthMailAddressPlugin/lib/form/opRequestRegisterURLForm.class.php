@@ -34,7 +34,7 @@ class opRequestRegisterURLForm extends BaseForm
     $callback->setMessage('invalid', 'invalid e-mail address');
     $this->validatorSchema->setPostValidator($callback);
 
-    if (sfConfig::get('op_is_use_captcha', false))
+    if (sfConfig::get('sa_is_use_captcha', false))
     {
       $this->embedForm('captcha', new opCaptchaForm());
     }

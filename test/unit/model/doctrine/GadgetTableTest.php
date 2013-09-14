@@ -8,7 +8,7 @@ $t = new lime_test(21, new lime_output_color());
 
 $table = Doctrine::getTable('Gadget');
 $table->clearGadgetsCache();
-sfConfig::set('op_is_enable_gadget_cache', false);
+sfConfig::set('sa_is_enable_gadget_cache', false);
 //------------------------------------------------------------
 $t->diag('GadgetTable');
 $t->diag('GadgetTable::retrieveGadgetsByTypesName()');
@@ -60,7 +60,7 @@ $t->is($results, array(), '->getGadgetConfigListByType() returns array of empty'
 //------------------------------------------------------------
 $t->diag('Cache Test');
 $table->clearGadgetsCache();
-sfConfig::set('op_is_enable_gadget_cache', true);
+sfConfig::set('sa_is_enable_gadget_cache', true);
 $file = sfConfig::get('sf_app_cache_dir').'/config/gadget_gadgets.php';
 $t->ok(!is_readable($file), 'The cache is not exists');
 $results = $table->retrieveGadgetsByTypesName('gadget');

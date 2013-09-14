@@ -1,8 +1,8 @@
-<?php echo op_include_box('showYourOpenID', url_for('OpenID/member?id='.$sf_user->getMemberId(), true), array('title' => __('Your OpenID'))); ?>
+<?php echo sa_include_box('showYourOpenID', url_for('OpenID/member?id='.$sf_user->getMemberId(), true), array('title' => __('Your OpenID'))); ?>
 
 <?php if ($pager->getNbResults()) : ?>
 <?php slot('_manage_list'); ?>
-<?php op_include_pager_navigation($pager, 'OpenID/list?page=%d'); ?>
+<?php sa_include_pager_navigation($pager, 'OpenID/list?page=%d'); ?>
 
 <div class="item"><table>
 <thead><tr>
@@ -14,7 +14,7 @@
 <?php foreach ($pager->getResults() as $item): ?>
 <tr>
 <td><?php echo $item->uri ?></td>
-<td><?php echo op_format_date($item->updated_at, 'XDateTimeJa') ?></td>
+<td><?php echo sa_format_date($item->updated_at, 'XDateTimeJa') ?></td>
 <td>
 <?php if ($item->is_permanent): ?>
 <?php echo __('Always Permit') ?><br />
@@ -27,14 +27,14 @@
 <?php endforeach; ?>
 </tbody></table></div>
 
-<?php op_include_pager_navigation($pager, 'OpenID/list?page=%d'); ?>
+<?php sa_include_pager_navigation($pager, 'OpenID/list?page=%d'); ?>
 <?php end_slot(); ?>
 
 <?php
 $params = array(
   'id' => 'openIdManageList',
   'name' => 'openIdManageList',
-  'op_content' => get_slot('_manage_list'),
+  'sa_content' => get_slot('_manage_list'),
   'options' => array(
     'title' => __('List of Service that You Use'),
   ),

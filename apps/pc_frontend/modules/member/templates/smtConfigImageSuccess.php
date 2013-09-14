@@ -25,7 +25,7 @@
 </form>
 <?php if (3 >= $sf_user->getMember()->getMemberImage()->count()): ?>
 <?php echo __('Send E-mail that has a photo to use as your image.') ?><br>
-<?php echo op_mail_to('member_add_image', array(), __('Send E-mail')) ?>
+<?php echo sa_mail_to('member_add_image', array(), __('Send E-mail')) ?>
 <?php endif; ?>
 </div>
 
@@ -39,7 +39,7 @@
   <div class="row center"> 
 <?php if (isset($images[$i])) : ?>
 <?php $image = $images[$i]; ?>
-<?php echo op_image_tag_sf_image($image->getFile(), array('size' => '120x120', 'width' => '80', 'height' => '80')) ?></div>
+<?php echo sa_image_tag_sf_image($image->getFile(), array('size' => '120x120', 'width' => '80', 'height' => '80')) ?></div>
   <div class="row center">
 [
 <?php echo link_to(__('Delete'), 'member/deleteImage?member_image_id='.$image->getId().$csrfToken) ?> |
@@ -50,7 +50,7 @@
 <?php endif; ?>
 ]
 <?php else: ?>
-<?php echo op_image_tag('no_image.gif', array('size' => '80x80', 'alt' => '')) ?>
+<?php echo sa_image_tag('no_image.gif', array('size' => '80x80', 'alt' => '')) ?>
 <?php endif; ?>
   </div>
 </div>

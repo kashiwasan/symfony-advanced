@@ -1695,7 +1695,7 @@ div.parts table.mceToolbar {
 /*==============================================================================
  * Decoration by opWidgetFormRichTextareaSfAdvanced
  *----------------------------------------------------------------------------*/
-span.op_b {
+span.sa_b {
         text-decoration: inherit;
         font-style: inherit;
         font-weight: bold;
@@ -1703,7 +1703,7 @@ span.op_b {
         font-size: inherit;
 }
 
-span.op_u {
+span.sa_u {
         text-decoration: underline;
         font-style: inherit;
         font-weight: inherit;
@@ -1711,7 +1711,7 @@ span.op_u {
         font-size: inherit;
 }
 
-span.op_s {
+span.sa_s {
         text-decoration: line-through;
         font-style: inherit;
         font-weight: inherit;
@@ -1719,7 +1719,7 @@ span.op_s {
         font-size: inherit;
 }
 
-span.op_i {
+span.sa_i {
         text-decoration: inherit;
         font-style: italic;
         font-weight: inherit;
@@ -1727,7 +1727,7 @@ span.op_i {
         font-size: inherit;
 }
 
-span.op_large {
+span.sa_large {
         text-decoration: inherit;
         font-style: inherit;
         font-weight: inherit;
@@ -1735,7 +1735,7 @@ span.op_large {
         font-size: large;
 }
 
-span.op_small {
+span.sa_small {
         text-decoration: inherit;
         font-style: inherit;
         font-weight: inherit;
@@ -1743,7 +1743,7 @@ span.op_small {
         font-size: xx-small;
 }
 
-span.op_color {
+span.sa_color {
         text-decoration: inherit;
         font-style: inherit;
         font-weight: inherit;

@@ -3,8 +3,8 @@
 <a id="<?php echo $id ?>_button_<?php echo $key ?>" href="#" onclick="<?php
   echo isset($onclick_actions[$key]) ? 
   preg_replace('/%id%/', $id, $onclick_actions[$key]) :
-  "op_mce_insert_tagname('".$id."', '".str_replace("_", ":", $key)."');"
+  "sa_mce_insert_tagname('".$id."', '".str_replace("_", ":", $key)."');"
 ?> return false;">
-<?php echo op_image_tag($config['imageURL'], array('alt' => '')) ?></a>
+<?php echo sa_image_tag($config['imageURL'], array('alt' => '')) ?></a>
 <?php endforeach; ?>
 <?php echo javascript_tag('$(function(){ $("#'.$id.'").opEmoji(); });'); ?>

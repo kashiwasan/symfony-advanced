@@ -30,9 +30,9 @@ class opRssFetcher
   public function createSimplePieObject($rssUrl)
   {
     $feed = new SimplePie();
-    if (sfConfig::get('op_http_proxy'))
+    if (sfConfig::get('sa_http_proxy'))
     {
-      $proxy = sfConfig::get('op_http_proxy');
+      $proxy = sfConfig::get('sa_http_proxy');
       $feed->set_proxy($proxy);
     }
 
@@ -169,9 +169,9 @@ class opRssFetcher
 
     $result = '';
     $proxy = null;
-    if (sfConfig::get('op_http_proxy'))
+    if (sfConfig::get('sa_http_proxy'))
     {
-      $proxy = sfConfig::get('op_http_proxy');
+      $proxy = sfConfig::get('sa_http_proxy');
     }
     $file = @new SimplePie_File($url, 10, 5, null, null, false, $proxy);
     $locator = new SimplePie_Locator($file, 10, null, 'SimplePie_File', 10, $proxy);

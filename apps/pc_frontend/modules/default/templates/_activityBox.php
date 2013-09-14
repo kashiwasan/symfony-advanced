@@ -15,10 +15,10 @@
 </div>
 <div class="box_body">
 <span class="inputForm"><?php echo $form['body']->render(array('id' => $id.'_activity_data_body')) ?></span>
-<span class="submit"><input id="<?php echo $id ?>_submit" type="submit" value="<?php echo __('%post_activity%', array('%post_activity%' => $op_term['post_activity']->titleize())) ?>" class="submit" /></span>
+<span class="submit"><input id="<?php echo $id ?>_submit" type="submit" value="<?php echo __('%post_activity%', array('%post_activity%' => $sa_term['post_activity']->titleize())) ?>" class="submit" /></span>
 </div>
 </div></form>
-<?php use_javascript('op_activity'); ?>
+<?php use_javascript('sa_activity'); ?>
 <script type="text/javascript">
 new opActivity("<?php echo $id ?>", "<?php echo url_for('member/updateActivity') ?>");
 </script>
@@ -34,8 +34,8 @@ new opActivity("<?php echo $id ?>", "<?php echo url_for('member/updateActivity')
 
 <?php $params = array(
   'title' => isset($title) ? $title : __('%activity% of %my_friend%', array(
-    '%activity%' => $op_term['activity']->titleize(),
-    '%my_friend%' => $op_term['my_friend']->titleize()->pluralize())
+    '%activity%' => $sa_term['activity']->titleize(),
+    '%my_friend%' => $sa_term['my_friend']->titleize()->pluralize())
   ),
   'class' => 'activityBox homeRecentList',
 ) ?>
@@ -44,4 +44,4 @@ new opActivity("<?php echo $id ?>", "<?php echo url_for('member/updateActivity')
   link_to(__('More'), isset($moreUrl) ? $moreUrl : 'friend/showActivity'),
 ) ?>
 <?php endif; ?>
-<?php op_include_box($id, get_slot('activities'), $params) ?>
+<?php sa_include_box($id, get_slot('activities'), $params) ?>

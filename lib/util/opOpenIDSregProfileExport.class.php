@@ -21,10 +21,10 @@ class opOpenIDSregProfileExport extends opProfileExport
     'nickname' => 'name',
     'email'    => 'email',
     'fullname' => 'name',
-    'dob'      => 'op_preset_birthday',
-    'gender'   => 'op_preset_sex',
-    'postcode' => 'op_preset_postal_code',
-    'country'  => 'op_preset_country',
+    'dob'      => 'sa_preset_birthday',
+    'gender'   => 'sa_preset_sex',
+    'postcode' => 'sa_preset_postal_code',
+    'country'  => 'sa_preset_country',
     'language' => 'language',
     'timezone' => 'time_zone',
   );
@@ -37,7 +37,7 @@ class opOpenIDSregProfileExport extends opProfileExport
 
   public function getGender()
   {
-    $sex = (string)$this->member->getProfile('op_preset_sex');
+    $sex = (string)$this->member->getProfile('sa_preset_sex');
     if (!$sex)
     {
       return '';

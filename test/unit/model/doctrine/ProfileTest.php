@@ -8,10 +8,10 @@ $t = new lime_test(22, new lime_output_color());
 
 $table = Doctrine::getTable('Profile');
 
-$profileSex          = $table->findOneByName('op_preset_sex');
-$profileBirthday     = $table->findOneByName('op_preset_birthday');
-$profileRegion       = $table->findOneByName('op_preset_region');
-$profileSelfIntro    = $table->findOneByName('op_preset_self_introduction');
+$profileSex          = $table->findOneByName('sa_preset_sex');
+$profileBirthday     = $table->findOneByName('sa_preset_birthday');
+$profileRegion       = $table->findOneByName('sa_preset_region');
+$profileSelfIntro    = $table->findOneByName('sa_preset_self_introduction');
 $profileSelectItem   = $table->findOneByName('select_item');
 $profileCheckboxItem = $table->findOneByName('checkbox_item');
 

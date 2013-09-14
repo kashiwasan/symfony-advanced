@@ -9,7 +9,7 @@ class opLanguageSelecterForm extends BaseForm
   {
     $this->user = sfContext::getInstance()->getUser();
 
-    $languages = sfConfig::get('op_supported_languages');
+    $languages = sfConfig::get('sa_supported_languages');
     $opt_languages = $this->getOption('languages', array());
 
     $languages = array_unique(array_merge($languages, $opt_languages));

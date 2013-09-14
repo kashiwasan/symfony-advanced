@@ -19,7 +19,7 @@ class opWebRequest extends sfWebRequest
 {
   const SB_GW_COOKIE_NAME = 'is_sb_gw';
   const SB_GW_BASE_URL = 'https://secure.softbank.ne.jp/';
-  const MOBILE_UID_COOKIE_NAME = 'op_mobile_uid';
+  const MOBILE_UID_COOKIE_NAME = 'sa_mobile_uid';
 
   protected 
     $userAgentMobileInstance = null;
@@ -90,7 +90,7 @@ class opWebRequest extends sfWebRequest
     $result = parent::getHost();
     if (!$result)
     {
-      $result = parse_url(sfConfig::get('op_base_url'), PHP_URL_HOST);
+      $result = parse_url(sfConfig::get('sa_base_url'), PHP_URL_HOST);
     }
 
     return $result;
@@ -392,7 +392,7 @@ class opWebRequest extends sfWebRequest
     
     if (
       !$this->getMobile()->isSoftBank()  // The gateway is usable only for SoftBank mobile phone
-      || !sfConfig::get('op_use_ssl', false)  // SfAdvanced doesn't consider SSL
+      || !sfConfig::get('sa_use_ssl', false)  // SfAdvanced doesn't consider SSL
       || !$this->isSecure()  // Non-SSL connection is already passed the gateway
       || $this->getMobile()->getUID() // This UID is granted by the gateway
       || $this->getCookie(self::SB_GW_COOKIE_NAME)  // Redirecting has already done
@@ -406,7 +406,7 @@ class opWebRequest extends sfWebRequest
 
   public function redirectToSoftBankGateway()
   {
-    $baseUrl = sfConfig::get('op_ssl_base_url');
+    $baseUrl = sfConfig::get('sa_ssl_base_url');
     sfContext::getInstance()->getResponse()->setCookie(self::SB_GW_COOKIE_NAME, '1');
 
     $url = self::SB_GW_BASE_URL

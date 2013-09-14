@@ -32,7 +32,7 @@ abstract class opBaseSecurityUser extends sfBasicSecurityUser
       );
     }
 
-    $sessionConfig = sfConfig::get('op_session_life_time');
+    $sessionConfig = sfConfig::get('sa_session_life_time');
     if (!empty($sessionConfig[sfConfig::get('sf_app')]['idletime']))
     {
       $options['timeout'] = $sessionConfig[sfConfig::get('sf_app')]['idletime'];
@@ -69,7 +69,7 @@ abstract class opBaseSecurityUser extends sfBasicSecurityUser
 
   public function isValidSiteIdentifier()
   {
-    if (!sfConfig::get('op_check_session_site_identifier', true))
+    if (!sfConfig::get('sa_check_session_site_identifier', true))
     {
       return true;
     }
@@ -82,7 +82,7 @@ abstract class opBaseSecurityUser extends sfBasicSecurityUser
   public function generateSiteIdentifier()
   {
     $defaultBaseUrl = 'http://example.com';
-    $identifier = sfConfig::get('op_base_url', $defaultBaseUrl);
+    $identifier = sfConfig::get('sa_base_url', $defaultBaseUrl);
 
     if (0 === strpos($identifier, $defaultBaseUrl))
     {

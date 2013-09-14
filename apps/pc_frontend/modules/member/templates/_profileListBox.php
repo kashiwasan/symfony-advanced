@@ -12,7 +12,7 @@ if ($member->getAge(true))
   if ($member->getConfig('age_public_flag') == ProfileTable::PUBLIC_FLAG_FRIEND)
   {
     $ageValue .= ' ('.__('Only Open to %my_friend%', array(
-      '%my_friend%' => $op_term['my_friend']->titleize()->pluralize(),
+      '%my_friend%' => $sa_term['my_friend']->titleize()->pluralize(),
     )).')';
   }
 
@@ -36,7 +36,7 @@ foreach ($member->getProfiles(true) as $profile)
 
   if ('textarea' == $profile->getFormType())
   {
-    $profileValue = op_auto_link_text(nl2br($profileValue));
+    $profileValue = sa_auto_link_text(nl2br($profileValue));
   }
 
   if ($profile->getProfile()->isPreset())
@@ -45,9 +45,9 @@ foreach ($member->getProfiles(true) as $profile)
     {
       $profileValue = $culture->getCountry($profileValue);
     }
-    elseif ('op_preset_birthday' === $profile->getName())
+    elseif ('sa_preset_birthday' === $profile->getName())
     {
-      $profileValue = op_format_date($profileValue, 'XShortDateJa');
+      $profileValue = sa_format_date($profileValue, 'XShortDateJa');
     }
 
     $profileValue = __($profileValue);
@@ -58,7 +58,7 @@ foreach ($member->getProfiles(true) as $profile)
     if ($profile->getPublicFlag() == ProfileTable::PUBLIC_FLAG_FRIEND)
     {
       $profileValue .= ' ('.__('Only Open to %my_friend%', array(
-        '%my_friend%' => $op_term['my_friend']->titleize()->pluralize(),
+        '%my_friend%' => $sa_term['my_friend']->titleize()->pluralize(),
       )).')';
     }
     elseif ($profile->getPublicFlag() == ProfileTable::PUBLIC_FLAG_WEB && $profile->Profile->is_public_web)

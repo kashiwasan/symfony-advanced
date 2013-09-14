@@ -1,7 +1,7 @@
-<?php op_mobile_page_title($member->getName()) ?>
+<?php sa_mobile_page_title($member->getName()) ?>
 
 <center>
-<?php op_include_pager_total($pager); ?>
+<?php sa_include_pager_total($pager); ?>
 </center>
 
 <?php
@@ -15,4 +15,4 @@ $option = array(
 op_include_list('communityList', $list, $option);
 ?>
 
-<?php op_include_pager_navigation($pager, '@community_joinlist?page=%d&id='.$member->getId(), array('is_total' => false)); ?>
+<?php sa_include_pager_navigation($pager, '@community_joinlist?page=%d&id='.$member->getId(), array('is_total' => false)); ?>

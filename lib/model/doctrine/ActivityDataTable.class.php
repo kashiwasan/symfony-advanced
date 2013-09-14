@@ -153,7 +153,7 @@ class ActivityDataTable extends Doctrine_Table
 
   public function getPublicFlags($isI18n = true)
   {
-    if (!sfConfig::get('op_activity_is_open', false) && isset(self::$publicFlags[self::PUBLIC_FLAG_OPEN]))
+    if (!sfConfig::get('sa_activity_is_open', false) && isset(self::$publicFlags[self::PUBLIC_FLAG_OPEN]))
     {
       unset(self::$publicFlags[self::PUBLIC_FLAG_OPEN]);
     }

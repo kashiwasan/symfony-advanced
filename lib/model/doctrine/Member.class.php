@@ -60,7 +60,7 @@ class Member extends BaseMember implements opAccessControlRecordInterface
       $myMemberId = sfContext::getInstance()->getUser()->getMemberId();
     }
 
-    $birthday = $this->getProfile('op_preset_birthday');
+    $birthday = $this->getProfile('sa_preset_birthday');
     if (!(string)$birthday)
     {
       return false;
@@ -326,7 +326,7 @@ class Member extends BaseMember implements opAccessControlRecordInterface
   {
     if (is_null($length))
     {
-      $length = sfConfig::get('op_mail_address_hash_length', 12);
+      $length = sfConfig::get('sa_mail_address_hash_length', 12);
     }
 
     $hash = $this->getConfig('mail_address_hash');

@@ -34,7 +34,7 @@ class memberActions extends opJsonApiActions
 
     $query = Doctrine::getTable('Community')->createQuery('c')
       ->innerJoin('c.CommunityMember cm WITH cm.is_pre = false AND cm.member_id = ?', $memberId)
-      ->limit(sfConfig::get('op_json_api_limit', 20));
+      ->limit(sfConfig::get('sa_json_api_limit', 20));
 
     if (isset($request['keyword']))
     {
@@ -83,7 +83,7 @@ class memberActions extends opJsonApiActions
     }
 
     $this->members = $query
-      ->limit(sfConfig::get('op_json_api_limit', 20))
+      ->limit(sfConfig::get('sa_json_api_limit', 20))
       ->execute();
 
     $this->setTemplate('array');

@@ -19,10 +19,10 @@ class sfImageStorageFilesystem extends sfImageStorageDefault
 {
   public function getPathToImage($filename)
   {
-    $baseDir = sfConfig::get('op_image_storage_filesystem_master_dir');
+    $baseDir = sfConfig::get('sa_image_storage_filesystem_master_dir');
     if (!is_dir($baseDir))
     {
-      throw new RuntimeException('"op_image_storage_filesystem_master_dir" must be configured in SfAdvanced.yml');
+      throw new RuntimeException('"sa_image_storage_filesystem_master_dir" must be configured in SfAdvanced.yml');
     }
     $path = $baseDir.DIRECTORY_SEPARATOR.str_replace(DIRECTORY_SEPARATOR, '-', $filename);
 

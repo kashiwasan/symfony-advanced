@@ -1,8 +1,8 @@
-<?php op_mobile_page_title($member->getName()) ?>
+<?php sa_mobile_page_title($member->getName()) ?>
 <?php $culture = sfCultureInfo::getInstance($sf_user->getCulture()); ?>
 
 <?php if ($relation->isSelf()) : ?>
-<font color="<?php echo $op_color["core_color_22"] ?>">
+<font color="<?php echo $sa_color["core_color_22"] ?>">
 <?php echo __('This is your page other member see.') ?><br>
 <?php echo __('If you edit profile, access %1%.', array('%1%' => link_to('「'. __('Edit profile') .'」', '@member_editProfile'))) ?>
 </font>
@@ -16,14 +16,14 @@
 <?php endforeach; ?>
 <?php endif; ?>
 
-<table width="100%" bgcolor="<?php echo $op_color["core_color_4"] ?>">
+<table width="100%" bgcolor="<?php echo $sa_color["core_color_4"] ?>">
 <tr><td colspan="2" align="center">
 <?php include_customizes('menu', 'top') ?>
-<hr color="<?php echo $op_color["core_color_11"] ?>" size="3">
+<hr color="<?php echo $sa_color["core_color_11"] ?>" size="3">
 </td></tr>
 
 <tr><td align="center" width="50%" valign="top">
-<?php echo op_image_tag_sf_image($member->getImageFileName(), array('size' => '120x120', 'format' => 'jpg')) ?>
+<?php echo sa_image_tag_sf_image($member->getImageFileName(), array('size' => '120x120', 'format' => 'jpg')) ?>
 <?php if ($relation->isSelf()) : ?>
 <br><?php echo link_to(__('Edit Photo'), 'member/configImage') ?>
 <?php elseif ($member->getImageFileName()) : ?>
@@ -42,7 +42,7 @@ if ($member->getAge(true))
   if ($member->getConfig('age_public_flag') == ProfileTable::PUBLIC_FLAG_FRIEND)
   {
     $ageValue .= ' ('.__('Only Open to %my_friend%', array(
-      '%my_friend%' => $op_term['my_friend']->titleize()->pluralize(),
+      '%my_friend%' => $sa_term['my_friend']->titleize()->pluralize(),
     )).')';
   }
 
@@ -67,9 +67,9 @@ foreach ($member->getProfiles(true) as $profile)
     {
       $value = __($culture->getCountry((string)$profile));
     }
-    elseif ('op_preset_birthday' === $profile->getName())
+    elseif ('sa_preset_birthday' === $profile->getName())
     {
-      $value = op_format_date((string)$profile, 'XShortDateJa');
+      $value = sa_format_date((string)$profile, 'XShortDateJa');
     }
     else
     {
@@ -79,18 +79,18 @@ foreach ($member->getProfiles(true) as $profile)
 
   if ('textarea' === $profile->getFormType())
   {
-    $value = nl2br(op_auto_link_text_for_mobile($value));
+    $value = nl2br(sa_auto_link_text_for_mobile($value));
   }
 
   if ($member->getId() == $sf_user->getMemberId())
   {
     if ($profile->getPublicFlag() == ProfileTable::PUBLIC_FLAG_FRIEND)
     {
-      $value .= '<font color="'.$op_color["core_color_22"].'">('.__('Only Open to %my_friend%').')</font><br>';
+      $value .= '<font color="'.$sa_color["core_color_22"].'">('.__('Only Open to %my_friend%').')</font><br>';
     }
     elseif ($profile->getPublicFlag() == ProfileTable::PUBLIC_FLAG_WEB && $profile->Profile->is_public_web)
     {
-      $value .= '<font color="'.$op_color["core_color_22"].'">('.__('All Users on the Web').')</font><br>';
+      $value .= '<font color="'.$sa_color["core_color_22"].'">('.__('All Users on the Web').')</font><br>';
     }
   }
 
@@ -100,20 +100,20 @@ foreach ($member->getProfiles(true) as $profile)
 ?>
 
 <?php foreach ($list as $caption => $value) : ?>
-<font color="<?php echo $op_color["core_color_19"] ?>"><?php echo $caption ?>:</font><br>
+<font color="<?php echo $sa_color["core_color_19"] ?>"><?php echo $caption ?>:</font><br>
 <?php echo $value ?><br>
 <?php endforeach; ?>
 </td>
 </tr>
 
 <tr><td colspan="2" align="center">
-<hr color="<?php echo $op_color["core_color_11"] ?>" size="3">
+<hr color="<?php echo $sa_color["core_color_11"] ?>" size="3">
 </td></tr>
 
 <tr><td colspan="2">
 
 <?php if (opConfig::get('enable_friend_link') && !$relation->isFriend() && !$relation->isSelf() && $relation->isAllowed($sf_user->getRawValue()->getMember(), 'friend_link')) : ?>
-<?php echo link_to(__('Makes %friend%', array('%friend%' => $op_term['friend']->pluralize())), 'friend/link?id='.$member->getId()) ?><br>
+<?php echo link_to(__('Makes %friend%', array('%friend%' => $sa_term['friend']->pluralize())), 'friend/link?id='.$member->getId()) ?><br>
 <?php endif; ?>
 
 <?php include_customizes('menu', 'friendTop') ?>
@@ -124,7 +124,7 @@ foreach ($member->getProfiles(true) as $profile)
 </td></tr>
 
 <tr><td colspan="2" align="center">
-<hr color="<?php echo $op_color["core_color_11"] ?>" size="3">
+<hr color="<?php echo $sa_color["core_color_11"] ?>" size="3">
 </td></tr>
 </table>
 <br>
@@ -146,9 +146,9 @@ foreach ($member->getProfiles(true) as $profile)
 <?php endforeach; ?>
 <?php endif; ?>
 
-<?php slot('op_mobile_footer') ?>
+<?php slot('sa_mobile_footer') ?>
 <table width="100%">
-<tbody><tr><td align="center" bgcolor="<?php echo $op_color["core_color_2"] ?>">
-<font color="<?php echo $op_color["core_color_18"] ?>"><a href="<?php echo url_for('@homepage') ?>" accesskey="0"><font color="<?php echo $op_color["core_color_18"] ?>">0. <?php echo __('home') ?></font></a> / <a href="#top"><font color="<?php echo $op_color["core_color_18"] ?>"><?php echo __('top') ?></font></a> / <a href="#bottom" accesskey="8"><font color="<?php echo $op_color["core_color_18"] ?>">8. <?php echo __('bottom') ?></font></a></font><br>
+<tbody><tr><td align="center" bgcolor="<?php echo $sa_color["core_color_2"] ?>">
+<font color="<?php echo $sa_color["core_color_18"] ?>"><a href="<?php echo url_for('@homepage') ?>" accesskey="0"><font color="<?php echo $sa_color["core_color_18"] ?>">0. <?php echo __('home') ?></font></a> / <a href="#top"><font color="<?php echo $sa_color["core_color_18"] ?>"><?php echo __('top') ?></font></a> / <a href="#bottom" accesskey="8"><font color="<?php echo $sa_color["core_color_18"] ?>">8. <?php echo __('bottom') ?></font></a></font><br>
 </td></tr></tbody></table>
 <?php end_slot(); ?>

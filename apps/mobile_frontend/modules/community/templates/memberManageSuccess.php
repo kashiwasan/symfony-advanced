@@ -1,14 +1,14 @@
-<?php op_mobile_page_title($community->getName(), __('Manage member')) ?>
+<?php sa_mobile_page_title($community->getName(), __('Manage member')) ?>
 
 <center>
-<?php op_include_pager_total($pager); ?>
+<?php sa_include_pager_total($pager); ?>
 </center>
 
 <?php
 $list = array();
 foreach ($pager->getResults() as $member) {
   $communityMember = Doctrine::getTable('communityMember')->retrieveByMemberIdAndCommunityId($member->getId(), $community->getId());
-  $list_str = op_link_to_member($member);
+  $list_str = sa_link_to_member($member);
   $operation = array();
   if (!($communityMember->hasPosition(array('admin', 'sub_admin')) || $communityMember->getMemberId() === $sf_user->getMemberId()))
   {
@@ -54,4 +54,4 @@ $option = array(
 op_include_list('memberList', $list, $option);
 ?>
 
-<?php op_include_pager_navigation($pager, '@community_memberManage?page=%d&id='.$id, array('is_total' => false)); ?>
+<?php sa_include_pager_navigation($pager, '@community_memberManage?page=%d&id='.$id, array('is_total' => false)); ?>

@@ -111,10 +111,10 @@ abstract class opMemberAction extends sfActions
   private function redirectToLoginIfSslRequired($request)
   {
     $routing = sfContext::getInstance()->getRouting();
-    if (sfConfig::get('op_use_ssl', false) && !$request->isSecure())
+    if (sfConfig::get('sa_use_ssl', false) && !$request->isSecure())
     {
       $app = sfConfig::get('sf_app');
-      $sslRequiredList = sfConfig::get('op_ssl_required_actions', array(
+      $sslRequiredList = sfConfig::get('sa_ssl_required_actions', array(
         $app => array(),
       ));
 
@@ -141,7 +141,7 @@ abstract class opMemberAction extends sfActions
           'next_uri' => $nextUri
         );
 
-        $baseUrl = sfConfig::get('op_ssl_base_url');
+        $baseUrl = sfConfig::get('sa_ssl_base_url');
         $scriptName = basename($request->getScriptName());
         $replacement = (false !== strpos($request->getPathInfoPrefix(), $scriptName)) ? '/'.$scriptName : '';
         $loginPath = str_replace($request->getPathInfoPrefix(), $replacement, $this->generateUrl('login'));

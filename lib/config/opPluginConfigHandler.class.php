@@ -19,7 +19,7 @@ class opPluginConfigHandler extends sfYamlConfigHandler
 {
   public function execute($configFiles)
   {
-    $prefix = 'op_plugin_';
+    $prefix = 'sa_plugin_';
     $config = $this->parseYamls($configFiles);
 
     $data = "array(\n";

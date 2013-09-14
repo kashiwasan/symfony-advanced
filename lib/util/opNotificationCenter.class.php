@@ -48,7 +48,7 @@ class opNotificationCenter
     }
 
     array_unshift($notifications, $notificationItem);
-    $notificationLimit = sfConfig::get('op_notification_limit', 20);
+    $notificationLimit = sfConfig::get('sa_notification_limit', 20);
 
     if ($notificationLimit < count($notifications))
     {

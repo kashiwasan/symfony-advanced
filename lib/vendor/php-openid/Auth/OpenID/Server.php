@@ -939,7 +939,7 @@ class Auth_OpenID_CheckIDRequest extends Auth_OpenID_Request {
      * @param bool $allow Allow this user to claim this identity, and
      * allow the consumer to have this information?
      *
-     * @param string $server_url DEPRECATED.  Passing $op_endpoint to
+     * @param string $server_url DEPRECATED.  Passing $sa_endpoint to
      * the {@link Auth_OpenID_Server} constructor makes this optional.
      *
      * When an OpenID 1.x immediate mode request does not succeed, it
@@ -979,13 +979,13 @@ class Auth_OpenID_CheckIDRequest extends Auth_OpenID_Request {
 
         if (!$server_url) {
             if ((!$this->message->isOpenID1()) &&
-                (!$this->server->op_endpoint)) {
+                (!$this->server->sa_endpoint)) {
                 return new Auth_OpenID_ServerError(null,
-                  "server should be constructed with op_endpoint to " .
+                  "server should be constructed with sa_endpoint to " .
                   "respond to OpenID 2.0 messages.");
             }
 
-            $server_url = $this->server->op_endpoint;
+            $server_url = $this->server->sa_endpoint;
         }
 
         if ($allow) {
@@ -1069,7 +1069,7 @@ class Auth_OpenID_CheckIDRequest extends Auth_OpenID_Request {
 
             if (!$this->message->isOpenID1()) {
                 $response->fields->setArg(Auth_OpenID_OPENID_NS,
-                                          'op_endpoint', $server_url);
+                                          'sa_endpoint', $server_url);
             }
 
             if ($response_identity !== null) {
@@ -1674,13 +1674,13 @@ class Auth_OpenID_UntrustedReturnURL extends Auth_OpenID_ServerError {
  * @package OpenID
  */
 class Auth_OpenID_Server {
-    function Auth_OpenID_Server($store, $op_endpoint=null)
+    function Auth_OpenID_Server($store, $sa_endpoint=null)
     {
         $this->store = $store;
         $this->signatory = new Auth_OpenID_Signatory($this->store);
         $this->encoder = new Auth_OpenID_SigningEncoder($this->signatory);
         $this->decoder = new Auth_OpenID_Decoder($this);
-        $this->op_endpoint = $op_endpoint;
+        $this->sa_endpoint = $sa_endpoint;
         $this->negotiator = Auth_OpenID_getDefaultNegotiator();
     }
 

@@ -99,7 +99,7 @@ http://www.sfadvanced.jp/pne-downloads/
 
 ::
 
-  table_prefix: "op_"
+  table_prefix: "sa_"
 
 sfadvanced:install コマンドを実行すると、はじめに、以下の事項の入力を求められます。
 

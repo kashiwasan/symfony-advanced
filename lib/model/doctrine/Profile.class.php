@@ -79,7 +79,7 @@ class Profile extends BaseProfile
   */
   public function isPreset()
   {
-    return (0 === strpos($this->getName(), 'op_preset_'));
+    return (0 === strpos($this->getName(), 'sa_preset_'));
   }
 
  /**
@@ -94,7 +94,7 @@ class Profile extends BaseProfile
       return false;
     }
 
-    $name = substr($this->getName(), strlen('op_preset_'));
+    $name = substr($this->getName(), strlen('sa_preset_'));
 
     if ('region_select' === $this->getFormType()
         && 'string' !== $this->getValueType())

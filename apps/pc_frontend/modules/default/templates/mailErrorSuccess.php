@@ -6,5 +6,5 @@ op_include_box('mailError', __('Couldn\'t send E-mail. Please retry or contact t
 ?>
 
 <?php use_helper('Javascript') ?>
-<?php op_include_line('backLink', link_to_function(__('Back to previous page'), 'history.back()')) ?>
+<?php sa_include_line('backLink', link_to_function(__('Back to previous page'), 'history.back()')) ?>
 

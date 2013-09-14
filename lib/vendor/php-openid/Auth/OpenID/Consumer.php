@@ -1079,7 +1079,7 @@ class Auth_OpenID_GenericConsumer {
         }
 
         // If the server URL is None, this must be an OpenID 1
-        // response, because op_endpoint is a required parameter in
+        // response, because sa_endpoint is a required parameter in
         // OpenID 2. In that case, we don't actually care what the
         // discovered server_url is, because signature checking or
         // check_auth should take care of that check for us.
@@ -1111,7 +1111,7 @@ class Auth_OpenID_GenericConsumer {
                                                 'identity');
 
         $to_match->server_url = $message->getArg(Auth_OpenID_OPENID2_NS,
-                                                 'op_endpoint');
+                                                 'sa_endpoint');
 
         if ($to_match->server_url === null) {
             return new Auth_OpenID_FailureResponse($endpoint,
@@ -1135,7 +1135,7 @@ class Auth_OpenID_GenericConsumer {
         if ($to_match->claimed_id === null) {
             // This is a response without identifiers, so there's
             // really no checking that we can do, so return an
-            // endpoint that's for the specified `openid.op_endpoint'
+            // endpoint that's for the specified `openid.sa_endpoint'
             return Auth_OpenID_ServiceEndpoint::fromOPEndpointURL(
                                                 $to_match->server_url);
         }
@@ -1285,7 +1285,7 @@ class Auth_OpenID_GenericConsumer {
 
         $require_fields = array(
             Auth_OpenID_OPENID2_NS => array_merge($basic_fields,
-                                                  array('op_endpoint')),
+                                                  array('sa_endpoint')),
 
             Auth_OpenID_OPENID1_NS => array_merge($basic_fields,
                                                   array('identity'))
@@ -1296,7 +1296,7 @@ class Auth_OpenID_GenericConsumer {
                                                   array('response_nonce',
                                                         'claimed_id',
                                                         'assoc_handle',
-                                                        'op_endpoint')),
+                                                        'sa_endpoint')),
             Auth_OpenID_OPENID1_NS => array_merge($basic_sig_fields,
                                                   array('nonce'))
             );

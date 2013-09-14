@@ -95,7 +95,7 @@ class opWidgetFormRichTextarea extends sfWidgetFormTextarea
       sfContext::getInstance()->getResponse()->addJavascript('jquery.min.js');
       sfContext::getInstance()->getResponse()->addJavascript('tiny_mce/tiny_mce');
       $js .= <<<EOF
-  function op_toggle_mce_editor(id)
+  function sa_toggle_mce_editor(id)
   {
     var textmode_checked    = $("#" + id + "_changer_1").is(":checked");
     var previewmode_checked = $("#" + id + "_changer_2").is(":checked");
@@ -124,7 +124,7 @@ EOF;
       self::$isFirstRender = false;
     }
 
-    $js .= sprintf("  op_toggle_mce_editor('%s');\n", $id);
+    $js .= sprintf("  sa_toggle_mce_editor('%s');\n", $id);
 
     if ($js)
     {
@@ -141,13 +141,13 @@ EOF
       ,
         $offId,
         $changerName,
-        sprintf("op_toggle_mce_editor('%s')", $id),
+        sprintf("sa_toggle_mce_editor('%s')", $id),
         $this->getOption('is_textmode') ? ' checked="checked"' : '',
         $offId,
         sfContext::getInstance()->getI18N()->__('Text Mode'),
         $onId,
         $changerName,
-        sprintf("op_toggle_mce_editor('%s')", $id),
+        sprintf("sa_toggle_mce_editor('%s')", $id),
         $this->getOption('is_textmode') ? '' : ' checked="checked"',
         $onId,
         sfContext::getInstance()->getI18N()->__('Preview Mode')

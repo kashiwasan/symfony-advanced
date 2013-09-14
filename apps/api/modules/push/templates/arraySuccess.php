@@ -4,7 +4,7 @@ $data = array();
 
 foreach ($notifications as $notification)
 {
-  $data[] = op_api_notification($notification);
+  $data[] = sa_api_notification($notification);
 }
 
 return array(

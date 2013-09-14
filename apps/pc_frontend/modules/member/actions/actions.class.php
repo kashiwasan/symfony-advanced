@@ -29,7 +29,7 @@ class memberActions extends opMemberAction
     $this->topGadgets = null;
     $this->sideMenuGadgets = null;
 
-    $this->gadgetConfig = sfConfig::get('op_gadget_list');
+    $this->gadgetConfig = sfConfig::get('sa_gadget_list');
 
     $gadgets = Doctrine::getTable('Gadget')->retrieveGadgetsByTypesName('gadget');
     $layout = Doctrine::getTable('SnsConfig')->get('home_layout', 'layoutA');
@@ -56,7 +56,7 @@ class memberActions extends opMemberAction
   */
   public function executeSmtHome(opWebRequest $request)
   {
-    $this->gadgetConfig = sfConfig::get('op_smartphone_gadget_list');
+    $this->gadgetConfig = sfConfig::get('sa_smartphone_gadget_list');
 
     $gadgets = Doctrine::getTable('Gadget')->retrieveGadgetsByTypesName('smartphone');
     $this->contentsGadgets = $gadgets['smartphoneContents'];
@@ -86,7 +86,7 @@ class memberActions extends opMemberAction
     }
     else
     {
-      $this->gadgetConfig = sfConfig::get('op_login_gadget_list');
+      $this->gadgetConfig = sfConfig::get('sa_login_gadget_list');
       $gadgets = Doctrine::getTable('Gadget')->retrieveGadgetsByTypesName('login');
       $layout = Doctrine::getTable('SnsConfig')->get('login_layout', 'layoutA');
       $this->setLayout($layout);
@@ -122,7 +122,7 @@ class memberActions extends opMemberAction
       sfConfig::set('sf_nav_type', 'friend');
     }
 
-    $this->gadgetConfig = sfConfig::get('op_profile_gadget_list');
+    $this->gadgetConfig = sfConfig::get('sa_profile_gadget_list');
 
     $gadgets = Doctrine::getTable('Gadget')->retrieveGadgetsByTypesName('profile');
     $layout = Doctrine::getTable('SnsConfig')->get('profile_layout', 'layoutA');

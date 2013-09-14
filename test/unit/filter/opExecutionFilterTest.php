@@ -25,7 +25,7 @@ class myFilter extends opExecutionFilter
   {
     opConfig::set('retrieve_uid', $retrieveUIDMode);
 
-    return $this->needToRetrieveMobileUID($module, $action, new opWebRequest(new sfEventDispatcher(), $parameters), sfConfig::get('op_ssl_selectable_actions'));
+    return $this->needToRetrieveMobileUID($module, $action, new opWebRequest(new sfEventDispatcher(), $parameters), sfConfig::get('sa_ssl_selectable_actions'));
   }
 
   public function createActionInstance($module, $action)
@@ -77,12 +77,12 @@ $context->inject('request', 'myRequest');
 
 $filter = new myFilter($context);
 
-sfConfig::set('op_ssl_required_applications', array('secure_application'));
-sfConfig::set('op_ssl_required_actions', array(
+sfConfig::set('sa_ssl_required_applications', array('secure_application'));
+sfConfig::set('sa_ssl_required_actions', array(
     'insecure_application' => array('secure/login', 'secure/logout'),
     'mobile_frontend' => array(),
 ));
-sfConfig::set('op_ssl_selectable_actions', array(
+sfConfig::set('sa_ssl_selectable_actions', array(
   'insecure_application' => array('selectable/login'),
   'mobile_frontend' => array('member/register', 'member/registerInput', 'member/registerEnd', 'member/login', 'member/configUID'),
 ));
@@ -98,7 +98,7 @@ $t->ok($filter->callNeedToRetrieveMobileUID('member', 'login', 1, array('authMod
 
 $t->diag('->handleSsl()');
 
-sfConfig::set('op_use_ssl', true);
+sfConfig::set('sa_use_ssl', true);
 myRequest::$isSecure = false;
 sfConfig::set('sf_app', 'secure_application');
 $t->ok($filter->callHandleSsl('anything', 'anything'), 'ssl-required-application redirects user HTTP to HTTPS');
@@ -119,8 +119,8 @@ sfConfig::set('sf_app', 'mobile_frontend');
 $t->ok($filter->callHandleSsl('member', 'configUID'), 'member/configUID redirect user HTTPS to HTTP');
 $t->ok($filter->callHandleSsl('anything', 'anything'), 'no ssl providable action redirect user HTTPS to HTTP');
 
-sfConfig::set('op_use_ssl', false);
+sfConfig::set('sa_use_ssl', false);
 myRequest::$isSecure = false;
-$t->ok(!$filter->callHandleSsl('anything', 'anything'), 'action does not redirect user HTTP to HTTPS if op_use_ssl is "false"');
+$t->ok(!$filter->callHandleSsl('anything', 'anything'), 'action does not redirect user HTTP to HTTPS if sa_use_ssl is "false"');
 myRequest::$isSecure = true;
-$t->ok(!$filter->callHandleSsl('anything', 'anything'), 'action does not redirect user HTTPS to HTTP if op_use_ssl is "false"');
+$t->ok(!$filter->callHandleSsl('anything', 'anything'), 'action does not redirect user HTTPS to HTTP if sa_use_ssl is "false"');

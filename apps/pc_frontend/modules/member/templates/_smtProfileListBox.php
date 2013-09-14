@@ -18,7 +18,7 @@ foreach ($member->getProfiles(true) as $profile)
 
   if ('textarea' === $profile->getFormType())
   {
-    $profileValue = op_auto_link_text(nl2br($profileValue));
+    $profileValue = sa_auto_link_text(nl2br($profileValue));
   }
 
   if ($profile->getProfile()->isPreset())
@@ -27,9 +27,9 @@ foreach ($member->getProfiles(true) as $profile)
     {
       $profileValue = $culture->getCountry($profileValue);
     }
-    elseif ('op_preset_birthday' === $profile->getName())
+    elseif ('sa_preset_birthday' === $profile->getName())
     {
-      $profileValue = op_format_date($profileValue, 'XShortDateJa');
+      $profileValue = sa_format_date($profileValue, 'XShortDateJa');
     }
 
     $profileValue = __($profileValue);
@@ -44,7 +44,7 @@ foreach ($member->getProfiles(true) as $profile)
 <div class="row">
 <table class="table-striped span12">
 <tbody>
-<tr><td><?php echo $op_term['nickname'] ?></td><td><?php echo $member->getName(); ?></td></tr>
+<tr><td><?php echo $sa_term['nickname'] ?></td><td><?php echo $member->getName(); ?></td></tr>
 <?php foreach ($list as $profileKey => $profileValue): ?>
 <tr><td><?php echo __($profileKey); ?></td><td><?php echo $profileValue; ?></td></tr>
 <?php endforeach; ?>

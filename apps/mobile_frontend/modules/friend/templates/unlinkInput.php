@@ -1,4 +1,4 @@
-<?php op_mobile_page_title($member->getName(), __('Removes this %friend%')) ?>
+<?php sa_mobile_page_title($member->getName(), __('Removes this %friend%')) ?>
 
 <?php
 op_include_parts('yesNo', 'unlinkConfirmForm', array(

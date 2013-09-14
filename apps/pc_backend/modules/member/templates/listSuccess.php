@@ -33,7 +33,7 @@
 
 <tr>
 <td colspan="<?php echo 7 + count($profiles) + 4 ?>">
-<?php op_include_pager_navigation($pager, 'member/list?page=%d', array('use_current_query_string' => true)) ?>
+<?php sa_include_pager_navigation($pager, 'member/list?page=%d', array('use_current_query_string' => true)) ?>
 </td>
 </tr>
 

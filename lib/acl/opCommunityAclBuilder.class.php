@@ -63,7 +63,7 @@ class opCommunityAclBuilder extends opAclBuilder
     }
     else
     {
-      $event = new sfEvent(sfContext::getInstance(), 'op_acl.unknown_community_public_flag', array('public_flag' => $resource->getConfig('public_flag')));
+      $event = new sfEvent(sfContext::getInstance(), 'sa_acl.unknown_community_public_flag', array('public_flag' => $resource->getConfig('public_flag')));
       sfContext::getInstance()->getEventDispatcher()->filter($event, $acl);
       $acl = $event->getReturnValue();
     }

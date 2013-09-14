@@ -6,12 +6,12 @@
 <?php else: ?>
 <?php $img = 'birthday_h.gif' ?>
 <?php endif ?>
-<?php echo op_image_tag($img, array('alt' => 'Happy Birthday!')) ?>
+<?php echo sa_image_tag($img, array('alt' => 'Happy Birthday!')) ?>
 </div>
 <?php else: ?>
 <?php if ($sf_request->hasParameter('id') && 0 < $targetDay && $targetDay <= 3): ?>
 <div class="parts birthday">
-<?php echo op_image_tag('birthday_f_2.gif') ?>
+<?php echo sa_image_tag('birthday_f_2.gif') ?>
 </div>
 <?php endif ?>
 <?php endif ?>

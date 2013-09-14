@@ -9,6 +9,6 @@
 </p>
 </div>
 <?php end_slot() ?>
-<?php op_include_box('memberConfigJsonApiBox', get_slot('body'), array(
+<?php sa_include_box('memberConfigJsonApiBox', get_slot('body'), array(
   'title'  => __('API Key'),
 )); ?>

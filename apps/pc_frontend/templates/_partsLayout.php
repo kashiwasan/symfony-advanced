@@ -26,7 +26,7 @@ if (!empty($options['class'])) $class .= ' '.$options['class'];
 
 <?php include_customizes($id, 'top') ?>
 
-<?php echo $sf_data->getRaw('op_content') ?>
+<?php echo $sf_data->getRaw('sa_content') ?>
 
 <?php include_customizes($id, 'bottom') ?>
 

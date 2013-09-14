@@ -106,10 +106,10 @@ $t->is($request->getMobileUID(), false, '->getMobileUID() returns false in ssl c
 
 
 // --- SoftBank SSL Spec Change Test
-sfConfig::set('op_use_ssl', true);
+sfConfig::set('sa_use_ssl', true);
 $request->isSecure = true;
 $t->is($request->getMobile()->isSoftBank(), true);
-$t->is(sfConfig::get('op_use_ssl', false), true);
+$t->is(sfConfig::get('sa_use_ssl', false), true);
 $t->is($request->isSecure(), true);
 $t->is($request->getMobile()->getUID(), false);
 $t->is($request->getCookie($request::SB_GW_COOKIE_NAME), false);

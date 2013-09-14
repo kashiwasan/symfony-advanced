@@ -32,7 +32,7 @@ $(function(){
 
 <hr class="toumei" />
 <div class="row">
-  <div class="gadget_header span12"><?php echo __('%community% List', array('%community%' => $op_term['community'])) ?></div>
+  <div class="gadget_header span12"><?php echo __('%community% List', array('%community%' => $sa_term['community'])) ?></div>
 </div>
 <hr class="toumei" />
 <div class="row" id="joinCommunitySearchBox">
@@ -44,5 +44,5 @@ $(function(){
 <div class="row hide" id="memberJoinCommunityList">
 </div>
 <div class="row" id="memberJoinCommunityListLoading" style="margin-left: 0; text-align: center;">
-<?php echo op_image_tag('ajax-loader.gif') ?>
+<?php echo sa_image_tag('ajax-loader.gif') ?>
 </div>

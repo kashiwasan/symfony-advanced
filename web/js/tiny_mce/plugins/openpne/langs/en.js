@@ -1,2 +1,2 @@
 
-tinyMCE.addI18n('en.sfadvanced',{op_b:'Bold',op_u:'Underline',op_s:'Strikethrough',op_i:'Italic',op_large:'Large',op_small:'Small',op_color:'Select text color',op_emoji_docomo:'Input Emoji（DoCoMo）',op_emoji_au:'Inputt Emoji（au）',op_emoji_softbank:'Input Emoji（SoftBank）',op_cmd:'About Cmd'});
+tinyMCE.addI18n('en.sfadvanced',{sa_b:'Bold',sa_u:'Underline',sa_s:'Strikethrough',sa_i:'Italic',sa_large:'Large',sa_small:'Small',sa_color:'Select text color',sa_emoji_docomo:'Input Emoji（DoCoMo）',sa_emoji_au:'Inputt Emoji（au）',sa_emoji_softbank:'Input Emoji（SoftBank）',sa_cmd:'About Cmd'});

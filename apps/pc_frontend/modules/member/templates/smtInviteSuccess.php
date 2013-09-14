@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="gadget_header span12"> <?php echo __('Invite a friend to %1%', array('%1%' => $op_config['sns_name'])); ?> </div>
+  <div class="gadget_header span12"> <?php echo __('Invite a friend to %1%', array('%1%' => $sa_config['sns_name'])); ?> </div>
 </div>
 <div class="row">
 <div class="alert alert-success">

@@ -78,7 +78,7 @@ $("#profiles tbody").sortable({
 <table id="profile_options_<?php echo $value->getId() ?>">
 <thead><tr>
 <th>ID</th>
-<?php $languages = sfConfig::get('op_supported_languages'); ?>
+<?php $languages = sfConfig::get('sa_supported_languages'); ?>
 <?php foreach ($languages as $language): ?>
 <th><?php echo __('Option name (%language%)', array('%language%' => $language)) ?></th>
 <?php endforeach; ?>

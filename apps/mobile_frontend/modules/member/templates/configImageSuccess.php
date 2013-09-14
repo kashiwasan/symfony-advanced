@@ -1,4 +1,4 @@
-<?php op_mobile_page_title(__('Settings'), __('Edit Photo')) ?>
+<?php sa_mobile_page_title(__('Settings'), __('Edit Photo')) ?>
 <center>
 <?php $_member = $sf_user->getMember() ?>
 <?php $images = $_member->getMemberImage() ?>
@@ -6,7 +6,7 @@
 <?php $form = new sfForm() ?>
 <?php $csrfToken = '&'.$form->getCSRFFieldName().'='.$form->getCSRFToken() ?>
 <?php foreach ($images as $image) : ?>
-<?php echo op_image_tag_sf_image($image->getFile(), array('size' => '120x120', 'format' => 'jpg')) ?><br>
+<?php echo sa_image_tag_sf_image($image->getFile(), array('size' => '120x120', 'format' => 'jpg')) ?><br>
 <?php echo sprintf('[%s]',link_to(__('Expansion'), sf_image_path($image->getFile(), array('size' => opConfig::get('mobile_image_max_size'), 'format' => 'jpg')))) ?><br>
 <?php 
 if ($image->getIsPrimary())
@@ -27,7 +27,7 @@ else
 </center>
 
 <?php if (3 >= $images->count()): ?>
-<hr color="<?php echo $op_color["core_color_12"] ?>">
+<hr color="<?php echo $sa_color["core_color_12"] ?>">
 <?php echo __('Send E-mail that has a photo to use as your image.') ?><br>
-<?php echo op_mail_to('member_add_image', array(), __('Send E-mail')) ?>
+<?php echo sa_mail_to('member_add_image', array(), __('Send E-mail')) ?>
 <?php endif; ?>

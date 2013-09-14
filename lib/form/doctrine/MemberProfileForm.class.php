@@ -143,7 +143,7 @@ class MemberProfileForm extends BaseForm
     {
       if ('mobile_frontend' === sfConfig::get('sf_app'))
       {
-        if ('op_preset_country' === $profile->getName() || 'op_preset_region' === $profile->getName())
+        if ('sa_preset_country' === $profile->getName() || 'sa_preset_region' === $profile->getName())
         {
           continue;
         }
@@ -178,7 +178,7 @@ class MemberProfileForm extends BaseForm
       if ($profile->isPreset())
       {
         $this->widgetSchema->setLabel($profile->getName(), $presetList[$profile->getRawPresetName()]['Caption']);
-        if ('op_preset_birthday' === $profile->getName())
+        if ('sa_preset_birthday' === $profile->getName())
         {
           $this->widgetSchema->setHelp($profile->getName(), 'The public_flag for your age can be configure at "Settings" page.');
         }

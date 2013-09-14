@@ -5,5 +5,5 @@
 </form>
 <?php end_slot(); ?>
 
-<?php op_include_box('NavToPasswordRecoveryBox', get_slot('_nav_to_password_recovery'), array('title' => __('Do you forget your password?'))); ?>
+<?php sa_include_box('NavToPasswordRecoveryBox', get_slot('_nav_to_password_recovery'), array('title' => __('Do you forget your password?'))); ?>
 

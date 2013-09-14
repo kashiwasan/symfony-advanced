@@ -20,7 +20,7 @@ class NavigationForm extends BaseNavigationForm
     $this->setValidator('uri', new opValidatorString(array('required' => true, 'trim' => true)));
 
     $this->widgetSchema->setNameFormat('nav[%s]');
-    $this->embedI18n(sfConfig::get('op_supported_languages'));
+    $this->embedI18n(sfConfig::get('sa_supported_languages'));
 
     unset($this['sort_order'], $this['created_at'], $this['updated_at']);
   }

@@ -19,10 +19,10 @@ class sfImageGeneratorIM extends sfImageGeneratorImageTransform
 {
   protected function creaateTransform()
   {
-    if (!defined('IMAGE_TRANSFORM_IM_PATH') && sfConfig::has('op_imagemagick_path'))
+    if (!defined('IMAGE_TRANSFORM_IM_PATH') && sfConfig::has('sa_imagemagick_path'))
     {
       // follow 2.x format (for BC reason)
-      $path = dirname(sfConfig::get('op_imagemagick_path')).DIRECTORY_SEPARATOR;
+      $path = dirname(sfConfig::get('sa_imagemagick_path')).DIRECTORY_SEPARATOR;
 
       define('IMAGE_TRANSFORM_IM_PATH', $path);
     }

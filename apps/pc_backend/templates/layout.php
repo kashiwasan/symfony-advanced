@@ -5,7 +5,7 @@
 <?php include_http_metas() ?>
 <?php include_metas() ?>
 
-<title><?php echo __('%sns% Administration', array('%sns%' => $op_config['sns_name'])) ?></title>
+<title><?php echo __('%sns% Administration', array('%sns%' => $sa_config['sns_name'])) ?></title>
 
 
     <?php include_stylesheets() ?>
@@ -16,7 +16,7 @@
 <div id="contents" class="clearfix">
 
 <div id="header">
-<h1><?php echo link_to(__('%sns% Administration', array('%sns%' => $op_config['sns_name'])), '@homepage') ?></h1>
+<h1><?php echo link_to(__('%sns% Administration', array('%sns%' => $sa_config['sns_name'])), '@homepage') ?></h1>
 <span id="visit-site"><a href="<?php echo app_url_for('pc_frontend', '@homepage', true) ?>" target="_blank"><?php echo __('Visit Site') ?></a></span>
 </div>
 

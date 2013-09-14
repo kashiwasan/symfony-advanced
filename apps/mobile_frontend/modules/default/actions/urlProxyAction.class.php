@@ -31,6 +31,6 @@ class urlProxyAction extends sfAction
     }
 
     $this->url = $zendUri->getUri();
-    $this->proxys = sfConfig::get('op_mobile_proxys');
+    $this->proxys = sfConfig::get('sa_mobile_proxys');
   }
 }

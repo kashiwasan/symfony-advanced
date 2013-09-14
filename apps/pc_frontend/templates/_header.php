@@ -1,14 +1,14 @@
-<h1><?php echo link_to($op_config['sns_name'], '@homepage') ?></h1>
+<h1><?php echo link_to($sa_config['sns_name'], '@homepage') ?></h1>
 
 <?php if(opToolkit::isSecurePage()): ?>
 <div id="notificationCenter">
-  <?php echo op_image_tag('NOTIFY_CENTER.png', array('height' => '32', 'class' => 'ncbutton')) ?>
+  <?php echo sa_image_tag('NOTIFY_CENTER.png', array('height' => '32', 'class' => 'ncbutton')) ?>
   <div id="notificationCenterDetail">
     <div id="notificationCenterDetailHeader">
       <?php echo __('Notification Center') ?>
     </div>
     <div id="notificationCenterLoading">
-      <?php echo op_image_tag('ajax-loader.gif') ?>
+      <?php echo sa_image_tag('ajax-loader.gif') ?>
     </div>
     <div id="notificationCenterError">
       <?php echo __('There is no new notification.') ?>
@@ -30,7 +30,7 @@
         <div class="push_yesno">
           <button class="friend-accept">YES</button>
           <button class="friend-reject">NO</button>
-          <div class="ncfriendloading"><?php echo op_image_tag('ajax-loader.gif') ?></div>
+          <div class="ncfriendloading"><?php echo sa_image_tag('ajax-loader.gif') ?></div>
           <div class="ncfriendresultmessage"></div>
         </div>
         {{/if}}
@@ -67,8 +67,8 @@ include_component('default', 'globalNav', $globalNavOptions);
 
 <div id="topBanner">
 <?php if ($sf_user->isSNSMember()): ?>
-<?php echo op_banner('top_after') ?>
+<?php echo sa_banner('top_after') ?>
 <?php else: ?>
-<?php echo op_banner('top_before') ?>
+<?php echo sa_banner('top_before') ?>
 <?php endif ?>
 </div>

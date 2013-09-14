@@ -35,10 +35,10 @@ abstract class opApplicationConfiguration extends sfApplicationConfiguration
     $this->dispatcher->connect('task.cache.clear', array($this, 'clearWebCache'));
     $this->dispatcher->connect('template.filter_parameters', array($this, 'filterTemplateParameters'));
 
-    $this->dispatcher->connect('op_confirmation.list', array(__CLASS__, 'getCoreConfirmList'));
-    $this->dispatcher->connect('op_confirmation.decision', array(__CLASS__, 'processCoreConfirm'));
+    $this->dispatcher->connect('sa_confirmation.list', array(__CLASS__, 'getCoreConfirmList'));
+    $this->dispatcher->connect('sa_confirmation.decision', array(__CLASS__, 'processCoreConfirm'));
 
-    $this->dispatcher->connect('op_activity.template.filter_body', array('ActivityDataTable', 'filterBody'));
+    $this->dispatcher->connect('sa_activity.template.filter_body', array('ActivityDataTable', 'filterBody'));
 
     $this->setConfigHandlers();
   }
@@ -208,10 +208,10 @@ abstract class opApplicationConfiguration extends sfApplicationConfiguration
    */
   public function filterTemplateParameters(sfEvent $event, $parameters)
   {
-    $parameters['op_config']  = new opConfig();
+    $parameters['sa_config']  = new opConfig();
     sfOutputEscaper::markClassAsSafe('opConfig');
 
-    $parameters['op_color']  = new opColorConfig();
+    $parameters['sa_color']  = new opColorConfig();
 
     $table = Doctrine::getTable('SnsTerm');
     $application = sfConfig::get('sf_app');
@@ -224,7 +224,7 @@ abstract class opApplicationConfiguration extends sfApplicationConfiguration
     {
       $table->configure('en', $application);
     }
-    $parameters['op_term'] = $table;
+    $parameters['sa_term'] = $table;
     sfOutputEscaper::markClassAsSafe('SnsTermTable');
 
     return $parameters;
@@ -588,13 +588,13 @@ abstract class opApplicationConfiguration extends sfApplicationConfiguration
     $options = $context->getRouting()->getOptions();
     if ($options['context']['is_secure'])
     {
-      $sslBaseUrls = sfConfig::get('op_ssl_base_url');
+      $sslBaseUrls = sfConfig::get('sa_ssl_base_url');
       $url = $sslBaseUrls[$application];
       $isDefault = 'https://example.com' === $url;
     }
     else
     {
-      $url = sfConfig::get('op_base_url');
+      $url = sfConfig::get('sa_base_url');
       $isDefault = 'http://example.com' === $url;
     }
 

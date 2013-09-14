@@ -13,7 +13,7 @@ $(function(){
 </script>
 
 <div class="row">
-  <div class="gadget_header span12"><?php echo __('%1%\'s %friend% List', array('%1%' => $member->getName(), '%friend%' => $op_term['friend']->titleize())); ?></div>
+  <div class="gadget_header span12"><?php echo __('%1%\'s %friend% List', array('%1%' => $member->getName(), '%friend%' => $sa_term['friend']->titleize())); ?></div>
 </div>
 <hr class="toumei" />
 <div class="row" id="memberFriendList">

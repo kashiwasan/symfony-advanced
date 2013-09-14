@@ -1,1 +1,1 @@
-<?php echo nl2br($op_config['privacy_policy']) ?>
+<?php echo nl2br($sa_config['privacy_policy']) ?>

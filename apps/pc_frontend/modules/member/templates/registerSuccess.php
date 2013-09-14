@@ -9,5 +9,5 @@ include_component($adapter->getAuthModuleName(), 'registerBox');
 <?php endforeach; ?>
 
 <?php if (!$has_register_box): ?>
-<?php echo op_include_box('noRegisterBoxError', '現在登録可能なアカウントがありません。') ?>
+<?php echo sa_include_box('noRegisterBoxError', '現在登録可能なアカウントがありません。') ?>
 <?php endif; ?>

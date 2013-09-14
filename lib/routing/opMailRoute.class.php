@@ -57,7 +57,7 @@ class opMailRoute extends sfRoute
   {
     parent::fixSuffix();
 
-    if (sfConfig::get('op_is_mail_address_contain_hash', false) && !$this->nonAuth)
+    if (sfConfig::get('sa_is_mail_address_contain_hash', false) && !$this->nonAuth)
     {
       $this->pattern = $this->pattern.'.:hash';
     }

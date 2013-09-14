@@ -16,8 +16,8 @@
 
 <?php $params = array(
   'title' => isset($title) ? $title : __('%activity% of %my_friend%', array(
-    '%activity%' => $op_term['activity']->titleize()->pluralize(),
-    '%my_friend%' => $op_term['my_friend']->titleize()->pluralize(),
+    '%activity%' => $sa_term['activity']->titleize()->pluralize(),
+    '%my_friend%' => $sa_term['my_friend']->titleize()->pluralize(),
   )),
   'list' => $list,
   'border' => true,
@@ -27,4 +27,4 @@
   link_to(__('More'), isset($moreUrl) ? $moreUrl : 'friend/showActivity'),
 ) ?>
 <?php endif; ?>
-<?php op_include_parts('list', 'ActivityBox', $params) ?>
+<?php sa_include_parts('list', 'ActivityBox', $params) ?>

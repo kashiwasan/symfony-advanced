@@ -1,4 +1,4 @@
-<?php slot('op_sidemenu'); ?>
+<?php slot('sa_sidemenu'); ?>
 <?php
 $list = array();
 foreach ($categories as $key => $value)
@@ -31,20 +31,20 @@ if (opConfig::get('enable_openid'))
 
 if ($list)
 {
-  op_include_parts('pageNav', 'connection', array('list' => $list));
+  sa_include_parts('pageNav', 'connection', array('list' => $list));
 }
 ?>
 
 <?php
-$list = array(link_to(__('Delete your %1% account', array('%1%' => $op_config['sns_name'])), '@member_delete'));
+$list = array(link_to(__('Delete your %1% account', array('%1%' => $sa_config['sns_name'])), '@member_delete'));
 op_include_parts('pageNav', 'navForDelete', array('list' => $list));
 ?>
 <?php end_slot(); ?>
 
 <?php if ($categoryName && $form->count() > 1): // except CSRF token field ?>
-<?php op_include_form($categoryName.'Form', $form, array('title' => __($categoryCaptions[$categoryName]), 'url' => url_for('@member_config?category='.$categoryName))) ?>
+<?php sa_include_form($categoryName.'Form', $form, array('title' => __($categoryCaptions[$categoryName]), 'url' => url_for('@member_config?category='.$categoryName))) ?>
 <?php elseif ($categoryName && 1 === $form->count()) : ?>
-<?php op_include_box('configInformation', __('There is no available settings.'), array('title' => __($categoryCaptions[$categoryName]))); ?>
+<?php sa_include_box('configInformation', __('There is no available settings.'), array('title' => __($categoryCaptions[$categoryName]))); ?>
 <?php else: ?>
-<?php op_include_box('configInformation', __('Please select the item that wants to be set from the menu.'), array('title' => __('Change Settings'))); ?>
+<?php sa_include_box('configInformation', __('Please select the item that wants to be set from the menu.'), array('title' => __('Change Settings'))); ?>
 <?php endif; ?>

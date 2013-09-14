@@ -4,7 +4,7 @@ $data = array();
 
 foreach ($members as $member)
 {
-  $data[] = op_api_member($member);
+  $data[] = sa_api_member($member);
 }
 
 return array(

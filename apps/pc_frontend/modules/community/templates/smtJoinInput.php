@@ -3,7 +3,7 @@
 </div>
 
 <div class="row">
-  <div class="span4"><?php echo link_to(op_image_tag_sf_image($community->getImageFileName(), array('size' => '48x48')), '@community_home?id='.$id) ?></div>
+  <div class="span4"><?php echo link_to(sa_image_tag_sf_image($community->getImageFileName(), array('size' => '48x48')), '@community_home?id='.$id) ?></div>
   <div class="span8"><?php echo link_to($community->getName(), '@community_home?id='.$id) ?></div>
   <div class="span12 center"><?php echo __('Do you really join to the following %community%?') ?></div>
   <div class="span12">

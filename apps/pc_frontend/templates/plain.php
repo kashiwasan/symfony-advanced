@@ -3,7 +3,7 @@
 <head>
 <?php include_http_metas() ?>
 <?php include_metas() ?>
-<title><?php echo ($op_config['sns_title']) ? $op_config['sns_title'] : $op_config['sns_name'] ?></title>
+<title><?php echo ($sa_config['sns_title']) ? $sa_config['sns_title'] : $sa_config['sns_name'] ?></title>
 <?php use_stylesheet('/cache/css/customizing.css') ?>
 <?php include_stylesheets() ?>
 <?php include_javascripts() ?>

@@ -53,7 +53,7 @@ class opColorConfig extends opConfig
     {
       $app = sfConfig::get('sf_app');
     }
-    $configName = 'op_'.$app.'_color_config_'.$name;
+    $configName = 'sa_'.$app.'_color_config_'.$name;
     $result = sfConfig::get($configName, opConfig::get($app.'_'.$name, self::$defaultColors[$name]));
 
     sfContext::getInstance()->getConfiguration()->loadHelpers('Escaping');

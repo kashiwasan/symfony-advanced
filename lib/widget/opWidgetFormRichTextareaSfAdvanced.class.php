@@ -23,23 +23,23 @@ class opWidgetFormRichTextareaSfAdvanced extends opWidgetFormRichTextarea
   static protected $plugins = array('sfadvanced');
 
   static protected $buttons = array(
-    'op_b' => array('caption' => 'Bold'),
-    'op_u' => array('caption' => 'Underline'),
-    'op_s' => array('caption' => 'Strikethrough'),
-    'op_i' => array('caption' => 'Itaric'),
-    'op_large' => array('caption' => 'Large'),
-    'op_small' => array('caption' => 'Small'),
-    'op_color' => array('caption' => 'Select text color'),
-    'op_emoji_docomo' => array('caption' => 'Input Emoji(DoCoMo)')
+    'sa_b' => array('caption' => 'Bold'),
+    'sa_u' => array('caption' => 'Underline'),
+    'sa_s' => array('caption' => 'Strikethrough'),
+    'sa_i' => array('caption' => 'Itaric'),
+    'sa_large' => array('caption' => 'Large'),
+    'sa_small' => array('caption' => 'Small'),
+    'sa_color' => array('caption' => 'Select text color'),
+    'sa_emoji_docomo' => array('caption' => 'Input Emoji(DoCoMo)')
   );
 
   static protected $useButtons = null;
 
   static protected $buttonOnclickActions = array(
-    'op_emoji_docomo' => '$("#%id%").opEmoji("togglePallet", "epDocomo");',
-    'op_large' => 'op_mce_insert_tagname("%id%", "op:font", \' size="5"\');',
-    'op_small' => 'op_mce_insert_tagname("%id%", "op:font", \' size="1"\');',
-    'op_color' => 'op_mce_show_color_table("%id%", "op:font");'
+    'sa_emoji_docomo' => '$("#%id%").opEmoji("togglePallet", "epDocomo");',
+    'sa_large' => 'sa_mce_insert_tagname("%id%", "op:font", \' size="5"\');',
+    'sa_small' => 'sa_mce_insert_tagname("%id%", "op:font", \' size="1"\');',
+    'sa_color' => 'sa_mce_show_color_table("%id%", "op:font");'
   );
 
   static protected $convertCallbackList = array(
@@ -229,7 +229,7 @@ class opWidgetFormRichTextareaSfAdvanced extends opWidgetFormRichTextarea
       sfProjectConfiguration::getActive()->loadHelpers('Partial');
       sfContext::getInstance()->getResponse()->addJavascript('jquery.min.js');
       sfContext::getInstance()->getResponse()->addJavascript('jquery-ui.min.js');
-      sfContext::getInstance()->getResponse()->addJavascript('op_emoji');
+      sfContext::getInstance()->getResponse()->addJavascript('sa_emoji');
       sfContext::getInstance()->getResponse()->addJavascript('Selection');
       sfContext::getInstance()->getResponse()->addJavascript('decoration');
 
@@ -240,8 +240,8 @@ class opWidgetFormRichTextareaSfAdvanced extends opWidgetFormRichTextarea
         $js .= sprintf('tinymce.PluginManager.load("%s", "%s");'."\n", $key, $path);
       }
 
-      $js .= sprintf("function op_mce_editor_get_config() { return %s; }\n", json_encode(self::getButtons()));
-      $js .= sprintf('function op_get_relative_uri_root() { return "%s"; }', $relativeUrlRoot);
+      $js .= sprintf("function sa_mce_editor_get_config() { return %s; }\n", json_encode(self::getButtons()));
+      $js .= sprintf('function sa_get_relative_uri_root() { return "%s"; }', $relativeUrlRoot);
 
       self::$isFirstRenderSfAdvanced = false;
     }
@@ -454,7 +454,7 @@ class opWidgetFormRichTextareaSfAdvanced extends opWidgetFormRichTextarea
       if ($isEndtag) {
         return '</span>';
       }
-      $options['class'] = 'op_font';
+      $options['class'] = 'sa_font';
       $options['style'] = '';
       if ($color) {
         $options['style'] .= 'color:'.$color.';';

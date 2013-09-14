@@ -61,7 +61,7 @@ class MemberProfile extends BaseMemberProfile implements opAccessControlRecordIn
 
     if ($this->getProfile()->isPreset())
     {
-      if ('op_preset_birthday' === $this->getProfile()->getName())
+      if ('sa_preset_birthday' === $this->getProfile()->getName())
       {
         return null;
       }

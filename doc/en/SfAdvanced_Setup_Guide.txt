@@ -102,7 +102,7 @@ NOTE: Take care with their prefixes that avoid conflicting table names shared wi
 
 ::
 
-  table_prefix: "op_"
+  table_prefix: "sa_"
   
 After Running "sfadvanced:install", you will be required inputting the following:
 

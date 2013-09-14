@@ -60,7 +60,7 @@ $Auth_OpenID_OPENID_PROTOCOL_FIELDS = array(
     'ns', 'mode', 'error', 'return_to', 'contact', 'reference',
     'signed', 'assoc_type', 'session_type', 'dh_modulus', 'dh_gen',
     'dh_consumer_public', 'claimed_id', 'identity', 'realm',
-    'invalidate_handle', 'op_endpoint', 'response_nonce', 'sig',
+    'invalidate_handle', 'sa_endpoint', 'response_nonce', 'sig',
     'assoc_handle', 'trust_root', 'openid');
 
 // Global namespace / alias registration map.  See

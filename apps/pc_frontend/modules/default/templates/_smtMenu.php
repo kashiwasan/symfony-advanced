@@ -1,11 +1,11 @@
 <ul class="nav">
   <?php if ($navs): ?>
   <?php foreach ($navs as $nav): ?>
-  <?php if (op_is_accessible_url($nav->uri)): ?>
+  <?php if (sa_is_accessible_url($nav->uri)): ?>
   <?php if('@member_profile_mine' === $nav->uri): ?>
-  <li class="active"><?php echo link_to($sf_user->getMember()->getName(), $nav->uri, array('id' => sprintf('smtMenu_%1', op_url_to_id($nav->uri, true)))) ?></li>
+  <li class="active"><?php echo link_to($sf_user->getMember()->getName(), $nav->uri, array('id' => sprintf('smtMenu_%1', sa_url_to_id($nav->uri, true)))) ?></li>
   <?php else: ?>
-  <li><?php echo link_to($nav->caption, $nav->uri, array('id' => sprintf('smtMenu_%1', op_url_to_id($nav->uri, true)))) ?></li>
+  <li><?php echo link_to($nav->caption, $nav->uri, array('id' => sprintf('smtMenu_%1', sa_url_to_id($nav->uri, true)))) ?></li>
   <?php endif ?>
   <?php endif ?>
   <?php endforeach ?>

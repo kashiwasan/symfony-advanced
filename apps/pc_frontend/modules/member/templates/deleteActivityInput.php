@@ -6,7 +6,7 @@
 </div>
 <?php end_slot() ?>
 
-<?php op_include_parts('yesNo', 'delete_activity', array(
+<?php sa_include_parts('yesNo', 'delete_activity', array(
   'body' => get_slot('activity'),
   'yes_form' => new BaseForm(),
   'no_method' => 'get',

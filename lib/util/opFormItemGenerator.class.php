@@ -120,7 +120,7 @@ class opFormItemGenerator
         $obj = new opWidgetFormInputIncreased($params);
         break;
       case 'language_select':
-        $languages = sfConfig::get('op_supported_languages');
+        $languages = sfConfig::get('sa_supported_languages');
         $choices = opToolkit::getCultureChoices($languages);
         $obj = new sfWidgetFormChoice(array('choices' => $choices));
         break;

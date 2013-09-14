@@ -1,11 +1,11 @@
 <?php if ($categoryName): ?>
-<?php op_mobile_page_title(__('Settings'), __($categoryCaptions[$categoryName])) ?>
+<?php sa_mobile_page_title(__('Settings'), __($categoryCaptions[$categoryName])) ?>
 <?php else: ?>
-<?php op_mobile_page_title(__('Settings')) ?>
+<?php sa_mobile_page_title(__('Settings')) ?>
 <?php endif; ?>
 
 <?php if ($categoryName && $form->count() > 1): // except CSRF token field ?>
-<?php op_include_form('configForm', $form, array(
+<?php sa_include_form('configForm', $form, array(
   'url'    => url_for('member/config?category='.$categoryName),
   'align'  => 'center',
   'button' => __('Save')

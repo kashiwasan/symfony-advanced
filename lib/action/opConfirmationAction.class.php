@@ -30,14 +30,14 @@ class opConfirmationAction extends sfActions
     $this->list = array();
 
     $params = array('category' => $this->category, 'member' => $this->getUser()->getMember());
-    $event = new sfEvent($this, 'op_confirmation.list', $params);
+    $event = new sfEvent($this, 'sa_confirmation.list', $params);
     $this->dispatcher->notifyUntil($event);
 
     if ($event->isProcessed())
     {
       $list = (array)$event->getReturnValue();
 
-      $filterEvent = new sfEvent($this, 'op_confirmation.list_filter', $params);
+      $filterEvent = new sfEvent($this, 'sa_confirmation.list_filter', $params);
       $this->dispatcher->filter($filterEvent, $list);
 
       $this->list = (array)$filterEvent->getReturnValue();
@@ -52,7 +52,7 @@ class opConfirmationAction extends sfActions
     $this->checkCategory();
 
     $params = array('category' => $this->category, 'id' => $request->getParameter('id'), 'is_accepted' => $request->hasParameter('accept'), 'member' => $this->getUser()->getMember());
-    $event = new sfEvent($this, 'op_confirmation.decision', $params);
+    $event = new sfEvent($this, 'sa_confirmation.decision', $params);
     $this->dispatcher->notifyUntil($event);
     if ($event->isProcessed())
     {

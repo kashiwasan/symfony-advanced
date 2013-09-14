@@ -3,7 +3,7 @@
 </div>
 
 <div class="row">
-<?php echo nl2br($op_config['user_agreement']) ?>
+<?php echo nl2br($sa_config['user_agreement']) ?>
 </div>
 
 <?php use_helper('Javascript') ?>

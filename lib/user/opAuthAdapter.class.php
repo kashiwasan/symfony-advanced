@@ -48,7 +48,7 @@ abstract class opAuthAdapter
 
   public function getAuthConfigSettings($name = '')
   {
-    if (!sfConfig::has('op_auth_'.$this->getAuthModeName()))
+    if (!sfConfig::has('sa_auth_'.$this->getAuthModeName()))
     {
       // default
       $configPath = sfConfig::get('sf_lib_dir').'/config/config/auth.yml';
@@ -60,10 +60,10 @@ abstract class opAuthAdapter
       sfContext::getInstance()->getConfigCache()->registerConfigHandler($configPath, 'sfSimpleYamlConfigHandler', array());
       $plugins = include(sfContext::getInstance()->getConfigCache()->checkConfig($configPath));
 
-      sfConfig::set('op_auth_'.$this->getAuthModeName(), sfToolkit::arrayDeepMerge($default, $plugins));
+      sfConfig::set('sa_auth_'.$this->getAuthModeName(), sfToolkit::arrayDeepMerge($default, $plugins));
     }
 
-    $configs = sfConfig::get('op_auth_'.$this->getAuthModeName());
+    $configs = sfConfig::get('sa_auth_'.$this->getAuthModeName());
     if (!$name)
     {
       return $configs;
@@ -94,7 +94,7 @@ abstract class opAuthAdapter
       return $setting['Default'];
     }
 
-    return Doctrine::getTable('SnsConfig')->get('op_auth_'.$this->authModeName.'_plugin_'.$name, $setting['Default']);
+    return Doctrine::getTable('SnsConfig')->get('sa_auth_'.$this->authModeName.'_plugin_'.$name, $setting['Default']);
   }
 
   public function setAuthConfig($name, $value)
@@ -110,7 +110,7 @@ abstract class opAuthAdapter
       return false;
     }
 
-    return Doctrine::getTable('SnsConfig')->set('op_auth_'.$this->authModeName.'_plugin_'.$name, $value);
+    return Doctrine::getTable('SnsConfig')->set('sa_auth_'.$this->authModeName.'_plugin_'.$name, $value);
   }
 
   public function getAuthForm($forceAuthForm = false)

@@ -1,6 +1,6 @@
-<?php op_mobile_page_title(__('Link outside URL')) ?>
+<?php sa_mobile_page_title(__('Link outside URL')) ?>
 
-<?php echo __('This url is the outside of %0%.', array('%0%' => $op_config['sns_name'])) ?>
+<?php echo __('This url is the outside of %0%.', array('%0%' => $sa_config['sns_name'])) ?>
 <hr>
 <form action="" method="">
 URL <input type="text" value="<?php echo $url ?>">
@@ -23,4 +23,4 @@ URL <input type="text" value="<?php echo $url ?>">
 <br><a href="device:pcsiteviewer?url=<?php echo urlencode($url) ?>" accesskey="#" >#. PCｻｲﾄﾋﾞｭｰﾜ</a>
 <?php endif; ?>
 
-<?php slot('op_mobile_footer', ''); ?>
+<?php slot('sa_mobile_footer', ''); ?>

@@ -83,10 +83,10 @@ EOF;
     }
     $manager = $this->getPluginManager($options['channel']);
 
-    if (sfConfig::get('op_http_proxy'))
+    if (sfConfig::get('sa_http_proxy'))
     {
       $config = $this->getPluginManager()->getEnvironment()->getConfig();
-      $config->set('http_proxy', sfConfig::get('op_http_proxy'), 'user', 'pear.php.net');
+      $config->set('http_proxy', sfConfig::get('sa_http_proxy'), 'user', 'pear.php.net');
     }
 
     if ($this->isSelfInstalledPlugins($arguments['name'], $options['channel']))

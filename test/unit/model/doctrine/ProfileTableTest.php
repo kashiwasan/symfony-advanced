@@ -47,7 +47,7 @@ $t->isa_ok($result, 'Doctrine_Collection');
 
 //------------------------------------------------------------
 $t->diag('ProfileTable::retrieveByName()');
-$result = $table->retrieveByName('op_preset_sex');
+$result = $table->retrieveByName('sa_preset_sex');
 $t->isa_ok($result, 'Profile');
 
 //------------------------------------------------------------

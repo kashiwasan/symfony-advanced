@@ -13,7 +13,7 @@
  * @author Kimura Youichi <kim.upsilon@bucyou.net>
  */
 
-function op_mce_insert_tagname(id, tagname, opt, start, end)
+function sa_mce_insert_tagname(id, tagname, opt, start, end)
 {
   opt = opt || "";
 
@@ -33,7 +33,7 @@ function op_mce_insert_tagname(id, tagname, opt, start, end)
   elm.val(head + replace + tail);
 }
 
-function op_mce_show_color_table(id, tagname)
+function sa_mce_show_color_table(id, tagname)
 {
   var table = $("#" + id + "_color_table");
   var button = $("#" + id + "_button_op_color");
@@ -102,7 +102,7 @@ function op_mce_show_color_table(id, tagname)
       }
     });
     a.mousedown(function() {
-      op_mce_insert_tagname(id, tagname, ' color="' + $(this).data('colorCode') + '"');
+      sa_mce_insert_tagname(id, tagname, ' color="' + $(this).data('colorCode') + '"');
       close_color_table();
       return false;
     });
@@ -140,7 +140,7 @@ function op_mce_show_color_table(id, tagname)
   table.css("top",  buttonPosition.top - buttonContainerPosition.top + button.offsetHeight + "px");
 }
 
-function op_insert_str_to_selection(elm, str, start, end)
+function sa_insert_str_to_selection(elm, str, start, end)
 {
   var selection = new Selection(elm[0]);
   var pos = selection.create();

@@ -1,7 +1,7 @@
 <?php
 
 $options = array(
-  'title' => __('Invite a friend to %1%', array('%1%' => $op_config['sns_name'])),
+  'title' => __('Invite a friend to %1%', array('%1%' => $sa_config['sns_name'])),
   'url' => url_for('@member_invite'),
   'button' => __('Send'),
 );

@@ -140,7 +140,7 @@ class opPluginManager extends sfSymfonyPluginManager
 
   public static function getPluginActivationList()
   {
-    return array_merge(sfConfig::get('op_plugin_activation', array()), self::getPluginListForDatabase());
+    return array_merge(sfConfig::get('sa_plugin_activation', array()), self::getPluginListForDatabase());
   }
 
   public static function getPluginListForDatabase()
@@ -166,7 +166,7 @@ class opPluginManager extends sfSymfonyPluginManager
     try
     {
       $conn = new PDO($connConfig['dsn'], $connConfig['username'], $connConfig['password']);
-      $state = $conn->query('SELECT name, is_enabled FROM '.sfConfig::get('op_table_prefix', '').'plugin');
+      $state = $conn->query('SELECT name, is_enabled FROM '.sfConfig::get('sa_table_prefix', '').'plugin');
       if ($state)
       {
         foreach ($state as $row)
@@ -197,12 +197,12 @@ class opPluginManager extends sfSymfonyPluginManager
 
   static public function getDefaultPluginChannelServerName()
   {
-    return sfConfig::get('op_default_plugin_channel_server', self::SFADVANCED_PLUGIN_CHANNEL);
+    return sfConfig::get('sa_default_plugin_channel_server', self::SFADVANCED_PLUGIN_CHANNEL);
   }
 
   static public function getPluginListBaseUrl()
   {
-    return sfConfig::get('op_plugin_list_base_url', self::SFADVANCED_PLUGIN_LIST_BASE_URL);
+    return sfConfig::get('sa_plugin_list_base_url', self::SFADVANCED_PLUGIN_LIST_BASE_URL);
   }
 
   protected function registerSfAdvancedPackage()

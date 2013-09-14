@@ -41,7 +41,7 @@ $(function(){
 
 <hr class="toumei" />
 <div class="row">
-  <div class="gadget_header span12"><?php echo __('Search %community%', array('%community%' => $op_term['community']->titleize()->pluralize())) ?></div>
+  <div class="gadget_header span12"><?php echo __('Search %community%', array('%community%' => $sa_term['community']->titleize()->pluralize())) ?></div>
 </div>
 <hr class="toumei" />
 <div class="row" id="joinCommunitySearchBox">
@@ -59,5 +59,5 @@ $(function(){
 <?php echo __('%Community% does not exist.') ?>
 </div>
 <div class="row" id="memberJoinCommunityListLoading" style="margin-left: 0; text-align: center;">
-<?php echo op_image_tag('ajax-loader.gif') ?>
+<?php echo sa_image_tag('ajax-loader.gif') ?>
 </div>

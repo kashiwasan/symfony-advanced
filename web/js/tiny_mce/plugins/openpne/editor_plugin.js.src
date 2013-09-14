@@ -147,7 +147,7 @@
                     n = DOM.add(tr, 'td');
 
                     n = DOM.add(n, 'img', {
-                        src : op_get_relative_uri_root() + "/images/emoji/" + s.carrier + "/" + s.carrier + i + ".gif",
+                        src : sa_get_relative_uri_root() + "/images/emoji/" + s.carrier + "/" + s.carrier + i + ".gif",
                         alt : "[" + s.carrier + ":" + i + "]",
                         width: 12,
                         height: 12
@@ -262,7 +262,7 @@
 
     tinymce.PluginManager.requireLangPack('sfadvanced');
 
-    var config = op_mce_editor_get_config();
+    var config = sa_mce_editor_get_config();
 
     tinymce.create('tinymce.plugins.SfAdvancedPlugin', {
         init : function(ed, url) {
@@ -291,16 +291,16 @@
                 tinyMCE.execCommand("FontSize", false, 1);
             });
             ed.addCommand('mceSfAdvanced_op_image', function() {
-                window.open(config.op_image.contentURL.unescapeHTML(), '', 'width=600,height=550,toolbar=no,scrollbars=yes,left=10,top=10');
+                window.open(config.sa_image.contentURL.unescapeHTML(), '', 'width=600,height=550,toolbar=no,scrollbars=yes,left=10,top=10');
             });
             ed.addCommand('mceSfAdvanced_op_cmd', function() {
-                window.open(config.op_cmd.contentURL.unescapeHTML());
+                window.open(config.sa_cmd.contentURL.unescapeHTML());
             });
 
             // button
             for (var key in config) {
                 var value = config[key];
-                if (key != "op_color") {
+                if (key != "sa_color") {
                     ed.addButton(key, {title : '{#sfadvanced.' + key + '}', image: value.imageURL, cmd : 'mceSfAdvanced_' + key});
                 }
             }
@@ -346,27 +346,27 @@
 
         createControl: function(n, cm) {
             var c = null;
-            if (n == "op_color") {
-                c = this._createSfAdvancedColorButton("op_color", { title : "{#sfadvanced.op_color}", image: config["op_color"].imageURL, cmd : "ForeColor"}, cm);
+            if (n == "sa_color") {
+                c = this._createSfAdvancedColorButton("sa_color", { title : "{#sfadvanced.sa_color}", image: config["sa_color"].imageURL, cmd : "ForeColor"}, cm);
             }
 
-            if (n == "op_emoji_docomo" || 
-                n == "op_emoji_au"  && config["op_emoji_au"] ||
-                n == "op_emoji_softbank" && config["op_emoji_softbank"]) {
+            if (n == "sa_emoji_docomo" || 
+                n == "sa_emoji_au"  && config["sa_emoji_au"] ||
+                n == "sa_emoji_softbank" && config["sa_emoji_softbank"]) {
                 var emoji_config = {
-                    op_emoji_docomo : {
+                    sa_emoji_docomo : {
                         carrier : "i",
                         emoji : [ {start : 1, end : 252} ],
                         title : "{#sfadvanced." + n + "}",
                         image: config[n].imageURL
                     },
-                    op_emoji_au : {
+                    sa_emoji_au : {
                         carrier : "e",
                         emoji : [ {start : 1, end : 518}, {start : 700, end : 822} ],
                         title : "{#sfadvanced." + n + "}",
                         image: config[n].imageURL
                     },
-                    op_emoji_softbank : {
+                    sa_emoji_softbank : {
                         carrier : "s",
                         emoji : [ {start : 1, end : 485} ],
                         title : "{#sfadvanced." + n + "}",
@@ -376,8 +376,8 @@
                 c = this._createSfAdvancedEmojiButton(n, emoji_config[n], cm);
             }
 
-            if (n == "op_cmd" && config["op_cmd"]) {
-                c = this._createSfAdvancedCmdButton(n, {title: "{#sfadvanced.op_cmd}", image: config["op_cmd"].imageURL, cmd: "mceSfAdvanced_op_cmd"}, cm);
+            if (n == "sa_cmd" && config["sa_cmd"]) {
+                c = this._createSfAdvancedCmdButton(n, {title: "{#sfadvanced.sa_cmd}", image: config["sa_cmd"].imageURL, cmd: "mceSfAdvanced_op_cmd"}, cm);
             }
 
             return c;

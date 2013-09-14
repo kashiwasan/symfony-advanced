@@ -18,7 +18,7 @@
 <?php echo __('There are no %community% matches search condition.') ?></p>
 <?php else: ?>
 <?php slot('pager') ?>
-<p><?php op_include_pager_navigation($pager, 'community/list?page=%d', array('use_current_query_string' => true)) ?></p>
+<p><?php sa_include_pager_navigation($pager, 'community/list?page=%d', array('use_current_query_string' => true)) ?></p>
 <?php end_slot(); ?>
 <?php include_slot('pager') ?>
 <?php foreach ($pager->getResults() as $community): ?>

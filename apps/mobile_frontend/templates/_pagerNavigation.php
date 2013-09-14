@@ -9,14 +9,14 @@ $options->setDefault('next_text', __('Next', array(), 'pager'));
 <?php if ($options['is_total'] || $pager->haveToPaginate()): ?>
 <center>
 <?php if ($pager->getPreviousPage() != $pager->getPage()): ?>
-<?php echo op_link_to_for_pager($options['prev_text'], $sf_data->getRaw('internalUri'), $pager->getPreviousPage(), array_merge(array('accesskey' => 4), $options->getRaw('link_options'))) ?>
+<?php echo sa_link_to_for_pager($options['prev_text'], $sf_data->getRaw('internalUri'), $pager->getPreviousPage(), array_merge(array('accesskey' => 4), $options->getRaw('link_options'))) ?>
 <?php endif; ?>
 <?php if ($options['is_total']): ?>
-<?php op_include_pager_total($pager) ?>
+<?php sa_include_pager_total($pager) ?>
 <?php endif; ?>
 <?php if ($pager->getNextPage() != $pager->getPage()): ?>
 <?php if ($pager->getPreviousPage() != $pager->getPage()): ?>&nbsp;<?php endif; ?>
-<?php echo op_link_to_for_pager($options['next_text'], $sf_data->getRaw('internalUri'), $pager->getNextPage(), array_merge(array('accesskey' => 6), $options->getRaw('link_options'))) ?>
+<?php echo sa_link_to_for_pager($options['next_text'], $sf_data->getRaw('internalUri'), $pager->getNextPage(), array_merge(array('accesskey' => 6), $options->getRaw('link_options'))) ?>
 <?php endif; ?>
 </center>
 <?php endif; ?>

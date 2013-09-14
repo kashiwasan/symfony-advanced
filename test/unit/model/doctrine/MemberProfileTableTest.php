@@ -29,13 +29,13 @@ $t->is(count($memberProfiles), 7);
 
 //------------------------------------------------------------
 $t->diag('MemberProfileTable::getViewableProfileByMemberIdAndProfileName()');
-$memberProfile = $table->getViewableProfileByMemberIdAndProfileName(1, 'op_preset_region');
+$memberProfile = $table->getViewableProfileByMemberIdAndProfileName(1, 'sa_preset_region');
 $t->is($memberProfile->getValue(), 'Tokyo');
-$memberProfile = $table->getViewableProfileByMemberIdAndProfileName(1, 'op_preset_region', 1);
+$memberProfile = $table->getViewableProfileByMemberIdAndProfileName(1, 'sa_preset_region', 1);
 $t->is($memberProfile->getValue(), 'Tokyo');
-$memberProfile = $table->getViewableProfileByMemberIdAndProfileName(1, 'op_preset_region', 2);
+$memberProfile = $table->getViewableProfileByMemberIdAndProfileName(1, 'sa_preset_region', 2);
 $t->is($memberProfile->getValue(), 'Tokyo');
-$memberProfile = $table->getViewableProfileByMemberIdAndProfileName(1, 'op_preset_region', 3);
+$memberProfile = $table->getViewableProfileByMemberIdAndProfileName(1, 'sa_preset_region', 3);
 $t->ok(!$memberProfile);
 $memberProfile = $table->getViewableProfileByMemberIdAndProfileName(1, 'xxxxxxxxxxx', 1);
 $t->ok(!$memberProfile);
@@ -49,7 +49,7 @@ $t->is($memberProfile->getValue(), 'Man');
 $t->diag('MemberProfileTable::searchMemberIds()');
 $t->is($table->searchMemberIds(
   array(
-    'op_preset_birthday' => array(1988, 4, null),
+    'sa_preset_birthday' => array(1988, 4, null),
     'select_item' => 1,
     'checkbox_item' => 3,
     'date_item' => array(1989, 1, null)

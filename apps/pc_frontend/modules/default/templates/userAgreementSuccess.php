@@ -1,1 +1,1 @@
-<?php op_include_box('userAgreement', nl2br($op_config['user_agreement'])) ?>
+<?php sa_include_box('userAgreement', nl2br($sa_config['user_agreement'])) ?>

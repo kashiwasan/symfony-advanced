@@ -6,14 +6,14 @@
 <?php endforeach; ?>
 <?php endif; ?>
 
-<table width="100%" bgcolor="<?php echo $op_color["core_color_4"] ?>">
+<table width="100%" bgcolor="<?php echo $sa_color["core_color_4"] ?>">
 <tr><td colspan="2" align="center">
 <?php include_customizes('menu', 'top') ?>
-<hr color="<?php echo $op_color["core_color_11"] ?>" size="3">
+<hr color="<?php echo $sa_color["core_color_11"] ?>" size="3">
 </td></tr>
 
 <tr><td align="center" width="50%" valign="top">
-<?php echo op_image_tag_sf_image($sf_user->getMember()->getImageFileName(), array('size' => '120x120', 'format' => 'jpg')) ?>
+<?php echo sa_image_tag_sf_image($sf_user->getMember()->getImageFileName(), array('size' => '120x120', 'format' => 'jpg')) ?>
 <br>
 <?php echo $sf_user->getMember()->getName() ?><br>
 </td>
@@ -26,7 +26,7 @@
 </tr>
 
 <tr><td colspan="2" align="center">
-<hr color="<?php echo $op_color["core_color_11"] ?>" size="3">
+<hr color="<?php echo $sa_color["core_color_11"] ?>" size="3">
 <?php include_customizes('menu', 'centerTop') ?>
 <?php include_component('default', 'nav', array('type' => 'mobile_home_center', 'separator' => ' / ')) ?>
 <?php include_customizes('menu', 'centerBottom') ?>
@@ -57,7 +57,7 @@
 <?php
 $list = array(
   link_to(__('Search Members'), '@member_search'),
-  link_to(__('Search %Community%', array('%Community%' => $op_term['community']->pluralize())), 'community/search'),
+  link_to(__('Search %Community%', array('%Community%' => $sa_term['community']->pluralize())), 'community/search'),
 );
 op_include_list('search', $list, array('title' => __('Search')))
 ?>
@@ -79,7 +79,7 @@ foreach ($categories as $key => $value)
   }
 }
 $list[] = link_to(__('Setting easy login'), 'member/configUID');
-$list[] = link_to(__('Delete your %1% account', array('%1%' => $op_config['sns_name'])), 'member/delete');
+$list[] = link_to(__('Delete your %1% account', array('%1%' => $sa_config['sns_name'])), 'member/delete');
 op_include_list('configEdit', $list, array('title' => __('Settings')));
 ?>
 
@@ -91,13 +91,13 @@ op_include_list('configEdit', $list, array('title' => __('Settings')));
 <?php endforeach; ?>
 <?php endif; ?>
 
-<?php slot('op_mobile_footer_menu') ?>
+<?php slot('sa_mobile_footer_menu') ?>
 ■<?php echo link_to(__('Logout'), 'member/logout') ?><br>
 <?php end_slot(); ?>
 
-<?php slot('op_mobile_footer') ?>
+<?php slot('sa_mobile_footer') ?>
 <table width="100%">
-<tbody><tr><td align="center" bgcolor="<?php echo $op_color["core_color_2"] ?>">
-<font color="<?php echo $op_color["core_color_18"] ?>"><a href="<?php echo url_for('@homepage') ?>" accesskey="0"><font color="<?php echo $op_color["core_color_18"] ?>">0. <?php echo __('home') ?></font></a> / <a href="#top"><font color="<?php echo $op_color["core_color_18"] ?>"><?php echo __('top') ?></font></a> / <a href="#bottom" accesskey="8"><font color="<?php echo $op_color["core_color_18"] ?>">8. <?php echo __('bottom') ?></font></a></font><br>
+<tbody><tr><td align="center" bgcolor="<?php echo $sa_color["core_color_2"] ?>">
+<font color="<?php echo $sa_color["core_color_18"] ?>"><a href="<?php echo url_for('@homepage') ?>" accesskey="0"><font color="<?php echo $sa_color["core_color_18"] ?>">0. <?php echo __('home') ?></font></a> / <a href="#top"><font color="<?php echo $sa_color["core_color_18"] ?>"><?php echo __('top') ?></font></a> / <a href="#bottom" accesskey="8"><font color="<?php echo $sa_color["core_color_18"] ?>">8. <?php echo __('bottom') ?></font></a></font><br>
 </td></tr></tbody></table>
 <?php end_slot(); ?>

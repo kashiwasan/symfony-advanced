@@ -24,7 +24,7 @@ class opDoctrineEvent extends sfEvent
     $invoker = $event->getInvoker();
     $parameters['record'] = $invoker;
 
-    parent::__construct($invoker, sprintf('op_doctrine.%s_%s_%s', $when, $action, get_class($invoker)), $parameters);
+    parent::__construct($invoker, sprintf('sa_doctrine.%s_%s_%s', $when, $action, get_class($invoker)), $parameters);
     $this->doctrineEvent = $event;
   }
 

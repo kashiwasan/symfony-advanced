@@ -1,4 +1,4 @@
-<?php op_include_pager_navigation($pager, '@friend_list?page=%d&id=' . $sf_params->get('id')); ?>
+<?php sa_include_pager_navigation($pager, '@friend_list?page=%d&id=' . $sf_params->get('id')); ?>
 <?php foreach ($list as $res): ?>
 <dl>
 <dt><?php echo date( __('Y/m/d G:i'), strtotime($res['date'])) ?></dt>
@@ -18,11 +18,11 @@ else
 ?>
  (<?php echo $res['name'] ?>)
 <?php if ($res['image']): ?>
-<?php echo op_image_tag( 'icon_camera.gif', array( 'alt' => __('Those with a photograph'))) ?>
+<?php echo sa_image_tag( 'icon_camera.gif', array( 'alt' => __('Those with a photograph'))) ?>
 <?php endif; ?>
 </dd>
 </dl>
 <?php endforeach; ?>
 </div>
 
-<?php op_include_pager_navigation($pager, '@friend_list?page=%d&id=' . $sf_params->get('id')); ?>
+<?php sa_include_pager_navigation($pager, '@friend_list?page=%d&id=' . $sf_params->get('id')); ?>

@@ -42,7 +42,7 @@ class Revision24_AddValueDatetimeColumns extends Doctrine_Migration_Base
 
   public function postUp()
   {
-    $profile = Doctrine::getTable('Profile')->findOneByName('op_preset_birthday');
+    $profile = Doctrine::getTable('Profile')->findOneByName('sa_preset_birthday');
     if (!$profile)
     {
       return false;

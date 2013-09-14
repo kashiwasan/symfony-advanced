@@ -1,4 +1,4 @@
-<?php slot('op_sidemenu'); ?>
+<?php slot('sa_sidemenu'); ?>
 <?php
 $options = array(
   'object' => $community,
@@ -8,7 +8,7 @@ op_include_parts('memberImageBox', 'communityImageBox', $options);
 
 <?php
 $options = array(
-  'title' => __('%community% Members', array('%community%' => $op_term['community']->titleize())),
+  'title' => __('%community% Members', array('%community%' => $sa_term['community']->titleize())),
   'list' => $members,
   'crownIds' => array($communityAdmin->getId()),
   'link_to' => '@member_profile?id=',
@@ -23,19 +23,19 @@ op_include_parts('nineTable', 'frendList', $options);
 ?>
 <?php end_slot(); ?>
 
-<?php slot('op_top') ?>
+<?php slot('sa_top') ?>
 <?php if ($isCommunityPreMember) : ?>
-<?php op_include_parts('descriptionBox', 'informationAboutCommunity',  array('body' => __('You are waiting for the participation approval by %community%\'s administrator.'))) ?>
+<?php sa_include_parts('descriptionBox', 'informationAboutCommunity',  array('body' => __('You are waiting for the participation approval by %community%\'s administrator.'))) ?>
 <?php endif; ?>
 <?php end_slot(); ?>
 
 <?php
-$list = array(__('%community% Name', array('%community%' => $op_term['community']->titleize())) => $community->getName());
+$list = array(__('%community% Name', array('%community%' => $sa_term['community']->titleize())) => $community->getName());
 if ($community->community_category_id)
 {
-  $list[__('%community% Category', array('%community%' => $op_term['community']->titleize()))] = $community->getCommunityCategory();
+  $list[__('%community% Category', array('%community%' => $sa_term['community']->titleize()))] = $community->getCommunityCategory();
 }
-$list += array(__('Date Created')       => op_format_date($community->getCreatedAt(), 'D'),
+$list += array(__('Date Created')       => sa_format_date($community->getCreatedAt(), 'D'),
                __('Administrator')      => link_to($communityAdmin->getName(), '@member_profile?id='.$communityAdmin->getId()),
 );
 $subAdminCaption = '';
@@ -52,7 +52,7 @@ foreach ($community->getConfigs() as $key => $config)
 {
   if ('%community% Description' === $key)
   {
-    $list[__('%community% Description', array('%community%' => $op_term['community']->titleize()), 'form_community')] = op_url_cmd(nl2br($community->getConfig('description')));
+    $list[__('%community% Description', array('%community%' => $sa_term['community']->titleize()), 'form_community')] = sa_url_cmd(nl2br($community->getConfig('description')));
   }
   else
   {
@@ -62,7 +62,7 @@ foreach ($community->getConfigs() as $key => $config)
 $list[__('Register policy', array(), 'form_community')] = __($community->getRawValue()->getRegisterPolicy());
 
 $options = array(
-  'title' => __('%community%', array('%community%' => $op_term['community']->titleize())),
+  'title' => __('%community%', array('%community%' => $sa_term['community']->titleize())),
   'list' => $list,
 );
 op_include_parts('listBox', 'communityHome', $options);

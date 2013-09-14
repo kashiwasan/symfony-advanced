@@ -26,7 +26,7 @@
  * @param options $options
  * @return string
  */
-function op_link_to_for_pager($name, $internal_uri, $page_no, $options)
+function sa_link_to_for_pager($name, $internal_uri, $page_no, $options)
 {
   $html_options = _parse_attributes($options);
 
@@ -70,7 +70,7 @@ function op_link_to_for_pager($name, $internal_uri, $page_no, $options)
  * @param string  $internal_uri
  * @param array   $options
  */
-function op_include_pager_navigation($pager, $internal_uri, $options = array())
+function sa_include_pager_navigation($pager, $internal_uri, $options = array())
 {
   $uri = url_for($internal_uri);
 
@@ -110,7 +110,7 @@ function op_include_pager_navigation($pager, $internal_uri, $options = array())
  *
  * @param sfPager $pager
  */
-function op_include_pager_total($pager)
+function sa_include_pager_total($pager)
 {
   include_partial('global/pagerTotal', array('pager' => $pager));
 }
@@ -226,7 +226,7 @@ function _create_script_name($application, $environment)
   return $script_name;
 }
 
-function op_format_date($date, $format = 'd', $culture = null, $charset = null)
+function sa_format_date($date, $format = 'd', $culture = null, $charset = null)
 {
   use_helper('Date');
 
@@ -332,7 +332,7 @@ if (!defined('SF_AUTO_LINK_RE'))
    ~xu');
 }
 
-function op_url_cmd($text)
+function sa_url_cmd($text)
 {
   return preg_replace_callback(SF_AUTO_LINK_RE, '_op_url_cmd', $text);
 }
@@ -358,7 +358,7 @@ function _op_url_cmd($matches)
 
   if (preg_match('/<a/', $matches[1]) || !is_readable($path))
   {
-    return op_auto_link_text($matches[0]);
+    return sa_auto_link_text($matches[0]);
   }
 
   sfContext::getInstance()->getResponse()->addJavascript('util');
@@ -380,7 +380,7 @@ EOD;
 /**
  * @see auto_link_text
  */
-function op_auto_link_text($text, $link = 'urls', $href_options = array('target' => '_blank'), $truncate = true, $truncate_len = 57, $pad = '...')
+function sa_auto_link_text($text, $link = 'urls', $href_options = array('target' => '_blank'), $truncate = true, $truncate_len = 57, $pad = '...')
 {
   use_helper('Text');
 
@@ -388,7 +388,7 @@ function op_auto_link_text($text, $link = 'urls', $href_options = array('target'
 }
 
 /**
- * op_auto_link_text_for_mobile
+ * sa_auto_link_text_for_mobile
  *
  * @param string  $text
  * @param mixed   $link         Types of text that is linked. (all|urls|email_addresses|phone_numbers)
@@ -397,13 +397,13 @@ function op_auto_link_text($text, $link = 'urls', $href_options = array('target'
  * @param string  $pad
  * @param boolean $is_allow_outer_url
  */
-function op_auto_link_text_for_mobile($text, $link = null, $href_options = array(), $truncate = true, $truncate_len = 37, $pad = '...', $is_allow_outer_url = null)
+function sa_auto_link_text_for_mobile($text, $link = null, $href_options = array(), $truncate = true, $truncate_len = 37, $pad = '...', $is_allow_outer_url = null)
 {
   use_helper('Text');
 
   if (is_null($link))
   {
-    $link = sfConfig::get('op_default_mobile_auto_link_type', 'urls');
+    $link = sfConfig::get('sa_default_mobile_auto_link_type', 'urls');
   }
 
   if (!$link)
@@ -423,7 +423,7 @@ function op_auto_link_text_for_mobile($text, $link = null, $href_options = array
 
   if (is_null($is_allow_outer_url))
   {
-    $is_allow_outer_url = sfConfig::get('op_default_mobile_auto_link_is_allow_outer_url', true);
+    $is_allow_outer_url = sfConfig::get('sa_default_mobile_auto_link_is_allow_outer_url', true);
   }
 
   $result = $text;
@@ -581,7 +581,7 @@ function _op_auto_links_phone_number($text)
  *
  * @return string
  */
-function op_truncate($string, $width = 80, $etc = '', $rows = 1, $is_html = true)
+function sa_truncate($string, $width = 80, $etc = '', $rows = 1, $is_html = true)
 {
   $rows = (int)$rows;
   if (!($rows > 0))
@@ -638,7 +638,7 @@ function op_truncate($string, $width = 80, $etc = '', $rows = 1, $is_html = true
       }
     }
 
-    $result[$i] = op_truncate_callback($p_string, $width, $p_etc);
+    $result[$i] = sa_truncate_callback($p_string, $width, $p_etc);
   }
   $string = implode("\n", $result);
 
@@ -650,7 +650,7 @@ function op_truncate($string, $width = 80, $etc = '', $rows = 1, $is_html = true
   return nl2br($string);
 }
 
-function op_truncate_callback($string, $width, $etc = '')
+function sa_truncate_callback($string, $width, $etc = '')
 {
   $width = $width - mb_strwidth($etc);
 
@@ -699,7 +699,7 @@ function op_truncate_callback($string, $width, $etc = '')
   return $string;
 }
 
-function op_within_page_link($marker = '▼')
+function sa_within_page_link($marker = '▼')
 {
   static $n = 0;
 
@@ -718,7 +718,7 @@ function op_within_page_link($marker = '▼')
   return content_tag('a', $marker, $options);
 }
 
-function op_mail_to($route, $params = array(), $name = '', $options = array(), $default_value = array())
+function sa_mail_to($route, $params = array(), $name = '', $options = array(), $default_value = array())
 {
   $configuration = sfContext::getInstance()->getConfiguration();
   $configPath = '/mobile_mail_frontend/config/routing.yml';
@@ -726,7 +726,7 @@ function op_mail_to($route, $params = array(), $name = '', $options = array(), $
 
   $user = sfContext::getInstance()->getUser();
 
-  if (sfConfig::get('op_is_mail_address_contain_hash') && $user->hasCredential('SNSMember'))
+  if (sfConfig::get('sa_is_mail_address_contain_hash') && $user->hasCredential('SNSMember'))
   {
     $params['hash'] = $user->getMember()->getMailAddressHash();
   }
@@ -740,7 +740,7 @@ function op_mail_to($route, $params = array(), $name = '', $options = array(), $
   return mail_to($routing->generate($route, $params), $name, $options, $default_value);
 }
 
-function op_banner($name)
+function sa_banner($name)
 {
   $banner = Doctrine::getTable('Banner')->findByName($name);
   if (!$banner)
@@ -767,7 +767,7 @@ function op_banner($name)
   return $imgHtml;
 }
 
-function op_have_privilege($privilege, $member_id = null, $route = null)
+function sa_have_privilege($privilege, $member_id = null, $route = null)
 {
   if (!$member_id)
   {
@@ -782,7 +782,7 @@ function op_have_privilege($privilege, $member_id = null, $route = null)
   return $route->getAcl()->isAllowed($member_id, null, $privilege);
 }
 
-function op_have_privilege_by_uri($uri, $params = array(), $member_id = null)
+function sa_have_privilege_by_uri($uri, $params = array(), $member_id = null)
 {
   $routing = sfContext::getInstance()->getRouting();
   $routes = $routing->getRoutes();
@@ -805,13 +805,13 @@ function op_have_privilege_by_uri($uri, $params = array(), $member_id = null)
       // do nothing
     }
     $options = $route->getOptions();
-    return op_have_privilege($options['privilege'], $member_id, $route);
+    return sa_have_privilege($options['privilege'], $member_id, $route);
   }
 
   return true;
 }
 
-function op_decoration($string, $is_strip = false, $is_use_stylesheet = null, $is_html_tag_followup = true)
+function sa_decoration($string, $is_strip = false, $is_use_stylesheet = null, $is_html_tag_followup = true)
 {
   if (is_null($is_use_stylesheet))
   {
@@ -825,7 +825,7 @@ function op_decoration($string, $is_strip = false, $is_use_stylesheet = null, $i
   return opWidgetFormRichTextareaSfAdvanced::toHtml($string, $is_strip, $is_use_stylesheet, $is_html_tag_followup);
 }
 
-function op_is_accessible_url($uri)
+function sa_is_accessible_url($uri)
 {
   if ('/' === $uri[0] || preg_match('#^[a-z][a-z0-9\+.\-]*\://#i', $uri))
   {
@@ -847,13 +847,13 @@ function op_is_accessible_url($uri)
 /**
  * just for BC
  */
-function op_is_accessable_url($uri)
+function sa_is_accessable_url($uri)
 {
-  return op_is_accessible_url($uri);
+  return sa_is_accessible_url($uri);
 }
 
 
-function op_distance_of_time_in_words($from_time, $to_time, $include_seconds = false, $format = '%s ago')
+function sa_distance_of_time_in_words($from_time, $to_time, $include_seconds = false, $format = '%s ago')
 {
   $to_time = $to_time ? $to_time: time();
 
@@ -953,22 +953,22 @@ function op_distance_of_time_in_words($from_time, $to_time, $include_seconds = f
   }
 }
 
-function op_format_activity_time($from_time, $to_time = null)
+function sa_format_activity_time($from_time, $to_time = null)
 {
   use_helper('Date');
   $to_time = $to_time ? $to_time: time();
   $distance_in_minutes = floor(abs($to_time - $from_time) / 60);
   if ($distance_in_minutes >= 1440)
   {
-    return op_format_date($from_time, 'XDateTime');
+    return sa_format_date($from_time, 'XDateTime');
   }
   else
   {
-    return op_distance_of_time_in_words($from_time, $to_time, true);
+    return sa_distance_of_time_in_words($from_time, $to_time, true);
   }
 }
 
-function op_format_last_login_time($from_time, $to_time = null)
+function sa_format_last_login_time($from_time, $to_time = null)
 {
   if (!$from_time)
   {
@@ -986,11 +986,11 @@ function op_format_last_login_time($from_time, $to_time = null)
   }
   else
   {
-    return op_distance_of_time_in_words($from_time, $to_time);
+    return sa_distance_of_time_in_words($from_time, $to_time);
   }
 }
 
-function op_url_to_id($uri, $isTrimDelimiter = false)
+function sa_url_to_id($uri, $isTrimDelimiter = false)
 {
   $str = str_replace(array('/', ',', ';', '~', '?', '@', '&', '=', '+', '$', '%', '#', '!', '(', ')'), '_', $uri);
   if ($isTrimDelimiter)
@@ -1001,7 +1001,7 @@ function op_url_to_id($uri, $isTrimDelimiter = false)
   return $str;
 }
 
-function op_replace_sns_term($string)
+function sa_replace_sns_term($string)
 {
   $config = (array)include(sfContext::getInstance()->getConfigCache()->checkConfig('config/sns_term.yml'));
   foreach ($config as $k => $v)
@@ -1019,7 +1019,7 @@ function op_replace_sns_term($string)
  * @param  string  $routeName
  * @return string
  */
-function op_link_to_member($value, $options = array(), $routeName = '@obj_member_profile')
+function sa_link_to_member($value, $options = array(), $routeName = '@obj_member_profile')
 {
   $member = null;
   if ($value instanceof sfOutputEscaper || $value instanceof Member)
@@ -1061,7 +1061,7 @@ function op_link_to_member($value, $options = array(), $routeName = '@obj_member
  * @param string $type2
  * @return string
  */
-function op_get_gadget_type($type1, $type2)
+function sa_get_gadget_type($type1, $type2)
 {
   if ('gadget' == $type1)
   {
@@ -1082,11 +1082,11 @@ function op_get_gadget_type($type1, $type2)
  * @return string An image tag.
  * @see image_tag_sf_image
  */
-function op_image_tag_sf_image($source, $options = array())
+function sa_image_tag_sf_image($source, $options = array())
 {
   if (!isset($options['no_image']))
   {
-    $options['no_image'] = op_image_path('no_image.gif');
+    $options['no_image'] = sa_image_path('no_image.gif');
   }
 
   return image_tag_sf_image($source, $options);
@@ -1101,7 +1101,7 @@ function op_image_tag_sf_image($source, $options = array())
  * @return string An image tag.
  * @see image_tag
  */
-function op_image_tag($source, $options = array())
+function sa_image_tag($source, $options = array())
 {
   if (!isset($options['raw_name']))
   {
@@ -1113,7 +1113,7 @@ function op_image_tag($source, $options = array())
     }
 
     $options['raw_name'] = true;
-    $source = op_image_path($source, $absolute);
+    $source = sa_image_path($source, $absolute);
   }
 
   return image_tag($source, $options);
@@ -1128,7 +1128,7 @@ function op_image_tag($source, $options = array())
  * @return string An image path.
  * @see image_path
  */
-function op_image_path($source, $absolute = false)
+function sa_image_path($source, $absolute = false)
 {
   static $skinPlugin = null;
 

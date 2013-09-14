@@ -4,11 +4,11 @@
 <head>
 <?php include_http_metas() ?>
 <?php include_metas() ?>
-<title><?php echo ($op_config['sns_title']) ? $op_config['sns_title'] : $op_config['sns_name'] ?></title>
-<?php echo $op_config->get('pc_html_head') ?>
-<?php if (isset($op_config['google_AJAX_search_api_key']) && isset($op_config['google_maps_api_key'])): ?>
-<?php use_javascript('http://www.google.co.jp/uds/api?file=uds.js&v=1.0&key='.$op_config['google_AJAX_search_api_key']) ?>
-<?php use_javascript('http://maps.google.co.jp/maps?file=api&v=2.x&key='.$op_config['google_maps_api_key']) ?>
+<title><?php echo ($sa_config['sns_title']) ? $sa_config['sns_title'] : $sa_config['sns_name'] ?></title>
+<?php echo $sa_config->get('pc_html_head') ?>
+<?php if (isset($sa_config['google_AJAX_search_api_key']) && isset($sa_config['google_maps_api_key'])): ?>
+<?php use_javascript('http://www.google.co.jp/uds/api?file=uds.js&v=1.0&key='.$sa_config['google_AJAX_search_api_key']) ?>
+<?php use_javascript('http://maps.google.co.jp/maps?file=api&v=2.x&key='.$sa_config['google_maps_api_key']) ?>
 <?php
 $googlemaps_script = <<<EOM
 // parse request parameters

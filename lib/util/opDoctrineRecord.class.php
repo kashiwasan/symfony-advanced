@@ -252,9 +252,9 @@ abstract class opDoctrineRecord extends sfDoctrineRecord implements Zend_Acl_Res
 
   public function setTableName($tableName)
   {
-    if (sfConfig::get('op_table_prefix'))
+    if (sfConfig::get('sa_table_prefix'))
     {
-      $tableName = sfConfig::get('op_table_prefix').$tableName;
+      $tableName = sfConfig::get('sa_table_prefix').$tableName;
     }
 
     parent::setTableName($tableName);

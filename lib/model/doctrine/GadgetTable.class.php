@@ -109,7 +109,7 @@ class GadgetTable extends opAccessControlDoctrineTable
       return $this->gadgets[$typesName];
     }
 
-    if (sfConfig::get('op_is_enable_gadget_cache', true))
+    if (sfConfig::get('sa_is_enable_gadget_cache', true))
     {
       $dir = sfConfig::get('sf_app_cache_dir').'/config';
       $file = $dir.'/'.sfInflector::underscore($typesName)."_gadgets.php";
@@ -128,7 +128,7 @@ class GadgetTable extends opAccessControlDoctrineTable
       $results[$type] = $this->retrieveByType($type);
     }
 
-    if (sfConfig::get('op_is_enable_gadget_cache', true))
+    if (sfConfig::get('sa_is_enable_gadget_cache', true))
     {
       if (!is_dir($dir))
       {

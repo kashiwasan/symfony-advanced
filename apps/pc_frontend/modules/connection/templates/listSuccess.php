@@ -1,7 +1,7 @@
-<?php echo op_include_box('newApplication', link_to(__('Add new application'), 'connection_new'), array('title' => __('Add new application'))); ?>
+<?php echo sa_include_box('newApplication', link_to(__('Add new application'), 'connection_new'), array('title' => __('Add new application'))); ?>
 
 <?php if ($pager->getNbResults()) : ?>
-<?php echo op_include_parts('manageList', 'manageList', array(
+<?php echo sa_include_parts('manageList', 'manageList', array(
   'pager' => $pager,
   'pager_url'=> 'connection/list?page=%d',
   'item_url' => 'connection_show',

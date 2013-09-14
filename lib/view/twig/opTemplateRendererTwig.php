@@ -7,7 +7,7 @@ class opTemplateRendererTwig extends sfTemplateRendererTwig
     parent::__construct($loader, $environment);
     $this->environment->addExtension(new opTwigCoreExtension());
 
-    if (sfConfig::get('op_is_restrict_mail_template', true))
+    if (sfConfig::get('sa_is_restrict_mail_template', true))
     {
       $policy = new opTwigSandboxSecurityPolicy();
       $this->environment->addExtension(new Twig_Extension_Sandbox($policy, true));
@@ -18,7 +18,7 @@ class opTemplateRendererTwig extends sfTemplateRendererTwig
 
   public function evaluate(sfTemplateStorage $template, array $parameters = array())
   {
-    if (sfConfig::get('op_is_restrict_mail_template', true))
+    if (sfConfig::get('sa_is_restrict_mail_template', true))
     {
       $parameters = $this->filterParameters($parameters);
     }

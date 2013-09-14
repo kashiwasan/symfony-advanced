@@ -124,12 +124,12 @@ class Auth_OpenID_ServiceEndpoint {
         return in_array(Auth_OpenID_TYPE_2_0_IDP, $this->type_uris);
     }
 
-    static function fromOPEndpointURL($op_endpoint_url)
+    static function fromOPEndpointURL($sa_endpoint_url)
     {
         // Construct an OP-Identifier OpenIDServiceEndpoint object for
         // a given OP Endpoint URL
         $obj = new Auth_OpenID_ServiceEndpoint();
-        $obj->server_url = $op_endpoint_url;
+        $obj->server_url = $sa_endpoint_url;
         $obj->type_uris = array(Auth_OpenID_TYPE_2_0_IDP);
         return $obj;
     }
@@ -371,14 +371,14 @@ function Auth_OpenID_arrangeByType($service_list, $preferred_types)
 // Returns a list of OpenIDServiceEndpoint objects."""
 function Auth_OpenID_getOPOrUserServices($openid_services)
 {
-    $op_services = Auth_OpenID_arrangeByType($openid_services,
+    $sa_services = Auth_OpenID_arrangeByType($openid_services,
                                      array(Auth_OpenID_TYPE_2_0_IDP));
 
     $openid_services = Auth_OpenID_arrangeByType($openid_services,
                                      Auth_OpenID_getOpenIDTypeURIs());
 
-    if ($op_services) {
-        return $op_services;
+    if ($sa_services) {
+        return $sa_services;
     } else {
         return $openid_services;
     }

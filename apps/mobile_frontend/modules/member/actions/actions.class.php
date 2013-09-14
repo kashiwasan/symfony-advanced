@@ -19,7 +19,7 @@ class memberActions extends opMemberAction
 {
   public function executeHome($request)
   {
-    $this->gadgetConfig = sfConfig::get('op_mobile_gadget_list');
+    $this->gadgetConfig = sfConfig::get('sa_mobile_gadget_list');
 
     $gadgets = Doctrine::getTable('Gadget')->retrieveGadgetsByTypesName('mobile');
     $this->mobileTopGadgets = $gadgets['mobileTop'];

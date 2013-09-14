@@ -82,7 +82,7 @@ EOF;
 
     $config = null;
 
-    if ($proxy = parse_url(sfConfig::get('op_http_proxy')))
+    if ($proxy = parse_url(sfConfig::get('sa_http_proxy')))
     {
       $config = array('adapter' => 'Zend_Http_Client_Adapter_Proxy');
 

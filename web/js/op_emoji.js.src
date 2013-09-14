@@ -48,7 +48,7 @@ $.widget("sfadvanced.opEmoji", {
       var emoji = emoji_set[num];
       var emoji_end = emoji.end;
       for (var i = emoji.start; i <= emoji_end; i++) {
-        var src = op_get_relative_uri_root() + "/images/emoji/" + pl.shortname + "/" + pl.shortname + i + ".gif";
+        var src = sa_get_relative_uri_root() + "/images/emoji/" + pl.shortname + "/" + pl.shortname + i + ".gif";
         var alt = "[" + pl.shortname + ":" + i + "]";
 
         var img = document.createElement("img");
@@ -56,7 +56,7 @@ $.widget("sfadvanced.opEmoji", {
         img.setAttribute("alt", alt);
         img.onclick = function () {
             var emoji_code = this.getAttribute("alt");
-            op_insert_str_to_selection(textarea, emoji_code);
+            sa_insert_str_to_selection(textarea, emoji_code);
         };
 
         pallet.append(img);

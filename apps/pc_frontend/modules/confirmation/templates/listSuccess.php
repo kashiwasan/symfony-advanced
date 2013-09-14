@@ -1,4 +1,4 @@
-<?php slot('op_sidemenu'); ?>
+<?php slot('sa_sidemenu'); ?>
 <?php
 $categoryList = array();
 foreach ($config as $k => $v)
@@ -19,7 +19,7 @@ op_include_parts('pageNav', 'pageNav', array('list' => $categoryList, 'current' 
 <?php echo $form->renderHiddenFields() ?>
 <div class="ditem"><div class="item"><table style="background-color: #fff;"><tr>
 <td class="photo" rowspan="<?php echo count($item['list']) + 1 ?>">
-<?php echo link_to(op_image_tag_sf_image($item['image']['url'], array('size' => '76x76')), $item['image']['link']); ?>
+<?php echo link_to(sa_image_tag_sf_image($item['image']['url'], array('size' => '76x76')), $item['image']['link']); ?>
 </td>
 </tr>
 <?php foreach ($item['list'] as $k => $v): ?>
@@ -46,5 +46,5 @@ op_include_parts('pageNav', 'pageNav', array('list' => $categoryList, 'current' 
 
 </div></div>
 <?php else: ?>
-<?php op_include_box('searchMemberResult', __('You don\'t have any pending requests'), array('title' => __($config[$category]))) ?>
+<?php sa_include_box('searchMemberResult', __('You don\'t have any pending requests'), array('title' => __($config[$category]))) ?>
 <?php endif; ?>

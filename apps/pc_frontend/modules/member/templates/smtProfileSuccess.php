@@ -5,7 +5,7 @@
 <p><?php echo link_to(__('Edit profile'), '@member_editProfile') ?></p>
 </div>
 <?php $content = ob_get_clean() ?>
-<?php op_include_parts('descriptionBox', 'informationAboutThisIsYourProfilePage', array('body' => $content)) ?>
+<?php sa_include_parts('descriptionBox', 'informationAboutThisIsYourProfilePage', array('body' => $content)) ?>
 <?php else: ?>
 <?php if (!$relation->isFriend() && opConfig::get('enable_friend_link') && $relation->isAllowed($sf_user->getRawValue()->getMember(), 'friend_link')): ?>
 <?php ob_start() ?>
@@ -31,14 +31,14 @@ $(function(){
 });
 </script>
 <div class="alert alert-warning">
-<p><?php echo __('If %1% is your friend, let us add to %my_friend% it!', array('%1%' => $member->getName(), '%my_friend%' => $op_term['my_friend']->pluralize())) ?></p>
-<p id="addFriendLink"><a href="#" id="addFriend"><?php echo __('Add %my_friend%', array('%my_friend%' => $op_term['my_friend']->pluralize())) ?></a></p>
-<p id="addFriendLinkLoading" class="hide"><?php echo op_image_tag('ajax-loader.gif') ?></p>
-<p id="addFriendLinkFinish" class="hide"><?php echo __('You have requested %friend% link.', array('%friend%' => $op_term['friend'])) ?></p>
-<p id="addFriendLinkError" class="hide"><?php echo __('%Friend% request is already sent.', array('%Friend%' => $op_term['friend'])) ?></p>
+<p><?php echo __('If %1% is your friend, let us add to %my_friend% it!', array('%1%' => $member->getName(), '%my_friend%' => $sa_term['my_friend']->pluralize())) ?></p>
+<p id="addFriendLink"><a href="#" id="addFriend"><?php echo __('Add %my_friend%', array('%my_friend%' => $sa_term['my_friend']->pluralize())) ?></a></p>
+<p id="addFriendLinkLoading" class="hide"><?php echo sa_image_tag('ajax-loader.gif') ?></p>
+<p id="addFriendLinkFinish" class="hide"><?php echo __('You have requested %friend% link.', array('%friend%' => $sa_term['friend'])) ?></p>
+<p id="addFriendLinkError" class="hide"><?php echo __('%Friend% request is already sent.', array('%Friend%' => $sa_term['friend'])) ?></p>
 </div>
 <?php $content = ob_get_clean() ?>
-<?php op_include_parts('descriptionBox', 'informationAboutThisIsYourProfilePage', array('body' => $content)) ?>
+<?php sa_include_parts('descriptionBox', 'informationAboutThisIsYourProfilePage', array('body' => $content)) ?>
 <?php endif; ?>
 <?php endif; ?>
 

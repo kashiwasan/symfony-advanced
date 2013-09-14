@@ -267,7 +267,7 @@ class MemberProfileTable extends opAccessControlDoctrineTable
       $ids = array_values($_result);
     }
 
-    if ($isCheckPublicFlag && 'op_preset_birthday' === $item->getName())
+    if ($isCheckPublicFlag && 'sa_preset_birthday' === $item->getName())
     {
       if ('%-' !== substr($value, 0, 2))  // "year" part is specified
       {

@@ -65,7 +65,7 @@ class opPresetProfileForm extends ProfileForm
 
     foreach ($list as $k => $v)
     {
-      if ($this->getObject()->getName() === 'op_preset_'.$v['Name'] || !Doctrine::getTable('Profile')->retrieveByName('op_preset_'.$v['Name']))
+      if ($this->getObject()->getName() === 'sa_preset_'.$v['Name'] || !Doctrine::getTable('Profile')->retrieveByName('sa_preset_'.$v['Name']))
       {
         $result[$k] = $i18n->__($v['Caption']);
       }
@@ -105,7 +105,7 @@ class opPresetProfileForm extends ProfileForm
       $preset = $presetList[$presetName];
 
       $values = $this->mergePresetAndValues($preset, $values);
-      $values['name'] = 'op_preset_'.$values['name'];
+      $values['name'] = 'sa_preset_'.$values['name'];
 
       unset($values['preset'], $values['choices'], $values['caption']);
       $this->values = $values;

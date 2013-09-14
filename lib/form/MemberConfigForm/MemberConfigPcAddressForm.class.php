@@ -23,7 +23,7 @@ class MemberConfigPcAddressForm extends MemberConfigForm
   {
     parent::__construct($member, $options, $CSRFSecret);
 
-    if (sfConfig::get('op_is_use_captcha', false))
+    if (sfConfig::get('sa_is_use_captcha', false))
     {
       $this->embedForm('captcha', new opCaptchaForm());
     }

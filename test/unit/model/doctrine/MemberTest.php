@@ -36,11 +36,11 @@ $t->is(count($result), 0, '->getProfiles() on the member1 returns no results to 
 
 //------------------------------------------------------------
 $t->diag('Member::getProfile()');
-$t->isa_ok($member1->getProfile('op_preset_sex'), 'MemberProfile', '->getProfile() returns an instance of MemberProfile if it is available');
+$t->isa_ok($member1->getProfile('sa_preset_sex'), 'MemberProfile', '->getProfile() returns an instance of MemberProfile if it is available');
 $t->is($member1->getProfile('dummy'), null, '->getProfile() returns null if it is not available');
-$t->isa_ok($member1->getProfile('op_preset_region', true, 1), 'MemberProfile', '->getProfile() returns an instance of MemberProfile to member 1');
-$t->isa_ok($member1->getProfile('op_preset_region', true, 2), 'MemberProfile', '->getProfile() returns an instance of MemberProfile to member 2');
-$t->is($member1->getProfile('op_preset_region', true, 3), null, '->getProfile() returns null to member 3');
+$t->isa_ok($member1->getProfile('sa_preset_region', true, 1), 'MemberProfile', '->getProfile() returns an instance of MemberProfile to member 1');
+$t->isa_ok($member1->getProfile('sa_preset_region', true, 2), 'MemberProfile', '->getProfile() returns an instance of MemberProfile to member 2');
+$t->is($member1->getProfile('sa_preset_region', true, 3), null, '->getProfile() returns null to member 3');
 
 //------------------------------------------------------------
 $t->diag('Member::getConfig()');

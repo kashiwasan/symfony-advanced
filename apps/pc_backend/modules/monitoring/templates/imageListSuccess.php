@@ -19,12 +19,12 @@ $params['caution'] = __('※表示件数を多くすると処理が重くなり�
 include_partial('global/changePageSize', array('params' => $params));
 ?>
 
-<p><?php op_include_pager_navigation($pager, 'monitoring/imageList?page=%d&size='.$size) ?></p>
+<p><?php sa_include_pager_navigation($pager, 'monitoring/imageList?page=%d&size='.$size) ?></p>
 <div class="imageListTable">
 <?php foreach ($pager->getResults() as $image): ?>
 <?php include_partial('imageInfo', array('image' => $image, 'deleteBtn' => true)) ?>
 <?php endforeach; ?>
 <br class="clear"/>
 </div>
-<p><?php op_include_pager_navigation($pager, 'monitoring/imageList?page=%d&size='.$size) ?></p>
+<p><?php sa_include_pager_navigation($pager, 'monitoring/imageList?page=%d&size='.$size) ?></p>
 <?php endif; ?>

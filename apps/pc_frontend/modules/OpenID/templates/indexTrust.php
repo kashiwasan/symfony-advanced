@@ -12,7 +12,7 @@
 <li>
 <input type="checkbox" name="profiles[]" value="<?php echo $k ?>" checked="checked" id="profile_<?php echo $k ?>" />
 <label for="profile_<?php echo $k ?>">
-<?php if (0 === strpos($k, 'op_preset_')): ?>
+<?php if (0 === strpos($k, 'sa_preset_')): ?>
 <?php $k = __($presetList[substr($k, 10)]['Caption']) ?>
 <?php else: ?>
 <?php $k = __(sfInflector::humanize($k), array(), 'profile_exchange'); ?>
@@ -40,7 +40,7 @@
 <?php end_slot(); ?>
 
 <?php slot('_body'); ?>
-<p><?php echo __('Do you wish to login to the following site using your %1% ID?', array('%1%' => $op_config['sns_name'])) ?></p>
+<p><?php echo __('Do you wish to login to the following site using your %1% ID?', array('%1%' => $sa_config['sns_name'])) ?></p>
 <p><code><?php echo $info->trust_root ?></code></p>
 <?php end_slot(); ?>
 
@@ -48,11 +48,11 @@
 op_include_parts('consentForm', 'trustConfirm', array(
   'title'        => __('Login to %1% using your %2% ID', array(
     '%1%' => parse_url($info->trust_root, PHP_URL_HOST),
-    '%2%' => $op_config['sns_name'],
+    '%2%' => $sa_config['sns_name'],
   )),
   'body'         => get_slot('_body'),
   'yes_form'     => get_slot('_yes_form'),
-  'consent_from' => $op_config['sns_name'],
+  'consent_from' => $sa_config['sns_name'],
   'consent_to'   => parse_url($info->trust_root, PHP_URL_HOST),
   'yes_url'      => url_for('OpenID/trust'),
   'no_url'       => url_for('OpenID/trust'),

@@ -1,6 +1,6 @@
 Profile:
   profile_sex:
-    name: "op_preset_sex"
+    name: "sa_preset_sex"
     is_required: 1
     form_type: "select"
     value_type: "string"
@@ -12,7 +12,7 @@ Profile:
     sort_order: 110
 
   profile_birthday:
-    name: "op_preset_birthday"
+    name: "sa_preset_birthday"
     is_required: 0
     form_type: "date"
     value_type: "string"
@@ -24,7 +24,7 @@ Profile:
     sort_order: 120
 
   profile_region:
-    name: "op_preset_region"
+    name: "sa_preset_region"
     is_required: 0
     form_type: "region_select"
     value_type: "JP"
@@ -36,7 +36,7 @@ Profile:
     sort_order: 125
 
   profile_self_intro:
-    name: "op_preset_self_introduction"
+    name: "sa_preset_self_introduction"
     is_required: 0
     form_type: "textarea"
     value_type: "string"

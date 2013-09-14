@@ -14,37 +14,37 @@ $t->diag('opWidgetFormRichTextareaSfAdvanced::toHtml() non strip');
 $patterns = array(
   array(
     '&lt;op:s&gt;どーん&lt;/op:s&gt;',
-    '<span class="op_s">どーん</span>',
+    '<span class="sa_s">どーん</span>',
     'Check default strike tag.',
   ),
   array(
     '&lt;op:s&gt;どどー&lt;op&gt;ん&lt;/op:s&gt;',
-    '<span class="op_s">どどー&lt;op&gt;ん</span>',
+    '<span class="sa_s">どどー&lt;op&gt;ん</span>',
     'Check strike tag with broken tag.',
   ),
   array(
     '&lt;op:s&gt;どどー',
-    '<span class="op_s">どどー</span>',
+    '<span class="sa_s">どどー</span>',
     'Check strike tag what is not having end tag.',
   ),
   array(
     '&lt;op:a&lt;op:i&gt;',
-    '&lt;op:a<span class="op_i"></span>',
+    '&lt;op:a<span class="sa_i"></span>',
     'Check italic tag with broken tag where is top.',
   ),
   array(
     '&lt;op:i color="#333&lt;op:i&gt;"&gt;#333&lt;/op:i&gt;',
-    '&lt;op:i color="#333<span class="op_i">"&gt;#333</span>',
+    '&lt;op:i color="#333<span class="sa_i">"&gt;#333</span>',
     'Check italic tag what have some broken tags.',
   ),
   array(
     '&lt;op:font color="#333333"&gt;#333&lt;/op:font&gt;',
-    '<span class="op_font" style="color:#333333;">#333</span>',
+    '<span class="sa_font" style="color:#333333;">#333</span>',
     'Check default color tag what have some broken tags.',
   ),
   array(
     '&lt;op:tetetetetete0111111&gt;',
-    '<span class="op_tetetetetete0111111"></span>',
+    '<span class="sa_tetetetetete0111111"></span>',
     'Check undefined op tag.',
   ),
   array(
@@ -54,7 +54,7 @@ $patterns = array(
   ),
   array(
     '&lt;op:font color="expression(alert(0))"&gt;Attack!&lt;/op:font&gt;',
-    '<span class="op_font" style="">Attack!</span>',
+    '<span class="sa_font" style="">Attack!</span>',
     'Check color tag witdh CSRF Attack.',
   ),
 );
@@ -122,47 +122,47 @@ $t->diag('opWidgetFormRichTextareaSfAdvanced::toHtml() followup');
 $patterns3 = array(
   array(
     '&lt;op:s&gt;どーん',
-    '<span class="op_s">どーん</span>',
+    '<span class="sa_s">どーん</span>',
     'Check default strike tag.',
   ),
   array(
     '&lt;op:s&gt;どどー&lt;op&gt;ん',
-    '<span class="op_s">どどー&lt;op&gt;ん</span>',
+    '<span class="sa_s">どどー&lt;op&gt;ん</span>',
     'Check strike tag with broken tag.',
   ),
   array(
     '&lt;op:s&gt;どどー',
-    '<span class="op_s">どどー</span>',
+    '<span class="sa_s">どどー</span>',
     'Check strike tag what is not having end tag.',
   ),
   array(
     '&lt;op:a&lt;op:i&gt;',
-    '&lt;op:a<span class="op_i"></span>',
+    '&lt;op:a<span class="sa_i"></span>',
     'Check italic tag with broken tag where is top.',
   ),
   array(
     '&lt;op:i color="#333&lt;op:i&gt;"&gt;#333',
-    '&lt;op:i color="#333<span class="op_i">"&gt;#333</span>',
+    '&lt;op:i color="#333<span class="sa_i">"&gt;#333</span>',
     'Check italic tag what have some broken tags.',
   ),
   array(
     '&lt;op:font color="#333333"&gt;#333',
-    '<span class="op_font" style="color:#333333;">#333</span>',
+    '<span class="sa_font" style="color:#333333;">#333</span>',
     'Check default color tag what have some broken tags.',
   ),
   array(
     '&lt;op:tetetetetete0111111&gt;',
-    '<span class="op_tetetetetete0111111"></span>',
+    '<span class="sa_tetetetetete0111111"></span>',
     'Check undefined op tag.',
   ),
   array(
     '&lt;op:i&gt;&lt;op:&lt;op:i&gt;&lt;op:i&gt;&lt;op:i&gt;&lt;op:333333&gt;',
-    '<span class="op_i">&lt;op:<span class="op_i"><span class="op_i"><span class="op_i"><span class="op_333333"></span></span></span></span></span>',
+    '<span class="sa_i">&lt;op:<span class="sa_i"><span class="sa_i"><span class="sa_i"><span class="sa_333333"></span></span></span></span></span>',
     'Check 5 open tags what have not close tag.',
   ),
   array(
     '&lt;op:font color="expression(alert(0))"&gt;Attack!',
-    '<span class="op_font" style="">Attack!</span>',
+    '<span class="sa_font" style="">Attack!</span>',
     'Check color tag witdh CSRF Attack.',
   ),
 );

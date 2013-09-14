@@ -1,1 +1,1 @@
-<?php op_include_box('privacyPolicy', nl2br($op_config['privacy_policy'])) ?>
+<?php sa_include_box('privacyPolicy', nl2br($sa_config['privacy_policy'])) ?>

@@ -12,7 +12,7 @@
 <table id="type_<?php echo str_replace(' ', '_', $type) ?>">
 <tr>
 <th><?php echo __('URL') ?></th>
-<?php $languages = sfConfig::get('op_supported_languages'); ?>
+<?php $languages = sfConfig::get('sa_supported_languages'); ?>
 <?php foreach ($languages as $language): ?>
 <th><?php echo __('Entry name').' ('.$language.')' ?></th>
 <?php endforeach; ?>

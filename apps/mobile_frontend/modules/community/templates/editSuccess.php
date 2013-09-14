@@ -13,9 +13,9 @@ else
 }
 ?>
 
-<?php op_mobile_page_title($title, $subtitle) ?>
+<?php sa_mobile_page_title($title, $subtitle) ?>
 
-<?php op_include_form('communityForm', array($communityForm, $communityConfigForm), array(
+<?php sa_include_form('communityForm', array($communityForm, $communityConfigForm), array(
   'url' => url_for($url),
   'button' => __('Save'),
   'align' => 'center',
@@ -23,7 +23,7 @@ else
 
 <?php if (!$communityForm->isNew() && $isDeleteCommunity): ?>
 <?php
-  op_include_parts('buttonBox', 'deleteForm', array(
+  sa_include_parts('buttonBox', 'deleteForm', array(
     'title' => __('Delete this %community%'),
     'body' => __('delete this %community%.if you delete this %community% please to report in advance for all this %community% members.'),
     'button' => __('Delete'),
@@ -31,6 +31,6 @@ else
     'url' => url_for('@community_delete?id=' . $community->getId()),
   ));
 ?>
-<hr color="<?php echo $op_color['core_color_11'] ?>">
+<hr color="<?php echo $sa_color['core_color_11'] ?>">
 <?php echo link_to(__('%Community% Top'), '@community_home?id='.$community->getId()) ?>
 <?php endif; ?>

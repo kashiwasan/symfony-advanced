@@ -29,7 +29,7 @@ class opSmartphoneLayoutUtil
   {
     if (isset($parameters['sf_type']) && 'layout' === $parameters['sf_type'])
     {
-      $parameters['op_layout'] = self::$parameters;
+      $parameters['sa_layout'] = self::$parameters;
     }
 
     return $parameters;

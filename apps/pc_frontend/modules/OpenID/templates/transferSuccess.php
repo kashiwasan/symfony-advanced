@@ -6,6 +6,6 @@
 <?php echo $sf_data->getRaw('form') ?>
 <?php end_slot(); ?>
 
-<?php echo op_include_box('transfer', get_slot('_body')); ?>
+<?php echo sa_include_box('transfer', get_slot('_body')); ?>
 
 <?php echo javascript_tag('document.getElementById("trans").submit();');

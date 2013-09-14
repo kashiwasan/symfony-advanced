@@ -1,9 +1,9 @@
-<?php op_mobile_page_title(__('Search %Community%', array('%Community%' => $op_term['community']->pluralize()))) ?>
+<?php sa_mobile_page_title(__('Search %Community%', array('%Community%' => $sa_term['community']->pluralize()))) ?>
 
 <?php if ($isResult): ?>
 <?php if ($pager->getNbResults()): ?>
 <center>
-<?php op_include_pager_total($pager); ?>
+<?php sa_include_pager_total($pager); ?>
 </center>
 <?php
 $list = array();
@@ -16,9 +16,9 @@ $option = array(
 );
 op_include_list('communityList', $list, $option);
 ?>
-<?php op_include_pager_navigation($pager, 'community/search?page=%d', array('is_total' => false, 'use_current_query_string' => true)) ?>
+<?php sa_include_pager_navigation($pager, 'community/search?page=%d', array('is_total' => false, 'use_current_query_string' => true)) ?>
 <?php else: ?>
-<?php echo __('Your search queries did not match any %community%.', array('%community%' => $op_term['community']->pluralize())) ?>
+<?php echo __('Your search queries did not match any %community%.', array('%community%' => $sa_term['community']->pluralize())) ?>
 <?php endif ?>
 <?php endif ?>
 
@@ -55,7 +55,7 @@ op_include_list('searchCategory', $list, $option);
 <?php endif ?>
 
 <?php if ($isResult): ?>
-<?php slot('op_mobile_footer_menu') ?>
+<?php slot('sa_mobile_footer_menu') ?>
 <?php echo link_to(__('Back'), 'community/search'); ?>
 <?php end_slot(); ?>
 <?php endif ?>

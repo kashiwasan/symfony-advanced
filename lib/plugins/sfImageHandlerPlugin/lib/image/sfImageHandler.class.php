@@ -58,21 +58,21 @@ class sfImageHandler
 
   public function initialize($options)
   {
-    if (!sfConfig::has('op_image_generator_name'))
+    if (!sfConfig::has('sa_image_generator_name'))
     {
-      $isMagick = sfConfig::get('op_use_imagemagick', 0);
+      $isMagick = sfConfig::get('sa_use_imagemagick', 0);
 
       if ((2 == $isMagick) || (1 == $isMagick && 'gif' === $options['format']))
       {
-        sfConfig::set('op_image_generator_name', 'IM');
+        sfConfig::set('sa_image_generator_name', 'IM');
       }
       else
       {
-        sfConfig::set('op_image_generator_name', 'GD');
+        sfConfig::set('sa_image_generator_name', 'GD');
       }
     }
 
-    $className = 'sfImageGenerator'.sfConfig::get('op_image_generator_name');
+    $className = 'sfImageGenerator'.sfConfig::get('sa_image_generator_name');
     if (!class_exists($className))
     {
       throw new RuntimeException(sprintf('The specified image handler, %s is not found', $className));
@@ -132,7 +132,7 @@ class sfImageHandler
 
   static public function getStorageClassName()
   {
-    return 'sfImageStorage'.sfConfig::get('op_image_storage', 'Default');
+    return 'sfImageStorage'.sfConfig::get('sa_image_storage', 'Default');
   }
 
   static public function getPathToFileCache($format, $width, $height, $filename, $square = false)

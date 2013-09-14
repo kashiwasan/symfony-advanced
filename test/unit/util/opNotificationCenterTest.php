@@ -99,7 +99,7 @@ $conn->rollback();
 $t->info('limit check (<= 5)');
 $conn->beginTransaction();
 
-sfConfig::set('op_notification_limit', 5);
+sfConfig::set('sa_notification_limit', 5);
 
 foreach (range(1, 10) as $num)
 {

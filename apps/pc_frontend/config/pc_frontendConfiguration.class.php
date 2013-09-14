@@ -14,7 +14,7 @@ class pc_frontendConfiguration extends opApplicationConfiguration
 {
   public function configure()
   {
-    sfConfig::set('op_is_use_captcha', true);
+    sfConfig::set('sa_is_use_captcha', true);
   }
 
   public function initialize()

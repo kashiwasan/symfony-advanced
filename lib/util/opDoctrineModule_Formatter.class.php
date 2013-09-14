@@ -19,7 +19,7 @@ class opDoctrineModule_Formatter extends Doctrine_Formatter
 {
   public function getForeignKeyName($fkey)
   {
-    $prefix = sfConfig::get('op_table_prefix', '');
+    $prefix = sfConfig::get('sa_table_prefix', '');
     if ($prefix && 0 !== strpos($fkey, $prefix))
     {
       $fkey = $prefix.$fkey;

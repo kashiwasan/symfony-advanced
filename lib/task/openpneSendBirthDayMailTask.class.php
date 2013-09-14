@@ -29,10 +29,10 @@ EOF;
     parent::execute($arguments, $options);
 
     opApplicationConfiguration::unregisterZend();
-    $birthday = Doctrine::getTable('Profile')->retrieveByName('op_preset_birthday');
+    $birthday = Doctrine::getTable('Profile')->retrieveByName('sa_preset_birthday');
     if (!$birthday)
     {
-      throw new sfException('This project doesn\'t have the op_preset_birthday profile item.');
+      throw new sfException('This project doesn\'t have the sa_preset_birthday profile item.');
     }
 
     $profiles = Doctrine::getTable('MemberProfile')->createQuery()

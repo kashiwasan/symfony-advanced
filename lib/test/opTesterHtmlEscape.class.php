@@ -70,7 +70,7 @@ class opTesterHtmlEscape extends sfTester
       $etc = isset($truncateOption['etc']) ? $truncateOption['etc'] : '';
       $rows = isset($truncateOption['rows']) ? $truncateOption['rows'] : 1;
 
-      $string = op_truncate($string, $width, $etc, $rows);
+      $string = sa_truncate($string, $width, $etc, $rows);
     }
 
     return substr_count($this->response->getContent(), $string);

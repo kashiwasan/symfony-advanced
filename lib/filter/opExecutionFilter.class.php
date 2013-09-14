@@ -31,8 +31,8 @@ class opExecutionFilter extends sfExecutionFilter
       'actionInstance' => $actionInstance,
     );
 
-    $dispatcher->notify(new sfEvent($subject, 'op_action.pre_execute_'.$moduleName.'_'.$actionName, $params));
-    $dispatcher->notify(new sfEvent($subject, 'op_action.pre_execute', $params));
+    $dispatcher->notify(new sfEvent($subject, 'sa_action.pre_execute_'.$moduleName.'_'.$actionName, $params));
+    $dispatcher->notify(new sfEvent($subject, 'sa_action.pre_execute', $params));
   }
 
   public static function notifyPostExecuteActionEvent($subject, sfEventDispatcher $dispatcher, sfAction $actionInstance, $result)
@@ -47,8 +47,8 @@ class opExecutionFilter extends sfExecutionFilter
       'result'         => $result,
     );
 
-    $dispatcher->notify(new sfEvent($subject, 'op_action.post_execute_'.$moduleName.'_'.$actionName, $params));
-    $dispatcher->notify(new sfEvent($subject, 'op_action.post_execute', $params));
+    $dispatcher->notify(new sfEvent($subject, 'sa_action.post_execute_'.$moduleName.'_'.$actionName, $params));
+    $dispatcher->notify(new sfEvent($subject, 'sa_action.post_execute', $params));
   }
 
   protected function needToRetrieveMobileUID($moduleName, $actionName, $request, $sslSelectableList)
@@ -85,13 +85,13 @@ class opExecutionFilter extends sfExecutionFilter
     $replacement = (false !== strpos($request->getPathInfoPrefix(), $scriptName)) ? '/'.$scriptName : '';
     $currentPath = str_replace($request->getPathInfoPrefix(), $replacement, $request->getCurrentUri());
 
-    if (sfConfig::get('op_use_ssl', false) && $this->isFirstCall())
+    if (sfConfig::get('sa_use_ssl', false) && $this->isFirstCall())
     {
-      $sslRequiredAppList = sfConfig::get('op_ssl_required_applications', array());
-      $sslRequiredList = sfConfig::get('op_ssl_required_actions', array(
+      $sslRequiredAppList = sfConfig::get('sa_ssl_required_applications', array());
+      $sslRequiredList = sfConfig::get('sa_ssl_required_actions', array(
         sfConfig::get('sf_app') => array(),
       ));
-      $sslSelectableList = sfConfig::get('op_ssl_selectable_actions', array(
+      $sslSelectableList = sfConfig::get('sa_ssl_selectable_actions', array(
         sfConfig::get('sf_app') => array(),
       ));
 
@@ -99,7 +99,7 @@ class opExecutionFilter extends sfExecutionFilter
       {
         if (!$request->isSecure())
         {
-          $baseUrl = sfConfig::get('op_ssl_base_url');
+          $baseUrl = sfConfig::get('sa_ssl_base_url');
 
           $actionInstance->redirect($baseUrl[sfConfig::get('sf_app')].$currentPath);
         }
@@ -108,20 +108,20 @@ class opExecutionFilter extends sfExecutionFilter
       {
         if (!$request->isSecure())
         {
-          $baseUrl = sfConfig::get('op_ssl_base_url');
+          $baseUrl = sfConfig::get('sa_ssl_base_url');
 
           $actionInstance->redirect($baseUrl[sfConfig::get('sf_app')].$currentPath);
         }
       }
       elseif (!in_array($moduleName.'/'.$actionName, $sslSelectableList[sfConfig::get('sf_app')]) && $request->isSecure())
       {
-        $baseUrl = sfConfig::get('op_base_url');
+        $baseUrl = sfConfig::get('sa_base_url');
 
         $actionInstance->redirect($baseUrl.$currentPath);
       }
       elseif ($this->needToRetrieveMobileUID($moduleName, $actionName, $request, $sslSelectableList) && $request->isSecure())
       {
-        $baseUrl = sfConfig::get('op_base_url');
+        $baseUrl = sfConfig::get('sa_base_url');
 
         $actionInstance->redirect($baseUrl.$currentPath);
       }
@@ -152,9 +152,9 @@ class opExecutionFilter extends sfExecutionFilter
 
     Doctrine::getTable('SnsTerm')->configure(sfContext::getInstance()->getUser()->getCulture(), sfConfig::get('sf_app'));
 
-    if (sfConfig::has('op_is_use_captcha'))
+    if (sfConfig::has('sa_is_use_captcha'))
     {
-      sfConfig::set('op_is_use_captcha', opConfig::get('is_use_captcha'));
+      sfConfig::set('sa_is_use_captcha', opConfig::get('is_use_captcha'));
     }
 
     try

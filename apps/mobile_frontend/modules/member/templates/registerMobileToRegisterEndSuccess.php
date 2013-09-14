@@ -1,4 +1,4 @@
-<?php op_mobile_page_title(__('Register mobile')) ?>
+<?php sa_mobile_page_title(__('Register mobile')) ?>
 
 <?php echo __('You register mobile UID.') ?><br>
 <?php echo __('Please input your password, and press "%1%" button.', array('%1%' => __('Register'))) ?><br>

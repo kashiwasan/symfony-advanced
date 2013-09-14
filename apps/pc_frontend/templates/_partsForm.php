@@ -30,7 +30,7 @@ $options->setDefault('url', $sf_request->getCurrentUri());
 <?php endforeach; ?>
 <?php end_slot(); ?>
 <?php if (get_slot('form_global_error')): ?>
-<?php op_include_parts('alertBox', 'FormGlobalError', array('body' => get_slot('form_global_error'))) ?>
+<?php sa_include_parts('alertBox', 'FormGlobalError', array('body' => get_slot('form_global_error'))) ?>
 <?php endif; ?>
 
 <?php $hasRequiredField = false ?>

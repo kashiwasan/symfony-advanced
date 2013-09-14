@@ -1,4 +1,4 @@
-<?php op_mobile_page_title(__('Delete this %community%'), $community->getName()) ?>
+<?php sa_mobile_page_title(__('Delete this %community%'), $community->getName()) ?>
 <?php
 $form = new BaseForm();
 op_include_parts('yesNo', 'deleteConfirmForm', array(

@@ -188,7 +188,7 @@ class opSecurityUser extends opAdaptableUser
       $this->getMember()->setConfig('remember_key', $rememberKey);
 
       $value = base64_encode(serialize(array($this->getMemberId(), $rememberKey)));
-      $expire = time() + sfConfig::get('op_remember_login_limit', 60*60*24*30);
+      $expire = time() + sfConfig::get('sa_remember_login_limit', 60*60*24*30);
     }
 
     sfContext::getInstance()->getResponse()->setCookie($key, $value, $expire, $path, '', false, true);
@@ -208,7 +208,7 @@ class opSecurityUser extends opAdaptableUser
         $memberConfig = Doctrine::getTable('MemberConfig')->findOneByMemberIdAndNameAndValue($value[0], 'remember_key', $value[1]);
         if ($memberConfig)
         {
-          $expire = strtotime($memberConfig->getUpdatedAt()) + sfConfig::get('op_remember_login_limit', 60*60*24*30);
+          $expire = strtotime($memberConfig->getUpdatedAt()) + sfConfig::get('sa_remember_login_limit', 60*60*24*30);
           if ($expire > time())
           {
             return $value[0];
@@ -268,7 +268,7 @@ class opSecurityUser extends opAdaptableUser
       // sharing session id between HTTP and HTTPS is needed
       $request = sfContext::getInstance()->getRequest();
       if (sfConfig::get('app_is_mobile', false)
-        && sfConfig::get('op_use_ssl', false)
+        && sfConfig::get('sa_use_ssl', false)
         && $request->isSecure()
         && ($request->getMobile()->isSoftBank() || $request->getMobile()->isEZweb())
       )
@@ -471,7 +471,7 @@ class opSecurityUser extends opAdaptableUser
     require_once 'Crypt/Blowfish.php';
 
     $time  = time();
-    $bf = Crypt_Blowfish::factory('ecb',sfConfig::get('op_sid_secret').'-'.$time);
+    $bf = Crypt_Blowfish::factory('ecb',sfConfig::get('sa_sid_secret').'-'.$time);
     $data = base64_encode($bf->encrypt($sid));
 
     return array($data, $time);
@@ -481,7 +481,7 @@ class opSecurityUser extends opAdaptableUser
   {
     require_once 'Crypt/Blowfish.php';
 
-    $bf = Crypt_Blowfish::factory('ecb', sfConfig::get('op_sid_secret').'-'.$time);
+    $bf = Crypt_Blowfish::factory('ecb', sfConfig::get('sa_sid_secret').'-'.$time);
     $sid = $bf->decrypt(base64_decode($data));
 
     return $sid;

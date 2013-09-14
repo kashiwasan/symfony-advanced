@@ -7,9 +7,9 @@
 <?php include_http_metas() ?>
 <?php include_metas() ?>
 <?php include_title() ?>
-<?php op_smt_use_stylesheet('bootstrap') ?>
-<?php op_smt_use_stylesheet('smt_main') ?>
-<?php op_smt_include_stylesheets() ?>
+<?php sa_smt_use_stylesheet('bootstrap') ?>
+<?php sa_smt_use_stylesheet('smt_main') ?>
+<?php sa_smt_include_stylesheets() ?>
 <meta name="viewport" content="width=320px,user-scalable=no" />
 <?php if (opConfig::get('enable_jsonapi') && opToolkit::isSecurePage()): ?>
 <?php
@@ -24,31 +24,31 @@ var sfadvanced = '.json_encode($jsonData).';
 ');
 ?>
 <?php endif ?>
-<?php op_smt_use_javascript('jquery.min.js') ?>
-<?php op_smt_use_javascript('jquery.tmpl.min.js') ?>
-<?php op_smt_use_javascript('smt_main') ?>
-<?php op_smt_use_javascript('smt_notify') ?>
-<?php op_smt_use_javascript('smt_tosaka') ?>
-<?php op_smt_use_javascript('smt_menu') ?>
-<?php op_smt_include_javascripts() ?>
+<?php sa_smt_use_javascript('jquery.min.js') ?>
+<?php sa_smt_use_javascript('jquery.tmpl.min.js') ?>
+<?php sa_smt_use_javascript('smt_main') ?>
+<?php sa_smt_use_javascript('smt_notify') ?>
+<?php sa_smt_use_javascript('smt_tosaka') ?>
+<?php sa_smt_use_javascript('smt_menu') ?>
+<?php sa_smt_include_javascripts() ?>
 </head>
 <body id="<?php printf('page_%s_%s', $this->getModuleName(), $this->getActionName()) ?>" class="<?php echo opToolkit::isSecurePage() ? 'secure_page' : 'insecure_page' ?>">
 <?php include_partial('global/tosaka') ?>
 <div id="face" class="row">
-  <?php if (isset($op_layout['member'])): ?>
+  <?php if (isset($sa_layout['member'])): ?>
   <div class="span2">
-    <?php echo op_image_tag_sf_image($op_layout['member']->getImageFileName(), array('size' => '48x48')) ?>
+    <?php echo sa_image_tag_sf_image($sa_layout['member']->getImageFileName(), array('size' => '48x48')) ?>
   </div>
   <div class="span8">
-    <div class="row face-name"><?php echo $op_layout['member']->getName() ?></div>
+    <div class="row face-name"><?php echo $sa_layout['member']->getName() ?></div>
     <div class="row screen-name">
-      <?php $screenName = $op_layout['member']->getConfig('op_screen_name') ?>
+      <?php $screenName = $sa_layout['member']->getConfig('sa_screen_name') ?>
       <?php if ($screenName): ?>
       <a href="#">@<?php echo $screenName ?></a>
       <?php endif ?>
     </div>
   </div>
-  <div class="span2 center"><?php echo link_to(op_image_tag('HomeIcon.png', array('height' => '48')), '@homepage') ?></div>
+  <div class="span2 center"><?php echo link_to(sa_image_tag('HomeIcon.png', array('height' => '48')), '@homepage') ?></div>
   <?php endif ?>
 </div>
 

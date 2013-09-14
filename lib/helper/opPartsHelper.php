@@ -25,7 +25,7 @@
  * @param string $id
  * @param array  $options
  */
-function op_include_parts($name, $id, $options = array())
+function sa_include_parts($name, $id, $options = array())
 {
   $params = array(
     'id'      => $id,
@@ -33,9 +33,9 @@ function op_include_parts($name, $id, $options = array())
     'options' => new opPartsOptionHolder($options),
   );
 
-  $params['op_content'] = get_partial('global/parts'.ucfirst($name), $params);
+  $params['sa_content'] = get_partial('global/parts'.ucfirst($name), $params);
 
-  if ('' === trim($params['op_content']))
+  if ('' === trim($params['sa_content']))
   {
     return;
   }
@@ -56,13 +56,13 @@ function op_include_parts($name, $id, $options = array())
  * @param string $body
  * @param array  $options
  *
- * @see op_include_parts
+ * @see sa_include_parts
  */
-function op_include_box($id, $body, $options = array())
+function sa_include_box($id, $body, $options = array())
 {
   $options['body'] = $body;
 
-  op_include_parts('box', $id, $options);
+  sa_include_parts('box', $id, $options);
 }
 
 /**
@@ -72,13 +72,13 @@ function op_include_box($id, $body, $options = array())
  * @param mixed  $form  a sfForm object or an array of sfForm objects
  * @param array  $options
  *
- * @see op_include_parts
+ * @see sa_include_parts
  */
-function op_include_form($id, $form, $options = array())
+function sa_include_form($id, $form, $options = array())
 {
   $options['form'] = $form;
 
-  op_include_parts('form', $id, $options);
+  sa_include_parts('form', $id, $options);
 }
 
 /**
@@ -88,13 +88,13 @@ function op_include_form($id, $form, $options = array())
  * @param array  $list
  * @param array  $options
  *
- * @see op_include_parts
+ * @see sa_include_parts
  */
-function op_include_list($id, $list, $options = array())
+function sa_include_list($id, $list, $options = array())
 {
   $options['list'] = $list;
 
-  op_include_parts('list', $id, $options);
+  sa_include_parts('list', $id, $options);
 }
 
 /**
@@ -104,13 +104,13 @@ function op_include_list($id, $list, $options = array())
  * @param string $line
  * @param array  $options
  *
- * @see op_include_parts
+ * @see sa_include_parts
  */
-function op_include_line($id, $line, $options = array())
+function sa_include_line($id, $line, $options = array())
 {
   $options['line'] = $line;
 
-  op_include_parts('line', $id, $options);
+  sa_include_parts('line', $id, $options);
 }
 
 /**
@@ -121,12 +121,12 @@ function op_include_line($id, $line, $options = array())
  * @params mixed  $noForm  a sfForm object or array of sfForm objects
  * @params array  $options
  */
-function op_include_yesno($id, $yesForm, $noForm, $options = array())
+function sa_include_yesno($id, $yesForm, $noForm, $options = array())
 {
   $options['yes_form'] = $yesForm;
   $options['no_form'] = $noForm;
 
-  op_include_parts('yesNo', $id, $options);
+  sa_include_parts('yesNo', $id, $options);
 }
 
 /**
@@ -180,19 +180,19 @@ function include_customizes($id, $name, $vars = null)
 }
 
 /**
- * Set the op_mobile_header slot
+ * Set the sa_mobile_header slot
  *
  * @param string $title
  * @param string $subtitle
  */
-function op_mobile_page_title($title, $subtitle = '')
+function sa_mobile_page_title($title, $subtitle = '')
 {
   $params = array(
     'title' => sfOutputEscaper::unescape($title),
     'subtitle' => sfOutputEscaper::unescape($subtitle),
   );
 
-  slot('op_mobile_header', get_partial('global/partsPageTitle', $params));
+  slot('sa_mobile_header', get_partial('global/partsPageTitle', $params));
 }
 
 /**
@@ -239,7 +239,7 @@ function include_list_box($id, $list, $options = array())
 
   $options['list'] = $list;
 
-  op_include_parts('listBox', $id, $options);
+  sa_include_parts('listBox', $id, $options);
 }
 
 /**
@@ -301,11 +301,11 @@ function include_box($id, $title = '', $body = '', $options = array())
       $options['url'] = url_for($options['url']);
     }
 
-    op_include_form($id, $options['form'], $options);
+    sa_include_form($id, $options['form'], $options);
   }
   else
   {
-    op_include_box($id, $body, $options);
+    sa_include_box($id, $body, $options);
   }
 }
 

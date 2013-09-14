@@ -3,7 +3,7 @@
   'activities' => $activities,
   'gadget' => $gadget,
   'title' => __("SNS Member's %activity%", array(
-    '%activity%' => $op_term['activity']->titleize()->pluralize()
+    '%activity%' => $sa_term['activity']->titleize()->pluralize()
   )),
   'moreUrl' => 'member/showAllMemberActivity'
 ) ?>

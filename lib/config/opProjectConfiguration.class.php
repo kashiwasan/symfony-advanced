@@ -118,7 +118,7 @@ class opProjectConfiguration extends sfProjectConfiguration
     if (extension_loaded('apc'))
     {
       $options = array();
-      if ($prefix = sfConfig::get('op_doctrine_cache_key_prefix'))
+      if ($prefix = sfConfig::get('sa_doctrine_cache_key_prefix'))
       {
         $options['prefix'] = $prefix;
       }
@@ -165,7 +165,7 @@ class opProjectConfiguration extends sfProjectConfiguration
 
     foreach ($config as $key => $value)
     {
-      sfConfig::set('op_'.$key, $value);
+      sfConfig::set('sa_'.$key, $value);
     }
   }
 

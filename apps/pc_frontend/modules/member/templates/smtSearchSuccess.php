@@ -45,6 +45,6 @@ $(function(){
 <div class="row" id="memberFriendList">
 </div>
 <div class="row" id="memberFriendListLoading" style="margin-left: 0; text-align: center;">
-<?php echo op_image_tag('ajax-loader.gif') ?>
+<?php echo sa_image_tag('ajax-loader.gif') ?>
 </div>
 

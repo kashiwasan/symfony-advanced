@@ -186,12 +186,12 @@ image_storage: Default  # DB に画像バイナリを保存します (Store imag
 # データベース (Database)
 ######################################
 
-# テーブル名のプレフィックス (例: table_prefix: op_")
-# Table name prefix (e.g: table_prefix: op_")
+# テーブル名のプレフィックス (例: table_prefix: sa_")
+# Table name prefix (e.g: table_prefix: sa_")
 table_prefix: ""
 
-# Query Cache および Result Cacheのキープレフィックス (例: doctrine_cache_key_prefix: op_")
-# Key prefix of Query Cache & Result Cache (e.g: doctrine_cache_key_prefix: op_")
+# Query Cache および Result Cacheのキープレフィックス (例: doctrine_cache_key_prefix: sa_")
+# Key prefix of Query Cache & Result Cache (e.g: doctrine_cache_key_prefix: sa_")
 doctrine_cache_key_prefix: ""
 
 ######################################

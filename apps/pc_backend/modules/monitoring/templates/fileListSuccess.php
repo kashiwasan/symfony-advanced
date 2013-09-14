@@ -18,10 +18,10 @@ $params['default'] = $size;
 include_partial('global/changePageSize', array('params' => $params));
 ?>
 
-<p><?php op_include_pager_navigation($pager, 'monitoring/fileList?page=%d&size='.$size) ?></p>
+<p><?php sa_include_pager_navigation($pager, 'monitoring/fileList?page=%d&size='.$size) ?></p>
 <div class="fileListTable">
 <?php include_partial('fileInfo', array('files' => $pager->getResults(), 'deleteBtn' => true)) ?>
 </div>
 <br class="clear"/>
-<p><?php op_include_pager_navigation($pager, 'monitoring/fileList?page=%d&size='.$size) ?></p>
+<p><?php sa_include_pager_navigation($pager, 'monitoring/fileList?page=%d&size='.$size) ?></p>
 <?php endif; ?>

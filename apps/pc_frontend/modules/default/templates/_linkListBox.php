@@ -8,4 +8,4 @@
 </ul>
 <?php end_slot(); ?>
 
-<?php echo op_include_box('linkBox'.$i, get_slot('_link_list'), array('title' => $gadget->getConfig('title') ? $gadget->getConfig('title') : __('リンク集'))) ?>
+<?php echo sa_include_box('linkBox'.$i, get_slot('_link_list'), array('title' => $gadget->getConfig('title') ? $gadget->getConfig('title') : __('リンク集'))) ?>

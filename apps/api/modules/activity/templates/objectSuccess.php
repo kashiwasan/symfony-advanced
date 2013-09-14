@@ -1,6 +1,6 @@
 <?php
 
-$acEntity = op_api_activity($activity);
+$acEntity = sa_api_activity($activity);
 
 $replies = $activity->getReplies();
 if (0 !== count($replies))
@@ -9,7 +9,7 @@ if (0 !== count($replies))
 
   foreach ($replies as $reply)
   {
-    $acEntity['replies'][] = op_api_activity($reply);
+    $acEntity['replies'][] = sa_api_activity($reply);
   }
 }
 

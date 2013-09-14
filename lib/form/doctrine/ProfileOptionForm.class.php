@@ -38,7 +38,7 @@ class ProfileOptionForm extends BaseProfileOptionForm
 
     $this->widgetSchema->setNameFormat('profile_option[%s]');
 
-    $this->embedI18n(sfConfig::get('op_supported_languages'));
+    $this->embedI18n(sfConfig::get('sa_supported_languages'));
     unset($this['created_at'], $this['updated_at']);
   }
 

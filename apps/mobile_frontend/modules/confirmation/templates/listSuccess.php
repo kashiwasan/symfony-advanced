@@ -1,7 +1,7 @@
 <?php if ($category): ?>
-<?php echo op_mobile_page_title(__('Confirmation List'), __($config[$category])) ?>
+<?php echo sa_mobile_page_title(__('Confirmation List'), __($config[$category])) ?>
 <?php else: ?>
-<?php echo op_mobile_page_title(__('Confirmation List')) ?>
+<?php echo sa_mobile_page_title(__('Confirmation List')) ?>
 <?php endif; ?>
 
 <?php $list_html = array(); ?>
@@ -27,13 +27,13 @@
 <?php end_slot(); ?>
 <?php $list_html[] = get_slot('_list_html'); ?>
 <?php endforeach; ?>
-<?php op_include_list('confirmList', $list_html, array('border' => true)); ?>
+<?php sa_include_list('confirmList', $list_html, array('border' => true)); ?>
 
 <?php else: ?>
 <?php echo __('You don\'t have any pending requests', array('title' => __($config[$category]))) ?>
 <?php endif; ?>
 
-<hr color="<?php echo $op_color['core_color_11'] ?>">
+<hr color="<?php echo $sa_color['core_color_11'] ?>">
 
 <?php foreach ($config as $k => $v): ?>
 <?php echo link_to(__($v), '@confirmation_list?category='.$k); ?><br>

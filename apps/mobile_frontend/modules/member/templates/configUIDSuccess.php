@@ -1,7 +1,7 @@
-<?php op_mobile_page_title(__('Settings'), __('Setting easy login')) ?>
+<?php sa_mobile_page_title(__('Settings'), __('Setting easy login')) ?>
 <?php if ($isSetMobileUid): ?>
 <?php echo __('Mobile UID is already setting.') ?>
-<hr color="<?php echo $op_color["core_color_11"] ?>">
+<hr color="<?php echo $sa_color["core_color_11"] ?>">
 <?php endif; ?>
 <?php echo __('Setting mobile UID.'); ?><br>
 <?php echo __('Please input your password, and press "%1%" button.', array('%1%' => __('Save'))) ?>

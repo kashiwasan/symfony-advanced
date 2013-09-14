@@ -34,7 +34,7 @@
 $presetList = opToolkit::getPresetProfileList();
 foreach ($presetList as $k => $v)
 {
-  if ('op_preset_'.$v['Name'] === $profile['name'])
+  if ('sa_preset_'.$v['Name'] === $profile['name'])
   {
     echo __($v['Caption']);
     break;
@@ -63,7 +63,7 @@ foreach ($presetList as $k => $v)
 <form action="<?php echo url_for('profile/edit?id=' . $profile->getId()) ?>" method="post">
 <?php endif; ?>
 
-<?php $languages = sfConfig::get('op_supported_languages'); ?>
+<?php $languages = sfConfig::get('sa_supported_languages'); ?>
 <table>
 <tr>
 <th></th>

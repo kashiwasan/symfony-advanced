@@ -33,7 +33,7 @@ $(function(){
 
 <hr class="toumei" />
 <div class="row">
-  <div class="gadget_header span12"><?php echo __('%friend% List', array('%friend%' => $op_term['friend'])) ?></div>
+  <div class="gadget_header span12"><?php echo __('%friend% List', array('%friend%' => $sa_term['friend'])) ?></div>
 </div>
 <hr class="toumei" />
 <div class="row" id="memberFriendSearchBox">
@@ -45,6 +45,6 @@ $(function(){
 <div class="row" id="memberFriendList">
 </div> 
 <div class="row" id="memberFriendListLoading" style="margin-left: 0; text-align: center;">
-<?php echo op_image_tag('ajax-loader.gif') ?>
+<?php echo sa_image_tag('ajax-loader.gif') ?>
 </div>
 

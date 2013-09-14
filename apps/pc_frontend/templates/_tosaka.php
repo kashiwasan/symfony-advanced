@@ -8,12 +8,12 @@
       </div>
     </div>
     <div class="span1">
-      <?php echo op_image_tag('UPARROW', array('class' => 'toggle1_close')) ?>
+      <?php echo sa_image_tag('UPARROW', array('class' => 'toggle1_close')) ?>
     </div>
   </div>
   <div id="pushList" class="hide">
   </div>
-  <div id="pushLoading" class="center"><?php echo op_image_tag('ajax-loader.gif') ?></div>
+  <div id="pushLoading" class="center"><?php echo sa_image_tag('ajax-loader.gif') ?></div>
 </div>
 <!-- NCFORM TMPL -->
 
@@ -41,7 +41,7 @@
         <div class="row{{if unread==false}} hide{{/if}}">
             <button class="span2 btn btn-primary small friend-notify-button friend-accept"><?php echo __('Accept') ?></button>
             <button class="span2 btn small friend-notify-button friend-reject"><?php echo __('Reject') ?></button>
-            <div class="center hide ncfriendloading"><?php echo op_image_tag('ajax-loader.gif') ?></div>
+            <div class="center hide ncfriendloading"><?php echo sa_image_tag('ajax-loader.gif') ?></div>
             <div class="center hide ncfriendresultmessage"></div>
         </div>
         {{/if}}
@@ -70,7 +70,7 @@
       </div>
     </div>
     <div class="span1">
-      <?php echo op_image_tag('UPARROW', array('class' => 'toggle1_close')) ?>
+      <?php echo sa_image_tag('UPARROW', array('class' => 'toggle1_close')) ?>
     </div>
   </div>
   <div class="row posttextarea">
@@ -82,7 +82,7 @@
     <?php else: ?>
     <button id="tosaka_postform_submit" class="span12 btn small btn-primary"><?php echo __('%post_activity%') ?></button>
     <?php endif; ?>
-    <div class="center hide" id="timelinePostLoading"><?php echo op_image_tag('ajax-loader.gif') ?></div>
+    <div class="center hide" id="timelinePostLoading"><?php echo sa_image_tag('ajax-loader.gif') ?></div>
   </div>
 </div>
 <!-- POSTFORM TMPL -->
@@ -97,17 +97,17 @@
         <div class="row">
           <div class="span11 white font14 toggle1_close">MENU</div>
           <div class="span1">
-            <?php echo op_image_tag('UPARROW', array('class' => 'toggle1_close')) ?>
+            <?php echo sa_image_tag('UPARROW', array('class' => 'toggle1_close')) ?>
           </div>
         </div>
         <?php include_component('default', 'smtMenu') ?>
       </div>
-      <a class="btn btn-navbar brand" data-toggle="collapse" data-target=".nav-collapse"><?php echo $op_config['sns_name'] ?></a>
+      <a class="btn btn-navbar brand" data-toggle="collapse" data-target=".nav-collapse"><?php echo $sa_config['sns_name'] ?></a>
       <?php if (opToolkit::isSecurePage()): ?>
       <div id="notification_center" class="center">
-        <?php echo op_image_tag('NOTIFY_CENTER.png', array('height' => '32', 'class' => 'ncbutton')) ?>
+        <?php echo sa_image_tag('NOTIFY_CENTER.png', array('height' => '32', 'class' => 'ncbutton')) ?>
       </div>
-      <div class="right"><?php echo op_image_tag('POST.png', array('height' => '32', 'class' =>'postbutton')) ?></div>
+      <div class="right"><?php echo sa_image_tag('POST.png', array('height' => '32', 'class' =>'postbutton')) ?></div>
       <?php endif ?>
     </div>
   </div>
