@@ -20,6 +20,6 @@
  * @subpackage config
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-class sfSfAdvancedPluginConfigHandler extends saPluginConfigHandler
+class sfAdvancedPluginConfigHandler extends saPluginConfigHandler
 {
 }

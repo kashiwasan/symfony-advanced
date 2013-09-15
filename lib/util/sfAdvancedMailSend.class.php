@@ -20,6 +20,6 @@
  * @subpackage util
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-class sfSfAdvancedMailSend extends saMailSend
+class sfAdvancedMailSend extends saMailSend
 {
 }

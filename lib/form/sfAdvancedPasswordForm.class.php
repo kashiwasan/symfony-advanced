@@ -20,6 +20,6 @@
  * @subpackage form
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-class sfSfAdvancedPasswordForm extends saPasswordForm
+class sfAdvancedPasswordForm extends saPasswordForm
 {
 }

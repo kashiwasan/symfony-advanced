@@ -20,6 +20,6 @@
  * @subpackage view
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-class sfSfAdvancedView extends saView
+class sfAdvancedView extends saView
 {
 }

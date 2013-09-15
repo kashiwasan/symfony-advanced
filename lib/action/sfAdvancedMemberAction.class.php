@@ -20,6 +20,6 @@
  * @subpackage action
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-abstract class sfSfAdvancedMemberAction extends saMemberAction
+abstract class sfAdvancedMemberAction extends saMemberAction
 {
 }

@@ -20,6 +20,6 @@
  * @subpackage config
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-abstract class sfSfAdvancedApplicationConfiguration extends saApplicationConfiguration
+abstract class sfAdvancedApplicationConfiguration extends saApplicationConfiguration
 {
 }

@@ -20,6 +20,6 @@
  * @subpackage filter
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-class sfSfAdvancedExecutionFilter extends saExecutionFilter
+class sfAdvancedExecutionFilter extends saExecutionFilter
 {
 }

@@ -20,6 +20,6 @@
  * @subpackage config
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-class sfSfAdvancedViewConfigHandler extends saViewConfigHandler
+class sfAdvancedViewConfigHandler extends saViewConfigHandler
 {
 }

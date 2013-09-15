@@ -20,6 +20,6 @@
  * @subpackage request
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-class sfSfAdvancedWebRequest extends saWebRequest
+class sfAdvancedWebRequest extends saWebRequest
 {
 }

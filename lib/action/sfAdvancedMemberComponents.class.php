@@ -20,6 +20,6 @@
  * @subpackage action
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-abstract class sfSfAdvancedMemberComponents extends saMemberComponents
+abstract class sfAdvancedMemberComponents extends saMemberComponents
 {
 }

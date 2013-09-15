@@ -20,6 +20,6 @@
  * @subpackage action
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-abstract class sfSfAdvancedFriendAction extends saFriendAction
+abstract class sfAdvancedFriendAction extends saFriendAction
 {
 }

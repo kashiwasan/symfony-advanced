@@ -20,6 +20,6 @@
  * @subpackage user
  * @author     Kousuke Ebihara <ebihara@php.net>
  */
-class sfSfAdvancedSecurityUser extends saSecurityUser
+class sfAdvancedSecurityUser extends saSecurityUser
 {
 }
