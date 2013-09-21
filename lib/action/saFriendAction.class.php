@@ -160,26 +160,4 @@ abstract class saFriendAction extends sfActions
     return sfView::SUCCESS;
   }
 
- /**
-  * Executes show friend activities action
-  * 
-  * @param sfWebRequest $request A request object
-  */
-  public function executeShowActivity($request)
-  {
-    if (!isset($this->size))
-    {
-      $this->size = 20;
-    }
-
-    $page = $request->getParameter('page', 1);
-    if ($page == 1 && saConfig::get('is_allow_post_activity'))
-    {
-      $activityData = new ActivityData();
-      $activityData->setBody($request->getParameter('body'));
-      $this->form = new ActivityDataForm($activityData);
-    }
-
-    $this->pager = Doctrine::getTable('ActivityData')->getFriendActivityListPager(null, $page, $this->size);
-  }
 }

@@ -38,8 +38,6 @@ abstract class saApplicationConfiguration extends sfApplicationConfiguration
     $this->dispatcher->connect('sa_confirmation.list', array(__CLASS__, 'getCoreConfirmList'));
     $this->dispatcher->connect('sa_confirmation.decision', array(__CLASS__, 'processCoreConfirm'));
 
-    $this->dispatcher->connect('sa_activity.template.filter_body', array('ActivityDataTable', 'filterBody'));
-
     $this->setConfigHandlers();
   }
 
