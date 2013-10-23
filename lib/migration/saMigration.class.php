@@ -158,7 +158,7 @@ class saMigration extends Doctrine_Migration
   */
   public function setCurrentVersion($number)
   {
-    Doctrine::getTable('SnsConfig')->set($this->targetName.'_revision', $number);
+    Doctrine::getTable('SiteConfig')->set($this->targetName.'_revision', $number);
   }
 
  /**
@@ -166,7 +166,7 @@ class saMigration extends Doctrine_Migration
   */
   public function getCurrentVersion()
   {
-    return Doctrine::getTable('SnsConfig')->get($this->targetName.'_revision', 0);
+    return Doctrine::getTable('SiteConfig')->get($this->targetName.'_revision', 0);
   }
 
  /**
@@ -174,7 +174,7 @@ class saMigration extends Doctrine_Migration
   */
   public function hasMigrated()
   {
-    return is_null(Doctrine::getTable('SnsConfig')->get($this->targetName.'_revision'));
+    return is_null(Doctrine::getTable('SiteConfig')->get($this->targetName.'_revision'));
   }
 
  /**

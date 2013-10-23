@@ -16,13 +16,13 @@ $browser = new saBrowser();
  * Test apiKey Response (5)
  ************************/
 
-Doctrine::getTable('SnsConfig')->set('enable_jsonapi', false);
+Doctrine::getTable('SiteConfig')->set('enable_jsonapi', false);
 $member1ApiKey = Doctrine::getTable('Member')->find(1)->getApiKey();
 
 $browser->get('/activity/search.json');
 $t->is($browser->getResponse()->getStatusCode(), 404, '[apiKey] JSON API is not enabled.');
 
-Doctrine::getTable('SnsConfig')->set('enable_jsonapi', true);
+Doctrine::getTable('SiteConfig')->set('enable_jsonapi', true);
 
 $browser->get('/activity/search.json');
 $t->is($browser->getResponse()->getStatusCode(), 401, '[apiKey] apiKey not specified');

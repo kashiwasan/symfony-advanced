@@ -60,7 +60,7 @@ EOF;
     foreach ($oldPluginList as $k => $v)
     {
       $pluginName = basename($v);
-      if ((bool)Doctrine::getTable('SnsConfig')->get($pluginName.'_needs_data_load', false))
+      if ((bool)Doctrine::getTable('SiteConfig')->get($pluginName.'_needs_data_load', false))
       {
         // It needs initializing
         unset($oldPluginList[$k]);
@@ -168,7 +168,7 @@ EOF;
     }
 
     $fixturesDir = sfConfig::get('sf_plugins_dir').'/'.$pluginName.'/data/fixtures';
-    if ((bool)Doctrine::getTable('SnsConfig')->get($pluginName.'_needs_data_load', false)
+    if ((bool)Doctrine::getTable('SiteConfig')->get($pluginName.'_needs_data_load', false)
       && is_readable($fixturesDir))
     {
       $this->logSection('doctrine', sprintf('loading data fixtures for "%s"', $pluginName));
@@ -179,7 +179,7 @@ EOF;
       Doctrine::loadData(array($fixturesDir), true);
     }
 
-    Doctrine::getTable('SnsConfig')->set($pluginName.'_needs_data_load', '0');
+    Doctrine::getTable('SiteConfig')->set($pluginName.'_needs_data_load', '0');
   }
 
   protected function throwSpecifiedException(Exception $e)

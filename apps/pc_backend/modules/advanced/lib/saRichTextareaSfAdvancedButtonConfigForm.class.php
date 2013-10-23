@@ -55,6 +55,6 @@ class saRichTextareaSfAdvancedButtonConfigForm extends sfForm
         $results[] = $key;
       }
     }
-    Doctrine::getTable('SnsConfig')->set('richtextarea_unenable_buttons', serialize($results));
+    Doctrine::getTable('SiteConfig')->set('richtextarea_unenable_buttons', serialize($results));
   }
 }

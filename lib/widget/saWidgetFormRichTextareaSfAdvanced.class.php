@@ -120,7 +120,7 @@ class saWidgetFormRichTextareaSfAdvanced extends saWidgetFormRichTextarea
     }
 
     $buttons = self::getAllButtons();
-    $unenableButtons = Doctrine::getTable('SnsConfig')->get('richtextarea_unenable_buttons', null);
+    $unenableButtons = Doctrine::getTable('SiteConfig')->get('richtextarea_unenable_buttons', null);
     $unenableButtons = unserialize($unenableButtons);
 
     if (is_array($unenableButtons) && count($unenableButtons))
@@ -134,7 +134,7 @@ class saWidgetFormRichTextareaSfAdvanced extends saWidgetFormRichTextarea
       }
     }
 
-    $buttonsSortOrder = Doctrine::getTable('SnsConfig')->get('richtextarea_buttons_sort_order', null);
+    $buttonsSortOrder = Doctrine::getTable('SiteConfig')->get('richtextarea_buttons_sort_order', null);
     $buttonsSortOrder = unserialize($buttonsSortOrder);
 
     if (is_array($buttonsSortOrder) && count($buttonsSortOrder))
@@ -164,7 +164,7 @@ class saWidgetFormRichTextareaSfAdvanced extends saWidgetFormRichTextarea
 
     if (!isset($options['is_textmode']))
     {
-      if (Doctrine::getTable('SnsConfig')->get('richtextarea_default_mode', 'text') === 'preview')
+      if (Doctrine::getTable('SiteConfig')->get('richtextarea_default_mode', 'text') === 'preview')
       {
         $this->setOption('is_textmode', false);
       }

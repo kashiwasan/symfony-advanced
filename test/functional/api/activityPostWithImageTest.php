@@ -12,7 +12,7 @@ $tester = new saTestFunctional(
 
 $t = $tester->test();
 
-Doctrine_Core::getTable('SnsConfig')->set('enable_jsonapi', true);
+Doctrine_Core::getTable('SiteConfig')->set('enable_jsonapi', true);
 $apiKeyMember1 = Doctrine_Core::getTable('Member')->find(1)->getApiKey();
 
 if (in_array('saTimelinePlugin', ProjectConfiguration::getActive()->getPlugins()))

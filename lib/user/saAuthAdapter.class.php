@@ -94,7 +94,7 @@ abstract class saAuthAdapter
       return $setting['Default'];
     }
 
-    return Doctrine::getTable('SnsConfig')->get('sa_auth_'.$this->authModeName.'_plugin_'.$name, $setting['Default']);
+    return Doctrine::getTable('SiteConfig')->get('sa_auth_'.$this->authModeName.'_plugin_'.$name, $setting['Default']);
   }
 
   public function setAuthConfig($name, $value)
@@ -110,7 +110,7 @@ abstract class saAuthAdapter
       return false;
     }
 
-    return Doctrine::getTable('SnsConfig')->set('sa_auth_'.$this->authModeName.'_plugin_'.$name, $value);
+    return Doctrine::getTable('SiteConfig')->set('sa_auth_'.$this->authModeName.'_plugin_'.$name, $value);
   }
 
   public function getAuthForm($forceAuthForm = false)

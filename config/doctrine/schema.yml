@@ -76,7 +76,7 @@ AdminUser:
     charset: utf8
     comment: "Saves informations to login administration page"
 
-SnsConfig:
+SiteConfig:
   actAs: []
   columns:
     id: { type: integer(4), primary: true, autoincrement: true, comment: "Serial number" }

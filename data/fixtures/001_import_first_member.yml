@@ -1,0 +1,26 @@
+Member:
+  first_member:
+    name: "adminユーザー"
+    is_active: 1
+
+MemberConfig:
+  first_member_pc_address:
+    name: "pc_address"
+    value: "admin@sfadvanced.jp"
+    Member: first_member
+
+  first_member_password:
+    name: "password"
+    value: <?php echo md5('password') . "\n"; ?>
+    Member: first_member
+
+  first_member_secret_question:
+    name: "secret_question"
+    value: "5"
+    Member: first_member
+
+  first_member_secret_answer:
+    name: "secret_answer"
+    value: "<?php echo md5('東京都'); ?>"
+    Member: first_member
+

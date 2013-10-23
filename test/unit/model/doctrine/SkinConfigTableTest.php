@@ -8,7 +8,7 @@ $t = new lime_test(9, new lime_output_color());
 $table = Doctrine::getTable('SkinConfig');
 
 //------------------------------------------------------------
-$t->diag('SnsConfigTable');
+$t->diag('SiteConfigTable');
 $t->diag('->reretrieveByPluginAndName()');
 $skinConfig = $table->retrieveByPluginAndName('saSkinDummyPlugin', 'color_1');
 $t->isa_ok($skinConfig, 'SkinConfig', '->reretrieveByPluginAndName() returns an instance of the SkinConfig');

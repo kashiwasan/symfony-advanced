@@ -34,7 +34,7 @@ class PickHomeLayoutForm extends sfForm
     }
     $this->layoutName = $layoutName.'_layout';
 
-    $snsConfig = Doctrine::getTable('SnsConfig')->retrieveByName($this->layoutName);
+    $snsConfig = Doctrine::getTable('SiteConfig')->retrieveByName($this->layoutName);
 
     if ($snsConfig)
     {
@@ -61,10 +61,10 @@ class PickHomeLayoutForm extends sfForm
       return false;
     }
 
-    $snsConfig = Doctrine::getTable('SnsConfig')->retrieveByName($this->layoutName);
+    $snsConfig = Doctrine::getTable('SiteConfig')->retrieveByName($this->layoutName);
     if (!$snsConfig)
     {
-      $snsConfig = new SnsConfig();
+      $snsConfig = new SiteConfig();
       $snsConfig->setName($this->layoutName);
     }
     $value = $this->choices[$this->values['layout']];

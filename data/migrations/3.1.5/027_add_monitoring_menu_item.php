@@ -13,11 +13,11 @@ class Revision27_AddMonitoringMenuItem extends Doctrine_Migration_Base
   public function up()
   {
     // and try to fix community topic revision if the plugin is exists
-    $conn = Doctrine_Manager::getInstance()->getConnectionForComponent('SnsConfig');
+    $conn = Doctrine_Manager::getInstance()->getConnectionForComponent('SiteConfig');
     $result = $conn->fetchOne('SELECT value FROM sns_config WHERE name = ?', array('saDiaryPlugin_revision'));
     if (!$result)
     {
-      Doctrine::getTable('SnsConfig')->set('saDiaryPlugin_revision', '3');
+      Doctrine::getTable('SiteConfig')->set('saDiaryPlugin_revision', '3');
     }
   }
 }

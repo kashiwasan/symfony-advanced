@@ -73,7 +73,7 @@ $t->is(sa_link_to_member($member2), link_to($member2->getName(), 'obj_member_pro
 $t->is(sa_link_to_member(9999), '-', 'set undefine member');
 $t->is(sa_link_to_member(null), '-', 'set null member');
 
-Doctrine::getTable('SnsConfig')->set('nickname_of_member_who_does_not_have_credentials', 'I am a pen.');
+Doctrine::getTable('SiteConfig')->set('nickname_of_member_who_does_not_have_credentials', 'I am a pen.');
 $t->is(sa_link_to_member(null), 'I am a pen.', 'set nickname_of_member_who_does_not_have_credentials original setting');
 
 //------------------------------------------------------------

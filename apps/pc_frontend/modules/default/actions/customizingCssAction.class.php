@@ -19,7 +19,7 @@ class customizingCssAction extends sfAction
 {
   public function execute($request)
   {
-    $css = Doctrine::getTable('SnsConfig')->get('customizing_css', '');
+    $css = Doctrine::getTable('SiteConfig')->get('customizing_css', '');
     $this->getResponse()->setContent($css);
     $this->getResponse()->setContentType('text/css');
 

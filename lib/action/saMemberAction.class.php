@@ -472,10 +472,10 @@ abstract class saMemberAction extends sfActions
     $categoryCaptions = array();
     $categoryAttributes = sfConfig::get('sfadvanced_member_category_attribute');
 
-    $ignoredSnsConfig = Doctrine::getTable('SnsConfig')->get('ignored_sns_config', array());
-    if ($ignoredSnsConfig)
+    $ignoredSiteConfig = Doctrine::getTable('SiteConfig')->get('ignored_sns_config', array());
+    if ($ignoredSiteConfig)
     {
-      $ignoredSnsConfig = unserialize($ignoredSnsConfig);
+      $ignoredSiteConfig = unserialize($ignoredSiteConfig);
     }
 
     if (isset($categories['language']))
@@ -500,7 +500,7 @@ abstract class saMemberAction extends sfActions
         }
       }
 
-      if (in_array($key, $ignoredSnsConfig))
+      if (in_array($key, $ignoredSiteConfig))
       {
         unset($categories[$key]);
         continue;

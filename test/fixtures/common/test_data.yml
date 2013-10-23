@@ -714,7 +714,7 @@ GadgetConfig:
     name: "row"
     value: 1
 
-SnsConfig:
+SiteConfig:
   sns_config1:
     name: "sns_name"
     value: "test1"

@@ -16,7 +16,7 @@ $task->run(array(), array(
 
 $browser = new saTestFunctional(new saBrowser(), new lime_test(null, new lime_output_color()));
 
-Doctrine::getTable('SnsConfig')->set('enable_jsonapi', true);
+Doctrine::getTable('SiteConfig')->set('enable_jsonapi', true);
 $key = Doctrine::getTable('Member')->find(1)->getApiKey();
 
 $browser

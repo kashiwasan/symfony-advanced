@@ -72,9 +72,9 @@ $t->is($member1->countFriends(), 4);
 //------------------------------------------------------------
 $t->diag('Member::getNameAndCount()');
 $t->is($member1->getNameAndCount(), 'A (4)');
-Doctrine::getTable('SnsConfig')->set('enable_friend_link', false);
+Doctrine::getTable('SiteConfig')->set('enable_friend_link', false);
 $t->is($member1->getNameAndCount(), 'A');
-Doctrine::getTable('SnsConfig')->set('enable_friend_link', true);
+Doctrine::getTable('SiteConfig')->set('enable_friend_link', true);
 
 //------------------------------------------------------------
 $t->diag('Member::getJoinCommunities()');

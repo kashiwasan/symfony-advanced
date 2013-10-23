@@ -15,14 +15,14 @@ class saCustomCssForm extends sfForm
     $this->setWidget('css', new sfWidgetFormTextarea(array(), array('rows' => '20', 'cols' => '70')));
     $this->setValidator('css', new saValidatorString(array('required' => false)));
 
-    $this->setDefault('css', Doctrine::getTable('SnsConfig')->get('customizing_css'));
+    $this->setDefault('css', Doctrine::getTable('SiteConfig')->get('customizing_css'));
 
     $this->widgetSchema->setNameFormat('css[%s]');
   }
 
   public function save()
   {
-    Doctrine::getTable('SnsConfig')->set('customizing_css', $this->getValue('css'));
+    Doctrine::getTable('SiteConfig')->set('customizing_css', $this->getValue('css'));
 
     $filesystem = new sfFilesystem();
     $cssPath = sfConfig::get('sf_web_dir').DIRECTORY_SEPARATOR.'cache'.DIRECTORY_SEPARATOR

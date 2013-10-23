@@ -117,7 +117,7 @@ class designActions extends sfActions
       $layoutName = 'home';
     }
     $layoutName .= '_layout';
-    $layout = Doctrine::getTable('SnsConfig')->get($layoutName);
+    $layout = Doctrine::getTable('SiteConfig')->get($layoutName);
     if ($layout)
     {
       $this->layoutPattern = $layout;
@@ -315,7 +315,7 @@ class designActions extends sfActions
     $snsConfigSettings = sfConfig::get('sfadvanced_sns_config');
     $default = isset($snsConfigSettings[$this->type]['Default']) ? $snsConfigSettings[$this->type]['Default'] : null;
 
-    $this->form = new saDesignHtmlForm(array('html' => Doctrine::getTable('SnsConfig')->get($this->type, $default)), array('type' => $this->type));
+    $this->form = new saDesignHtmlForm(array('html' => Doctrine::getTable('SiteConfig')->get($this->type, $default)), array('type' => $this->type));
     if ($request->isMethod(sfRequest::POST))
     {
       $this->form->bind($request->getParameter('design_html'));

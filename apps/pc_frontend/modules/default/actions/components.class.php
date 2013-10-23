@@ -60,7 +60,7 @@ class defaultComponents extends sfComponents
 
   public function executeInformationBox()
   {
-    $this->information = Doctrine::getTable('SnsConfig')->get('pc_home_information');
+    $this->information = Doctrine::getTable('SiteConfig')->get('pc_home_information');
   }
 
   public function executeFreeAreaBox()

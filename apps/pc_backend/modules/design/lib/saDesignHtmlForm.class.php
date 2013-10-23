@@ -37,7 +37,7 @@ class saDesignHtmlForm extends sfForm
       throw new RuntimeException(sprintf('The specified type "%s" is not allowed.', $this->getOption('type')));
     }
 
-    Doctrine::getTable('SnsConfig')->set($this->getOption('type'), $this->getValue('html'));
+    Doctrine::getTable('SiteConfig')->set($this->getOption('type'), $this->getValue('html'));
   }
 
   static public function allowedTypeList()

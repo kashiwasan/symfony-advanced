@@ -29,7 +29,7 @@ class saRichTextareaSfAdvancedConfigForm extends sfForm
       'expanded' => true
     )));
     $this->setValidator('default_mode', new sfValidatorChoice(array('choices' => array_keys(self::$defaultModeChoice))));
-    $this->setDefault('default_mode', Doctrine::getTable('SnsConfig')->get('richtextarea_default_mode', 'text'));
+    $this->setDefault('default_mode', Doctrine::getTable('SiteConfig')->get('richtextarea_default_mode', 'text'));
     $this->widgetSchema->setLabel('default_mode', 'Default edit mode');
     $this->widgetSchema->setNameFormat('config[%s]');
   }
@@ -43,7 +43,7 @@ class saRichTextareaSfAdvancedConfigForm extends sfForm
 
     foreach ($this->getValues() as $key => $value)
     {
-      Doctrine::getTable('SnsConfig')->set('richtextarea_'.$key, $value);
+      Doctrine::getTable('SiteConfig')->set('richtextarea_'.$key, $value);
     }
   }
 }
